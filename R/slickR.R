@@ -5,11 +5,11 @@
 #' @import htmlwidgets
 #'
 #' @export
-slickR <- function(style, ... , width = NULL, height = NULL, elementId = NULL) {
+slickR <- function(images, ... , width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(...)
-  x$style=style
+  x$images=images
 
   # create widget
   htmlwidgets::createWidget(

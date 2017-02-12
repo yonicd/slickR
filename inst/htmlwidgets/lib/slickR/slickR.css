@@ -1,0 +1,13 @@
+.container {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+    background: #419be0;
+}
+
+.slick-slide {
+  text-align: center;
+  color: #419be0;
+    background: white;
+}
