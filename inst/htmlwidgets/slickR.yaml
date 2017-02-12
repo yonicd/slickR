@@ -1,0 +1,14 @@
+dependencies:
+  - name: jquery
+    version: 1.12.4
+    src: "htmlwidgets/jquery"
+    script: jquery.min.js
+  - name: jquery-migrate
+    version: 3.0.0
+    src: "htmlwidgets/jquery"
+    script: jquery-migrate.min.js
+  - name: slick
+    version: 1.6.0
+    src: "htmlwidgets/slick/1.6.0"
+    script: slick.min.js
+    stylesheet:  [slick.css, slick-theme.css]
