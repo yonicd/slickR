@@ -34,7 +34,11 @@ HTMLWidgets.widget({
                 if(!x.divName){
                   buildDiv(x.images,'baseDiv','75%');
                   $(".baseDiv").slick({
-                    dots: true
+                    dots: true,
+                    swipe: true,
+                    swipeToSlide: true,
+                    draggable: true,
+                    adaptiveHeight: true
                   });
                 } else {
                        buildDiv(x.images,x.divName[0],x.imgWidth[0]);
