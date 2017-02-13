@@ -4,21 +4,23 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(images, ..., repSlide = NULL, width = NULL, height = NULL,
-  elementId = NULL)
+slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
+  slickOpts = list(), width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
 \item{images}{character, vector of path or url to images}
 
-\item{...}{arguments to pass to slickjs, see details}
+\item{slideId}{character, id of slide}
 
-\item{repSlide}{numeric, number of replications of the slider}
+\item{slideIdx}{list, numeric indices which images are mapped to which slider}
 
 \item{width}{character, width of htmlwidget}
 
 \item{height}{character, height of htmlwidget}
 
 \item{elementId}{character, id tag of htmlwidget}
+
+\item{slckOpts}{list, list of attributes for each slider, see details}
 }
 \description{
 use slick.js library in R

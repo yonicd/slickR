@@ -2,8 +2,9 @@
 #'
 #' @description use slick.js library in R
 #' @param images character, vector of path or url to images
-#' @param ... arguments to pass to slickjs, see details
-#' @param repSlide numeric, number of replications of the slider
+#' @param slideId character, id of slide
+#' @param slideIdx list, numeric indices which images are mapped to which slider
+#' @param slckOpts list, list of attributes for each slider, see details
 #' @param width character, width of htmlwidget
 #' @param height character, height of htmlwidget
 #' @param elementId character, id tag of htmlwidget
@@ -19,23 +20,49 @@
 #' slickR(images=x)
 #' 
 #' @export
-slickR <- function(images, ... ,repSlide=NULL, width = NULL, height = NULL, elementId = NULL) {
+slickR <- function(images ,
+                   slideId='baseDiv',
+                   slideIdx=list(1:length(images)),
+                   slickOpts=list(), 
+                   width = NULL, 
+                   height = NULL, 
+                   elementId = NULL) {
+
+  
+  if(!is.character(images)) break('images must be a character vector')
+  
+  if(length(slideId)!=length(slideIdx)) slideId[xId]=paste0('baseDiv',xId)
+  
+  x = vector('list',length(slideIdx))
+  
+  for(xId in 1:length(x)){
+    
+    x[[xId]]$divName=slideId[xId]
+
+    x[[xId]]$images=images[slideIdx[[xId]]]
+
+    if(all(sapply(slickOpts,class)=='list')){
+      sOL=slickOpts[[xId]]
+    }else{
+      sOL=slickOpts
+    } 
+   
+
+    sO=lapply(sOL,function(x){
+      if(inherits(x,'character')) x=sprintf('"%s"',x)
+      x
+    })
+
+    # if(!is.null(synchSlides)){
+    #   sO$asNavFor=sprintf('".%s"',synchSlides[!(synchSlides%in%slideId[xId])])
+    # }
+    
+    if(!is.null(sO[[1]])) x[[xId]]$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(sO)),tolower(as.character(sO)),sep=":",collapse = ","))
+
+  }
+
 
   # forward options using x
-  x = list()
-  slickOpts=list(...)
-  slickOpts=lapply(slickOpts,function(x){
-    if(inherits(x,'character')) x=sprintf('"%s"',x)
-    x
-  })
-  x$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(slickOpts)),tolower(as.character(slickOpts)),sep=":",collapse = ","))
-  if(is.character(images)) x$images=images
-
-  if(is.null(repSlide)){
-    x$repSlide=1 
-  }else{
-    x$repSlide=repSlide
-  }
   
   # create widget
   htmlwidgets::createWidget(

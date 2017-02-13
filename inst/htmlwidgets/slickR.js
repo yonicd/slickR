@@ -11,12 +11,12 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-            function buildDiv(images,cl,width){
+            function buildDiv(images,opts,cl,width){
               var len = images.length,i = 0;
 							var mainDiv = document.createElement("div");
               mainDiv.className = cl;
-              if(x.slickOpts){
-                mainDiv.setAttribute('data-slick',x.slickOpts);  
+              if(opts){
+                mainDiv.setAttribute('data-slick',opts);  
               }
               
               document.body.appendChild(mainDiv);
@@ -33,10 +33,11 @@ HTMLWidgets.widget({
               return mainDiv;
 }
 
-        if(x.images){
-                for(j=0;j<x.repSlide;j++){
-                  buildDiv(x.images,'baseDiv'+j,100/x.repSlide+'%');
-                  $(".baseDiv"+j).slick();
+        if(x[0].images){
+                for(j=0;j<x.length;j++){
+                  var subx=x[j];
+                  buildDiv(subx.images,subx.slickOpts,subx.divName,75/x.length+'%');
+                  $("."+subx.divName).slick();
                 }
                 
               /*
