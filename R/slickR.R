@@ -1,8 +1,15 @@
 #' @title slick.js image carousel htmlwidget
 #'
 #' @description use slick.js library in R
-#'
+#' @param images character, vector of path or url to images
+#' @param ... arguments to pass to slickjs, see details
+#' @param width character, width of htmlwidget
+#' @param height character, height of htmlwidget
+#' @param elementId character, id tag of htmlwidget
 #' @import htmlwidgets
+#' @details slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
+#' to create more than one carousel input a a character vector `divName` and 
+#' to control the width of images of the carousel use `imgWidth` (see example 2).
 #' @examples 
 #' require(rvest)
 #' a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",

@@ -6,8 +6,24 @@
 \usage{
 slickR(images, ..., width = NULL, height = NULL, elementId = NULL)
 }
+\arguments{
+\item{images}{character, vector of path or url to images}
+
+\item{...}{arguments to pass to slickjs, see details}
+
+\item{width}{character, width of htmlwidget}
+
+\item{height}{character, height of htmlwidget}
+
+\item{elementId}{character, id tag of htmlwidget}
+}
 \description{
 use slick.js library in R
+}
+\details{
+slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
+to create more than one carousel input a a character vector `divName` and 
+to control the width of images of the carousel use `imgWidth` (see example 2).
 }
 \examples{
 require(rvest)
