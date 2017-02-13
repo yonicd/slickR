@@ -4,10 +4,13 @@
 #'
 #' @import htmlwidgets
 #' @examples 
-#' a=read_html('https://en.wikipedia.org/wiki/Wikipedia:WikiProject_National_Basketball_Association/National_Basketball_Association_team_abbreviations')%>%
-#' html_table()
-#' x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/%s.svg",a[[1]]$X1[-1])
-#' slickR(image = x)
+#' require(rvest)
+#' a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
+#' "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
+#' "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
+#' x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/%s.svg",a)
+#' slickR(images=x)
+#' slickR(images = x,divName=c('slider-for','slider-nav'),imgWidth=c('50%','20%'))
 #' 
 #' @export
 slickR <- function(images, ... , width = NULL, height = NULL, elementId = NULL) {
@@ -15,7 +18,8 @@ slickR <- function(images, ... , width = NULL, height = NULL, elementId = NULL) 
   # forward options using x
   x = list(...)
   x$images=images
-
+  
+  
   # create widget
   htmlwidgets::createWidget(
     name = 'slickR',
