@@ -17,7 +17,6 @@
 #' "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
 #' x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/%s.svg",a)
 #' slickR(images=x)
-#' slickR(images = x,divName=c('slider-for','slider-nav'),imgWidth=c('50%','20%'))
 #' 
 #' @export
 slickR <- function(images, ... ,repSlide=NULL, width = NULL, height = NULL, elementId = NULL) {

@@ -34,7 +34,6 @@ a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
 x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/\%s.svg",a)
 slickR(images=x)
-slickR(images = x,divName=c('slider-for','slider-nav'),imgWidth=c('50\%','20\%'))
 
 }
 
