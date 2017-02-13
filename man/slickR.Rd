@@ -4,12 +4,15 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(images, ..., width = NULL, height = NULL, elementId = NULL)
+slickR(images, ..., repSlide = NULL, width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{images}{character, vector of path or url to images}
 
 \item{...}{arguments to pass to slickjs, see details}
+
+\item{repSlide}{numeric, number of replications of the slider}
 
 \item{width}{character, width of htmlwidget}
 
@@ -26,7 +29,6 @@ to create more than one carousel input a a character vector `divName` and
 to control the width of images of the carousel use `imgWidth` (see example 2).
 }
 \examples{
-require(rvest)
 a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
 "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")

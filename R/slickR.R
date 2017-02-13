@@ -3,6 +3,7 @@
 #' @description use slick.js library in R
 #' @param images character, vector of path or url to images
 #' @param ... arguments to pass to slickjs, see details
+#' @param repSlide numeric, number of replications of the slider
 #' @param width character, width of htmlwidget
 #' @param height character, height of htmlwidget
 #' @param elementId character, id tag of htmlwidget
@@ -19,14 +20,24 @@
 #' slickR(images = x,divName=c('slider-for','slider-nav'),imgWidth=c('50%','20%'))
 #' 
 #' @export
-slickR <- function(images, ... , width = NULL, height = NULL, elementId = NULL) {
+slickR <- function(images, ... ,repSlide=NULL, width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list()
   slickOpts=list(...)
-  x$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(slickOpts)),tolower(as.character(list(...))),sep=":",collapse = ","))
+  slickOpts=lapply(slickOpts,function(x){
+    if(inherits(x,'character')) x=sprintf('"%s"',x)
+    x
+  })
+  x$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(slickOpts)),tolower(as.character(slickOpts)),sep=":",collapse = ","))
   if(is.character(images)) x$images=images
 
+  if(is.null(repSlide)){
+    x$repSlide=1 
+  }else{
+    x$repSlide=repSlide
+  }
+  
   # create widget
   htmlwidgets::createWidget(
     name = 'slickR',

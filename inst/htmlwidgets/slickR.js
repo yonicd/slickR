@@ -34,13 +34,14 @@ HTMLWidgets.widget({
 }
 
         if(x.images){
-          
-                if(!x.divName){
-                  buildDiv(x.images,'baseDiv','75%');
-                  $(".baseDiv").slick();
-                } else {
-                       buildDiv(x.images,x.divName[0],x.imgWidth[0]);
-                      buildDiv(x.images,x.divName[1],x.imgWidth[1]);
+                for(j=0;j<x.repSlide;j++){
+                  buildDiv(x.images,'baseDiv'+j,100/x.repSlide+'%');
+                  $(".baseDiv"+j).slick();
+                }
+                
+              /*
+                buildDiv(x.images,x.divName[0],x.imgWidth[0]);
+                buildDiv(x.images,x.divName[1],x.imgWidth[1]);
 
                 $("."+x.divName[0]).slick({
                   slidesToShow: 2,
@@ -59,7 +60,8 @@ HTMLWidgets.widget({
                   centerMode: true,
                   focusOnSelect: true
                 }); 
-                }
+                */
+                
                 
             }
           },
