@@ -14,21 +14,22 @@ slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
 
 \item{slideIdx}{list, numeric indices which images are mapped to which slider}
 
+\item{slickOpts}{list, list of attributes for each slider, see details}
+
 \item{width}{character, width of htmlwidget}
 
 \item{height}{character, height of htmlwidget}
 
 \item{elementId}{character, id tag of htmlwidget}
-
-\item{slckOpts}{list, list of attributes for each slider, see details}
 }
 \description{
 use slick.js library in R
 }
 \details{
-slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
-to create more than one carousel input a a character vector `divName` and 
-to control the width of images of the carousel use `imgWidth` (see example 2).
+slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. To find all the attributes
+that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
+slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
+list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)).
 }
 \examples{
 a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",

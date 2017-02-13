@@ -4,14 +4,15 @@
 #' @param images character, vector of path or url to images
 #' @param slideId character, id of slide
 #' @param slideIdx list, numeric indices which images are mapped to which slider
-#' @param slckOpts list, list of attributes for each slider, see details
+#' @param slickOpts list, list of attributes for each slider, see details
 #' @param width character, width of htmlwidget
 #' @param height character, height of htmlwidget
 #' @param elementId character, id tag of htmlwidget
 #' @import htmlwidgets
-#' @details slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
-#' to create more than one carousel input a a character vector `divName` and 
-#' to control the width of images of the carousel use `imgWidth` (see example 2).
+#' @details slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. To find all the attributes
+#' that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
+#' slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
+#' list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)).
 #' @examples 
 #' a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 #' "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
