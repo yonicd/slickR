@@ -22,8 +22,9 @@
 slickR <- function(images, ... , width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
-  x = list(...)
-  
+  x = list()
+  slickOpts=list(...)
+  x$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(slickOpts)),tolower(as.character(list(...))),sep=":",collapse = ","))
   if(is.character(images)) x$images=images
 
   # create widget

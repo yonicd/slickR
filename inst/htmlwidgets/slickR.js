@@ -15,6 +15,10 @@ HTMLWidgets.widget({
               var len = images.length,i = 0;
 							var mainDiv = document.createElement("div");
               mainDiv.className = cl;
+              if(x.slickOpts){
+                mainDiv.setAttribute('data-slick',x.slickOpts);  
+              }
+              
               document.body.appendChild(mainDiv);
                
                
@@ -33,13 +37,7 @@ HTMLWidgets.widget({
           
                 if(!x.divName){
                   buildDiv(x.images,'baseDiv','75%');
-                  $(".baseDiv").slick({
-                    dots: true,
-                    swipe: true,
-                    swipeToSlide: true,
-                    draggable: true,
-                    adaptiveHeight: true
-                  });
+                  $(".baseDiv").slick();
                 } else {
                        buildDiv(x.images,x.divName[0],x.imgWidth[0]);
                       buildDiv(x.images,x.divName[1],x.imgWidth[1]);
