@@ -11,7 +11,6 @@
 #' to create more than one carousel input a a character vector `divName` and 
 #' to control the width of images of the carousel use `imgWidth` (see example 2).
 #' @examples 
-#' require(rvest)
 #' a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 #' "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
 #' "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
@@ -24,9 +23,9 @@ slickR <- function(images, ... , width = NULL, height = NULL, elementId = NULL) 
 
   # forward options using x
   x = list(...)
-  x$images=images
   
-  
+  if(is.character(images)) x$images=images
+
   # create widget
   htmlwidgets::createWidget(
     name = 'slickR',
