@@ -4,6 +4,7 @@
 #' @param images character, vector of path or url to images
 #' @param slideId character, id of slide
 #' @param slideIdx list, numeric indices which images are mapped to which slider
+#' @param synchSlides character, slideId names of sliders are synchronized
 #' @param slickOpts list, list of attributes for each slider, see details
 #' @param width character, width of htmlwidget
 #' @param height character, height of htmlwidget
@@ -12,7 +13,8 @@
 #' @details slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. To find all the attributes
 #' that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
 #' slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
-#' list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)).
+#' list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). It is possible to synchronize the slides
+#' through the slickOpts calls, using asNavFor attribute. 
 #' @examples 
 #' a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 #' "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
@@ -24,7 +26,8 @@
 slickR <- function(images ,
                    slideId='baseDiv',
                    slideIdx=list(1:length(images)),
-                   slickOpts=list(), 
+                   slickOpts=list(),
+                   synchSlides=NULL,
                    width = NULL, 
                    height = NULL, 
                    elementId = NULL) {
@@ -38,7 +41,7 @@ slickR <- function(images ,
   
   for(xId in 1:length(x)){
     
-    x[[xId]]$divName=slideId[xId]
+    x[[xId]]$divName=tolower(slideId[xId])
 
     x[[xId]]$images=images[slideIdx[[xId]]]
 
@@ -54,14 +57,13 @@ slickR <- function(images ,
       x
     })
 
-    # if(!is.null(synchSlides)){
-    #   sO$asNavFor=sprintf('".%s"',synchSlides[!(synchSlides%in%slideId[xId])])
-    # }
+     if(!is.null(synchSlides)){
+       sO$asNavFor=sprintf('".%s"',synchSlides[!(synchSlides%in%slideId[xId])])
+     }
     
     if(!is.null(sO[[1]])) x[[xId]]$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(sO)),tolower(as.character(sO)),sep=":",collapse = ","))
 
   }
-
 
   # forward options using x
   

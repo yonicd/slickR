@@ -5,7 +5,8 @@
 \title{slick.js image carousel htmlwidget}
 \usage{
 slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
-  slickOpts = list(), width = NULL, height = NULL, elementId = NULL)
+  slickOpts = list(), synchSlides = NULL, width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{images}{character, vector of path or url to images}
@@ -15,6 +16,8 @@ slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
 \item{slideIdx}{list, numeric indices which images are mapped to which slider}
 
 \item{slickOpts}{list, list of attributes for each slider, see details}
+
+\item{synchSlides}{character, slideId names of sliders are synchronized}
 
 \item{width}{character, width of htmlwidget}
 
@@ -29,7 +32,8 @@ use slick.js library in R
 slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. To find all the attributes
 that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
 slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
-list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)).
+list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). It is possible to synchronize the slides
+through the slickOpts calls, using asNavFor attribute.
 }
 \examples{
 a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
