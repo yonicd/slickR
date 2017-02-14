@@ -26,7 +26,7 @@
 slickR <- function(images ,
                    slideId='baseDiv',
                    slideIdx=list(1:length(images)),
-                   slickOpts=list(),
+                   slickOpts=list(dots=T),
                    synchSlides=NULL,
                    width = NULL, 
                    height = NULL, 
@@ -35,7 +35,7 @@ slickR <- function(images ,
   
   if(!is.character(images)) break('images must be a character vector')
   
-  if(length(slideId)!=length(slideIdx)) slideId[xId]=paste0('baseDiv',xId)
+  if(length(slideId)!=length(slideIdx)) slideId=paste0('baseDiv',1:length(slideId))
   
   x = vector('list',length(slideIdx))
   
@@ -45,24 +45,24 @@ slickR <- function(images ,
 
     x[[xId]]$images=images[slideIdx[[xId]]]
 
-    if(all(sapply(slickOpts,class)=='list')){
-      sOL=slickOpts[[xId]]
-    }else{
-      sOL=slickOpts
-    } 
+    if(length(slickOpts)>0){
+      if(all(sapply(slickOpts,class)=='list')){
+        sOL=slickOpts[[xId]]
+      }else{
+        sOL=slickOpts
+      } 
    
+      sO=lapply(sOL,function(x){
+        if(inherits(x,'character')) x=sprintf('"%s"',x)
+        x
+      })
 
-    sO=lapply(sOL,function(x){
-      if(inherits(x,'character')) x=sprintf('"%s"',x)
-      x
-    })
-
-     if(!is.null(synchSlides)){
-       sO$asNavFor=sprintf('".%s"',synchSlides[!(synchSlides%in%slideId[xId])])
-     }
+      if(!is.null(synchSlides)){
+        sO$asNavFor=sprintf('".%s"',synchSlides[!(synchSlides%in%slideId[xId])])
+      }
     
-    if(!is.null(sO[[1]])) x[[xId]]$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(sO)),tolower(as.character(sO)),sep=":",collapse = ","))
-
+      if(!is.null(sO[[1]])) x[[xId]]$slickOpts = sprintf("{%s}",paste(sprintf('"%s"',names(sO)),tolower(as.character(sO)),sep=":",collapse = ","))
+    }
   }
 
   # forward options using x

@@ -6,12 +6,6 @@ slick carousel htmlwidget for R
 ## Examples for script generated plots
 
 ```r
-library(slickR)
-library(svglite)
-library(lattice)
-library(ggplot2)
-
-
 s.in=sapply(
   list(
      xmlSVG({plot(1:10)},standalone=TRUE)
@@ -36,7 +30,15 @@ s.in=sapply(
 )
   
 
-slickR(s.in)
-slickR(s.in,divName=c('Up','Down'),imgWidth=c('100%','50%'))
+slickR(s.in,slideId = 'baseDiv',slideIdx = 1:3)
+
+slickR(s.in,slideId = c('up','down'),
+       slideIdx = list(1:3,1:3),
+       synchSlides = c('up','down'),
+       slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
+                        list(dots=T,slidesToScroll=1,slidesToShow=3,
+                             centerMode=T,focusOnSelect=T)
+                        )
+       )
   
 ```

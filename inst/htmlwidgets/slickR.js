@@ -36,34 +36,9 @@ HTMLWidgets.widget({
         if(x[0].images){
                 for(j=0;j<x.length;j++){
                   var subx=x[j];
-                  buildDiv(subx.images,subx.slickOpts,subx.divName,75/x.length+'%');
+                  buildDiv(subx.images,subx.slickOpts,subx.divName,100/x.length+'%');
                   $("."+subx.divName).slick();
                 }
-                
-              /*
-                buildDiv(x.images,x.divName[0],x.imgWidth[0]);
-                buildDiv(x.images,x.divName[1],x.imgWidth[1]);
-
-                $("."+x.divName[0]).slick({
-                  slidesToShow: 2,
-                  slidesToScroll: 1,
-                  initialSlide: 0,
-                  arrows: false,
-                  fade: true,
-                  adaptiveHeight: true,
-                  asNavFor: "."+x.divName[1]
-                });
-                
-                $("."+x.divName[1]).slick({
-                  slidesToShow: 4,
-                  slidesToScroll: 1,
-                  asNavFor: "."+x.divName[0],
-                  centerMode: true,
-                  focusOnSelect: true
-                }); 
-                */
-                
-                
             }
           },
 
