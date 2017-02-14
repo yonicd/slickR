@@ -30,7 +30,7 @@ s.in=sapply(
 )
   
 
-slickR(s.in,slideId = 'baseDiv',slideIdx = 1:3)
+slickR(s.in,slideId = 'baseDiv',slideIdx = list(1:3))
 
 slickR(s.in,slideId = c('up','down'),
        slideIdx = list(1:3,1:3),
