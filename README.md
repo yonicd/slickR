@@ -6,6 +6,11 @@ slick carousel htmlwidget for R
 ## Examples for script generated plots
 
 ```r
+library(svglite)
+library(lattice)
+library(ggplot2)
+library(slickR)
+
 s.in=sapply(
   list(
      xmlSVG({plot(1:10)},standalone=TRUE)
