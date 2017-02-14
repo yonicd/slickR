@@ -5,8 +5,8 @@
 \title{slick.js image carousel htmlwidget}
 \usage{
 slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
-  slickOpts = list(), synchSlides = NULL, width = NULL, height = NULL,
-  elementId = NULL)
+  slickOpts = list(dots = T), synchSlides = NULL, dotImages = NULL,
+  width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
 \item{images}{character, vector of path or url to images}
@@ -18,6 +18,8 @@ slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
 \item{slickOpts}{list, list of attributes for each slider, see details}
 
 \item{synchSlides}{character, slideId names of sliders are synchronized}
+
+\item{dotImages}{list, character vectors of url or images to replace dots with (see details)}
 
 \item{width}{character, width of htmlwidget}
 
@@ -33,7 +35,8 @@ slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascrip
 that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
 slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
 list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). It is possible to synchronize the slides
-through the slickOpts calls, using asNavFor attribute.
+through the slickOpts calls, using asNavFor attribute. To replace the dots with icons use the dotImages argument to pass in the icon
+images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.
 }
 \examples{
 a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
