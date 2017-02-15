@@ -40,7 +40,8 @@ slickR <- function(images ,
   if(!is.character(images)) break('images must be a character vector')
   
   images=lapply(images,function(x){
-    if(!grepl('www|http|https',x)) readImage(x)
+    if(!grepl('www|http|https|data:image/',x)) x=readImage(x)
+    x
   })
   
   if(length(slideId)!=length(slideIdx)) slideId=paste0('baseDiv',1:length(slideId))
