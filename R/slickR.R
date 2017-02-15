@@ -39,6 +39,10 @@ slickR <- function(images ,
   
   if(!is.character(images)) break('images must be a character vector')
   
+  images=lapply(images,function(x){
+    if(!grepl('www|http|https',x)) readImage(x)
+  })
+  
   if(length(slideId)!=length(slideIdx)) slideId=paste0('baseDiv',1:length(slideId))
   
   x = vector('list',length(slideIdx))
@@ -48,7 +52,7 @@ slickR <- function(images ,
     x[[xId]]$divName=slideId[xId]
 
     x[[xId]]$images=images[slideIdx[[xId]]]
-
+    
     if(length(slickOpts)>0){
       if(all(sapply(slickOpts,class)=='list')){
         sOL=slickOpts[[xId]]
