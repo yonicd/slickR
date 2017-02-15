@@ -28,8 +28,10 @@ HTMLWidgets.widget({
               return mainDiv;
 }
 
+
         if(x[0].images){
                for(j=0;j<x.length;j++){
+                  if(x[j].dotImages) var dotImages=x[j].dotImages;
                   buildDiv(x[j].images,x[j].divName,75/x.length+'%');
                   $("."+x[j].divName).slick(x[j].slickOpts);
                 }

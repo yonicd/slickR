@@ -67,7 +67,7 @@ slickR <- function(images ,
         sOL$asNavFor=sprintf(".%s",synchSlides[!(synchSlides%in%slideId[xId])])
       }
     
-      if(!is.null(dotImages)) x[[xId]]$icons=dotImages
+      if(!is.null(dotImages)) x[[xId]]$dotImages=dotImages
       
       if(!is.null(sOL[[1]])) x[[xId]]$slickOpts=sOL
     }
