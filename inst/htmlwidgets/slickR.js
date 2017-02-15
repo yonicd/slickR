@@ -29,8 +29,6 @@ HTMLWidgets.widget({
 }
 
         if(x[0].images){
-          
-              
                for(j=0;j<x.length;j++){
                   buildDiv(x[j].images,x[j].divName,75/x.length+'%');
                   $("."+x[j].divName).slick(x[j].slickOpts);

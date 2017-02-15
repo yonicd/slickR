@@ -44,6 +44,8 @@ slickR <- function(images ,
     x
   })
   
+  if(length(images)>1) images=unlist(images)
+  
   if(length(slideId)!=length(slideIdx)) slideId=paste0('baseDiv',1:length(slideId))
   
   x = vector('list',length(slideIdx))
@@ -65,13 +67,12 @@ slickR <- function(images ,
         sOL$asNavFor=sprintf(".%s",synchSlides[!(synchSlides%in%slideId[xId])])
       }
     
-      if(!is.null(dotImages)) x[[xId]]$dotImages=dotImages
+      if(!is.null(dotImages)) x[[xId]]$icons=dotImages
       
       if(!is.null(sOL[[1]])) x[[xId]]$slickOpts=sOL
     }
   }
 
-  
   # forward options using x
   
   # create widget
