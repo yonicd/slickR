@@ -153,3 +153,17 @@ htmltools::browsable(htmltools::tagList(s2, s3))
 
 ```
 
+##Slick with IFRAMES
+There are times when you would want to put in different DOMs than an image in slick. Using slideType you can specify which DOM is used in the slides. 
+
+For example lets put the help Rd files from ggplot2 into a slider using the helper function getHelp. (Dont forget to open the output to an browser to view the iframe contents).
+
+```r
+geom_filenames=ls("package:ggplot2",pattern = '^geom')
+
+slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideType = 'iframe',height = '0px',slickOpts = list(dots=T,slidesToShow=2,slidesToScroll=2))
+```
+
+
+
+

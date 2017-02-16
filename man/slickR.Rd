@@ -4,22 +4,24 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(images, slideId = "baseDiv", slideIdx = list(1:length(images)),
-  slickOpts = list(dots = T), synchSlides = NULL, dotImages = NULL,
-  width = NULL, height = NULL, elementId = NULL)
+slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
+  slideType = c("img"), slickOpts = list(dots = T), synchSlides = NULL,
+  dotObj = NULL, width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
-\item{images}{character, vector of path or url to images}
+\item{obj}{character, vector of path or url to images}
 
 \item{slideId}{character, id of slide}
 
 \item{slideIdx}{list, numeric indices which images are mapped to which slider}
 
+\item{slideType}{character, type of object to put in slide}
+
 \item{slickOpts}{list, list of attributes for each slider, see details}
 
 \item{synchSlides}{character, slideId names of sliders are synchronized}
 
-\item{dotImages}{list, character vectors of url or images to replace dots with (see details)}
+\item{dotObj}{list, character vectors of url or images to replace dots with (see details)}
 
 \item{width}{character, width of htmlwidget}
 
@@ -35,15 +37,16 @@ slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascrip
 that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
 slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
 list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). It is possible to synchronize the slides
-through the slickOpts calls, using asNavFor attribute. To replace the dots with icons use the dotImages argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.
+through the slickOpts calls, using asNavFor attribute. To replace the dots with icons use the dotObj argument to pass in the icon
+images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call. The slideType accepts the type 
+of html DOM you want to be in the slide, eg img, iframe.
 }
 \examples{
 a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
 "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
 x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/\%s.svg",a)
-slickR(images=x)
+slickR(obj=x)
 
 }
 
