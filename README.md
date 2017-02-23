@@ -79,11 +79,11 @@ playerTable$img=sprintf('http://a.espncdn.com/combiner/i?img=/i/headshots/nba/pl
 
 
 cP1=JS("function(slick,index) {return '<a>'+(index+1)+'</a>';}")
-cP2=JS("function(slick,index) {return '<a><img src= ' + dotImages[index] + '  width=100% height=100%></a>';}")
+cP2=JS("function(slick,index) {return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';}")
 
 #Defaults Dots
 slickR(
-  images = playerTable$img,
+  obj = playerTable$img,
   slickOpts = list(
     initialSlide = 0,
     slidesToShow = 5,
@@ -95,8 +95,8 @@ slickR(
 
 #Replace dots with Numbers
 slickR(
-  images = playerTable$img,
-  dotImages = teamImg,
+  obj = playerTable$img,
+  dotObj = teamImg,
   slickOpts = list(
     initialSlide = 0,
     slidesToShow = 5,
@@ -109,8 +109,8 @@ slickR(
 
 #Replace dots with Images
 s1 <- slickR(
-  images = playerTable$img,
-  dotImages = teamImg,
+  obj = playerTable$img,
+  dotObj = teamImg,
   slickOpts = list(
     initialSlide = 0,
     slidesToShow = 5,
@@ -124,17 +124,18 @@ s1 <- slickR(
 
 #Putting it all together in one slickR call
 s2 <- htmltools::tags$script(
-  sprintf("var dotImages = %s", 
+  sprintf("var dotObj = %s", 
           jsonlite::toJSON(teamImg))
 )
 
 htmltools::browsable(htmltools::tagList(s2, s1))
 
 s3 <- slickR(
-  images = rep(playerTable$img,3),
+  obj = rep(playerTable$img,3),
   slideId = c('dots','numbers','icons'),
   slideIdx = list(1:150,151:300,301:450),
-  dotImages = teamImg,
+  dotObj = teamImg,
+  slideType=list('img','img','img'),
   slickOpts = list(list(
     initialSlide = 0,slidesToShow = 5,
     slidesToScroll = 5,focusOnSelect = T,
