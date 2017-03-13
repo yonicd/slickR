@@ -168,6 +168,8 @@ slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideType = 'ifram
 
 ### Nesting multiple htmlwidgets in slick
 
+![](https://raw.githubusercontent.com/yonicd/slickR/master/slickRnestingWidgets.gif)
+
 ```r
 library(slickR)
 library(leaflet)
