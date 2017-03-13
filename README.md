@@ -40,6 +40,7 @@ slickR(s.in,slideId = 'baseDiv',slideIdx = list(1:3))
 slickR(s.in,slideId = c('up','down'),
        slideIdx = list(1:3,1:3),
        synchSlides = c('up','down'),
+       slideType = rep('img',3),
        slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
                         list(dots=T,slidesToScroll=1,slidesToShow=3,
                              centerMode=T,focusOnSelect=T)
