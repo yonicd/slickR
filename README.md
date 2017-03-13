@@ -165,6 +165,30 @@ geom_filenames=ls("package:ggplot2",pattern = '^geom')
 slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideType = 'iframe',height = '0px',slickOpts = list(dots=T,slidesToShow=2,slidesToScroll=2))
 ```
 
+### Nesting multiple htmlwidgets in slick
 
+```r
+library(slickR)
+library(leaflet)
+library(plotly)
+library(ggplot2)
+
+
+l <- leaflet() %>% addTiles()
+htmlwidgets::saveWidget(l,'leaflet.html')
+
+p <- iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
+pL= ggplotly(p)
+htmlwidgets::saveWidget(pL,'ggplotly.html')
+
+slickR(c(rep(paste0(readLines('leaflet.html'),collapse='\n'),4),
+         rep(paste0(readLines('ggplotly.html'),collapse='\n'),4)),
+       slideId = c('leaf','plot'),
+       slideIdx = list(1:4,5:8),
+       slideType = rep('iframe',2),
+       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2),
+                        list(dots=T,slidesToShow=2,slidesToScroll=2)),
+       height='0px')
+```
 
 
