@@ -9,7 +9,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(slickR)
 library(ggplot2)
 library(dplyr)
-source('~/projects/TFL/TFLBook/utils.R')
 fig.dir=file.path(getwd(),'testSlickR_files/figure-html')
 ```
 
