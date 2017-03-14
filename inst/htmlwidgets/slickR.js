@@ -44,6 +44,7 @@ HTMLWidgets.widget({
         if(x[0].obj){
                for(j=0;j<x.length;j++){
                   if(x[j].dotObj) var dotObj=x[j].dotObj;
+                  $("."+x[j].divName).detach();
                   buildDiv(x[j].obj,x[j].divType,x[j].divName,75/x.length+'%');
                   $("."+x[j].divName).slick(x[j].slickOpts);
                 }
