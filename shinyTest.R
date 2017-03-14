@@ -41,7 +41,7 @@ ui <- fluidPage(
     sidebarPanel(
       sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100)
     ),
-    mainPanel(slickROutput("distPlot",width='200px',height='200px'))
+    mainPanel(slickROutput("distPlot",width='400px',height='400px'))
   )
 )
 
