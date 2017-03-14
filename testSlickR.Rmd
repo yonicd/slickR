@@ -21,7 +21,7 @@ fig.dir=file.path(getwd(),'testSlickR_files/figure-html')
 iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
 iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_line()
 
-slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(dots=T),height='0')
+slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(dots=T))
 ```
 
 ## Subsection 2
@@ -31,5 +31,5 @@ slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(do
 iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_boxplot()
 iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_bar(stat='identity')
 
-slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slideId ='newDiv' ,slickOpts = list(dots=T),height='0')
+slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slideId ='newDiv' ,slickOpts = list(dots=T))
 ```
