@@ -1,5 +1,7 @@
 ---
-output: html_document
+output: 
+  html_document:
+    self_contained: false
 ---
 
 ```{r setup, include=FALSE}
@@ -8,7 +10,6 @@ library(slickR)
 library(ggplot2)
 library(dplyr)
 source('~/projects/TFL/TFLBook/utils.R')
-hlp.dirL='rmd_output/0'
 fig.dir=file.path(getwd(),'testSlickR_files/figure-html')
 ```
 
@@ -21,20 +22,15 @@ fig.dir=file.path(getwd(),'testSlickR_files/figure-html')
 iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
 iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_line()
 
-```
-
-```{r,echo=FALSE,warning=FALSE,comment=FALSE}
 slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(dots=T),height='0')
 ```
 
 ## Subsection 2
+        
 
 ```{r PLOT2, echo=FALSE,fig.show='hide',warning=FALSE}
 iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_boxplot()
 iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_bar(stat='identity')
 
-```
-
-```{r,echo=FALSE,warning=FALSE,comment=FALSE}
-slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slickOpts = list(dots=T),height='0')
+slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slideId ='newDiv' ,slickOpts = list(dots=T),height='0')
 ```
