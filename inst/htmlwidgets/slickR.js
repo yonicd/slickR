@@ -15,7 +15,7 @@ HTMLWidgets.widget({
               var len = obj.length,i = 0;
 							var mainDiv = document.createElement("div");
               mainDiv.className = cl;
-              document.body.appendChild(mainDiv);
+              el.appendChild(mainDiv);
               
               for(i=0; i < len; i++ ){
                 var divEl = document.createElement("div");
