@@ -21,7 +21,7 @@ iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_line()
 ```
 
 ```{r}
-slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(dots=T))
+slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(dots=T,centerMode=T),width='100%')
 ```
 
 ## Subsection 2
@@ -33,5 +33,5 @@ iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_bar(stat='identity')
 ```
 
 ```{r}
-slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slideId ='newDiv' ,slickOpts = list(dots=T))
+slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slideId ='newDiv' ,slickOpts = list(dots=T),width='100%')
 ```

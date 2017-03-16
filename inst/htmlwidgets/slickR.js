@@ -11,7 +11,7 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-            function buildDiv(obj,objType,cl,width){
+            function buildDiv(obj,objType,cl,width,height){
               var len = obj.length,i = 0;
 							var mainDiv = document.createElement("div");
               mainDiv.className = cl;
@@ -20,18 +20,18 @@ HTMLWidgets.widget({
               for(i=0; i < len; i++ ){
                 var divEl = document.createElement("div");
                 var newEl = document.createElement(objType);
+                newEl.style.height=height;
                 divEl.appendChild(newEl);
                 
                 switch (objType) {
                   
                   case 'iframe':
                     newEl.src = 'data:text/html;charset=utf-8,' + encodeURI(obj[i]);
-                    newEl.style.height='400px';
+                    newEl.style.height=height;
                   break;
                   
                   default:
                     newEl.src = obj[i];
-                
                 }
                 
                 newEl.style.width=width;
@@ -45,7 +45,8 @@ HTMLWidgets.widget({
                for(j=0;j<x.length;j++){
                   if(x[j].dotObj) var dotObj=x[j].dotObj;
                   $("."+x[j].divName).detach();
-                  buildDiv(x[j].obj,x[j].divType,x[j].divName,75/x.length+'%');
+                  buildDiv(x[j].obj,x[j].divType,x[j].divName,75/x.length+'%',height+'px');
+                  
                   $("."+x[j].divName).slick(x[j].slickOpts);
                 }
             }
