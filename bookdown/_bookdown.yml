@@ -1,6 +1,6 @@
 book_filename: slickRBook
 repo: https://github.com/metrumresearchgroup/slickR
-output_dir: "docs"
+output_dir: "../docs"
 clean: [packages.bib, bookdown.bbl]
 language:
   label:

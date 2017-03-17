@@ -8,6 +8,6 @@ gitbook:
 	Rscript --quiet _render.R "bookdown::gitbook"
 
 openBrowser:
-	R --vanilla -e 'browseURL("_book/index.html")' 
+	R --vanilla -e 'browseURL("../docs/index.html")' 
 all:
 	Rscript --quiet _render.R

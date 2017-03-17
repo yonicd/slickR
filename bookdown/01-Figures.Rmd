@@ -56,20 +56,7 @@ ggplot(mtcars, aes(mpg, wt, colour = wt)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_abline-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_abline',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_abline-up','geom_abline-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_abline-up','geom_abline-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_bar
@@ -124,20 +111,7 @@ ggplot(df, aes(x)) + geom_histogram(binwidth = 0.5)
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_bar-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_bar',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_bar-up','geom_bar-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_bar-up','geom_bar-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_bin2d
@@ -177,20 +151,7 @@ d + geom_bin2d(binwidth = c(0.1, 0.1))
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_bin2d-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_bin2d',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_bin2d-up','geom_bin2d-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_bin2d-up','geom_bin2d-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_blank
@@ -222,20 +183,7 @@ ggplot(mtcars, aes(wt, mpg))
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_blank-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_blank',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_blank-up','geom_blank-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_blank-up','geom_blank-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_boxplot
@@ -289,20 +237,7 @@ ggplot(diamonds, aes(carat, price)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_boxplot-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_boxplot',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_boxplot-up','geom_boxplot-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_boxplot-up','geom_boxplot-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_contour
@@ -340,20 +275,7 @@ ggplot(faithful, aes(waiting, eruptions)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_contour-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_contour',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_contour-up','geom_contour-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_contour-up','geom_contour-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_count
@@ -412,20 +334,7 @@ d + geom_count(aes(size = ..prop.., group = clarity)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_count-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_count',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_count-up','geom_count-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_count-up','geom_count-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_density
@@ -470,20 +379,7 @@ ggplot(diamonds, aes(depth, fill = cut, colour = cut)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_density-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_density',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_density-up','geom_density-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_density-up','geom_density-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_density_2d
@@ -518,20 +414,7 @@ m + geom_density_2d()
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_density_2d-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_density_2d',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_density_2d-up','geom_density_2d-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_density_2d-up','geom_density_2d-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_dotplot
@@ -584,20 +467,7 @@ ggplot(mtcars, aes(x = mpg)) + geom_dotplot(binwidth = 1.5, dotsize = 1.25)
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_dotplot-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_dotplot',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_dotplot-up','geom_dotplot-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_dotplot-up','geom_dotplot-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_errorbarh
@@ -641,20 +511,7 @@ p + geom_point() +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_errorbarh-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_errorbarh',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_errorbarh-up','geom_errorbarh-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_errorbarh-up','geom_errorbarh-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_hex
@@ -687,20 +544,7 @@ d + geom_hex()
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_hex-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_hex',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_hex-up','geom_hex-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_hex-up','geom_hex-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_freqpoly
@@ -782,20 +626,7 @@ m + geom_histogram(binwidth = 0.5) + scale_y_sqrt()
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_freqpoly-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_freqpoly',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_freqpoly-up','geom_freqpoly-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_freqpoly-up','geom_freqpoly-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_jitter
@@ -839,20 +670,7 @@ ggplot(mpg, aes(cty, hwy)) + geom_jitter(width = 0.5, height = 0.5)
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_jitter-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_jitter',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_jitter-up','geom_jitter-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_jitter-up','geom_jitter-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_crossbar
@@ -915,20 +733,7 @@ p +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_crossbar-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_crossbar',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_crossbar-up','geom_crossbar-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_crossbar-up','geom_crossbar-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_map
@@ -1003,20 +808,7 @@ if (require(maps)) {
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_map-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_map',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_map-up','geom_map-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_map-up','geom_map-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_path
@@ -1093,20 +885,7 @@ ggplot(df, aes(x, y3)) + geom_point() + geom_line()
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_path-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_path',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_path-up','geom_path-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_path-up','geom_path-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_point
@@ -1151,20 +930,7 @@ ggplot(mtcars, aes(wt, mpg)) + geom_point(colour = "red", size = 3)
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_point-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_point',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_point-up','geom_point-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_point-up','geom_point-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_polygon
@@ -1233,20 +999,7 @@ p + geom_line(data = stream, colour = "grey30", size = 5)
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_polygon-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_polygon',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_polygon-up','geom_polygon-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_polygon-up','geom_polygon-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_qq
@@ -1276,20 +1029,7 @@ slickR(picList,slideId = 'geom_polygon',width='100%',height='400px',slickOpts=li
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_qq-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_qq',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_qq-up','geom_qq-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_qq-up','geom_qq-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_quantile
@@ -1333,20 +1073,7 @@ m + geom_quantile(colour = "red", size = 2, alpha = 0.5)
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_quantile-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_quantile',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_quantile-up','geom_quantile-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_quantile-up','geom_quantile-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_ribbon
@@ -1387,20 +1114,7 @@ h +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_ribbon-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_ribbon',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_ribbon-up','geom_ribbon-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_ribbon-up','geom_ribbon-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_rug
@@ -1445,20 +1159,7 @@ ggplot(mpg, aes(displ, cty)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_rug-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_rug',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_rug-up','geom_rug-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_rug-up','geom_rug-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_smooth
@@ -1519,20 +1220,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_smooth-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_smooth',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_smooth-up','geom_smooth-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_smooth-up','geom_smooth-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_spoke
@@ -1573,20 +1261,7 @@ ggplot(df, aes(x, y)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_spoke-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_spoke',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_spoke-up','geom_spoke-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_spoke-up','geom_spoke-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_label
@@ -1652,20 +1327,7 @@ p +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_label-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_label',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_label-up','geom_label-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_label-up','geom_label-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_raster
@@ -1719,20 +1381,7 @@ ggplot(df, aes(xmin = x - w / 2, xmax = x + w / 2, ymin = y, ymax = y + 1)) +
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_raster-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_raster',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_raster-up','geom_raster-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_raster-up','geom_raster-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 
 ## geom_violin
@@ -1765,19 +1414,6 @@ p + geom_violin()
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = 'geom_violin-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = 'geom_violin',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('geom_violin-up','geom_violin-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('geom_violin-up','geom_violin-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 

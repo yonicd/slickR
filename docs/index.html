@@ -6,20 +6,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>slickR in Bookdown: Rendering Canonical Interactive User Manuals</title>
-  <meta name="description" content="A tutorial on using the Tables List and Figures (TFL) package">
+  <meta name="description" content="An example using slickR in Bookdown">
   <meta name="generator" content="bookdown 0.3.14 and GitBook 2.6.7">
 
   <meta property="og:title" content="slickR in Bookdown: Rendering Canonical Interactive User Manuals" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/logo.jpg" />
-  <meta property="og:description" content="A tutorial on using the Tables List and Figures (TFL) package" />
+  <meta property="og:description" content="An example using slickR in Bookdown" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="slickR in Bookdown: Rendering Canonical Interactive User Manuals" />
   
-  <meta name="twitter:description" content="A tutorial on using the Tables List and Figures (TFL) package" />
+  <meta name="twitter:description" content="An example using slickR in Bookdown" />
   <meta name="twitter:image" content="images/logo.jpg" />
 
 <meta name="author" content="Metrum Research Group">
@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="figures.html">
+<link rel="next" href="chapter-building.html">
 <script src="libs/jquery-3.3.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -74,6 +74,8 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="chapter-building.html"><a href="chapter-building.html"><i class="fa fa-check"></i>Chapter building</a></li>
+<li class="chapter" data-level="" data-path="book-building.html"><a href="book-building.html"><i class="fa fa-check"></i>Book building</a></li>
 <li class="chapter" data-level="1" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>1</b> Figures</a><ul>
 <li class="chapter" data-level="1.1" data-path="geom-abline.html"><a href="geom-abline.html"><i class="fa fa-check"></i><b>1.1</b> geom_abline</a></li>
 <li class="chapter" data-level="1.2" data-path="geom-bar.html"><a href="geom-bar.html"><i class="fa fa-check"></i><b>1.2</b> geom_bar</a></li>
@@ -131,27 +133,13 @@
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p><a href="https://github.com/metrumresearchgroup/slickR">slickR</a> is a R package for creating carousels of various object types. Images, iframes and htmlwidgets can be put into a carousel. We show an example of how this can be leveraged to view in a compact way help manuals for any library.</p>
-<p>The library we are using as an example is <a href="http://ggplot2.org/">ggplot2</a>. The help files of ggplot2 tahnkfully contain many examples and when they are all compiled can create a very long output. Using slickR we can capture all the plot outputs of a given function to a carousel thus keeping a canonic output structure.</p>
+<p><a href="https://github.com/metrumresearchgroup/slickR">slickR</a> is a R package for creating carousels that can hold various object types. Images, iframes and htmlwidgets can be put into a carousel. We show an example of how this can be leveraged to view in a compact way help manuals for any library.</p>
+<p>The library we are using as an example is <a href="http://ggplot2.org/">ggplot2</a>. The help files of ggplot2 thankfully contain many examples and when they are all compiled can create a very long output. Using slickR we can capture all the plot outputs of a given function to a carousel thus keeping a canonic output structure.</p>
 <ul>
 <li>The help file in an Iframe</li>
 <li>The carousel with the outputs</li>
 </ul>
 <p>If the library you are compiling has other output formats such as xtables you can use <a href="https://github.com/metrumresearchgroup/texPreview">texPreview</a> to embed SVG outputs of LaTeX tables inside the gitbook.</p>
-<!---
-To compile this book you need to install **bookdown** from Github:
-
-
-
-
-
-Each Rmd file contains a chapter that explains sets of similar funcationalities as specified in the file name.
-
-To compile this to PDF, you need to install XeLaTeX.
-
-
---->
-
 </div>
             </section>
 
@@ -159,7 +147,7 @@ To compile this to PDF, you need to install XeLaTeX.
         </div>
       </div>
 
-<a href="figures.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chapter-building.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

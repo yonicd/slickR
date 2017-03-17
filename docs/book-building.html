@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="book-building.html">
-<link rel="next" href="geom-abline.html">
+<link rel="prev" href="chapter-building.html">
+<link rel="next" href="figures.html">
 <script src="libs/jquery-3.3.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -126,16 +126,41 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="figures" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Figures</h1> 
+<div id="book-building" class="section level1 unnumbered">
+<h1>Book building</h1>
+<p>Building the gitbook is <em>pretty</em> straight forward. We want to source the <a href="https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/buildChapters.R">buildChapters</a> script for chapters we want to create (e.g. 01-Figures, 02-Tables, 03-Widgets) and render the gitbook.</p>
+<p>Using <a href="https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/_bookdown.yml">_bookdown.yml</a>, <a href="https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/_output.yml">_output.yml</a>, and a <a href="https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/Makefile">Makefile</a> we can compile the book chapters and then render the gitbook.</p>
+<p>The Makefile contains:</p>
+<pre><code>loadUtils:
+    R --vanilla -e &#39;.libPaths(&quot;../script/lib&quot;);library(&quot;ggplot2&quot;);source(&quot;utils.R&quot;);source(&quot;buildChapters.R&quot;);warnings()&#39;
+
+gitbook:
+    Rscript --quiet _render.R &quot;bookdown::gitbook&quot;
+
+openBrowser:
+    R --vanilla -e &#39;browseURL(&quot;../docs/index.html&quot;)&#39; </code></pre>
+<!---
+To compile this book you need to install **bookdown** from Github:
+
+
+
+
+
+Each Rmd file contains a chapter that explains sets of similar funcationalities as specified in the file name.
+
+To compile this to PDF, you need to install XeLaTeX.
+
+
+--->
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="book-building.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="geom-abline.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chapter-building.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="figures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -164,7 +189,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-Figures.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
 "text": "Edit"
 },
 "download": ["slickRBook.pdf", "slickRBook.epub", "slickRBook.mobi"],

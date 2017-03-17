@@ -20,20 +20,7 @@ if(output=='figure'){
 ```
 ```{r}
 picList=list.files(fig.dir,pattern = '",fn,"-',full.names = T)
-lp=length(picList)
-# if(lp==1){
 slickR(picList,slideId = '",fn,"',width='100%',height='400px',slickOpts=list(dots=T))
-#  }else{
-#  slickR( rep(picList,2),
-#         slideId = c('",fn,"-up','",fn,"-down'),
-#                 slideIdx = list(1:lp,(lp+1):(2*lp)),
-#                 slideType=rep('img',2),
-#                 synchSlides = c('",fn,"-up','",fn,"-down'),
-#                 slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
-#                 list(dots=T,slidesToScroll=1,slidesToShow=lp,centerMode=T,focusOnSelect=T)
-#                 ),height=400,width='100%')
-# }
-
 ```
 ")
   }

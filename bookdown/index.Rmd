@@ -11,7 +11,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "A tutorial on using the Tables List and Figures (TFL) package"
+description: "An example using slickR in Bookdown"
 cover-image: images/logo.jpg
 ---
 ```{r setup, echo=FALSE}
@@ -47,14 +47,51 @@ if(rt%in%c("html", "html5", "s5", "slidy","slideous", "dzslides", "revealjs","md
 
 # Preface {-}
 
-[slickR](https://github.com/metrumresearchgroup/slickR) is a R package for creating carousels of various object types. Images, iframes and htmlwidgets can be put into a carousel. We show an example of how this can be leveraged to view in a compact way help manuals for any library. 
+[slickR](https://github.com/metrumresearchgroup/slickR) is a R package for creating carousels that can hold various object types. Images, iframes and htmlwidgets can be put into a carousel. We show an example of how this can be leveraged to view in a compact way help manuals for any library. 
 
-The library we are using as an example is [ggplot2](http://ggplot2.org/). The help files of ggplot2 tahnkfully contain many examples and when they are all compiled can create a very long output. Using slickR we can capture all the plot outputs of a given function to a carousel thus keeping a canonic output structure. 
+The library we are using as an example is [ggplot2](http://ggplot2.org/). The help files of ggplot2 thankfully contain many examples and when they are all compiled can create a very long output. Using slickR we can capture all the plot outputs of a given function to a carousel thus keeping a canonic output structure. 
 
   - The help file in an Iframe 
   - The carousel with the outputs
 
 If the library you are compiling has other output formats such as xtables you can use [texPreview](https://github.com/metrumresearchgroup/texPreview) to embed SVG outputs of LaTeX tables inside the gitbook.  
+
+# Chapter building {-}
+
+Using the utility files in the [utils.R](https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/utils.R) we point `queryChapter` to the relevant package and filter a `pattern` along a given `field` (attribute) of the help file (name, concept, title). This gives a data.frame of functions that meet the search criteria. We can then use this data.frame to create chapters for the gitbook using createChapter. 
+
+```{r,eval=FALSE}
+TOC=queryChapter(pattern = c('^geom_'),field = 'name',pkg='ggplot2')
+TOC$output='figure'
+#issue: Problem with geom_segment help script
+createChapter('Figures','01',funs = list(name=TOC$Name[TOC$output=='figure'][-24],pkg='ggplot2',type='figure'))
+```
+
+In this example a file named [01-Figures.Rmd](https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/01-Figures.Rmd) will be created with a uniform output, a section with the function as its name and three chunks:
+
+  - A function to create an iframe containing the function help file in html form
+    - it's like the output from calling `?geom_point` in an Rstudio console.
+  - The script to run all the examples found in the help file
+  - A slick carousel with all the example plot outputs
+
+
+# Book building {-}
+
+Building the gitbook is *pretty* straight forward. We want to source the [buildChapters](https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/buildChapters.R) script for chapters we want to create (e.g. 01-Figures, 02-Tables, 03-Widgets) and render the gitbook.
+
+Using [_bookdown.yml](https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/_bookdown.yml), [_output.yml](https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/_output.yml), and a [Makefile](https://github.com/metrumresearchgroup/slickR/blob/master/bookdown/Makefile) we can compile the book chapters and then render the gitbook.
+
+The Makefile contains:
+```
+loadUtils:
+	R --vanilla -e '.libPaths("../script/lib");library("ggplot2");source("utils.R");source("buildChapters.R");warnings()'
+
+gitbook:
+	Rscript --quiet _render.R "bookdown::gitbook"
+
+openBrowser:
+	R --vanilla -e 'browseURL("../docs/index.html")' 
+```
 
 <!---
 To compile this book you need to install **bookdown** from Github:
