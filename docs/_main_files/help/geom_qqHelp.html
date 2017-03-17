@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: A quantile-quantile plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for geom_qq"><tr><td>geom_qq</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>A quantile-quantile plot</h2>
+
+<h3>Description</h3>
+
+<p>A quantile-quantile plot
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+geom_qq(mapping = NULL, data = NULL, geom = "point",
+  position = "identity", ..., distribution = stats::qnorm,
+  dparams = list(), na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+
+stat_qq(mapping = NULL, data = NULL, geom = "point",
+  position = "identity", ..., distribution = stats::qnorm,
+  dparams = list(), na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mapping</code></td>
+<td>
+<p>Set of aesthetic mappings created by <code>aes</code> or
+<code>aes_</code>. If specified and <code>inherit.aes = TRUE</code> (the
+default), it is combined with the default mapping at the top level of the
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>The data to be displayed in this layer. There are three
+options:
+</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+data as specified in the call to <code>ggplot</code>.
+</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
+data. All objects will be fortified to produce a data frame. See
+<code>fortify</code> for which variables will be created.
+</p>
+<p>A <code>function</code> will be called with a single argument,
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p>
+</td></tr>
+<tr valign="top"><td><code>geom</code></td>
+<td>
+<p>The geometric object to use display the data</p>
+</td></tr>
+<tr valign="top"><td><code>position</code></td>
+<td>
+<p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>other arguments passed on to <code>layer</code>. These are
+often aesthetics, used to set an aesthetic to a fixed value, like
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p>
+</td></tr>
+<tr valign="top"><td><code>distribution</code></td>
+<td>
+<p>Distribution function to use, if x not specified</p>
+</td></tr>
+<tr valign="top"><td><code>dparams</code></td>
+<td>
+<p>Additional parameters passed on to <code>distribution</code>
+function.</p>
+</td></tr>
+<tr valign="top"><td><code>na.rm</code></td>
+<td>
+<p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p>
+</td></tr>
+<tr valign="top"><td><code>show.legend</code></td>
+<td>
+<p>logical. Should this layer be included in the legends?
+<code>NA</code>, the default, includes if any aesthetics are mapped.
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p>
+</td></tr>
+<tr valign="top"><td><code>inherit.aes</code></td>
+<td>
+<p>If <code>FALSE</code>, overrides the default aesthetics,
+rather than combining with them. This is most useful for helper functions
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code>borders</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Aesthetics</h3>
+
+<p><code>stat_qq</code> understands the following aesthetics (required aesthetics are in bold):
+</p>
+
+<ul>
+<li> <p><code><strong>sample</strong></code>
+</p>
+</li>
+<li> <p><code>group</code>
+</p>
+</li>
+<li> <p><code>x</code>
+</p>
+</li>
+<li> <p><code>y</code>
+</p>
+</li></ul>
+
+
+
+
+<h3>Computed variables</h3>
+
+
+<dl>
+<dt>sample</dt><dd><p>sample quantiles</p>
+</dd>
+<dt>theoretical</dt><dd><p>theoretical quantiles</p>
+</dd>
+</dl>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+
+df &lt;- data.frame(y = rt(200, df = 5))
+p &lt;- ggplot(df, aes(sample = y))
+p + stat_qq()
+p + geom_point(stat = "qq")
+
+# Use fitdistr from MASS to estimate distribution params
+params &lt;- as.list(MASS::fitdistr(df$y, "t")$estimate)
+ggplot(df, aes(sample = y)) +
+  stat_qq(distribution = qt, dparams = params["df"])
+
+# Using to explore the distribution of a variable
+ggplot(mtcars) +
+  stat_qq(aes(sample = mpg))
+ggplot(mtcars) +
+  stat_qq(aes(sample = mpg, colour = factor(cyl)))
+
+</pre>
+
+
+</body></html>
