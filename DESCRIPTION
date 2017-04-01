@@ -1,8 +1,13 @@
 Package: slickR
-Title: 'slick.js' Image Carousel Htmlwidget
 Version: 0.1.0
+Date: 2017-03-31
+Title: Create Interactive Carousels with the JavaScript 'Slick' Library
 Authors@R: person("Jonathan", "Sidi", email = "yonis@metrumrg.com", role = c("aut", "cre"))
-Description: Use 'slick.js' library in R, 'rmarkdown' and 'shiny'.
+Description: Create and customize interactive carousels using the 'Slick'
+    JavaScript library and the 'htmlwidgets' package. The carousels can contain plots
+    produced in R, images, 'iframes', videos and other 'htmlwidgets'.
+    These carousels can be used directly from the R console, from 'RStudio', 
+    in Shiny apps and R Markdown documents.
 Depends:
     R (>= 2.3.0)
 Imports:
@@ -11,6 +16,9 @@ Imports:
     utils,
     base64enc,
     xml2
+Suggests:
+    shiny,
+    rmarkdown
 License: GPL-2 | GPL-3
 URL: https://github.com/metrumresearchgroup/slickR
 BugReports: https://github.com/metrumresearchgroup/slickR/issues
