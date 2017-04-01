@@ -1,3 +1,5 @@
+#' @importFrom base64enc dataURI
+#' @importFrom xml2 read_xml
 readImage=function(fL){
   mType=substring(fL,first=regexpr("\\.[^\\.]*$", fL)+1)
   if(mType=='svg'){

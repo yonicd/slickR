@@ -21,12 +21,16 @@
 #' of html DOM you want to be in the slide, eg img, iframe.  
 #' 
 #' @examples 
+#' \donttest{
 #' a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 #' "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
 #' "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
-#' x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/%s.svg",a)
-#' slickR(obj=x)
-#' 
+#' x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/
+#' global/logos/512x512/bg.white/svg/%s.svg",a)
+#' if(interactive()) slickR(obj=x)
+#' }
+#'
+#' @import htmlwidgets 
 #' @export
 slickR <- function(obj ,
                    slideId='baseDiv',

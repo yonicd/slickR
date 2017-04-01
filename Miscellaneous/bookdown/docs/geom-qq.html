@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>slickR in Bookdown: Rendering Canonical Interactive User Manuals</title>
+  <meta name="description" content="A tutorial on using the Tables List and Figures (TFL) package">
+  <meta name="generator" content="bookdown 0.3.14 and GitBook 2.6.7">
+
+  <meta property="og:title" content="slickR in Bookdown: Rendering Canonical Interactive User Manuals" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/logo.jpg" />
+  <meta property="og:description" content="A tutorial on using the Tables List and Figures (TFL) package" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="slickR in Bookdown: Rendering Canonical Interactive User Manuals" />
+  
+  <meta name="twitter:description" content="A tutorial on using the Tables List and Figures (TFL) package" />
+  <meta name="twitter:image" content="images/logo.jpg" />
+
+<meta name="author" content="Metrum Research Group">
+
+
+<meta name="date" content="2017-03-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="geom-polygon.html">
+<link rel="next" href="geom-quantile.html">
+<script src="libs/jquery-3.3.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/jquery-migrate-3.0.0/jquery-migrate.min.js"></script>
+<link href="libs/slick-1.6.0/slick/slick.css" rel="stylesheet" />
+<link href="libs/slick-1.6.0/slick/slick-theme.css" rel="stylesheet" />
+<script src="libs/slick-1.6.0/slick/slick.min.js"></script>
+<link href="libs/slickR-0.0.1/slickR.css" rel="stylesheet" />
+<script src="libs/slickR-binding-0.0.0.9000/slickR.js"></script>
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Using slickR in bookdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>1</b> Figures</a><ul>
+<li class="chapter" data-level="1.1" data-path="geom-abline.html"><a href="geom-abline.html"><i class="fa fa-check"></i><b>1.1</b> geom_abline</a></li>
+<li class="chapter" data-level="1.2" data-path="geom-bar.html"><a href="geom-bar.html"><i class="fa fa-check"></i><b>1.2</b> geom_bar</a></li>
+<li class="chapter" data-level="1.3" data-path="geom-bin2d.html"><a href="geom-bin2d.html"><i class="fa fa-check"></i><b>1.3</b> geom_bin2d</a></li>
+<li class="chapter" data-level="1.4" data-path="geom-blank.html"><a href="geom-blank.html"><i class="fa fa-check"></i><b>1.4</b> geom_blank</a></li>
+<li class="chapter" data-level="1.5" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>1.5</b> geom_boxplot</a></li>
+<li class="chapter" data-level="1.6" data-path="geom-contour.html"><a href="geom-contour.html"><i class="fa fa-check"></i><b>1.6</b> geom_contour</a></li>
+<li class="chapter" data-level="1.7" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>1.7</b> geom_count</a></li>
+<li class="chapter" data-level="1.8" data-path="geom-density.html"><a href="geom-density.html"><i class="fa fa-check"></i><b>1.8</b> geom_density</a></li>
+<li class="chapter" data-level="1.9" data-path="geom-density-2d.html"><a href="geom-density-2d.html"><i class="fa fa-check"></i><b>1.9</b> geom_density_2d</a></li>
+<li class="chapter" data-level="1.10" data-path="geom-dotplot.html"><a href="geom-dotplot.html"><i class="fa fa-check"></i><b>1.10</b> geom_dotplot</a></li>
+<li class="chapter" data-level="1.11" data-path="geom-errorbarh.html"><a href="geom-errorbarh.html"><i class="fa fa-check"></i><b>1.11</b> geom_errorbarh</a></li>
+<li class="chapter" data-level="1.12" data-path="geom-hex.html"><a href="geom-hex.html"><i class="fa fa-check"></i><b>1.12</b> geom_hex</a></li>
+<li class="chapter" data-level="1.13" data-path="geom-freqpoly.html"><a href="geom-freqpoly.html"><i class="fa fa-check"></i><b>1.13</b> geom_freqpoly</a></li>
+<li class="chapter" data-level="1.14" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>1.14</b> geom_jitter</a></li>
+<li class="chapter" data-level="1.15" data-path="geom-crossbar.html"><a href="geom-crossbar.html"><i class="fa fa-check"></i><b>1.15</b> geom_crossbar</a></li>
+<li class="chapter" data-level="1.16" data-path="geom-map.html"><a href="geom-map.html"><i class="fa fa-check"></i><b>1.16</b> geom_map</a></li>
+<li class="chapter" data-level="1.17" data-path="geom-path.html"><a href="geom-path.html"><i class="fa fa-check"></i><b>1.17</b> geom_path</a></li>
+<li class="chapter" data-level="1.18" data-path="geom-point.html"><a href="geom-point.html"><i class="fa fa-check"></i><b>1.18</b> geom_point</a></li>
+<li class="chapter" data-level="1.19" data-path="geom-polygon.html"><a href="geom-polygon.html"><i class="fa fa-check"></i><b>1.19</b> geom_polygon</a></li>
+<li class="chapter" data-level="1.20" data-path="geom-qq.html"><a href="geom-qq.html"><i class="fa fa-check"></i><b>1.20</b> geom_qq</a></li>
+<li class="chapter" data-level="1.21" data-path="geom-quantile.html"><a href="geom-quantile.html"><i class="fa fa-check"></i><b>1.21</b> geom_quantile</a></li>
+<li class="chapter" data-level="1.22" data-path="geom-ribbon.html"><a href="geom-ribbon.html"><i class="fa fa-check"></i><b>1.22</b> geom_ribbon</a></li>
+<li class="chapter" data-level="1.23" data-path="geom-rug.html"><a href="geom-rug.html"><i class="fa fa-check"></i><b>1.23</b> geom_rug</a></li>
+<li class="chapter" data-level="1.24" data-path="geom-smooth.html"><a href="geom-smooth.html"><i class="fa fa-check"></i><b>1.24</b> geom_smooth</a></li>
+<li class="chapter" data-level="1.25" data-path="geom-spoke.html"><a href="geom-spoke.html"><i class="fa fa-check"></i><b>1.25</b> geom_spoke</a></li>
+<li class="chapter" data-level="1.26" data-path="geom-label.html"><a href="geom-label.html"><i class="fa fa-check"></i><b>1.26</b> geom_label</a></li>
+<li class="chapter" data-level="1.27" data-path="geom-raster.html"><a href="geom-raster.html"><i class="fa fa-check"></i><b>1.27</b> geom_raster</a></li>
+<li class="chapter" data-level="1.28" data-path="geom-violin.html"><a href="geom-violin.html"><i class="fa fa-check"></i><b>1.28</b> geom_violin</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">slickR in Bookdown: Rendering Canonical Interactive User Manuals</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="geom_qq" class="section level2">
+<h2><span class="header-section-number">1.20</span> geom_qq</h2>
+<iframe width="100%" height="400" src="_main_files/help/geom_qqHelp.html" allowfullscreen>
+</iframe>
+<div id="htmlwidget-dc5bf422f74d67aeb6e6" style="width:100%;height:400px;" class="slickR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dc5bf422f74d67aeb6e6">{"x":[{"divName":"geom_qq","divType":"img","obj":[null],"slickOpts":{"dots":true}}],"evals":[],"jsHooks":[]}</script>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="geom-polygon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-quantile.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-Figures.Rmd",
+"text": "Edit"
+},
+"download": ["slickRBook.pdf", "slickRBook.epub", "slickRBook.mobi"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

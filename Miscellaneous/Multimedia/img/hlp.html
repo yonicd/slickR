@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: slick.js image carousel htmlwidget</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for slickR"><tr><td>slickR</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>slick.js image carousel htmlwidget</h2>
+
+<h3>Description</h3>
+
+<p>use slick.js library in R
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
+  slideType = "img", slickOpts = list(dots = T), synchSlides = NULL,
+  dotObj = NULL, width = NULL, height = NULL, elementId = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>obj</code></td>
+<td>
+<p>character, vector of path or url to images</p>
+</td></tr>
+<tr valign="top"><td><code>slideId</code></td>
+<td>
+<p>character, id of slide</p>
+</td></tr>
+<tr valign="top"><td><code>slideIdx</code></td>
+<td>
+<p>list, numeric indices which images are mapped to which slider</p>
+</td></tr>
+<tr valign="top"><td><code>slideType</code></td>
+<td>
+<p>character, type of object to put in slide</p>
+</td></tr>
+<tr valign="top"><td><code>slickOpts</code></td>
+<td>
+<p>list, list of attributes for each slider, see details</p>
+</td></tr>
+<tr valign="top"><td><code>synchSlides</code></td>
+<td>
+<p>character, slideId names of sliders are synchronized</p>
+</td></tr>
+<tr valign="top"><td><code>dotObj</code></td>
+<td>
+<p>list, character vectors of url or images to replace dots with (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>width</code></td>
+<td>
+<p>character, width of htmlwidget</p>
+</td></tr>
+<tr valign="top"><td><code>height</code></td>
+<td>
+<p>character, height of htmlwidget</p>
+</td></tr>
+<tr valign="top"><td><code>elementId</code></td>
+<td>
+<p>character, id tag of htmlwidget</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>slick.js <a href="http://kenwheeler.github.io/slick/">http://kenwheeler.github.io/slick/</a> is an image carousel javascript library. To find all the attributes
+that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
+slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
+list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). It is possible to synchronize the slides
+through the slickOpts calls, using asNavFor attribute. To replace the dots with icons use the dotObj argument to pass in the icon
+images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+a=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
+"HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
+"OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
+x=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/%s.svg",a)
+slickR(obj=x)
+
+</pre>
+
+
+</body></html>

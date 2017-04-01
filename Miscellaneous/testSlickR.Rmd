@@ -1,0 +1,37 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(slickR)
+library(ggplot2)
+library(dplyr)
+fig.dir=file.path(getwd(),'testSlickR_files/figure-html')
+```
+
+# Section
+
+## Subsection 1
+        
+
+```{r PLOT1,fig.show='hide',warning=FALSE}
+iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
+iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_line()
+```
+
+```{r}
+slickR(list.files(fig.dir,pattern = 'PLOT1-',full.names = T),slickOpts = list(dots=T,centerMode=T),width='100%')
+```
+
+## Subsection 2
+        
+
+```{r PLOT2,fig.show='hide',warning=FALSE}
+iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_boxplot()
+iris%>%ggplot(aes(x=Species,y=Sepal.Width))+geom_bar(stat='identity')
+```
+
+```{r}
+slickR(list.files(fig.dir,pattern = 'PLOT2-',full.names = T),slideId ='newDiv' ,slickOpts = list(dots=T),width='100%')
+```
