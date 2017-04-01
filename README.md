@@ -1,7 +1,7 @@
 # slickR
 slick carousel htmlwidget for R
 
-![](https://raw.githubusercontent.com/yonicd/slickR/master/slickRexample.gif)
+![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRexample.gif)
 
 ## Examples for script generated plots
 
@@ -53,7 +53,7 @@ slickR(s.in,slideId = c('up','down'),
 
 Reading in the starting five for each team and showing them in the slider 5 at a time. We'll show the defaults dots attribute, replacing the dots with numbers and finally replacing the dots with icons (thanks to [\@ramnathv](https://github.com/ramnathv) for guidance). 
 
-![](https://raw.githubusercontent.com/yonicd/slickR/master/slickRdotIconsexample.gif)
+![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRdotIconsexample.gif)
 
 ```r
 library(slickR)
@@ -168,7 +168,7 @@ slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideType = 'ifram
 
 ### Nesting multiple htmlwidgets in slick
 
-![](https://raw.githubusercontent.com/yonicd/slickR/master/slickRnestingWidgets.gif)
+![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRnestingWidgets.gif)
 
 ```r
 library(slickR)
