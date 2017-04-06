@@ -1,0 +1,62 @@
+---
+title: "slickR"
+author: "Jonathan Sidi"
+date: "April 2, 2017"
+output: html_document
+---
+
+We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self described as "the last carousel you'll ever need", and it doesn't oversell. Unlike many image carousels this one is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, gifs, videos, iframes. 
+
+In R we can focus on a few outputs that are created in a regular workflow that can be placed in the carousel: plots, tables, shiny applications and htmlwidgets. 
+
+# Plots
+
+```{r}
+library(svglite)
+library(lattice)
+library(ggplot2)
+library(slickR)
+```
+
+
+```{r}
+s.in=sapply(
+  list(
+     xmlSVG({plot(1:10)},standalone=TRUE)
+    ,xmlSVG({print(xyplot(x~x,data.frame(x=1:10),type="l"))},standalone=TRUE)
+    ,xmlSVG({show(ggplot(iris,aes(x=Sepal.Length,y=Sepal.Width,colour=Species))+geom_point())},standalone=TRUE)
+    ,xmlSVG({
+      print(
+        dotplot(variety ~ yield | site , data = barley, groups = year,
+                key = simpleKey(levels(barley$year), space = "right"),
+                xlab = "Barley Yield (bushels/acre) ",
+                aspect=0.5, layout = c(1,6), ylab=NULL)        
+      )
+    },standalone=TRUE
+    )
+  )
+  ,function(sv){
+    paste0(
+      "data:image/svg+xml;utf8,"
+      ,as.character(sv)
+    )
+  }
+)
+```  
+
+```{r}
+slickR(s.in)
+```
+
+```{r}
+slickR(s.in,slideId = c('up','down'),
+       slideIdx = list(1:3,1:3),
+       synchSlides = c('up','down'),
+       slideType = rep('img',3),
+       slickOpts = list(list(slidesToShow=1,slidesToScroll=1),
+                        list(dots=T,slidesToScroll=1,slidesToShow=3,
+                             centerMode=T,focusOnSelect=T)
+                        )
+       )
+```
+
