@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: 2d contours of a 3d surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for geom_contour"><tr><td>geom_contour</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>2d contours of a 3d surface</h2>
+
+<h3>Description</h3>
+
+<p>ggplot2 can not draw true 3d surfaces, but you can use <code>geom_contour</code>
+and <code>geom_tile</code> to visualise 3d surfaces in 2d. To be a valid
+surface, the data must contain only a single row for each unique combination
+of the variables mapped to the <code>x</code> and <code>y</code> aesthetics. Contouring
+tends to work best when <code>x</code> and <code>y</code> form a (roughly) evenly
+spaced grid. If you data is not evenly spaced, you may want to interpolate
+to a grid before visualising.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+geom_contour(mapping = NULL, data = NULL, stat = "contour",
+  position = "identity", ..., lineend = "butt", linejoin = "round",
+  linemitre = 1, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+
+stat_contour(mapping = NULL, data = NULL, geom = "contour",
+  position = "identity", ..., na.rm = FALSE, show.legend = NA,
+  inherit.aes = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mapping</code></td>
+<td>
+<p>Set of aesthetic mappings created by <code>aes</code> or
+<code>aes_</code>. If specified and <code>inherit.aes = TRUE</code> (the
+default), it is combined with the default mapping at the top level of the
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>The data to be displayed in this layer. There are three
+options:
+</p>
+<p>If <code>NULL</code>, the default, the data is inherited from the plot
+data as specified in the call to <code>ggplot</code>.
+</p>
+<p>A <code>data.frame</code>, or other object, will override the plot
+data. All objects will be fortified to produce a data frame. See
+<code>fortify</code> for which variables will be created.
+</p>
+<p>A <code>function</code> will be called with a single argument,
+the plot data. The return value must be a <code>data.frame.</code>, and
+will be used as the layer data.</p>
+</td></tr>
+<tr valign="top"><td><code>stat</code></td>
+<td>
+<p>The statistical transformation to use on the data for this
+layer, as a string.</p>
+</td></tr>
+<tr valign="top"><td><code>position</code></td>
+<td>
+<p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>other arguments passed on to <code>layer</code>. These are
+often aesthetics, used to set an aesthetic to a fixed value, like
+<code>color = "red"</code> or <code>size = 3</code>. They may also be parameters
+to the paired geom/stat.</p>
+</td></tr>
+<tr valign="top"><td><code>lineend</code></td>
+<td>
+<p>Line end style (round, butt, square)</p>
+</td></tr>
+<tr valign="top"><td><code>linejoin</code></td>
+<td>
+<p>Line join style (round, mitre, bevel)</p>
+</td></tr>
+<tr valign="top"><td><code>linemitre</code></td>
+<td>
+<p>Line mitre limit (number greater than 1)</p>
+</td></tr>
+<tr valign="top"><td><code>na.rm</code></td>
+<td>
+<p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p>
+</td></tr>
+<tr valign="top"><td><code>show.legend</code></td>
+<td>
+<p>logical. Should this layer be included in the legends?
+<code>NA</code>, the default, includes if any aesthetics are mapped.
+<code>FALSE</code> never includes, and <code>TRUE</code> always includes.</p>
+</td></tr>
+<tr valign="top"><td><code>inherit.aes</code></td>
+<td>
+<p>If <code>FALSE</code>, overrides the default aesthetics,
+rather than combining with them. This is most useful for helper functions
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. <code>borders</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>geom</code></td>
+<td>
+<p>The geometric object to use display the data</p>
+</td></tr>
+</table>
+
+
+<h3>Aesthetics</h3>
+
+<p><code>geom_contour</code> understands the following aesthetics (required aesthetics are in bold):
+</p>
+
+<ul>
+<li> <p><code><strong>x</strong></code>
+</p>
+</li>
+<li> <p><code><strong>y</strong></code>
+</p>
+</li>
+<li> <p><code>alpha</code>
+</p>
+</li>
+<li> <p><code>colour</code>
+</p>
+</li>
+<li> <p><code>group</code>
+</p>
+</li>
+<li> <p><code>linetype</code>
+</p>
+</li>
+<li> <p><code>size</code>
+</p>
+</li>
+<li> <p><code>weight</code>
+</p>
+</li></ul>
+
+
+
+
+<h3>Computed variables</h3>
+
+
+<dl>
+<dt>level</dt><dd><p>height of contour</p>
+</dd>
+</dl>
+
+
+
+<h3>See Also</h3>
+
+<p><code>geom_density_2d</code>: 2d density contours
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#' # Basic plot
+v &lt;- ggplot(faithfuld, aes(waiting, eruptions, z = density))
+v + geom_contour()
+
+# Or compute from raw data
+ggplot(faithful, aes(waiting, eruptions)) +
+  geom_density_2d()
+
+
+# Setting bins creates evenly spaced contours in the range of the data
+v + geom_contour(bins = 2)
+v + geom_contour(bins = 10)
+
+# Setting binwidth does the same thing, parameterised by the distance
+# between contours
+v + geom_contour(binwidth = 0.01)
+v + geom_contour(binwidth = 0.001)
+
+# Other parameters
+v + geom_contour(aes(colour = ..level..))
+v + geom_contour(colour = "red")
+v + geom_raster(aes(fill = density)) +
+  geom_contour(colour = "white")
+
+</pre>
+
+
+</body></html>
