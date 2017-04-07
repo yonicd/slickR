@@ -2,12 +2,14 @@
 title: "slickR"
 author: "Jonathan Sidi"
 date: "April 7, 2017"
-output: html_document
+output: 
+  html_document: 
+    self_contained: false
 ---
 
 <a href="https://github.com/yonicd/" target="_blank">Jonathan Sidi</a>, <a href="http://metrumrg.com/opensourcetools.html" target="_blank">Metrum Research Group</a>
 
-We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self described as "the last carousel you'll ever need". This carousel is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, plots, tables, gifs, videos, iframes and even htmlwidgets.
+We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self-described as "the last carousel you'll ever need". This carousel is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, plots, tables, gifs, videos, iframes and even htmlwidgets.
 
 This tool helps review multiple outputs in an efficient manner and saves much needed space in documents and Shiny applications, while creating a user friendly experience.
 
@@ -115,7 +117,7 @@ slickR(
 
 ### Replace dots with Images
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 
 cP2=JS("function(slick,index) {return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';}")
 
@@ -131,13 +133,12 @@ s1 <- slickR(
     focusOnSelect = T,
     dots = T,
     customPaging = cP2
-  ),height = 100,width='100%'
+  ),height = 200,width='100%'
 )
 
 #Putting it all together in one slickR call
 s2 <- htmltools::tags$script(
-  sprintf("var dotObj = %s", 
-          jsonlite::toJSON(teamImg))
+  sprintf("var dotObj = %s", jsonlite::toJSON(teamImg))
 )
 
 htmltools::browsable(htmltools::tagList(s2, s1))
@@ -193,9 +194,9 @@ slickR(rep(s.in,each=5),slideId = c('ex5up','ex5down'),
 
 Since the carousel can accept any html element we can place iframes in the carousel.
 
-There are times when you would want to put in different DOMs than an image in slick. Using slideType you can specify which DOM is used in the slides. 
+There are times when you may want to put in different DOMs rather than an image in slick. Using slideType you can specify which DOM is used in the slides. 
 
-For example lets put the help Rd files from ggplot2 into a slider using the helper function getHelp. (Dont forget to open the output to an browser to view the iframe contents).
+For example lets put the help Rd files from ggplot2 into a slider using the helper function getHelp. (Dont forget to open the output to a browser to view the iframe contents).
 
 ```{r eval=TRUE}
 geom_filenames=ls("package:ggplot2",pattern = '^geom')
@@ -208,25 +209,24 @@ slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideId = 'ex6',sl
 Finally, we can really leverage R and place self contained htmlwidgets in iframes (like leaflets and plotly) and use them in a carousel. This solves a problem of how to run many htmlwidgets at once outside of Shiny.
 
 ```{r eval=TRUE}
+suppressMessages({
 library(leaflet)
 library(plotly)
+})
+
+l <- leaflet() %>% addTiles()
+htmlwidgets::saveWidget(l,'leaflet.html')
 
 p <- iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
 pL= ggplotly(p)
 htmlwidgets::saveWidget(pL,'ggplotly.html')
 
-slickR(rep(paste0(readLines('ggplotly.html'),collapse='\n'),4),
-       slideType = 'iframe',
-       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2)),
-       height='200px',width='100%')
+slickR(c(rep(paste0(readLines('leaflet.html'),collapse='\n'),4),
+         rep(paste0(readLines('ggplotly.html'),collapse='\n'),4)),
+       slideId = c('leaf','plot'),
+       slideIdx = list(1:4,5:8),
+       slideType = rep('iframe',2),
+       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2),
+                        list(dots=T,slidesToShow=2,slidesToScroll=2)),
+       height='400px',width='100%')
 ```
-
-<hr>
-<em>
-Jonathan Sidi joined Metrum Research Group in 2016 after working for several years on problems in applied statistics, financial stress testing and economic forecasting in both industrial and academic settings.
-
-To learn more about additional open-source software packages developed by Metrum Research Group please visit the Metrum <a href="http://metrumrg.com/opensourcetools.html" target="_blank">website</a>.
-
-Contact: For questions and comments, feel free to email me at: yonis@metrumrg.com or open an issue for bug fixes or enhancements at <a href="https://github.com/metrumresearchgroup/ggedit/issues" target="_blank">github</a>.
-</em>
-</div>
