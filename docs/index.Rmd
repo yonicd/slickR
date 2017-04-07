@@ -1,4 +1,9 @@
-# slickR
+---
+title: "slickR"
+author: "Jonathan Sidi"
+date: "April 7, 2017"
+output: html_document
+---
 
 <a href="https://github.com/yonicd/" target="_blank">Jonathan Sidi</a>, <a href="http://metrumrg.com/opensourcetools.html" target="_blank">Metrum Research Group</a>
 
@@ -202,28 +207,19 @@ slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideId = 'ex6',sl
 
 Finally, we can really leverage R and place self contained htmlwidgets in iframes (like leaflets and plotly) and use them in a carousel. This solves a problem of how to run many htmlwidgets at once outside of Shiny.
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 library(leaflet)
 library(plotly)
-
-l <- leaflet() %>% addTiles()
-htmlwidgets::saveWidget(l,'leaflet.html')
 
 p <- iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
 pL= ggplotly(p)
 htmlwidgets::saveWidget(pL,'ggplotly.html')
 
-slickR(c(rep(paste0(readLines('leaflet.html'),collapse='\n'),4),
-         rep(paste0(readLines('ggplotly.html'),collapse='\n'),4)),
-       slideId = c('leaf','plot'),
-       slideIdx = list(1:4,5:8),
-       slideType = rep('iframe',2),
-       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2),
-                        list(dots=T,slidesToShow=2,slidesToScroll=2)),
+slickR(rep(paste0(readLines('ggplotly.html'),collapse='\n'),4),
+       slideType = 'iframe',
+       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2)),
        height='200px',width='100%')
 ```
-
-![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRnestingWidgets.gif)
 
 <hr>
 <em>
