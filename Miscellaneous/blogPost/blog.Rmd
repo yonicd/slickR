@@ -7,13 +7,16 @@ output: html_document
 
 We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self described as "the last carousel you'll ever need", and it doesn't oversell. This carousel is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, gifs, videos, iframes. 
 
+Since slickR is an htmlwidget it can be used in an Rstudio viewer, an rmarkdown output (like this document) and Shiny applications. This tool can help review multiple outputs in an efficient manner and save much needed space in documents and shiny applications, while creating a user friendly experience.
+
 In R we can focus on a few outputs that are created in a regular workflow that can be placed in the carousel: 
 
   - images, plots, tables, htmlwidgets
 
+
 ![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRnestingWidgets.gif)
 
-Since slickR is an htmlwidget it can be used in an Rstudio viewer, an rmarkdown output (like this document) and Shiny applications. This tool can help review multiple outputs in an efficient manner and save much needed space in documents and shiny applications, while creating a user friendly experience.
+# Examples
 
 There are many options within the slick carousel, to get get started with the basics we will show a few examples in the rest of the post.
 
