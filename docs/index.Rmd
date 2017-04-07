@@ -1,44 +1,43 @@
----
-title: "slickR"
-author: "Jonathan Sidi"
-date: "April 2, 2017"
-output: 
-  html_document:
-    self_contained: false
----
+# slickR
 
-We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self described as "the last carousel you'll ever need", and it doesn't oversell. This carousel is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, gifs, videos, iframes. 
+<a href="https://github.com/yonicd/" target="_blank">Jonathan Sidi</a>, <a href="http://metrumrg.com/opensourcetools.html" target="_blank">Metrum Research Group</a>
 
-Since slickR is an htmlwidget it can be used in an Rstudio viewer, an rmarkdown output (like this document) and Shiny applications. This tool can help review multiple outputs in an efficient manner and save much needed space in documents and shiny applications, while creating a user friendly experience.
+We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self described as "the last carousel you'll ever need". This carousel is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, plots, tables, gifs, videos, iframes and even htmlwidgets.
 
-In R we can focus on a few outputs that are created in a regular workflow that can be placed in the carousel: 
+This tool helps review multiple outputs in an efficient manner and saves much needed space in documents and Shiny applications, while creating a user friendly experience.
 
-  - images, plots, tables, htmlwidgets
+These carousels can be used directly from the R console, from RStudio, in Shiny apps and R Markdown documents.
 
+# Installation
+[CRAN](https://cran.r-project.org/web/packages/slickR/index.html)
+```{r eval=FALSE}
+install.packages('slickR')
+```
 
-![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRnestingWidgets.gif)
+[Githhub](https://github.com/metrumresearchgroup/slickR) (dev)
+```{r eval=FALSE}
+devtools::install_github('metrumresearchgroup','slickR')
+```
 
 # Examples
 
-There are many options within the slick carousel, to get get started with the basics we will show a few examples in the rest of the post.
-
 ```{r echo=FALSE}
 suppressMessages({
-library(svglite)
-library(lattice)
-library(ggplot2)
-library(rvest) 
-library(reshape2)
-library(dplyr)
-library(htmlwidgets)
-library(slickR)
+  library(svglite)
+  library(lattice)
+  library(ggplot2)
+  library(rvest) 
+  library(reshape2)
+  library(dplyr)
+  library(htmlwidgets)
+  library(slickR)
 })
 ```
 
 # Images
 
 Some web scraping for the images example....
-```{r}
+```{r eval=TRUE}
 #NBA Team Logos
 nbaTeams=c("ATL","BOS","BKN","CHA","CHI","CLE","DAL","DEN","DET","GSW",
     "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
@@ -60,7 +59,7 @@ playerTable$img=sprintf('http://a.espncdn.com/combiner/i?img=/i/headshots/nba/pl
 
 ## Simple carousel
 Let's start easy: show the team logos one at a time with dots underneath
-```{r}
+```{r eval=TRUE}
 slickR(obj = teamImg,slideId = 'ex1',height = 100,width='100%')
 ```
 
@@ -68,7 +67,7 @@ slickR(obj = teamImg,slideId = 'ex1',height = 100,width='100%')
 
 There are players on each team, so lets group the starting five together and have each dot correspond with a team:
 
-```{r}
+```{r eval=TRUE}
 slickR(
   obj = playerTable$img,
   slideId = c('ex2'),
@@ -83,14 +82,13 @@ slickR(
 )
 ```
 
-
 ## Replacing the dots
 
-Sometimes the dots won't be informative enough so we can switch them with an HTML object
+Sometimes the dots won't be informative enough so we can switch them with an HTML object, such as text or other images. We can pass to the customPaging argument javascript code using the `htmlwidgets::JS` function. 
 
-We can pass to the customPaging argument javascript code using the `htmlwidgets::JS` function. In the following example we replace the dots with the index number of the dot in the carousel. 
+### Replace dots with text
 
-```{r}
+```{r eval=TRUE}
 
 cP1=JS("function(slick,index) {return '<a>'+(index+1)+'</a>';}")
 
@@ -110,11 +108,41 @@ slickR(
 )
 ```
 
+### Replace dots with Images
+
+```{r eval=TRUE}
+
+cP2=JS("function(slick,index) {return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';}")
+
+
+#Replace dots with Images
+s1 <- slickR(
+  obj = playerTable$img,
+  dotObj = teamImg,
+  slickOpts = list(
+    initialSlide = 0,
+    slidesToShow = 5,
+    slidesToScroll = 5,
+    focusOnSelect = T,
+    dots = T,
+    customPaging = cP2
+  ),height = 100,width='100%'
+)
+
+#Putting it all together in one slickR call
+s2 <- htmltools::tags$script(
+  sprintf("var dotObj = %s", 
+          jsonlite::toJSON(teamImg))
+)
+
+htmltools::browsable(htmltools::tagList(s2, s1))
+```
+
 # Plots
 
 To place plots directly into slickR we use svglite to convert a plot into svg code using xmlSVG and then convert it into a character object
 
-```{r}
+```{r eval=TRUE}
 plotsToSVG=list(
   #Standard Plot
     xmlSVG({plot(1:10)},standalone=TRUE),
@@ -135,7 +163,7 @@ plotsToSVG=list(
 s.in=sapply(plotsToSVG,function(sv){paste0("data:image/svg+xml;utf8,",as.character(sv))})
 ```  
 
-```{r}
+```{r eval=TRUE}
 slickR(s.in,slideId = 'ex4',slickOpts = list(dots=T), height = 200,width = '100%')
 ```
 
@@ -143,7 +171,7 @@ slickR(s.in,slideId = 'ex4',slickOpts = list(dots=T), height = 200,width = '100%
 
 There are instances when you have many outputs at once and do not want to go through all, so you can combine two carousels one for viewing and one for searching.
 
-```{r}
+```{r eval=TRUE}
 slickR(rep(s.in,each=5),slideId = c('ex5up','ex5down'),
        slideIdx = list(1:20,1:20),
        synchSlides = c('ex5up','ex5down'),
@@ -156,11 +184,6 @@ slickR(rep(s.in,each=5),slideId = c('ex5up','ex5down'),
        )
 ```
 
-
-# Iframes0
-
-Since the carousel can accept any html element we can place iframes in the carousel.
-
 # Iframes
 
 Since the carousel can accept any html element we can place iframes in the carousel.
@@ -169,16 +192,15 @@ There are times when you would want to put in different DOMs than an image in sl
 
 For example lets put the help Rd files from ggplot2 into a slider using the helper function getHelp. (Dont forget to open the output to an browser to view the iframe contents).
 
-```{r}
+```{r eval=TRUE}
 geom_filenames=ls("package:ggplot2",pattern = '^geom')
 
 slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideId = 'ex6',slideType = 'iframe',height = '400px',width='100%',slickOpts = list(dots=T,slidesToShow=2,slidesToScroll=2))
 ```
 
-
 ## htmlwidgets
 
-Finally, we can really leverage R and place self contained htmlwidgets in iframes, like leaflets, plotly and use them in a carousel. This solves a problem of how to run many htmlwidgets at once outside of Shiny.
+Finally, we can really leverage R and place self contained htmlwidgets in iframes (like leaflets and plotly) and use them in a carousel. This solves a problem of how to run many htmlwidgets at once outside of Shiny.
 
 ```{r eval=FALSE}
 library(leaflet)
@@ -202,3 +224,13 @@ slickR(c(rep(paste0(readLines('leaflet.html'),collapse='\n'),4),
 ```
 
 ![](https://raw.githubusercontent.com/yonicd/slickR/master/Miscellaneous/Multimedia/gif/slickRnestingWidgets.gif)
+
+<hr>
+<em>
+Jonathan Sidi joined Metrum Research Group in 2016 after working for several years on problems in applied statistics, financial stress testing and economic forecasting in both industrial and academic settings.
+
+To learn more about additional open-source software packages developed by Metrum Research Group please visit the Metrum <a href="http://metrumrg.com/opensourcetools.html" target="_blank">website</a>.
+
+Contact: For questions and comments, feel free to email me at: yonis@metrumrg.com or open an issue for bug fixes or enhancements at <a href="https://github.com/metrumresearchgroup/ggedit/issues" target="_blank">github</a>.
+</em>
+</div>
