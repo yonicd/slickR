@@ -21,6 +21,10 @@ HTMLWidgets.widget({
                 var divEl = document.createElement("div");
                 var newEl = document.createElement(objType);
                 newEl.style.height=height;
+
+                newEl.style.marginLeft='auto';
+                newEl.style.marginRight='auto';
+                
                 divEl.appendChild(newEl);
                 
                 switch (objType) {
@@ -35,7 +39,7 @@ HTMLWidgets.widget({
                 }
                 
                 newEl.style.width=width;
-                
+
                 mainDiv.appendChild(divEl);
               }
               return mainDiv;
