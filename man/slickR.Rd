@@ -22,7 +22,7 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 
 \item{synchSlides}{character, slideId names of sliders are synchronized}
 
-\item{padding}{character, percent of width between each image in the carousel for each slider, Default: '1%'}
+\item{padding}{character, percent of width between each image in the carousel for each slider, Default: '1\%'}
 
 \item{dotObj}{list, character vectors of url or images to replace dots with (see details)}
 
