@@ -28,7 +28,7 @@ devtools::install_github('metrumresearchgroup/slickR')
 
 # Examples
 
-```{r echo=FALSE}
+```{r}
 suppressMessages({
   library(svglite)
   library(lattice)
@@ -38,6 +38,7 @@ suppressMessages({
   library(dplyr)
   library(htmlwidgets)
   library(slickR)
+  library(xml2)
 })
 ```
 
