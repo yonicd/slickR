@@ -6,8 +6,8 @@
 \usage{
 slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
   slideType = c("img"), slickOpts = list(dots = TRUE), synchSlides = NULL,
-  padding = "1\%", dotObj = NULL, width = NULL, height = NULL,
-  elementId = NULL)
+  padding = rep("1\%", length(obj)), dotObj = NULL, width = NULL,
+  height = NULL, elementId = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
