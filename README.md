@@ -15,7 +15,7 @@ This tool helps review multiple outputs in an efficient manner and saves much ne
 These carousels can be used directly from the R console, from RStudio, in Shiny apps and R Markdown documents.
 
 ### Installation
-[CRAN](https://cran.r-project.org/web/packages/slickR/index.html)
+[CRAN](https://cran.r-project.org/package=slickR)
 ```r
 install.packages('slickR')
 ```
