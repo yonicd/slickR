@@ -8,6 +8,7 @@
 #' @param synchSlides character, slideId names of sliders are synchronized
 #' @param slickOpts list, list of attributes for each slider, see details
 #' @param dotObj list, character vectors of url or images to replace dots with (see details)
+#' @param padding character, percent of width between each image in the carousel for each slider, Default: '1%'
 #' @param width character, width of htmlwidget
 #' @param height character, height of htmlwidget
 #' @param elementId character, id tag of htmlwidget
@@ -36,8 +37,9 @@ slickR <- function(obj ,
                    slideId='baseDiv',
                    slideIdx=list(1:length(obj)),
                    slideType=c('img'),
-                   slickOpts=list(dots=T),
+                   slickOpts=list(dots=TRUE),
                    synchSlides=NULL,
+                   padding='1%',
                    dotObj=NULL,
                    width = NULL, 
                    height = NULL,
@@ -59,25 +61,25 @@ slickR <- function(obj ,
     
     if(length(x[[xId]]$obj)>1) x[[xId]]$obj=unlist(x[[xId]]$obj)
     
-    x[[xId]]$divName=slideId[xId]
-    x[[xId]]$divType=slideType[[xId]]
-
-    x[[xId]]$obj=obj[slideIdx[[xId]]]
+    x[[xId]]$divName <- slideId[xId]
+    x[[xId]]$divType <- slideType[[xId]]
+    x[[xId]]$padding <- paste0(100-as.numeric(gsub('%','',padding[[xId]])),'%')
+    x[[xId]]$obj <- obj[slideIdx[[xId]]]
     
     if(length(slickOpts)>0){
       if(all(sapply(slickOpts,class)=='list')){
-        sOL=slickOpts[[xId]]
+        sOL <- slickOpts[[xId]]
       }else{
-        sOL=slickOpts
+        sOL <- slickOpts
       } 
 
-      if(!is.null(synchSlides)){
-        sOL$asNavFor=sprintf(".%s",synchSlides[!(synchSlides%in%slideId[xId])])
-      }
-    
-      if(!is.null(dotObj)) x[[xId]]$dotObj=dotObj
+      if(!is.null(synchSlides))
+        sOL$asNavFor <- sprintf(".%s",synchSlides[!(synchSlides%in%slideId[xId])])
       
-      if(!is.null(sOL[[1]])) x[[xId]]$slickOpts=sOL
+    
+      if(!is.null(dotObj)) x[[xId]]$dotObj <- dotObj
+      
+      if(!is.null(sOL[[1]])) x[[xId]]$slickOpts <- sOL
     }
   }
 

@@ -5,8 +5,9 @@
 \title{slick.js image carousel htmlwidget}
 \usage{
 slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
-  slideType = c("img"), slickOpts = list(dots = T), synchSlides = NULL,
-  dotObj = NULL, width = NULL, height = NULL, elementId = NULL)
+  slideType = c("img"), slickOpts = list(dots = TRUE), synchSlides = NULL,
+  padding = "1\%", dotObj = NULL, width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
@@ -20,6 +21,8 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 \item{slickOpts}{list, list of attributes for each slider, see details}
 
 \item{synchSlides}{character, slideId names of sliders are synchronized}
+
+\item{padding}{character, percent of width between each image in the carousel for each slider, Default: '1%'}
 
 \item{dotObj}{list, character vectors of url or images to replace dots with (see details)}
 
