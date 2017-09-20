@@ -53,17 +53,34 @@ HTMLWidgets.widget({
                   
                   $("."+x[j].divName).slick(x[j].slickOpts);
                
-                    $("."+x[j].divName).on('click','.slick-slide', function(event, slick, currentSlide){
-                      clickedIndex = $(this).data('slickIndex');
+                  thisDiv = $("."+x[j].divName);
+               
+                  
+               
+                    $("."+x[j].divName).on('click','.slick-slide', function(e){
+
+                      centerIdx = ($('.slick-slider').slick('slickCurrentSlide') + 1 );
+                      clickIdx = ($(this).data('slickIndex') + 1 );
+                      totIdx = $('.slick-slider').slick("getSlick").slideCount;
+                      
+                      absclickIdx = clickIdx;
+                      
+                      //Reset the clicked index from relative to absolute
+                      if( clickIdx > totIdx) absclickIdx = clickIdx - totIdx;
+                      if( clickIdx < 1 ) absclickIdx = totIdx + clickIdx;
+
                       if(typeof(Shiny) !== "undefined"){
-                        Shiny.onInputChange(el.id + "_clicked",{
-                          ".clicked_index": clickedIndex + 1,
-                          ".clicked_slide": j
+                        Shiny.onInputChange(el.id + "_current",{
+                          ".clicked": absclickIdx,
+                          ".relative_clicked": clickIdx,
+                          ".center": centerIdx,
+                          ".total": totIdx,
+                          ".slider_index": $(thisDiv).attr('class').split(' ')[0]
                         });
                       }
                     });
                     
-                $("."+x[j].divName).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                /*$("."+x[j].divName).on('beforeChange', function(event, slick, currentSlide, nextSlide){
                      if(typeof(Shiny) !== "undefined"){
               Shiny.onInputChange(el.id + "_active",{
                 ".active_index": nextSlide + 1,
@@ -71,7 +88,7 @@ HTMLWidgets.widget({
               });
               
               }
-                  });
+                  });*/
                   
                 }
             }

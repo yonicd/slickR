@@ -8,37 +8,36 @@ library(shiny)
 server <- function(input, output) {
   
   output$slick <- renderSlickR({
-    slickR(s.in(),slickOpts = list(slidesToShow=3, centerMode=TRUE))
+    
+    slickR(s.in(),slideId = 'myId',
+           slickOpts = list(list(slidesToShow=3,centerMode=TRUE))
+    )
   })
   
   network <- shiny::reactiveValues()
   
-  shiny::observeEvent(input$slick_active,{
-    active_selection <- input$slick_active$.active_index
-    active_slide <- input$slick_active$.active_slide
+  shiny::observeEvent(input$slick_current,{
+    clicked_slide <- input$slick_current$.clicked
+    relative_clicked <- input$slick_current$.relative_clicked
+    center_slide <- input$slick_current$.center
+    total_slide <- input$slick_current$.total
+    active_slide <- input$slick_current$.slide
     
-    if(!is.null(active_selection)){
-      network$active_index <- active_selection
+    if(!is.null(clicked_slide)){
+      network$clicked_slide <- clicked_slide
+      network$center_slide <- center_slide
+      network$relative_clicked <- relative_clicked
+      network$total_slide <- total_slide
       network$active_slide <- active_slide
       }
   })
   
-  shiny::observeEvent(input$slick_clicked,{
-    clicked_selection <- input$slick_clicked$.clicked_index
-    clicked_slide <- input$slick_clicked$.clicked_slide
-    
-    if(!is.null(clicked_selection)){
-      network$clicked_index <- clicked_selection
-      network$clicked_slide <- clicked_slide
-    }
+
+  output$current <- renderText({
+    l <- shiny::reactiveValuesToList(network)
+    paste(names(l), unlist(l),sep='=',collapse='\n')
   })
-  
-  output$active <- renderText(sprintf('active slide: %s, active object %s',
-                                     network$active_slide,network$active_index))
-  
-  output$clicked <- renderText(sprintf('clicked slide: %s, clicked object %s',
-                                        network$clicked_slide,network$clicked_index))
-  
+
   s.in=reactive({
     sapply(
       list(
@@ -70,9 +69,8 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100),
-      shiny::verbatimTextOutput('active'),
-      shiny::verbatimTextOutput('clicked')
-    ),
+      shiny::verbatimTextOutput('current')
+      ),
     mainPanel(slickROutput("slick",width='400px',height='400px'))
   )
 )
