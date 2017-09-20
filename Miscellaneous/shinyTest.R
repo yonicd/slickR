@@ -8,22 +8,36 @@ library(shiny)
 server <- function(input, output) {
   
   output$slick <- renderSlickR({
-    slickR(s.in())
+    slickR(s.in(),slickOpts = list(slidesToShow=3, centerMode=TRUE))
   })
   
   network <- shiny::reactiveValues()
   
-  shiny::observeEvent(input$slick_update,{
-    current_selection <- input$slick_update$.current_index
-    current_slide <- input$slick_update$.current_slide
+  shiny::observeEvent(input$slick_active,{
+    active_selection <- input$slick_active$.active_index
+    active_slide <- input$slick_active$.active_slide
     
-    if(!is.null(current_selection)){
-      network$index <- current_selection
-      network$slide <- current_slide
+    if(!is.null(active_selection)){
+      network$active_index <- active_selection
+      network$active_slide <- active_slide
       }
   })
   
-  output$index <- renderText(sprintf('slide: %s, object %s',network$slide,network$index))    
+  shiny::observeEvent(input$slick_clicked,{
+    clicked_selection <- input$slick_clicked$.clicked_index
+    clicked_slide <- input$slick_clicked$.clicked_slide
+    
+    if(!is.null(clicked_selection)){
+      network$clicked_index <- clicked_selection
+      network$clicked_slide <- clicked_slide
+    }
+  })
+  
+  output$active <- renderText(sprintf('active slide: %s, active object %s',
+                                     network$active_slide,network$active_index))
+  
+  output$clicked <- renderText(sprintf('clicked slide: %s, clicked object %s',
+                                        network$clicked_slide,network$clicked_index))
   
   s.in=reactive({
     sapply(
@@ -56,7 +70,8 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100),
-      shiny::verbatimTextOutput('index')
+      shiny::verbatimTextOutput('active'),
+      shiny::verbatimTextOutput('clicked')
     ),
     mainPanel(slickROutput("slick",width='400px',height='400px'))
   )
