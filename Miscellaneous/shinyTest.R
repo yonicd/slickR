@@ -6,9 +6,24 @@ library(shiny)
 
 
 server <- function(input, output) {
-  output$distPlot <- renderSlickR({
+  
+  output$slick <- renderSlickR({
     slickR(s.in())
   })
+  
+  network <- shiny::reactiveValues()
+  
+  shiny::observeEvent(input$slick_update,{
+    current_selection <- input$slick_update$.current_index
+    current_slide <- input$slick_update$.current_slide
+    
+    if(!is.null(current_selection)){
+      network$index <- current_selection
+      network$slide <- current_slide
+      }
+  })
+  
+  output$index <- renderText(sprintf('slide: %s, object %s',network$slide,network$index))    
   
   s.in=reactive({
     sapply(
@@ -34,14 +49,16 @@ server <- function(input, output) {
       }
     )
   })
+
 }
 
 ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
-      sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100)
+      sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100),
+      shiny::verbatimTextOutput('index')
     ),
-    mainPanel(slickROutput("distPlot",width='400px',height='400px'))
+    mainPanel(slickROutput("slick",width='400px',height='400px'))
   )
 )
 

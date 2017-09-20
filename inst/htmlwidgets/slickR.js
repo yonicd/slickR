@@ -11,6 +11,7 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
+        
             function buildDiv(obj,objType,cl,width,height){
               var len = obj.length,i = 0;
 							var mainDiv = document.createElement("div");
@@ -52,8 +53,23 @@ HTMLWidgets.widget({
                   buildDiv(x[j].obj,x[j].divType,x[j].divName,x[j].padding,height+'px');
                   
                   $("."+x[j].divName).slick(x[j].slickOpts);
+
+        
+                  $("."+x[j].divName).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                     if(typeof(Shiny) !== "undefined"){
+              Shiny.onInputChange(el.id + "_update",{
+                ".current_index": nextSlide + 1,
+                ".current_slide": j
+              });
+              
+              }
+                  });
+                  
                 }
             }
+            
+  
+
           },
 
       resize: function(width, height) {
