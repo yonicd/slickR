@@ -21,7 +21,7 @@ install.packages('slickR')
 
 [Githhub](https://github.com/metrumresearchgroup/slickR) (dev)
 ```r
-devtools::install_github('metrumresearchgroup','slickR')
+devtools::install_github('metrumresearchgroup/slickR')
 ```
 
 ### Examples
