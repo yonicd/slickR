@@ -8,9 +8,8 @@ library(shiny)
 server <- function(input, output) {
   
   output$slick <- renderSlickR({
-    
-    slickR(s.in(),slideId = 'myId',
-           slickOpts = list(list(slidesToShow=3,centerMode=TRUE))
+    slickR(s.in(),height = 600,slideId = 'myId',
+           slickOpts = list(slidesToShow=3,centerMode=TRUE)
     )
   })
   
@@ -35,7 +34,7 @@ server <- function(input, output) {
 
   output$current <- renderText({
     l <- shiny::reactiveValuesToList(network)
-    paste(names(l), unlist(l),sep='=',collapse='\n')
+    paste(gsub('_',' ',names(l)), unlist(l),sep=' = ',collapse='\n')
   })
 
   s.in=reactive({
@@ -71,7 +70,7 @@ ui <- fluidPage(
       sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100),
       shiny::verbatimTextOutput('current')
       ),
-    mainPanel(slickROutput("slick",width='400px',height='400px'))
+    mainPanel(slickROutput("slick",width='100%',height='200px'))
   )
 )
 

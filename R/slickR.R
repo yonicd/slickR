@@ -54,7 +54,7 @@ slickR <- function(obj ,
   if(!is.character(obj)) break('obj must be a character vector')
   
   obj=lapply(obj,function(x){
-    if(!grepl('www|http|https|data:image/|body',x)) x=readImage(x)
+    if(!grepl('www[.]|http|https|data:image/|body',x)) x=readImage(x)
     x
   })
   
