@@ -9,3 +9,7 @@
   text-align: center;
   width: 100%;
 }
+
+.slick-slide img {
+	width: auto !important;
+}

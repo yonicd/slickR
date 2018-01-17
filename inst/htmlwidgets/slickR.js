@@ -11,21 +11,21 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-            function buildDiv(obj,objType,cl,width,height){
+            function buildDiv(obj,objType,cl,link,width,height){
               var len = obj.length,i = 0;
 							var mainDiv = document.createElement("div");
               mainDiv.className = cl;
               el.appendChild(mainDiv);
               
               for(i=0; i < len; i++ ){
+                
                 var divEl = document.createElement("div");
                 var newEl = document.createElement(objType);
+                
                 newEl.style.height=height;
 
                 newEl.style.marginLeft='auto';
                 newEl.style.marginRight='auto';
-                
-                divEl.appendChild(newEl);
                 
                 switch (objType) {
                   
@@ -40,6 +40,21 @@ HTMLWidgets.widget({
                 
                 newEl.style.width=width;
 
+                if(link[i]&&objType=='img'){
+                  
+                  var pEl = document.createElement("p");
+                  var aEl = document.createElement("a");
+                  aEl.href = link[i];
+                  aEl.target="_blank";
+                  aEl.appendChild(newEl);
+                  divEl.appendChild(aEl); 
+                
+                }else{
+                  
+                 divEl.appendChild(newEl); 
+                 
+                }
+                
                 mainDiv.appendChild(divEl);
               }
               return mainDiv;
@@ -49,14 +64,19 @@ HTMLWidgets.widget({
                for(j=0;j<x.length;j++){
                   if(x[j].dotObj) var dotObj=x[j].dotObj;
                   $("."+x[j].divName).detach();
-                  buildDiv(x[j].obj,x[j].divType,x[j].divName,x[j].padding,height+'px');
+
+                  buildDiv(
+                    x[j].obj,
+                    x[j].divType,
+                    x[j].divName,
+                    x[j].links,
+                    x[j].padding,
+                    height+'px');
                   
                   $("."+x[j].divName).slick(x[j].slickOpts);
                
                   thisDiv = $("."+x[j].divName);
-               
-                  
-               
+
                     $("."+x[j].divName).on('click','.slick-slide', function(e){
 
                       centerIdx = ($('.slick-slider').slick('slickCurrentSlide') + 1 );
@@ -79,16 +99,6 @@ HTMLWidgets.widget({
                         });
                       }
                     });
-                    
-                /*$("."+x[j].divName).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                     if(typeof(Shiny) !== "undefined"){
-              Shiny.onInputChange(el.id + "_active",{
-                ".active_index": nextSlide + 1,
-                ".active_slide": j
-              });
-              
-              }
-                  });*/
                   
                 }
             }

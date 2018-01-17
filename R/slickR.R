@@ -4,6 +4,7 @@
 #' @param obj character, vector of path or url to images
 #' @param slideId character, id of slide
 #' @param slideIdx list, numeric indices which images are mapped to which slider
+#' @param objLinks list, links to attach to images in slide
 #' @param slideType character, type of object to put in slide
 #' @param synchSlides character, slideId names of sliders are synchronized
 #' @param slickOpts list, list of attributes for each slider, see details
@@ -41,6 +42,7 @@
 slickR <- function(obj ,
                    slideId='baseDiv',
                    slideIdx=list(1:length(obj)),
+                   objLinks=list(1:length(obj)),
                    slideType=c('img'),
                    slickOpts=list(dots=TRUE),
                    synchSlides=NULL,
@@ -67,6 +69,7 @@ slickR <- function(obj ,
     if(length(x[[xId]]$obj)>1) x[[xId]]$obj=unlist(x[[xId]]$obj)
     
     x[[xId]]$divName <- slideId[xId]
+    x[[xId]]$links <- objLinks[[xId]]
     x[[xId]]$divType <- slideType[[xId]]
     x[[xId]]$padding <- paste0(100-as.numeric(gsub('%','',padding[[xId]])),'%')
     x[[xId]]$obj <- obj[slideIdx[[xId]]]
@@ -91,7 +94,7 @@ slickR <- function(obj ,
   # forward options using x
   
   # create widget
-  htmlwidgets::createWidget(
+  hw <- htmlwidgets::createWidget(
     name = 'slickR',
     x,
     width = width,
@@ -99,6 +102,8 @@ slickR <- function(obj ,
     package = 'slickR',
     elementId = elementId
   )
+  
+  style_widget(hw=hw, "margin-left:auto;margin-right:auto")
 }
 
 #' Shiny bindings for slickR
