@@ -1,5 +1,5 @@
 Package: slickR
-Version: 0.2.3
+Version: 0.2.4
 Date: 2018-01-17
 Title: Create Interactive Carousels with the JavaScript 'Slick' Library
 Authors@R: person("Jonathan", "Sidi", email = "yonis@metrumrg.com", role = c("aut", "cre"))
@@ -20,7 +20,7 @@ Imports:
 Suggests:
     shiny,
     rmarkdown
-License: GPL-2 | GPL-3
+License: MIT + file LICENSE
 URL: https://github.com/metrumresearchgroup/slickR
 BugReports: https://github.com/metrumresearchgroup/slickR/issues
 Encoding: UTF-8
