@@ -34,6 +34,10 @@ HTMLWidgets.widget({
                     newEl.style.height=height;
                   break;
                   
+                  case 'p':
+                    newEl.innerText = obj[i];
+                  break;
+                  
                   default:
                     newEl.src = obj[i];
                 }
