@@ -64,9 +64,15 @@ HTMLWidgets.widget({
               return mainDiv;
             }
 
-        if(x[0].obj){
+        //if(x[0].obj){
                for(j=0;j<x.length;j++){
-                  if(x[j].dotObj) var dotObj=x[j].dotObj;
+                 
+                  if(x[j].dotObj){
+                    
+                    var dotObj=x[j].dotObj;
+                    
+                  } 
+                  
                   $("."+x[j].divName).detach();
 
                   buildDiv(
@@ -77,15 +83,22 @@ HTMLWidgets.widget({
                     x[j].padding,
                     height+'px');
                   
-                  $("."+x[j].divName).slick(x[j].slickOpts);
-               
                   thisDiv = $("."+x[j].divName);
+                  
+                  thisDiv.slick(x[j].slickOpts);
+               
+                  
+                  
+                  toshiny(thisDiv);
+                }
+                
+                function toshiny(thisDiv){
+                  
+                      thisDiv.on('click','.slick-slide', function(e){
 
-                    $("."+x[j].divName).on('click','.slick-slide', function(e){
-
-                      centerIdx = ($('.slick-slider').slick('slickCurrentSlide') + 1 );
-                      clickIdx = ($(this).data('slickIndex') + 1 );
-                      totIdx = $('.slick-slider').slick("getSlick").slideCount;
+                      centerIdx = (thisDiv.slick('slickCurrentSlide') + 1 );
+                      clickIdx  = ($(this).data('slickIndex') + 1 );
+                      totIdx    = thisDiv.slick("getSlick").slideCount;
                       
                       absclickIdx = clickIdx;
                       
@@ -94,20 +107,20 @@ HTMLWidgets.widget({
                       if( clickIdx < 1 ) absclickIdx = totIdx + clickIdx;
 
                       if(typeof(Shiny) !== "undefined"){
-                        
+                        //debugger;
                         Shiny.onInputChange(el.id + "_current",{
                           ".clicked": absclickIdx,
                           ".relative_clicked": clickIdx,
                           ".center": centerIdx,
                           ".total": totIdx,
-                          ".slide": el.id,
-                          //".slider_index": $(thisDiv).attr('class').split(' ')[0]
+                          //".slider": el.id,
+                          ".slider": $(thisDiv).attr('class').split(' ')[0]
                         });
                       }
                     });
-                  
                 }
-            }
+                
+            //}
             
   
 
