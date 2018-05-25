@@ -94,12 +94,14 @@ HTMLWidgets.widget({
                       if( clickIdx < 1 ) absclickIdx = totIdx + clickIdx;
 
                       if(typeof(Shiny) !== "undefined"){
+                        
                         Shiny.onInputChange(el.id + "_current",{
                           ".clicked": absclickIdx,
                           ".relative_clicked": clickIdx,
                           ".center": centerIdx,
                           ".total": totIdx,
-                          ".slider_index": $(thisDiv).attr('class').split(' ')[0]
+                          ".slide": el.id,
+                          //".slider_index": $(thisDiv).attr('class').split(' ')[0]
                         });
                       }
                     });
