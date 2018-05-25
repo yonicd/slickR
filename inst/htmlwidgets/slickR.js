@@ -107,13 +107,11 @@ HTMLWidgets.widget({
                       if( clickIdx < 1 ) absclickIdx = totIdx + clickIdx;
 
                       if(typeof(Shiny) !== "undefined"){
-                        //debugger;
                         Shiny.onInputChange(el.id + "_current",{
                           ".clicked": absclickIdx,
                           ".relative_clicked": clickIdx,
                           ".center": centerIdx,
                           ".total": totIdx,
-                          //".slider": el.id,
                           ".slider": $(thisDiv).attr('class').split(' ')[0]
                         });
                       }
