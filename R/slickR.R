@@ -88,7 +88,6 @@ slickR <- function(obj ,
       if(!is.null(synchSlides))
         sOL$asNavFor <- sprintf(".%s",synchSlides[!(synchSlides%in%slideId[xId])])
       
-    
       if(!is.null(dotObj)) x[[xId]]$dotObj <- dotObj
       
       if(!is.null(sOL[[1]])) x[[xId]]$slickOpts <- sOL
