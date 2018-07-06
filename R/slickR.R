@@ -7,7 +7,7 @@
 #' @param objLinks character, links to attach to images in slide
 #' @param slideType character, type of object to put in slide
 #' @param synchSlides character, slideId names of sliders are synchronized
-#' @param slickOpts list, list of attributes for each slider, see details
+#' @param slickOpts list, attributes for each slider, see details
 #' @param dotObj list, character vectors of url or images to replace dots with (see details)
 #' @param padding character, percent of width between each image in the carousel for each slider, Default: '1\%'
 #' @param width character, width of htmlwidget

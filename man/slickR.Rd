@@ -20,7 +20,7 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 
 \item{slideType}{character, type of object to put in slide}
 
-\item{slickOpts}{list, list of attributes for each slider, see details}
+\item{slickOpts}{list, attributes for each slider, see details}
 
 \item{synchSlides}{character, slideId names of sliders are synchronized}
 
