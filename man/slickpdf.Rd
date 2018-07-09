@@ -4,10 +4,14 @@
 \alias{slickpdf}
 \title{convert pdf to slick}
 \usage{
-slickpdf(obj, img_format = "png", ...)
+slickpdf(obj, obj2 = NULL, synch = TRUE, img_format = "png", ...)
 }
 \arguments{
-\item{obj}{path to pdf(s)}
+\item{obj}{character, path to pdf(s)}
+
+\item{obj2}{character, path to pdf(s) to compare to obj, Default: NULL}
+
+\item{synch}{boolean, if TRUE then obj and obj2 images are synchronized, Default: TRUE}
 
 \item{img_format}{format of image to convert to, Default: 'png'}
 
@@ -20,13 +24,23 @@ slick
 convert multiple pdfs or a multipage pdf to a slick carousel
 }
 \details{
-\href{https://github.com/ropensci/pdftools}{pdftools} must be installed for function to work
+\href{https://github.com/ropensci/pdftools}{pdftools} must be installed for function to work.
 }
 \examples{
 if(interactive()){
-slickpdf('https://cran.r-project.org/web/packages/slickR/slickR.pdf')
 
-slickpdf('https://cran.r-project.org/web/packages/slickR/slickR.pdf',imgFormat = 'svg')
+url <- 'https://cran.r-project.org/web/packages/slickR/slickR.pdf'
+
+slickpdf(url)
+
+slickpdf(url,img_format = 'svg')
+
+slickpdf(url, url, img_format = 'svg')
+
+slickpdf(url, url, img_format = 'svg', height = 400, width ='90\%')
+
+slickpdf(url, url, synch = FALSE, img_format = 'svg', height = 400, width ='90\%')
+
 }
  
  

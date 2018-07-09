@@ -53,8 +53,10 @@ nba=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
 "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS")
 
-nba_logos=sprintf("https://i.cdn.turner.com/nba/nba/.element/img/4.0/
-global/logos/512x512/bg.white/svg/\%s.svg",nba)
+url <- 'https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg'
+
+nba_logos <- 
+sprintf("\%s/\%s.svg", url, nba)
 
 if(interactive()) 
   slickR(obj=nba_logos)
