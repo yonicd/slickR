@@ -22,7 +22,7 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 
 \item{slickOpts}{list, attributes for each slider, see details}
 
-\item{synchSlides}{character, slideId names of sliders are synchronized}
+\item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are synchronized}
 
 \item{padding}{character, percent of width between each image in the carousel for each slider, Default: '1\%'}
 
@@ -60,7 +60,28 @@ sprintf("\%s/\%s.svg", url, nba)
 
 if(interactive()) 
   slickR(obj=nba_logos)
-  
+}
+
+# synching 3 groups
+
+# creating groups
+sx1 <- as.numeric(grepl('C',nba_logos,ignore.case = FALSE))
+sx2 <- as.numeric(grepl('D',nba_logos,ignore.case = FALSE))*2
+sx3 <- sx1 + sx2
+
+# split into list of size 3
+sIdx <- lapply(split(nba_logos,sx3),function(x) match(x,nba_logos))
+
+# synching logic (a,b) and (a,c)
+groups <- expand.grid(list('a',c('b','c')),stringsAsFactors = FALSE)
+
+if(interactive()){ 
+slickR(obj = nba_logos,
+       slideId = c('a','b','c'),
+       slideIdx = sx,
+       slideType = rep('img',3),
+       synchSlides = groups,
+       height = 100)
 }
 
 }

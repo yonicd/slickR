@@ -6,7 +6,7 @@
 #' @param slideIdx list, numeric indices which images are mapped to which slider
 #' @param objLinks character, links to attach to images in slide
 #' @param slideType character, type of object to put in slide
-#' @param synchSlides character, slideId names of sliders are synchronized
+#' @param synchSlides data.frame, rowwise pairs of slideId names of sliders are synchronized
 #' @param slickOpts list, attributes for each slider, see details
 #' @param dotObj list, character vectors of url or images to replace dots with (see details)
 #' @param padding character, percent of width between each image in the carousel for each slider, Default: '1\%'
@@ -36,7 +36,28 @@
 #' 
 #' if(interactive()) 
 #'   slickR(obj=nba_logos)
-#'   
+#' }
+#'
+#' # synching 3 groups
+#' 
+#' # creating groups
+#' sx1 <- as.numeric(grepl('C',nba_logos,ignore.case = FALSE))
+#' sx2 <- as.numeric(grepl('D',nba_logos,ignore.case = FALSE))*2
+#' sx3 <- sx1 + sx2
+#' 
+#' # split into list of size 3
+#' sIdx <- lapply(split(nba_logos,sx3),function(x) match(x,nba_logos))
+#' 
+#' # synching logic (a,b) and (a,c)
+#' groups <- expand.grid(list('a',c('b','c')),stringsAsFactors = FALSE)
+#' 
+#' if(interactive()){ 
+#' slickR(obj = nba_logos,
+#'        slideId = c('a','b','c'),
+#'        slideIdx = sx,
+#'        slideType = rep('img',3),
+#'        synchSlides = groups,
+#'        height = 100)
 #' }
 #'
 #' @import htmlwidgets 
