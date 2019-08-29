@@ -20,6 +20,7 @@ Imports:
     magick
 Suggests:
     stats,
+    svglite,
     rmarkdown,
     pdftools,
     jsonlite,
