@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
       </span>
     </div>
 
@@ -202,32 +202,24 @@ of html DOM you want to be in the slide, eg img, iframe.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>nba</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ATL"</span>,<span class='st'>"BKN"</span>,<span class='st'>"BOS"</span>,<span class='st'>"CHA"</span>,<span class='st'>"CHI"</span>,<span class='st'>"CLE"</span>,<span class='st'>"DAL"</span>,<span class='st'>"DEN"</span>,<span class='st'>"DET"</span>,<span class='st'>"GSW"</span>,
-<span class='st'>"HOU"</span>,<span class='st'>"IND"</span>,<span class='st'>"LAC"</span>,<span class='st'>"LAL"</span>,<span class='st'>"MEM"</span>,<span class='st'>"MIA"</span>,<span class='st'>"MIL"</span>,<span class='st'>"MIN"</span>,<span class='st'>"NOP"</span>,<span class='st'>"NYK"</span>,
-<span class='st'>"OKC"</span>,<span class='st'>"ORL"</span>,<span class='st'>"PHI"</span>,<span class='st'>"PHX"</span>,<span class='st'>"POR"</span>,<span class='st'>"SAC"</span>,<span class='st'>"SAS"</span>,<span class='st'>"TOR"</span>,<span class='st'>"UTA"</span>,<span class='st'>"WAS"</span>)
-
-<span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>'https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg'</span>
-
-<span class='no'>nba_logos</span> <span class='kw'>&lt;-</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sprintf'>sprintf</a></span>(<span class='st'>"%s/%s.svg"</span>, <span class='no'>url</span>, <span class='no'>nba</span>)
 
 <span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()){
-  <span class='fu'>slickR</span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_logos</span>)
+  <span class='fu'>slickR</span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_team_logo</span>$<span class='no'>uri</span>)
 
 <span class='co'># synching 3 groups</span>
 
 <span class='co'># creating groups</span>
-<span class='no'>sx1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>as.numeric</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='st'>'C'</span>,<span class='no'>nba_logos</span>,<span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))
-<span class='no'>sx2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>as.numeric</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='st'>'D'</span>,<span class='no'>nba_logos</span>,<span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))*<span class='fl'>2</span>
+<span class='no'>sx1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>as.numeric</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='st'>'C'</span>,<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,<span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))
+<span class='no'>sx2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>as.numeric</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='st'>'D'</span>,<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,<span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))*<span class='fl'>2</span>
 <span class='no'>sx3</span> <span class='kw'>&lt;-</span> <span class='no'>sx1</span> + <span class='no'>sx2</span>
 
 <span class='co'># split into list of size 3</span>
-<span class='no'>sIdx</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/lapply'>lapply</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/split'>split</a></span>(<span class='no'>nba_logos</span>,<span class='no'>sx3</span>),<span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/match'>match</a></span>(<span class='no'>x</span>,<span class='no'>nba_logos</span>))
+<span class='no'>sIdx</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/lapply'>lapply</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/split'>split</a></span>(<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,<span class='no'>sx3</span>),<span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/match'>match</a></span>(<span class='no'>x</span>,<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>))
 
 <span class='co'># synching logic (a,b) and (a,c)</span>
 <span class='no'>groups</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/expand.grid'>expand.grid</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='st'>'a'</span>,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>'b'</span>,<span class='st'>'c'</span>)),<span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
-<span class='fu'>slickR</span>(<span class='kw'>obj</span> <span class='kw'>=</span> <span class='no'>nba_logos</span>,
+<span class='fu'>slickR</span>(<span class='kw'>obj</span> <span class='kw'>=</span> <span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,
        <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>'a'</span>,<span class='st'>'b'</span>,<span class='st'>'c'</span>),
        <span class='kw'>slideIdx</span> <span class='kw'>=</span> <span class='no'>sx</span>,
        <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='st'>'img'</span>,<span class='fl'>3</span>),

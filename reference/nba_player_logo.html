@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Authors • slickR</title>
+<title>nba_player_logo — nba_player_logo • slickR</title>
 
 
 <!-- jquery -->
@@ -27,13 +27,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Authors" />
+<meta property="og:title" content="nba_player_logo — nba_player_logo" />
+<meta property="og:description" content="NBA player logo URI" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -51,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-authors">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -63,7 +65,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">slickR</a>
+        <a class="navbar-link" href="../index.html">slickR</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
       </span>
     </div>
@@ -71,13 +73,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -87,18 +89,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/pdfs.html">Using slickR with PDFs</a>
+      <a href="../articles/pdfs.html">Using slickR with PDFs</a>
     </li>
     <li>
-      <a href="articles/shiny.html">Using slickR with shiny</a>
+      <a href="../articles/shiny.html">Using slickR with shiny</a>
     </li>
     <li>
-      <a href="articles/using-slickr.html">Using slickR</a>
+      <a href="../articles/using-slickr.html">Using slickR</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -118,22 +120,42 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Authors</h1>
+    <h1>nba_player_logo</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/nba_player_logo-data.R'><code>R/nba_player_logo-data.R</code></a></small>
+    <div class="hidden name"><code>nba_player_logo.Rd</code></div>
     </div>
 
-    <ul class="list-unstyled">
-      <li>
-        <p><strong>Jonathan Sidi</strong>. Author, maintainer. 
-        </p>
-      </li>
+    <div class="ref-description">
+    <p>NBA player logo URI</p>
+    </div>
+
+    <pre class="usage"><span class='no'>nba_player_logo</span></pre>
+
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A data frame with 150 rows and 4 variables:</p><dl class='dl-horizontal'>
+  <dt><code>team</code></dt><dd><p>character, Team name</p></dd>
+  <dt><code>position</code></dt><dd><p>factor Position of the Player</p></dd>
+  <dt><code>name</code></dt><dd><p>character Player Name</p></dd>
+  <dt><code>uri</code></dt><dd><p>character Player Headshot URI</p></dd> 
+</dl>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Logos harvested from http://www.espn.com/nba/depth</p>
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
+      <li><a href="#details">Details</a></li>
     </ul>
 
   </div>
-
 </div>
-
 
       <footer>
       <div class="copyright">
