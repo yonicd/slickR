@@ -23,7 +23,7 @@ These carousels can be used directly from the R console, from RStudio, in Shiny 
 install.packages('slickR')
 ```
 
-[Githhub](https://github.com/metrumresearchgroup/slickR) (dev)
+[Github](https://github.com/metrumresearchgroup/slickR) (dev)
 ```r
 remotes::install_github('metrumresearchgroup/slickR')
 ```
