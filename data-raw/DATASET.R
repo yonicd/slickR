@@ -44,6 +44,8 @@ names(nba_player_logo) <- c('team','position','name','uri')
 
 nba_player_logo$position <- factor(nba_player_logo$position,labels = c('PG','SG','SF','PF','C'))
 
+nba_player_logo$player_home <- player_name
+
 names(nba_team_logo) <- unique(nba_player_logo$team)
 
 nba_team_logo <- tibble::enframe(nba_team_logo,name = 'team',value = 'uri')

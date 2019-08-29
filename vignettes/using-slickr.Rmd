@@ -77,6 +77,20 @@ slickR(nba_player_logo$uri,
 
 ```
 
+## Adding Links
+
+You can add links to each element in the slide using the `objLinks` parameter.
+
+```{r}
+slickR(nba_player_logo$uri,
+       slideId = 'ex5',
+       objLinks = list(nba_player_logo$player_home), 
+       slickOpts = opts,
+       height = 100, 
+       width = "95%")
+```
+
+
 ## Replacing the dots
 
 Sometimes the dots won't be informative enough so we can switch them with an HTML object, such as text or other images. We can pass to the `customPaging` argument javascript code using the `htmlwidgets::JS` function. 
@@ -99,7 +113,7 @@ opts <- list(
 slickR(
   obj = nba_player_logo$uri,
   dotObj = nba_team_logo$uri,
-  slideId = 'ex5',
+  slideId = 'ex6',
   slickOpts = opts,
   height = 100,
   width = "95%"
@@ -128,7 +142,7 @@ opts <-
 slick <- slickR(
   obj = nba_player_logo$uri,
   dotObj = nba_team_logo$uri,
-  slideId = 'ex6',
+  slideId = 'ex7',
   slickOpts = opts,
   height = 100,
   width = "95%"
@@ -196,11 +210,13 @@ plots <- sapply(plotsToSVG, function(sv) {
 
 ```{r}
 slickR(plots, 
-       slideId = 'ex7',
+       slideId = 'ex8',
        height = 200, 
        width = "95%"
       )
 ```
+
+
 
 ## Synching Carousels
 
@@ -219,17 +235,43 @@ opts <- list(
          focusOnSelect = TRUE)
 )
 
-synch_map <- expand.grid(list('ex5up','ex5down'),stringsAsFactors = FALSE)
+synch_map <- expand.grid(list('ex9up','ex9down'),stringsAsFactors = FALSE)
 
 slickR(plots,
        slideIdx = replicate(2,seq_along(plots),simplify = FALSE),
-       slideId =  c('ex5up','ex5down'),
+       slideId =  c('ex9up','ex9down'),
        synchSlides = synch_map,
        slideType = rep('img',length(plots)),
        slickOpts = opts,
        height = 100, 
        width = "95%")
 
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Adding a Caption to Image
+
+You can add a caption to an image by synching two carousels, where the upper is the content (e.g. image) and the bottom is the caption (p)
+
+```{r}
+
+slickR(
+  obj         = c(nba_player_logo$uri[1:2],
+                  glue::glue('<p>{nba_player_logo$name[1:2]}</p>')),
+  slideType   = c('img','p'),
+  slideId     = c('img','cap'),
+  slideIdx    = list(c(1,2),c(3,4)),
+  synchSlides = expand.grid(list('img','cap'),stringsAsFactors = FALSE),
+  height      = 100,
+  slickOpts   = list(list(dots=FALSE),list(dots=TRUE,arrows=FALSE))
+)
 ```
 
 <!-- # Iframes -->
