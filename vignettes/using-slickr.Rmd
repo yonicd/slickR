@@ -18,85 +18,42 @@ knitr::opts_chunk$set(
 
 
 ```{r}
-suppressMessages({
-  library(svglite)
-  library(lattice)
-  library(ggplot2)
-  library(rvest)
-  library(tidyr)
-  library(dplyr)
-  library(purrr)
-  library(htmlwidgets)
-  library(slickR)
-  library(xml2)
-})
-```
-
-# Images
-
-Some web scraping for the images example....
-```{r}
-# NBA Team Logos
-nba_teams <- c(
-  "ATL", "BOS", "BKN", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GSW",
-  "HOU", "IND", "LAC", "LAL", "MEM", "MIA", "MIL", "MIN", "NOP", "NYK",
-  "OKC", "ORL", "PHI", "PHX", "POR", "SAC", "SAS", "TOR", "UTA", "WAS"
-)
-
-team_img <- glue::glue("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{nba_teams}.svg")
-
-# Player Images
-a1 <- xml2::read_html("http://www.espn.com/nba/depth") %>% 
-  rvest::html_nodes(css = "#my-teams-table a")
-
-a2 <- a1 %>%
-  rvest::html_attr("href")
-
-a3 <- a1 %>% 
-  rvest::html_text()
-
-team_table <- xml2::read_html("http://www.espn.com/nba/depth") %>% 
-  rvest::html_table()%>%
-  purrr::flatten_df()%>%
-  dplyr::slice(-c(1,2))
-
-player_table <- team_table %>% 
-  tidyr::gather('variable','value',-X1)%>%
-  dplyr::arrange(X1, variable)
-  
-player_name <- a2[grepl('[0-9]/', a2)]
-
-player_id <- gsub('\\/(.*?)$','',gsub('^(.*?)/id/','',player_name))
-
-root <- 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full'
-
-player_table$img <- glue::glue("{root}/{player_id}.png&w=350&h=254")
+library(svglite)
+library(htmlwidgets)
+library(slickR)
 ```
 
 ## Simple carousel
 Let's start easy: show the team logos one at a time
+
+```{r}
+slickR(obj = nba_team_logo$uri, height = 100, width = "95%", slideId = 'ex1')
+```
+
+Let's remove the dots with the slickOpts argument
+
 ```{r}
 
-slickR(obj = team_img, height = 100, width = "95%", slideId = 'ex1')
+slickR(obj = nba_team_logo$uri, 
+       slideId = 'ex2', 
+       slickOpts = list(dots = FALSE), 
+       height = 100, 
+       width = "95%")
 
 ```
 
-Let's add dots with the settings function
+
+There are many more settings you can define, such as `autoplay`. For all the settings go to [slick.js](http://kenwheeler.github.io/slick) homepage
 
 ```{r}
 
-slickR(obj = team_img, slickOpts = list(dots = TRUE), 
-       slideId = 'ex2', height = 100, width = "95%")
-
-```
-
-There are many more settings you can define, such as autoplay. For all the settings either do `?slickR::settings` or go to the http://kenwheeler.github.io/slick/
-
-```{r}
-
-slickR(obj = team_img, height = 100, width = "95%",
-       slideId = 'ex3',
-       slickOpts = list(dots = TRUE,autoplay = TRUE))
+slickR(
+  obj = nba_team_logo$uri,
+  slideId = 'ex3',
+  slickOpts = list(dots = TRUE,autoplay = TRUE),
+  height = 100, 
+  width = "95%"
+)
 
 ```
 
@@ -105,17 +62,24 @@ slickR(obj = team_img, height = 100, width = "95%",
 There are players on each team, so lets group the starting five together and have each dot correspond with a team:
 
 ```{r}
-slickR(player_table$img, height = 100, width = "95%",
+
+opts <- list(initialSlide = 0, 
+     slidesToShow = 5, 
+     slidesToScroll = 5,
+     focusOnSelect = TRUE, 
+     dots = TRUE)
+
+slickR(nba_player_logo$uri,
        slideId = 'ex4',
-       slickOpts = list(
-       initialSlide = 0, slidesToShow = 5, slidesToScroll = 5,
-       focusOnSelect = TRUE, dots = TRUE))
+       slickOpts = opts,
+       height = 100, 
+       width = "95%")
 
 ```
 
 ## Replacing the dots
 
-Sometimes the dots won't be informative enough so we can switch them with an HTML object, such as text or other images. We can pass to the customPaging argument javascript code using the `htmlwidgets::JS` function. 
+Sometimes the dots won't be informative enough so we can switch them with an HTML object, such as text or other images. We can pass to the `customPaging` argument javascript code using the `htmlwidgets::JS` function. 
 
 ### Replace dots with text
 
@@ -123,13 +87,7 @@ Sometimes the dots won't be informative enough so we can switch them with an HTM
 
 cP1 <- JS("function(slick,index) {return '<a>'+(index+1)+'</a>';}")
 
-slickR(
-  obj = player_table$img,
-  dotObj = team_img,
-  slideId = 'ex5',
-  height = 100,
-  width = "95%",
-  slickOpts = list(
+opts <- list(
     initialSlide = 0,
     slidesToShow = 5,
     slidesToScroll = 5,
@@ -137,6 +95,14 @@ slickR(
     dots = TRUE,
     customPaging = cP1
     )
+
+slickR(
+  obj = nba_player_logo$uri,
+  dotObj = nba_team_logo$uri,
+  slideId = 'ex5',
+  slickOpts = opts,
+  height = 100,
+  width = "95%"
 ) 
 
 ```
@@ -145,7 +111,9 @@ slickR(
 
 ```{r}
 
-cP2 <- JS("function(slick,index) {return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';}")
+cP2 <- JS("function(slick,index) {
+          return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';
+          }")
 
 opts <- 
   list(
@@ -158,19 +126,18 @@ opts <-
   )
 
 slick <- slickR(
-  obj = player_table$img,
-  dotObj = team_img,
+  obj = nba_player_logo$uri,
+  dotObj = nba_team_logo$uri,
   slideId = 'ex6',
+  slickOpts = opts,
   height = 100,
-  width = "95%",
-  slickOpts = opts
+  width = "95%"
 ) 
-
 
 
 # Putting it all together in one slickR call
 s2 <- htmltools::tags$script(
-  sprintf("var dotObj = %s", jsonlite::toJSON(team_img))
+  sprintf("var dotObj = %s", jsonlite::toJSON(nba_team_logo$uri))
 )
 
 htmltools::browsable(htmltools::tagList(s2, slick))
@@ -181,47 +148,57 @@ htmltools::browsable(htmltools::tagList(s2, slick))
 To place plots directly into slickR we use svglite to convert a plot into svg code using xmlSVG and then convert it into a character object
 
 ```{r}
-plotsToSVG <- list(
-  # Standard Plot
-  xmlSVG({
-    plot(1:10)
-  }, standalone = TRUE),
-  # lattice xyplot
-  xmlSVG({
-    print(xyplot(x ~ x, data.frame(x = 1:10), type = "l"))
-  }, standalone = TRUE),
-  # ggplot
-  xmlSVG({
-    show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
-      geom_point())
-  }, standalone = TRUE),
-  # lattice dotplot
-  xmlSVG({
-    print(dotplot(variety ~ yield | site,
-      data = barley, groups = year,
-      key = simpleKey(levels(barley$year), space = "right"),
-      xlab = "Barley Yield (bushels/acre) ",
-      aspect = 0.5, layout = c(1, 6), ylab = NULL
-    ))
-  }, standalone = TRUE)
-)
+
+# Standard Plot
+  # xmlSVG({
+  #   plot(1:10)
+  # }, standalone = TRUE)
+
+# ggplot
+  # xmlSVG({
+  #   show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+  #     geom_point())
+  # }, standalone = TRUE)
+
+# lattice xyplot
+  # xmlSVG({
+  #   print(xyplot(x ~ x, data.frame(x = 1:10), type = "l"))
+  # }, standalone = TRUE)
+    
+# lattice dotplot
+  # xmlSVG({
+  #   print(dotplot(variety ~ yield | site,
+  #     data = barley, groups = year,
+  #     key = simpleKey(levels(barley$year), space = "right"),
+  #     xlab = "Barley Yield (bushels/acre) ",
+  #     aspect = 0.5, layout = c(1, 6), ylab = NULL
+  #   ))
+  # }, standalone = TRUE)
+
+plotsToSVG <- lapply(1:5,
+                     function(x){
+                       svglite::xmlSVG(
+                         code = {plot(stats::density(stats::rnorm(10*x,sd=x)))},
+                         standalone = TRUE)
+                       }
+                     )
+
 
 hash_encode_url <- function(url){
   gsub("#", "%23", url)
 }
 
 # make the plot self contained SVG to pass into slickR
-s.in <- sapply(plotsToSVG, function(sv) {
+plots <- sapply(plotsToSVG, function(sv) {
   hash_encode_url(paste0("data:image/svg+xml;utf8,", as.character(sv)))
 })
 ```  
 
 ```{r}
-slickR(s.in, 
+slickR(plots, 
        slideId = 'ex7',
        height = 200, 
-       width = "95%",
-       slickOpts = list(dots = TRUE)
+       width = "95%"
       )
 ```
 
@@ -232,25 +209,26 @@ There are instances when you have many outputs at once and do not want to go thr
 ```{r}
 
 opts <- list(
-  list(slidesToShow = 1, slidesToScroll = 1),
-  list(dots = FALSE, 
-       slidesToScroll = 1, 
-       slidesToShow = 5,
-       centerMode = TRUE, 
-       focusOnSelect = TRUE)
+  # 'ex5up' options
+    list(slidesToShow = 1, slidesToScroll = 1),
+  # 'ex5down' options
+    list(dots = FALSE, 
+         slidesToScroll = 1, 
+         slidesToShow = 3,
+         centerMode = TRUE, 
+         focusOnSelect = TRUE)
 )
 
-slickR(rep(s.in,each=5),
-       slideIdx = list(1:20,1:20),
+synch_map <- expand.grid(list('ex5up','ex5down'),stringsAsFactors = FALSE)
+
+slickR(plots,
+       slideIdx = replicate(2,seq_along(plots),simplify = FALSE),
        slideId =  c('ex5up','ex5down'),
-       synchSlides = expand.grid(
-         list('ex5up','ex5down'),
-         stringsAsFactors = FALSE
-        ),
-       slideType = rep('img',4),
+       synchSlides = synch_map,
+       slideType = rep('img',length(plots)),
+       slickOpts = opts,
        height = 100, 
-       width = "95%",
-       slickOpts = opts)
+       width = "95%")
 
 ```
 

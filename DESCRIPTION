@@ -1,6 +1,6 @@
 Package: slickR
-Version: 0.4.1
-Date: 2018-08-31
+Version: 0.4.2
+Date: 2019-08-29
 Title: Create Interactive Carousels with the JavaScript 'Slick' Library
 Authors@R: person("Jonathan", "Sidi", email = "yonis@metrumrg.com", role = c("aut", "cre"))
 Description: Create and customize interactive carousels using the 'Slick'
@@ -19,17 +19,9 @@ Imports:
     xml2,
     magick
 Suggests:
-    shiny,
+    stats,
     rmarkdown,
     pdftools,
-    dplyr,
-    svglite,
-    ggplot2,
-    lattice,
-    rvest,
-    tidyr,
-    purrr,
-    glue,
     jsonlite,
     knitr
 License: MIT + file LICENSE

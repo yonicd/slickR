@@ -10,7 +10,8 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = FALSE
 )
 ```
 
@@ -20,10 +21,9 @@ library(svglite)
 library(lattice)
 library(ggplot2)
 library(shiny)
-
 ```
  
-```{r,eval = FALSE}
+```{r}
 
 server <- function(input, output) {
   
@@ -86,7 +86,7 @@ server <- function(input, output) {
 
 ```
  
-```{r,eval = FALSE}
+```{r}
 ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
@@ -99,6 +99,6 @@ ui <- fluidPage(
 
 ```
  
-```{r,eval = FALSE}
+```{r}
 shinyApp(ui = ui, server = server)
 ```
