@@ -4,3 +4,4 @@
 .Ruserdata
 gifIgnore
 .DS_Store
+*.Rproj

@@ -31,13 +31,22 @@
 #'  \code{\link[magick]{image_read_pdf}}
 slickpdf <- function(obj, obj2 = NULL, synch = TRUE, img_format = 'png', ...){
   
-  td <- file.path(tempdir(),'slick','up')
+  dots <- list(...)
+  
+  if('slideId'%in%names(dots)){
+    slideId <- dots$slideId
+  }else{
+    slideId <- c('up','down')
+  }
+    
+  
+  td <- file.path(tempdir(),'slick',slideId[1])
   
   if(!dir.exists(td))
     dir.create(td,recursive = TRUE)
   
   if(!is.null(obj2)){
-    td2 <- file.path(tempdir(),'slick','down')  
+    td2 <- file.path(tempdir(),'slick',slideId[2])  
     
     if(!dir.exists(td2))
       dir.create(td2,recursive = TRUE)
@@ -57,13 +66,12 @@ slickpdf <- function(obj, obj2 = NULL, synch = TRUE, img_format = 'png', ...){
     TD <- c(td_1,td_2)
     
     if(synch){
-      synch_vals <- c('up','down')
+      synch_vals <- expand.grid(as.list(slideId),stringsAsFactors = FALSE)
     }else{
       synch_vals <- NULL
     }
     
     slickR(obj = TD,
-           slideId = c('up','down'),
            slideIdx = list(seq_along(td_1),seq_along(td_2)),
            synchSlides = synch_vals,
            slideType = rep('img',2),

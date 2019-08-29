@@ -23,7 +23,6 @@
 #' of html DOM you want to be in the slide, eg img, iframe.  
 #' 
 #' @examples 
-#' \donttest{
 #' 
 #' nba=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 #' "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
@@ -34,9 +33,8 @@
 #' nba_logos <- 
 #' sprintf("%s/%s.svg", url, nba)
 #' 
-#' if(interactive()) 
+#' if(interactive()){
 #'   slickR(obj=nba_logos)
-#' }
 #'
 #' # synching 3 groups
 #' 
@@ -51,15 +49,14 @@
 #' # synching logic (a,b) and (a,c)
 #' groups <- expand.grid(list('a',c('b','c')),stringsAsFactors = FALSE)
 #' 
-#' if(interactive()){ 
 #' slickR(obj = nba_logos,
 #'        slideId = c('a','b','c'),
 #'        slideIdx = sx,
 #'        slideType = rep('img',3),
 #'        synchSlides = groups,
 #'        height = 100)
-#' }
 #'
+#'}
 #' @import htmlwidgets 
 #' @export
 slickR <- function(obj ,

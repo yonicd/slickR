@@ -1,0 +1,296 @@
+---
+title: "Using slickR"
+author: "Jonathan Sidi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r}
+suppressMessages({
+  library(svglite)
+  library(lattice)
+  library(ggplot2)
+  library(rvest)
+  library(tidyr)
+  library(dplyr)
+  library(purrr)
+  library(htmlwidgets)
+  library(slickR)
+  library(xml2)
+})
+```
+
+# Images
+
+Some web scraping for the images example....
+```{r}
+# NBA Team Logos
+nba_teams <- c(
+  "ATL", "BOS", "BKN", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GSW",
+  "HOU", "IND", "LAC", "LAL", "MEM", "MIA", "MIL", "MIN", "NOP", "NYK",
+  "OKC", "ORL", "PHI", "PHX", "POR", "SAC", "SAS", "TOR", "UTA", "WAS"
+)
+
+team_img <- glue::glue("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{nba_teams}.svg")
+
+# Player Images
+a1 <- xml2::read_html("http://www.espn.com/nba/depth") %>% 
+  rvest::html_nodes(css = "#my-teams-table a")
+
+a2 <- a1 %>%
+  rvest::html_attr("href")
+
+a3 <- a1 %>% 
+  rvest::html_text()
+
+team_table <- xml2::read_html("http://www.espn.com/nba/depth") %>% 
+  rvest::html_table()%>%
+  purrr::flatten_df()%>%
+  dplyr::slice(-c(1,2))
+
+player_table <- team_table %>% 
+  tidyr::gather('variable','value',-X1)%>%
+  dplyr::arrange(X1, variable)
+  
+player_name <- a2[grepl('[0-9]/', a2)]
+
+player_id <- gsub('\\/(.*?)$','',gsub('^(.*?)/id/','',player_name))
+
+root <- 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full'
+
+player_table$img <- glue::glue("{root}/{player_id}.png&w=350&h=254")
+```
+
+## Simple carousel
+Let's start easy: show the team logos one at a time
+```{r}
+
+slickR(obj = team_img, height = 100, width = "95%", slideId = 'ex1')
+
+```
+
+Let's add dots with the settings function
+
+```{r}
+
+slickR(obj = team_img, slickOpts = list(dots = TRUE), 
+       slideId = 'ex2', height = 100, width = "95%")
+
+```
+
+There are many more settings you can define, such as autoplay. For all the settings either do `?slickR::settings` or go to the http://kenwheeler.github.io/slick/
+
+```{r}
+
+slickR(obj = team_img, height = 100, width = "95%",
+       slideId = 'ex3',
+       slickOpts = list(dots = TRUE,autoplay = TRUE))
+
+```
+
+## Grouped Images
+
+There are players on each team, so lets group the starting five together and have each dot correspond with a team:
+
+```{r}
+slickR(player_table$img, height = 100, width = "95%",
+       slideId = 'ex4',
+       slickOpts = list(
+       initialSlide = 0, slidesToShow = 5, slidesToScroll = 5,
+       focusOnSelect = TRUE, dots = TRUE))
+
+```
+
+## Replacing the dots
+
+Sometimes the dots won't be informative enough so we can switch them with an HTML object, such as text or other images. We can pass to the customPaging argument javascript code using the `htmlwidgets::JS` function. 
+
+### Replace dots with text
+
+```{r}
+
+cP1 <- JS("function(slick,index) {return '<a>'+(index+1)+'</a>';}")
+
+slickR(
+  obj = player_table$img,
+  dotObj = team_img,
+  slideId = 'ex5',
+  height = 100,
+  width = "95%",
+  slickOpts = list(
+    initialSlide = 0,
+    slidesToShow = 5,
+    slidesToScroll = 5,
+    focusOnSelect = TRUE,
+    dots = TRUE,
+    customPaging = cP1
+    )
+) 
+
+```
+
+### Replace dots with Images
+
+```{r}
+
+cP2 <- JS("function(slick,index) {return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';}")
+
+opts <- 
+  list(
+    initialSlide = 0,
+    slidesToShow = 5,
+    slidesToScroll = 5,
+    focusOnSelect = TRUE,
+    dots = TRUE,
+    customPaging = cP2
+  )
+
+slick <- slickR(
+  obj = player_table$img,
+  dotObj = team_img,
+  slideId = 'ex6',
+  height = 100,
+  width = "95%",
+  slickOpts = opts
+) 
+
+
+
+# Putting it all together in one slickR call
+s2 <- htmltools::tags$script(
+  sprintf("var dotObj = %s", jsonlite::toJSON(team_img))
+)
+
+htmltools::browsable(htmltools::tagList(s2, slick))
+```
+
+# Plots
+
+To place plots directly into slickR we use svglite to convert a plot into svg code using xmlSVG and then convert it into a character object
+
+```{r}
+plotsToSVG <- list(
+  # Standard Plot
+  xmlSVG({
+    plot(1:10)
+  }, standalone = TRUE),
+  # lattice xyplot
+  xmlSVG({
+    print(xyplot(x ~ x, data.frame(x = 1:10), type = "l"))
+  }, standalone = TRUE),
+  # ggplot
+  xmlSVG({
+    show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+      geom_point())
+  }, standalone = TRUE),
+  # lattice dotplot
+  xmlSVG({
+    print(dotplot(variety ~ yield | site,
+      data = barley, groups = year,
+      key = simpleKey(levels(barley$year), space = "right"),
+      xlab = "Barley Yield (bushels/acre) ",
+      aspect = 0.5, layout = c(1, 6), ylab = NULL
+    ))
+  }, standalone = TRUE)
+)
+
+hash_encode_url <- function(url){
+  gsub("#", "%23", url)
+}
+
+# make the plot self contained SVG to pass into slickR
+s.in <- sapply(plotsToSVG, function(sv) {
+  hash_encode_url(paste0("data:image/svg+xml;utf8,", as.character(sv)))
+})
+```  
+
+```{r}
+slickR(s.in, 
+       slideId = 'ex7',
+       height = 200, 
+       width = "95%",
+       slickOpts = list(dots = TRUE)
+      )
+```
+
+## Synching Carousels
+
+There are instances when you have many outputs at once and do not want to go through all, so you can combine two carousels one for viewing and one for searching.
+
+```{r}
+
+opts <- list(
+  list(slidesToShow = 1, slidesToScroll = 1),
+  list(dots = FALSE, 
+       slidesToScroll = 1, 
+       slidesToShow = 5,
+       centerMode = TRUE, 
+       focusOnSelect = TRUE)
+)
+
+slickR(rep(s.in,each=5),
+       slideIdx = list(1:20,1:20),
+       slideId =  c('ex5up','ex5down'),
+       synchSlides = expand.grid(
+         list('ex5up','ex5down'),
+         stringsAsFactors = FALSE
+        ),
+       slideType = rep('img',4),
+       height = 100, 
+       width = "95%",
+       slickOpts = opts)
+
+```
+
+<!-- # Iframes -->
+
+<!-- Since the carousel can accept any html element we can place iframes in the carousel. -->
+
+<!-- There are times when you may want to put in different DOMs rather than an image in slick. Using slideType you can specify which DOM is used in the slides.  -->
+
+<!-- For example lets put the help Rd files from ggplot2 into a slider using the helper function getHelp. (Dont forget to open the output to a browser to view the iframe contents). -->
+
+```{r eval=FALSE,include=FALSE}
+geom_filenames <- ls("package:ggplot2",pattern = '^geom')
+
+slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideId = 'ex6',slideType = 'iframe',height = '400px',width='100%',slickOpts = list(dots=T,slidesToShow=2,slidesToScroll=2))
+```
+
+<!-- ## htmlwidgets -->
+
+<!-- Finally, we can really leverage R and place self contained htmlwidgets in iframes (like leaflets and plotly) and use them in a carousel. This solves a problem of how to run many htmlwidgets at once outside of Shiny. -->
+
+```{r eval=FALSE,include=FALSE}
+suppressMessages({
+library(leaflet)
+library(plotly)
+})
+
+l <- leaflet() %>% addTiles()
+htmlwidgets::saveWidget(l,'leaflet.html')
+
+p <- iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
+pL <-  ggplotly(p)
+htmlwidgets::saveWidget(pL,'ggplotly.html')
+
+slickR(c(rep(paste0(readLines('leaflet.html'),collapse='\n'),4),
+         rep(paste0(readLines('ggplotly.html'),collapse='\n'),4)),
+       slideId = c('leaf','plot'),
+       slideIdx = list(1:4,5:8),
+       slideType = rep('iframe',2),
+       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2),
+                        list(dots=T,slidesToShow=2,slidesToScroll=2)),
+       height='400px',width='100%')
+```

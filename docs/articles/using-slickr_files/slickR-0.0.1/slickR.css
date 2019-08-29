@@ -1,0 +1,15 @@
+.slick-slide {
+  text-align: center;
+  color: #419be0;
+  background: white;
+  width: 100%;
+}
+
+.slick-list {
+  text-align: center;
+  width: 100%;
+}
+
+.slick-slide img {
+	width: auto !important;
+}

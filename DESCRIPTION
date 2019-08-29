@@ -1,5 +1,5 @@
 Package: slickR
-Version: 0.4
+Version: 0.4.1
 Date: 2018-08-31
 Title: Create Interactive Carousels with the JavaScript 'Slick' Library
 Authors@R: person("Jonathan", "Sidi", email = "yonis@metrumrg.com", role = c("aut", "cre"))
@@ -9,7 +9,7 @@ Description: Create and customize interactive carousels using the 'Slick'
     These carousels can be used directly from the R console, from 'RStudio', 
     in Shiny apps and R Markdown documents.
 Depends:
-    R (>= 2.3.0)
+    R (>= 3.5.0)
 Imports:
     htmlwidgets,
     htmltools,
@@ -21,10 +21,21 @@ Imports:
 Suggests:
     shiny,
     rmarkdown,
-    pdftools
+    pdftools,
+    dplyr,
+    svglite,
+    ggplot2,
+    lattice,
+    rvest,
+    tidyr,
+    purrr,
+    glue,
+    jsonlite,
+    knitr
 License: MIT + file LICENSE
 URL: https://github.com/metrumresearchgroup/slickR
 BugReports: https://github.com/metrumresearchgroup/slickR/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr

@@ -5,9 +5,10 @@
 \title{slick.js image carousel htmlwidget}
 \usage{
 slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
-  objLinks = c(1:length(obj)), slideType = c("img"), slickOpts = list(dots
-  = TRUE), synchSlides = NULL, padding = rep("1\%", length(obj)),
-  dotObj = NULL, width = NULL, height = NULL, elementId = NULL)
+  objLinks = c(1:length(obj)), slideType = c("img"),
+  slickOpts = list(dots = TRUE), synchSlides = NULL,
+  padding = rep("1\%", length(obj)), dotObj = NULL, width = NULL,
+  height = NULL, elementId = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
@@ -47,7 +48,6 @@ images and in the slickOpts add a customPaging attribute with the appropriate JS
 of html DOM you want to be in the slide, eg img, iframe.
 }
 \examples{
-\donttest{
 
 nba=c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET","GSW",
 "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
@@ -58,9 +58,8 @@ url <- 'https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/b
 nba_logos <- 
 sprintf("\%s/\%s.svg", url, nba)
 
-if(interactive()) 
+if(interactive()){
   slickR(obj=nba_logos)
-}
 
 # synching 3 groups
 
@@ -75,13 +74,12 @@ sIdx <- lapply(split(nba_logos,sx3),function(x) match(x,nba_logos))
 # synching logic (a,b) and (a,c)
 groups <- expand.grid(list('a',c('b','c')),stringsAsFactors = FALSE)
 
-if(interactive()){ 
 slickR(obj = nba_logos,
        slideId = c('a','b','c'),
        slideIdx = sx,
        slideType = rep('img',3),
        synchSlides = groups,
        height = 100)
-}
 
+}
 }
