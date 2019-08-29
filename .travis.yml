@@ -7,6 +7,9 @@ addons:
     update:
     - true
     sources:
-    - sourceline: ppa:opencpu/imagemagick
+    - sourceline: 
+      - ppa:opencpu/imagemagick
+      - ppa:opencpu/poppler
     packages:
     - libmagick++-dev
+    - libpoppler-cpp-dev
