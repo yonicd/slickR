@@ -27,6 +27,3 @@ install.packages('slickR')
 ```r
 remotes::install_github('metrumresearchgroup/slickR')
 ```
-
-### Examples
-If you want to try out any of the examples you can go to this [site](https://metrumresearchgroup.github.io/slickR) where they are rendered and can be tested out.
