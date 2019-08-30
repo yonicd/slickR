@@ -1,5 +1,5 @@
 ---
-title: "Using slickR with shiny"
+title: "slickR with Shiny"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{shiny}
