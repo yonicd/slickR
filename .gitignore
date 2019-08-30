@@ -5,3 +5,4 @@
 gifIgnore
 .DS_Store
 *.Rproj
+inst/doc

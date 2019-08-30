@@ -1,0 +1,124 @@
+---
+title: "slickr-plots"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{slickr-plots}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(svglite)
+library(slickR)
+```
+
+To place plots directly into slickR we need three steps
+
+  1. Convert a plot into svg code using `svglite::xmlSVG`
+  2. Convert it into a character object
+  3. Convert hash `#` into url encoding `%23` for the plot to render in the browser
+
+```{r,eval=FALSE}
+
+# Standard Plot
+  xmlSVG({
+    plot(1:10)
+  }, standalone = TRUE)
+
+# ggplot
+  xmlSVG({
+    show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+      geom_point())
+  }, standalone = TRUE)
+
+# lattice xyplot
+  xmlSVG({
+    print(xyplot(x ~ x, data.frame(x = 1:10), type = "l"))
+  }, standalone = TRUE)
+    
+# lattice dotplot
+  xmlSVG({
+    print(dotplot(variety ~ yield | site,
+      data = barley, groups = year,
+      key = simpleKey(levels(barley$year), space = "right"),
+      xlab = "Barley Yield (bushels/acre) ",
+      aspect = 0.5, layout = c(1, 6), ylab = NULL
+    ))
+  }, standalone = TRUE)
+
+```
+
+## Convert to SVG
+
+
+```{r}
+plotsToSVG <- lapply(1:5,
+                     function(x){
+                       svglite::xmlSVG(
+                         code = {plot(stats::density(stats::rnorm(10*x,sd=x)))},
+                         standalone = TRUE)
+                       }
+                     )
+```
+
+## Convert to Character
+ 
+```{r}
+SVGtoChr <- sapply(plotsToSVG, function(sv) {
+  paste0("data:image/svg+xml;utf8,", as.character(sv))
+})
+```  
+
+## Convert Hash
+
+```{r}
+
+SVGtoChr <- gsub("#", "%23", SVGtoChr)
+
+```
+
+```{r}
+slickR(SVGtoChr, 
+       slideId = 'ex8',
+       height = 200, 
+       width = "95%"
+      )
+```
+
+
+## Synching Carousels
+
+There are instances when you have many outputs at once and do not want to go through all, so you can combine two carousels one for viewing and one for searching.
+
+```{r}
+
+opts <- list(
+  # 'up' options
+    list(slidesToShow = 1, slidesToScroll = 1),
+  # 'down' options
+    list(dots = FALSE, 
+         slidesToScroll = 1, 
+         slidesToShow = 3,
+         centerMode = TRUE, 
+         focusOnSelect = TRUE)
+)
+
+synch_map <- expand.grid(list('up','down'),stringsAsFactors = FALSE)
+
+slickR(SVGtoChr,
+       slideIdx = replicate(2,seq_along(SVGtoChr),simplify = FALSE),
+       slideId =  c('up','down'),
+       synchSlides = synch_map,
+       slideType = rep('img',length(SVGtoChr)),
+       slickOpts = opts,
+       height = 100, 
+       width = "95%")
+
+```

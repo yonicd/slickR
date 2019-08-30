@@ -1,10 +1,10 @@
 ---
-title: "Using slickR"
+title: "slickR Basics"
 author: "Jonathan Sidi"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{slickR Basics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
 
 
 ```{r}
-library(svglite)
 library(htmlwidgets)
 library(slickR)
 ```
@@ -99,7 +98,9 @@ Sometimes the dots won't be informative enough so we can switch them with an HTM
 
 ```{r}
 
-cP1 <- JS("function(slick,index) {return '<a>'+(index+1)+'</a>';}")
+cP1 <- htmlwidgets::JS("function(slick,index) {
+                            return '<a>'+(index+1)+'</a>';
+                       }")
 
 opts <- list(
     initialSlide = 0,
@@ -157,98 +158,34 @@ s2 <- htmltools::tags$script(
 htmltools::browsable(htmltools::tagList(s2, slick))
 ```
 
-# Plots
-
-To place plots directly into slickR we use svglite to convert a plot into svg code using xmlSVG and then convert it into a character object
-
-```{r}
-
-# Standard Plot
-  # xmlSVG({
-  #   plot(1:10)
-  # }, standalone = TRUE)
-
-# ggplot
-  # xmlSVG({
-  #   show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
-  #     geom_point())
-  # }, standalone = TRUE)
-
-# lattice xyplot
-  # xmlSVG({
-  #   print(xyplot(x ~ x, data.frame(x = 1:10), type = "l"))
-  # }, standalone = TRUE)
-    
-# lattice dotplot
-  # xmlSVG({
-  #   print(dotplot(variety ~ yield | site,
-  #     data = barley, groups = year,
-  #     key = simpleKey(levels(barley$year), space = "right"),
-  #     xlab = "Barley Yield (bushels/acre) ",
-  #     aspect = 0.5, layout = c(1, 6), ylab = NULL
-  #   ))
-  # }, standalone = TRUE)
-
-plotsToSVG <- lapply(1:5,
-                     function(x){
-                       svglite::xmlSVG(
-                         code = {plot(stats::density(stats::rnorm(10*x,sd=x)))},
-                         standalone = TRUE)
-                       }
-                     )
-
-
-hash_encode_url <- function(url){
-  gsub("#", "%23", url)
-}
-
-# make the plot self contained SVG to pass into slickR
-plots <- sapply(plotsToSVG, function(sv) {
-  hash_encode_url(paste0("data:image/svg+xml;utf8,", as.character(sv)))
-})
-```  
-
-```{r}
-slickR(plots, 
-       slideId = 'ex8',
-       height = 200, 
-       width = "95%"
-      )
-```
-
-
-
 ## Synching Carousels
 
 There are instances when you have many outputs at once and do not want to go through all, so you can combine two carousels one for viewing and one for searching.
 
 ```{r}
-
 opts <- list(
-  # 'ex5up' options
+  # 'up' options
     list(slidesToShow = 1, slidesToScroll = 1),
-  # 'ex5down' options
+  # 'down' options
     list(dots = FALSE, 
          slidesToScroll = 1, 
-         slidesToShow = 3,
+         slidesToShow = 5,
          centerMode = TRUE, 
          focusOnSelect = TRUE)
 )
 
-synch_map <- expand.grid(list('ex9up','ex9down'),stringsAsFactors = FALSE)
+synch_map <- expand.grid(list('up','down'),stringsAsFactors = FALSE)
 
-slickR(plots,
-       slideIdx = replicate(2,seq_along(plots),simplify = FALSE),
-       slideId =  c('ex9up','ex9down'),
+slickR(rep(nba_player_logo$uri,2),
+       slideIdx = replicate(2,seq_along(nba_player_logo$uri),simplify = FALSE),
+       slideId =  c('up','down'),
        synchSlides = synch_map,
-       slideType = rep('img',length(plots)),
+       slideType = rep('img',2),
        slickOpts = opts,
        height = 100, 
-       width = "95%")
-
+       width = "90%")
 ```
 
-<br>
 <br>
 <br>
 <br>
@@ -272,45 +209,4 @@ slickR(
   height      = 100,
   slickOpts   = list(list(dots=FALSE),list(dots=TRUE,arrows=FALSE))
 )
-```
-
-<!-- # Iframes -->
-
-<!-- Since the carousel can accept any html element we can place iframes in the carousel. -->
-
-<!-- There are times when you may want to put in different DOMs rather than an image in slick. Using slideType you can specify which DOM is used in the slides.  -->
-
-<!-- For example lets put the help Rd files from ggplot2 into a slider using the helper function getHelp. (Dont forget to open the output to a browser to view the iframe contents). -->
-
-```{r eval=FALSE,include=FALSE}
-geom_filenames <- ls("package:ggplot2",pattern = '^geom')
-
-slickR(unlist(lapply(geom_filenames,getHelp,pkg = 'ggplot2')),slideId = 'ex6',slideType = 'iframe',height = '400px',width='100%',slickOpts = list(dots=T,slidesToShow=2,slidesToScroll=2))
-```
-
-<!-- ## htmlwidgets -->
-
-<!-- Finally, we can really leverage R and place self contained htmlwidgets in iframes (like leaflets and plotly) and use them in a carousel. This solves a problem of how to run many htmlwidgets at once outside of Shiny. -->
-
-```{r eval=FALSE,include=FALSE}
-suppressMessages({
-library(leaflet)
-library(plotly)
-})
-
-l <- leaflet() %>% addTiles()
-htmlwidgets::saveWidget(l,'leaflet.html')
-
-p <- iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width))+geom_point()
-pL <-  ggplotly(p)
-htmlwidgets::saveWidget(pL,'ggplotly.html')
-
-slickR(c(rep(paste0(readLines('leaflet.html'),collapse='\n'),4),
-         rep(paste0(readLines('ggplotly.html'),collapse='\n'),4)),
-       slideId = c('leaf','plot'),
-       slideIdx = list(1:4,5:8),
-       slideType = rep('iframe',2),
-       slickOpts = list(list(dots=T,slidesToShow=2,slidesToScroll=2),
-                        list(dots=T,slidesToShow=2,slidesToScroll=2)),
-       height='400px',width='100%')
 ```

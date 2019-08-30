@@ -2,6 +2,7 @@
 
 * Create package data for NBA logo data: `nba_team_logo` and `nba_player_logo`
 * Rewrite usage vignette to use less imports in the `DESCRIPTION` file
+* Split up the usage vignette to 3 vignettes: basics, plots, iframes
 
 # slickR 0.4.1
 

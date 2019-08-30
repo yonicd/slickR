@@ -1,0 +1,51 @@
+---
+title: "slickr with Iframes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{iframes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(slickR)
+```
+
+## Iframes
+  
+Since the carousel can accept any html element we can place iframes in the carousel.
+  
+There are times when you may want to put in different DOMs rather than an image in slick. 
+
+Using `slideType` you can specify which DOM is used in the slides. 
+  
+For example lets put the help Rd files from ggplot2 into a slider using the helper function `getHelp`.
+
+__Dont forget to open the output to a browser to view the iframe contents__
+
+```{r}
+help_files <- unlist(lapply(
+    ls("package:stats",pattern = '^r')[-1],
+    getHelp,
+    pkg = 'stats')
+  )
+
+opts <- list(
+  dots           = TRUE,
+  slidesToShow   = 2,
+  slidesToScroll = 2
+)
+
+slickR::slickR(help_files,
+               slideType = 'iframe',
+               slickOpts = opts,
+               height = '400px',
+               width='100%')
+```
