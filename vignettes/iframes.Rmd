@@ -1,5 +1,5 @@
 ---
-title: "slickr with Iframes"
+title: "slickR with Iframes"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{iframes}

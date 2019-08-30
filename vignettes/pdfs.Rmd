@@ -1,5 +1,5 @@
 ---
-title: "Using slickR with PDFs"
+title: "slickR with PDFs"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{pdfs}

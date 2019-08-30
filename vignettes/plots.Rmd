@@ -1,8 +1,8 @@
 ---
-title: "slickr-plots"
+title: "slickR with Plots"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{slickr-plots}
+  %\VignetteIndexEntry{plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
