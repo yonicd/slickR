@@ -30,13 +30,49 @@ For example lets put the help Rd files from ggplot2 into a slider using the help
 
 __Dont forget to open the output to a browser to view the iframe contents__
 
+### Function to fetch help files as HTML
+
 ```{r}
+
+get_help <- function(fn,pkg){
+ 
+  ff <- get('index.search',envir = asNamespace('utils'))(
+    topic = fn, 
+    paths = find.package(pkg),
+    TRUE)
+  
+  path    <- dirname(ff)
+  dirpath <- dirname(path)
+  pkgname <- basename(dirpath)
+  RdDB    <- file.path(path, pkgname)
+  
+  paste0(
+    utils::capture.output({
+      tools::Rd2HTML(
+        Rd = get('fetchRdDB', envir = asNamespace('tools'))(RdDB, basename(ff))
+      )
+    }),
+  collapse='\n')
+  
+}
+
+```
+
+### Retrieve help from `stats` 
+
+```{r}
+
 help_files <- unlist(lapply(
     ls("package:stats",pattern = '^r')[-1],
-    getHelp,
+    get_help,
     pkg = 'stats')
   )
 
+```
+
+### Create IFRAME slick
+
+```{r}
 opts <- list(
   dots           = TRUE,
   slidesToShow   = 2,

@@ -49,7 +49,8 @@
 #'        height = 100)
 #'
 #'}
-#' @import htmlwidgets 
+#' @import htmlwidgets
+#' @importFrom  lifecycle deprecate_soft
 #' @export
 slickR <- function(obj ,
                    slideId='baseDiv',
@@ -64,6 +65,14 @@ slickR <- function(obj ,
                    height = NULL,
                    elementId = NULL) {
 
+  
+  if(!is.null(slickOpts)){
+    lifecycle::deprecate_soft(when = "0.5.0", what = "slickR::slickR(slickOpts = )")
+  }
+  
+  if(!is.null(synchSlides)){
+    lifecycle::deprecate_soft(when = "0.5.0", what = "slickR::slickR(synchSlides = )")
+  }
   
   if(!is.character(obj)) stop('obj must be a character vector')
   
