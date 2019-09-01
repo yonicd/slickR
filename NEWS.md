@@ -1,3 +1,8 @@
+# slickR 0.4.3
+
+* soft-deprecate arguments `slickOpts` and `synchSlides` in the function `slickR`
+* soft-deprecate the function `getHelp`
+
 # slickR 0.4.2
 
 * Create package data for NBA logo data: `nba_team_logo` and `nba_player_logo`
