@@ -1,4 +1,4 @@
-#' @title getHelp
+#' @title getHelp \lifecycle{soft-deprecated}
 #' @description return rd help file as html
 #' @param fn character of function name
 #' @param pkg name of package that contains fn

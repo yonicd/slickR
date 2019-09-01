@@ -21,13 +21,17 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 
 \item{slideType}{character, type of object to put in slide}
 
-\item{slickOpts}{list, attributes for each slider, see details}
+\item{slickOpts}{list, attributes for each slider, see details 
+\lifecycle{soft-deprecated}}
 
-\item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are synchronized}
+\item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are
+synchronized \lifecycle{soft-deprecated}}
 
-\item{padding}{character, percent of width between each image in the carousel for each slider, Default: '1\%'}
+\item{padding}{character, percent of width between each image in the 
+carousel for each slider, Default: '1\%'}
 
-\item{dotObj}{list, character vectors of url or images to replace dots with (see details)}
+\item{dotObj}{list, character vectors of url or images to replace dots 
+with (see details)}
 
 \item{width}{character, width of htmlwidget}
 
@@ -39,12 +43,17 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 use slick.js library in R
 }
 \details{
-slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. To find all the attributes
-that can be used please refer to the link. To create more than one carousel input the attributes into a nested list eg 
+slick.js \url{http://kenwheeler.github.io/slick/} is an image 
+carousel javascript library. To find all the attributes
+that can be used please refer to the link. To create more than one carousel 
+input the attributes into a nested list eg 
 slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
-list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). It is possible to synchronize the slides
-through the slickOpts calls, using asNavFor attribute. To replace the dots with icons use the dotObj argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call. The slideType accepts the type 
+list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). 
+It is possible to synchronize the slides
+through the slickOpts calls, using asNavFor attribute. To replace the dots 
+with icons use the dotObj argument to pass in the icon
+images and in the slickOpts add a customPaging attribute with the 
+appropriate JS(.) function call. The slideType accepts the type 
 of html DOM you want to be in the slide, eg img, iframe.
 }
 \examples{

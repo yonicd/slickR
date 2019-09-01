@@ -2,7 +2,7 @@
 % Please edit documentation in R/getHelp.R
 \name{getHelp}
 \alias{getHelp}
-\title{getHelp}
+\title{getHelp \lifecycle{soft-deprecated}}
 \usage{
 getHelp(fn, pkg)
 }
