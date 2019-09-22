@@ -33,7 +33,7 @@ Suggests:
     pdftools,
     rmarkdown,
     stats,
-    svglite
+    svglite,
     glue
 VignetteBuilder: 
     knitr
