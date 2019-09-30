@@ -7,3 +7,4 @@ Miscellaneous
 ^pkgdown$
 ^\.travis\.yml$
 ^data-raw$
+^revdep$

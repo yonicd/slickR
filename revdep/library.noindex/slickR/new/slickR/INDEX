@@ -1,0 +1,7 @@
+getHelp                 getHelp \Sexpr[results=rd,
+                        stage=render]{lifecycle::badge("soft-deprecated")}
+nba_player_logo         nba_player_logo
+nba_team_logo           nba_team_logo
+slickR                  slick.js image carousel htmlwidget
+slickR-shiny            Shiny bindings for slickR
+slickpdf                convert pdf to slick

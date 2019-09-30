@@ -1,0 +1,32 @@
+Package: htmltools
+Type: Package
+Title: Tools for HTML
+Version: 0.3.6.9004
+Author: RStudio, Inc.
+Maintainer: Joe Cheng <joe@rstudio.com>
+Description: Tools for HTML generation and output.
+Depends: R (>= 2.14.1)
+Imports: utils, digest, Rcpp, rlang
+Suggests: markdown, testthat, withr
+Enhances: knitr
+License: GPL (>= 2)
+URL: https://github.com/rstudio/htmltools
+BugReports: https://github.com/rstudio/htmltools/issues
+RoxygenNote: 6.1.1
+LinkingTo: Rcpp
+Encoding: UTF-8
+Collate: 'RcppExports.R' 'html_dependency.R' 'html_escape.R'
+        'html_print.R' 'shim.R' 'utils.R' 'tags.R' 'template.R'
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: htmltools
+RemoteUsername: rstudio
+RemoteRef: master
+RemoteSha: c49b29c07ba78b4b13634ce4af29bfbf49c1ea82
+GithubRepo: htmltools
+GithubUsername: rstudio
+GithubRef: master
+GithubSHA1: c49b29c07ba78b4b13634ce4af29bfbf49c1ea82
+NeedsCompilation: yes
+Packaged: 2019-09-30 13:36:09 UTC; yonis
+Built: R 3.6.1; x86_64-apple-darwin15.6.0; 2019-09-30 13:36:09 UTC; unix
