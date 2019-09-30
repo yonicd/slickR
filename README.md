@@ -2,7 +2,7 @@
 [![Travis build status](https://travis-ci.org/metrumresearchgroup/slickR.svg?branch=master)](https://travis-ci.org/metrumresearchgroup/slickR)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/slickR)](https://cran.r-project.org/package=slickR)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
-[![downloads](http://cranlogs.r-pkg.org/badges/slickR)]()
+[![downloads](http://cranlogs.r-pkg.org/badges/slickR)](http://cranlogs.r-pkg.org/badges/slickR)
 <!-- badges: end -->
 
 # slickR
