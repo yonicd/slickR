@@ -64,7 +64,7 @@
 slickR <- function(obj ,
                    slideId='baseDiv',
                    slideIdx=list(1:length(obj)),
-                   objLinks=c(1:length(obj)),
+                   objLinks=list(1:length(obj)),
                    slideType=c('img'),
                    slickOpts=list(dots=TRUE),
                    synchSlides=NULL,
@@ -99,7 +99,7 @@ slickR <- function(obj ,
     if(length(x[[xId]]$obj)>1) x[[xId]]$obj=unlist(x[[xId]]$obj)
     
     x[[xId]]$divName <- slideId[xId]
-    x[[xId]]$links <- objLinks[xId]
+    x[[xId]]$links <- objLinks[[xId]]
     x[[xId]]$divType <- slideType[[xId]]
     x[[xId]]$padding <- paste0(100-as.numeric(gsub('%','',padding[[xId]])),'%')
     
