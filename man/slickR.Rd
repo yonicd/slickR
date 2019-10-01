@@ -25,8 +25,8 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 \item{padding}{character, percent of width between each image in the 
 carousel for each slider, Default: '1\%'}
 
-\item{objLinks}{list, links to attach to images in slide for each slideIdx.
-The length of each is the number of elements in the slide, Default: NULL}
+\item{objLinks}{list, Named list corresponding to slideId containing links to attach to each element.
+If NULL then no links applied, Default: NULL}
 
 \item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are
 synchronized \lifecycle{soft-deprecated}}

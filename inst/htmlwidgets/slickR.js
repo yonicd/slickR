@@ -45,8 +45,8 @@ HTMLWidgets.widget({
                 
                 newEl.style.width=width;
 
-                if(link[i]&&objType=='img'){
-                  
+                if((objType=='img') & (link != null)){
+
                   var pEl = document.createElement("p");
                   var aEl = document.createElement("a");
                   aEl.href = link[i];

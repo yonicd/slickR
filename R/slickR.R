@@ -7,8 +7,8 @@
 #' @param slideType character, type of object to put in slide
 #' @param slickOpts list, attributes for each slider, see details 
 #'  \lifecycle{soft-deprecated}
-#' @param objLinks list, links to attach to images in slide for each slideIdx.
-#'  The length of each is the number of elements in the slide, Default: NULL
+#' @param objLinks list, Named list corresponding to slideId containing links to attach to each element.
+#'  If NULL then no links applied, Default: NULL
 #' @param synchSlides data.frame, rowwise pairs of slideId names of sliders are
 #'  synchronized \lifecycle{soft-deprecated}
 #' @param dotObj list, character vectors of url or images to replace dots 
@@ -98,28 +98,7 @@ slickR <- function(obj ,
   if(length(slideId)!=length(slideIdx)) {
     slideId <- paste0('baseDiv',1:length(slideId))
   }
-  
-  if(is.null(objLinks)){
 
-    objLinks <- lapply(seq_along(slideIdx),function(x){
-      1:length(obj)
-    })
-    
-  }
-  
-  objLinks <- lapply(objLinks,function(x){
-    
-    if(is.null(x)){
-      x <- seq_along(obj)
-    }
-    
-    if(length(x)!=length(obj)){
-      x <- seq_along(obj)
-    }
-    
-    x
-  })
-  
   x <- vector('list',length(slideIdx))
   
   for(xId in 1:length(x)){
@@ -129,7 +108,10 @@ slickR <- function(obj ,
     }
     
     x[[xId]]$divName <- slideId[xId]
-    x[[xId]]$links   <- objLinks[[xId]]
+    
+    if(!is.null(objLinks))
+      x[[xId]]$links   <- objLinks[[slideId[xId]]]
+    
     x[[xId]]$divType <- slideType[[xId]]
     x[[xId]]$padding <- paste0(100-as.numeric(gsub('%','',padding[[xId]])),'%')
     

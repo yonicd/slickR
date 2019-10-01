@@ -179,6 +179,7 @@ synch_map <- expand.grid(list('up','down'),stringsAsFactors = FALSE)
 slickR(rep(nba_player_logo$uri,2),
        slideIdx = replicate(2,seq_along(nba_player_logo$uri),simplify = FALSE),
        slideId =  c('up','down'),
+       objLinks = list(up = nba_player_logo$player_home,down = NULL),
        synchSlides = synch_map,
        slideType = rep('img',2),
        slickOpts = opts,
