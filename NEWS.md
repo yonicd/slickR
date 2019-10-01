@@ -1,11 +1,12 @@
 # slickR 0.4.4
 
-* fix bug in htmlwidget to handle empty object links
+* Fix bug in htmlwidget to handle empty object links
+* Change default of objLinks in slickR function to NULL
 
 # slickR 0.4.3
 
-* soft-deprecate arguments `slickOpts` and `synchSlides` in the function `slickR`
-* soft-deprecate the function `getHelp`
+* Soft deprecate arguments `slickOpts` and `synchSlides` in the function `slickR`
+* Soft deprecate the function `getHelp`
 
 # slickR 0.4.2
 
