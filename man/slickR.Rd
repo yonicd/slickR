@@ -5,10 +5,10 @@
 \title{slick.js image carousel htmlwidget}
 \usage{
 slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
-  objLinks = c(1:length(obj)), slideType = c("img"),
-  slickOpts = list(dots = TRUE), synchSlides = NULL,
-  padding = rep("1\%", length(obj)), dotObj = NULL, width = NULL,
-  height = NULL, elementId = NULL)
+  slideType = c("img"), slickOpts = list(dots = TRUE),
+  padding = rep("1\%", length(obj)), objLinks = NULL,
+  synchSlides = NULL, dotObj = NULL, width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
@@ -17,18 +17,19 @@ slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
 
 \item{slideIdx}{list, numeric indices which images are mapped to which slider}
 
-\item{objLinks}{character, links to attach to images in slide}
-
 \item{slideType}{character, type of object to put in slide}
 
 \item{slickOpts}{list, attributes for each slider, see details 
 \lifecycle{soft-deprecated}}
 
-\item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are
-synchronized \lifecycle{soft-deprecated}}
-
 \item{padding}{character, percent of width between each image in the 
 carousel for each slider, Default: '1\%'}
+
+\item{objLinks}{list, links to attach to images in slide for each slideIdx.
+The length of each is the number of elements in the slide, Default: NULL}
+
+\item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are
+synchronized \lifecycle{soft-deprecated}}
 
 \item{dotObj}{list, character vectors of url or images to replace dots 
 with (see details)}

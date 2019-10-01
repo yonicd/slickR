@@ -4,12 +4,13 @@
 #' @param obj character, vector of path or url to images
 #' @param slideId character, id of slide
 #' @param slideIdx list, numeric indices which images are mapped to which slider
-#' @param objLinks character, links to attach to images in slide
 #' @param slideType character, type of object to put in slide
-#' @param synchSlides data.frame, rowwise pairs of slideId names of sliders are
-#'  synchronized \lifecycle{soft-deprecated}
 #' @param slickOpts list, attributes for each slider, see details 
 #'  \lifecycle{soft-deprecated}
+#' @param objLinks list, links to attach to images in slide for each slideIdx.
+#'  The length of each is the number of elements in the slide, Default: NULL
+#' @param synchSlides data.frame, rowwise pairs of slideId names of sliders are
+#'  synchronized \lifecycle{soft-deprecated}
 #' @param dotObj list, character vectors of url or images to replace dots 
 #'  with (see details)
 #' @param padding character, percent of width between each image in the 
@@ -62,17 +63,17 @@
 #' @importFrom  lifecycle deprecate_soft
 #' @export
 slickR <- function(obj ,
-                   slideId='baseDiv',
-                   slideIdx=list(1:length(obj)),
-                   objLinks=list(1:length(obj)),
-                   slideType=c('img'),
-                   slickOpts=list(dots=TRUE),
-                   synchSlides=NULL,
-                   padding=rep('1%',length(obj)),
-                   dotObj=NULL,
-                   width = NULL, 
-                   height = NULL,
-                   elementId = NULL) {
+                   slideId     = 'baseDiv',
+                   slideIdx    = list(1:length(obj)),
+                   slideType   = c('img'),
+                   slickOpts   = list(dots=TRUE),
+                   padding     = rep('1%',length(obj)),
+                   objLinks    = NULL, 
+                   synchSlides = NULL,
+                   dotObj      = NULL,
+                   width       = NULL, 
+                   height      = NULL,
+                   elementId   = NULL) {
 
   
   if(!is.null(slickOpts)){
@@ -86,25 +87,55 @@ slickR <- function(obj ,
   if(!is.character(obj)) stop('obj must be a character vector')
   
   obj <- lapply(obj,function(x){
-    if(!grepl('www[.]|http|https|data:image/|body|^<p',x)) x <- readImage(x)
+    
+    if(!grepl('www[.]|http|https|data:image/|body|^<p',x)) {
+      x <- readImage(x)
+    }
+    
     x
   })
   
-  if(length(slideId)!=length(slideIdx)) slideId=paste0('baseDiv',1:length(slideId))
+  if(length(slideId)!=length(slideIdx)) {
+    slideId <- paste0('baseDiv',1:length(slideId))
+  }
   
-  x = vector('list',length(slideIdx))
+  if(is.null(objLinks)){
+
+    objLinks <- lapply(seq_along(slideIdx),function(x){
+      1:length(obj)
+    })
+    
+  }
+  
+  objLinks <- lapply(objLinks,function(x){
+    
+    if(is.null(x)){
+      x <- seq_along(obj)
+    }
+    
+    if(length(x)!=length(obj)){
+      x <- seq_along(obj)
+    }
+    
+    x
+  })
+  
+  x <- vector('list',length(slideIdx))
   
   for(xId in 1:length(x)){
     
-    if(length(x[[xId]]$obj)>1) x[[xId]]$obj=unlist(x[[xId]]$obj)
+    if(length(x[[xId]]$obj)>1) {
+      x[[xId]]$obj <- unlist(x[[xId]]$obj)
+    }
     
     x[[xId]]$divName <- slideId[xId]
-    x[[xId]]$links <- objLinks[[xId]]
+    x[[xId]]$links   <- objLinks[[xId]]
     x[[xId]]$divType <- slideType[[xId]]
     x[[xId]]$padding <- paste0(100-as.numeric(gsub('%','',padding[[xId]])),'%')
     
-    if(slideType[[xId]]=='p')
+    if(slideType[[xId]]=='p'){
       obj[slideIdx[[xId]]] <- gsub('^<p>|</p>$','',obj[slideIdx[[xId]]])
+    }
     
     x[[xId]]$obj <- obj[slideIdx[[xId]]]
     
