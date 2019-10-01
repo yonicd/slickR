@@ -142,10 +142,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>slickR</span>(<span class='no'>obj</span>, <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>, <span class='kw'>slideIdx</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>obj</span>)),
-  <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>obj</span>)), <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"img"</span>),
-  <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"1%"</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>obj</span>)), <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"img"</span>), <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
+  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"1%"</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>obj</span>)), <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,10 +163,6 @@
       <td><p>list, numeric indices which images are mapped to which slider</p></td>
     </tr>
     <tr>
-      <th>objLinks</th>
-      <td><p>character, links to attach to images in slide</p></td>
-    </tr>
-    <tr>
       <th>slideType</th>
       <td><p>character, type of object to put in slide</p></td>
     </tr>
@@ -176,14 +172,19 @@
 <img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p></td>
     </tr>
     <tr>
-      <th>synchSlides</th>
-      <td><p>data.frame, rowwise pairs of slideId names of sliders are
-synchronized <img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p></td>
-    </tr>
-    <tr>
       <th>padding</th>
       <td><p>character, percent of width between each image in the 
 carousel for each slider, Default: '1%'</p></td>
+    </tr>
+    <tr>
+      <th>objLinks</th>
+      <td><p>list, links to attach to images in slide for each slideIdx.
+The length of each is the number of elements in the slide, Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>synchSlides</th>
+      <td><p>data.frame, rowwise pairs of slideId names of sliders are
+synchronized <img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p></td>
     </tr>
     <tr>
       <th>dotObj</th>
