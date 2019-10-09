@@ -26,33 +26,27 @@ library(slickR)
 Let's start easy: show the team logos one at a time
 
 ```{r}
-slickR(obj = nba_team_logo$uri, height = 100, width = "95%", slideId = 'ex1')
+slickR(obj = nba_player_logo$uri,height = 100, width = "95%")
 ```
 
-Let's remove the dots with the slickOpts argument
+Let's add dots with the `settings` function
 
 ```{r}
 
-slickR(obj = nba_team_logo$uri, 
-       slideId = 'ex2', 
-       slickOpts = list(dots = FALSE), 
-       height = 100, 
-       width = "95%")
+slickR(obj = nba_player_logo$uri[1:10],height = 100, width = "95%") + 
+  settings(dots = TRUE)
 
 ```
-
+<br>
+<br>
+<br>
 
 There are many more settings you can define, such as `autoplay`. For all the settings go to [slick.js](http://kenwheeler.github.io/slick) homepage
 
 ```{r}
 
-slickR(
-  obj = nba_team_logo$uri,
-  slideId = 'ex3',
-  slickOpts = list(dots = TRUE,autoplay = TRUE),
-  height = 100, 
-  width = "95%"
-)
+slickR(obj = nba_player_logo$uri[1:10],height = 100, width = "95%") + 
+  settings(dots = TRUE, autoplay = TRUE)
 
 ```
 
@@ -62,17 +56,14 @@ There are players on each team, so lets group the starting five together and hav
 
 ```{r}
 
-opts <- list(initialSlide = 0, 
-     slidesToShow = 5, 
-     slidesToScroll = 5,
-     focusOnSelect = TRUE, 
-     dots = TRUE)
+opts <- settings(
+  dots = TRUE,
+  initialSlide = 0,
+  slidesToShow = 5, 
+  slidesToScroll = 5, 
+  focusOnSelect = TRUE)
 
-slickR(nba_player_logo$uri,
-       slideId = 'ex4',
-       slickOpts = opts,
-       height = 100, 
-       width = "95%")
+slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + opts
 
 ```
 
@@ -81,12 +72,11 @@ slickR(nba_player_logo$uri,
 You can add links to each element in the slide using the `objLinks` parameter.
 
 ```{r}
-slickR(nba_player_logo$uri,
-       slideId = 'ex5',
-       objLinks = list(nba_player_logo$player_home), 
-       slickOpts = opts,
-       height = 100, 
-       width = "95%")
+
+slickR(obj = nba_player_logo$uri,
+                objLinks = nba_player_logo$player_home,
+                height = 100, width = "95%") + 
+opts
 ```
 
 
@@ -102,7 +92,7 @@ cP1 <- htmlwidgets::JS("function(slick,index) {
                             return '<a>'+(index+1)+'</a>';
                        }")
 
-opts <- list(
+opts_dot_number <- settings(
     initialSlide = 0,
     slidesToShow = 5,
     slidesToScroll = 5,
@@ -114,13 +104,18 @@ opts <- list(
 slickR(
   obj = nba_player_logo$uri,
   dotObj = nba_team_logo$uri,
-  slideId = 'ex6',
-  slickOpts = opts,
   height = 100,
   width = "95%"
-) 
+)  + 
+opts_dot_number
+
+
 
 ```
+
+<br>
+<br>
+<br>
 
 ### Replace dots with Images
 
@@ -130,8 +125,8 @@ cP2 <- JS("function(slick,index) {
           return '<a><img src= ' + dotObj[index] + '  width=100% height=100%></a>';
           }")
 
-opts <- 
-  list(
+opts_dot_logo <- 
+  settings(
     initialSlide = 0,
     slidesToShow = 5,
     slidesToScroll = 5,
@@ -140,51 +135,61 @@ opts <-
     customPaging = cP2
   )
 
-slick <- slickR(
-  obj = nba_player_logo$uri,
-  dotObj = nba_team_logo$uri,
-  slideId = 'ex7',
-  slickOpts = opts,
-  height = 100,
-  width = "95%"
-) 
-
-
 # Putting it all together in one slickR call
 s2 <- htmltools::tags$script(
   sprintf("var dotObj = %s", jsonlite::toJSON(nba_team_logo$uri))
 )
 
-htmltools::browsable(htmltools::tagList(s2, slick))
+slick_teams <- slickR(
+  obj = nba_player_logo$uri,
+  dotObj = nba_team_logo$uri,
+  height = 100,
+  width = "95%"
+)  + opts_dot_logo
+
+htmltools::browsable(htmltools::tagList(s2, slick_teams))
 ```
+
+<br>
+<br>
+<br>
+
+## Stacking Carousels
+
+You can stack carousels one on top of the other with the `%stack%` operator
+
+```{r}
+
+slick_up_stack <- slickR(obj = nba_player_logo$uri[1:5], height = 100, width = "95%")
+
+slick_down_stack <- slickR(obj = nba_player_logo$uri[6:10], height = 100, width = "95%")
+
+slick_up_stack %stack% slick_down_stack
+
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Synching Carousels
 
-There are instances when you have many outputs at once and do not want to go through all, so you can combine two carousels one for viewing and one for searching.
+There are instances when you have many outputs at once and do not want to go through all, so you can stack and synch two carousels one for viewing and one for searching with the `%synch%` operator.
 
 ```{r}
-opts <- list(
-  # 'up' options
-    list(slidesToShow = 1, slidesToScroll = 1),
-  # 'down' options
-    list(dots = FALSE, 
-         slidesToScroll = 1, 
-         slidesToShow = 5,
-         centerMode = TRUE, 
-         focusOnSelect = TRUE)
-)
 
-synch_map <- expand.grid(list('up','down'),stringsAsFactors = FALSE)
+slick_up <- slickR(obj = nba_player_logo$uri,
+                objLinks = nba_player_logo$player_home,
+                height = 100, width = "95%") + 
+  settings(slidesToShow = 1, slidesToScroll = 1)
 
-slickR(rep(nba_player_logo$uri,2),
-       slideIdx = replicate(2,seq_along(nba_player_logo$uri),simplify = FALSE),
-       slideId =  c('up','down'),
-       objLinks = list(up = nba_player_logo$player_home,down = NULL),
-       synchSlides = synch_map,
-       slideType = rep('img',2),
-       slickOpts = opts,
-       height = 100, 
-       width = "90%")
+slick_down <- slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + settings(slidesToScroll = 1, slidesToShow = 5,
+                               centerMode = TRUE, focusOnSelect = TRUE)
+
+slick_up %synch% slick_down
 ```
 
 <br>
@@ -200,14 +205,10 @@ You can add a caption to an image by synching two carousels, where the upper is 
 
 ```{r}
 
-slickR(
-  obj         = c(nba_player_logo$uri[1:2],
-                  glue::glue('<p>{nba_player_logo$name[1:2]}</p>')),
-  slideType   = c('img','p'),
-  slideId     = c('img','cap'),
-  slideIdx    = list(c(1,2),c(3,4)),
-  synchSlides = expand.grid(list('img','cap'),stringsAsFactors = FALSE),
-  height      = 100,
-  slickOpts   = list(list(dots=FALSE),list(dots=TRUE,arrows=FALSE))
-)
+slickR(obj = nba_player_logo$uri[1:2]) %synch%
+( slickR(obj = glue::glue('<p>{nba_player_logo$name[1:2]}</p>'),
+        slideType = 'p') + 
+  settings(arrows = FALSE) )
+
+
 ```

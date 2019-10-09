@@ -28,8 +28,8 @@ library(shiny)
 server <- function(input, output) {
   
   output$slick <- renderSlickR({
-    slickR(s.in(),height = 600,slideId = 'myId',
-           slickOpts = list(slidesToShow=3,centerMode=TRUE)
+    slickR(s.in(),height = 600,slideId = 'myId') +
+      settings(slidesToShow=3,centerMode=TRUE)
     )
   })
   

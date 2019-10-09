@@ -71,25 +71,7 @@ plotsToSVG <- lapply(1:5,
 ## Convert to Character
  
 ```{r}
-SVGtoChr <- sapply(plotsToSVG, function(sv) {
-  paste0("data:image/svg+xml;utf8,", as.character(sv))
-})
-```  
-
-## Convert Hash
-
-```{r}
-
-SVGtoChr <- gsub("#", "%23", SVGtoChr)
-
-```
-
-```{r}
-slickR(SVGtoChr, 
-       slideId = 'ex8',
-       height = 200, 
-       width = "95%"
-      )
+slickR(plotsToSVG, height = 200, width = "95%")
 ```
 
 
@@ -99,26 +81,13 @@ There are instances when you have many outputs at once and do not want to go thr
 
 ```{r}
 
-opts <- list(
-  # 'up' options
-    list(slidesToShow = 1, slidesToScroll = 1),
-  # 'down' options
-    list(dots = FALSE, 
-         slidesToScroll = 1, 
-         slidesToShow = 3,
-         centerMode = TRUE, 
-         focusOnSelect = TRUE)
-)
+slick_up <- slickR(plotsToSVG, height = 200, width = "95%") + 
+  settings(slidesToShow = 1, slidesToScroll = 1)
 
-synch_map <- expand.grid(list('up','down'),stringsAsFactors = FALSE)
+slick_down <- slickR(plotsToSVG, height = 200, width = "95%") + 
+  settings(slidesToScroll = 1,  slidesToShow = 3, 
+     centerMode = TRUE, focusOnSelect = TRUE)
 
-slickR(SVGtoChr,
-       slideIdx = replicate(2,seq_along(SVGtoChr),simplify = FALSE),
-       slideId =  c('up','down'),
-       synchSlides = synch_map,
-       slideType = rep('img',length(SVGtoChr)),
-       slickOpts = opts,
-       height = 100, 
-       width = "95%")
+slick_up %synch% slick_down
 
 ```

@@ -31,22 +31,13 @@
 #'  \code{\link[magick]{image_read_pdf}}
 slickpdf <- function(obj, obj2 = NULL, synch = TRUE, img_format = 'png', ...){
   
-  dots <- list(...)
-  
-  if('slideId'%in%names(dots)){
-    slideId <- dots$slideId
-  }else{
-    slideId <- c('up','down')
-  }
-    
-  
-  td <- file.path(tempdir(),'slick',slideId[1])
+  td <- file.path(tempdir(),'slick','up')
   
   if(!dir.exists(td))
     dir.create(td,recursive = TRUE)
   
   if(!is.null(obj2)){
-    td2 <- file.path(tempdir(),'slick',slideId[2])  
+    td2 <- file.path(tempdir(),'slick','down')  
     
     if(!dir.exists(td2))
       dir.create(td2,recursive = TRUE)
@@ -63,23 +54,18 @@ slickpdf <- function(obj, obj2 = NULL, synch = TRUE, img_format = 'png', ...){
     td_1 <- list.files(td,full.names = TRUE)
     td_2 <- list.files(td2,full.names = TRUE)
     
-    TD <- c(td_1,td_2)
+    slicks <- lapply(list(td_1,td_2),slickR,...)
     
     if(synch){
-      synch_vals <- expand.grid(as.list(slideId),stringsAsFactors = FALSE)
+      Reduce(`%synch%`,slicks)
     }else{
-      synch_vals <- NULL
+      Reduce(`%stack%`,slicks)
     }
     
-    slickR(obj = TD,
-           slideIdx = list(seq_along(td_1),seq_along(td_2)),
-           synchSlides = synch_vals,
-           slideType = rep('img',2),
-           ... )
     
   }else{
     
-    slickR(list.files(td,full.names = TRUE), ... )
+    slickR(list.files(td,full.names = TRUE),...)
     
   }
   

@@ -10,7 +10,8 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = interactive()
 )
 ```
 
@@ -28,15 +29,14 @@ url <- 'https://cran.r-project.org/web/packages/slickR/slickR.pdf'
 Single PDF file in a single slider rendered as png
  
 ```{r}
-slickpdf(url, slideId = 'ex1')
+slickpdf(url)
 
 ```
  
 ## Multiple PDF Files
 
 ```{r}
-slickpdf(obj = url, obj2 = url, 
-         slideId = c('ex2up','ex2down'))
+slickpdf(obj = url, obj2 = url)
 
 ```
 

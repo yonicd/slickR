@@ -2,157 +2,129 @@
 #'
 #' @description use slick.js library in R
 #' @param obj character, vector of path or url to images
-#' @param slideId character, id of slide
-#' @param slideIdx list, numeric indices which images are mapped to which slider
-#' @param slideType character, type of object to put in slide
-#' @param slickOpts list, attributes for each slider, see details 
-#'  \lifecycle{soft-deprecated}
-#' @param objLinks list, Named list corresponding to slideId containing links to attach to each element.
-#'  If NULL then no links applied, Default: NULL
-#' @param synchSlides data.frame, rowwise pairs of slideId names of sliders are
-#'  synchronized \lifecycle{soft-deprecated}
-#' @param dotObj list, character vectors of url or images to replace dots 
-#'  with (see details)
-#' @param padding character, percent of width between each image in the 
-#'  carousel for each slider, Default: '1\%'
-#' @param width character, width of htmlwidget
-#' @param height character, height of htmlwidget
-#' @param elementId character, id tag of htmlwidget
+#' @param slideId character, id of slide, Default: 'baseDiv'
+#' @param objLinks character, links to attach to images in slide, Default: NULL
+#' @param slideType character, type of object to put in slide, Default: 'img'
+#' @param dotObj character, urls or images to replace dots with (see details), 
+#'   Default: NULL
+#' @param padding numeric, percent of width between each image in the carousel 
+#'   for each slider, Default: 1
+#' @param width character, width of htmlwidget, Default: '95\%'
+#' @param height character, height of htmlwidget, Default: NULL
+#' @param elementId character, id tag of htmlwidget, Default: NULL
 #' @import htmlwidgets
-#' @details slick.js \url{http://kenwheeler.github.io/slick/} is an image 
-#' carousel javascript library. To find all the attributes
-#' that can be used please refer to the link. To create more than one carousel 
-#' input the attributes into a nested list eg 
-#' slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
-#' list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). 
-#' It is possible to synchronize the slides
-#' through the slickOpts calls, using asNavFor attribute. To replace the dots 
-#' with icons use the dotObj argument to pass in the icon
-#' images and in the slickOpts add a customPaging attribute with the 
-#' appropriate JS(.) function call. The slideType accepts the type 
-#' of html DOM you want to be in the slide, eg img, iframe.  
+#' @details 
+#' 
+#' slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. 
+#' 
+#' To find all the attributes that can be used please refer to the link. 
+#' 
+#' It is possible to stack slides through the `+` operator. 
+#' 
+#' It is possible to synchronize slides through the `*` operator. 
+#' 
+#' To replace the dots with icons use the dotObj argument to pass in the icon
+#' images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call. 
+#' 
+#' The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.  
 #' 
 #' @examples 
 #' 
 #' 
 #' if(interactive()){
-#'   slickR(obj=nba_team_logo$uri)
+#' 
+#' slick <- slickR(obj=nba_team_logo$uri)
+#' 
+#' slick
 #'
-#' # synching 3 groups
-#' 
-#' # creating groups
-#' sx1 <- as.numeric(grepl('C',nba_team_logo$uri,ignore.case = FALSE))
-#' sx2 <- as.numeric(grepl('D',nba_team_logo$uri,ignore.case = FALSE))*2
-#' sx3 <- sx1 + sx2
-#' 
-#' # split into list of size 3
-#' sIdx <- lapply(split(nba_team_logo$uri,sx3),function(x) match(x,nba_team_logo$uri))
-#' 
-#' # synching logic (a,b) and (a,c)
-#' groups <- expand.grid(list('a',c('b','c')),stringsAsFactors = FALSE)
-#' 
-#' slickR(obj = nba_team_logo$uri,
-#'        slideId = c('a','b','c'),
-#'        slideIdx = sx,
-#'        slideType = rep('img',3),
-#'        synchSlides = groups,
-#'        height = 100)
+#' # add dots to the first slick and autoplay at 1 second a slide
+#'  
+#' slick + settings(dots = TRUE, autoplay = TRUE, autoplaySpeed = 1000)
 #'
-#'}
+#' 
+#' # working with multiple slicks
+#' 
+#' sets <- split(
+#'   sample(nba_team_logo$uri, size = 28, replace = FALSE),
+#'   rep(c(1,2,3,4),each=7)
+#' )
+#' 
+#' slicks <- lapply(sets,FUN = function(x,...){
+#'   slickR(obj = x,...)
+#' },height = 100)
+#' 
+#' # independent slicks
+#' 
+#' Reduce(`%stack%`,slicks)
+#' 
+#' # 1,2 synch stacked on 3,4 synch
+#' 
+#'  (slicks[[1]] %synch% slicks[[2]]) %stack% (slicks[[3]]%synch%slicks[[4]])
+#'
+#' }
 #' @import htmlwidgets
-#' @importFrom  lifecycle deprecate_soft
 #' @export
-slickR <- function(obj ,
-                   slideId     = 'baseDiv',
-                   slideIdx    = list(1:length(obj)),
-                   slideType   = c('img'),
-                   slickOpts   = list(dots=TRUE),
-                   padding     = rep('1%',length(obj)),
-                   objLinks    = NULL, 
-                   synchSlides = NULL,
-                   dotObj      = NULL,
-                   width       = NULL, 
-                   height      = NULL,
-                   elementId   = NULL) {
+slickR <- function( obj ,
+                    slideId   = 'baseDiv',
+                    objLinks  = NULL,
+                    slideType = 'img',
+                    padding   = 1,
+                    dotObj    = NULL,
+                    width     = '95%', 
+                    height    = NULL,
+                    elementId = NULL) {
 
   
-  if(!is.null(slickOpts)){
-    lifecycle::deprecate_soft(when = "0.5.0", what = "slickR::slickR(slickOpts = )")
+  if(inherits(obj,'list')){
+      if(all(sapply(obj,inherits, what = 'xml_document'))){
+        obj <- unlist(lapply(obj,as_svg_character)) 
+      }
   }
   
-  if(!is.null(synchSlides)){
-    lifecycle::deprecate_soft(when = "0.5.0", what = "slickR::slickR(synchSlides = )")
+  if(inherits(obj, what = 'xml_document')){
+    obj <- as_svg_character(obj)
   }
   
-  if(!is.character(obj)) stop('obj must be a character vector')
+  # checks for input type
+  checkmate::expect_class(obj,c('character'))
+  
+  img_str <- 'www[.]|http|https|data:image/|body|^<p'
   
   obj <- lapply(obj,function(x){
-    
-    if(!grepl('www[.]|http|https|data:image/|body|^<p',x)) {
-      x <- readImage(x)
-    }
-    
+    if(!grepl(img_str,x)) x <- readImage(x)
     x
   })
   
-  if(length(slideId)!=length(slideIdx)) {
-    slideId <- paste0('baseDiv',1:length(slideId))
-  }
-
-  x <- vector('list',length(slideIdx))
+  x <- list()
   
-  for(xId in 1:length(x)){
-    
-    if(length(x[[xId]]$obj)>1) {
-      x[[xId]]$obj <- unlist(x[[xId]]$obj)
-    }
-    
-    x[[xId]]$divName <- slideId[xId]
-    
-    if(!is.null(objLinks))
-      x[[xId]]$links   <- objLinks[[slideId[xId]]]
-    
-    x[[xId]]$divType <- slideType[[xId]]
-    x[[xId]]$padding <- paste0(100-as.numeric(gsub('%','',padding[[xId]])),'%')
-    
-    if(slideType[[xId]]=='p'){
-      obj[slideIdx[[xId]]] <- gsub('^<p>|</p>$','',obj[slideIdx[[xId]]])
-    }
-    
-    x[[xId]]$obj <- obj[slideIdx[[xId]]]
-    
-    if(length(slickOpts)>0){
-      if(all(sapply(slickOpts,class)=='list')){
-        sOL <- slickOpts[[xId]]
-      }else{
-        sOL <- slickOpts
-      } 
-
-      if(!is.null(synchSlides)){
-        for(j in 1:2){
-          
-          ss <- synchSlides[,c(1:2)[j]]%in%slideId[xId]
-          
-          if(any(ss)){
-            sOL$asNavFor <- paste0(sprintf(".%s",synchSlides[ss,c(1:2)[-j]]),collapse = ',')
-          }
-          
-        }
-      }
-        
-      
-      if(!is.null(dotObj)) x[[xId]]$dotObj <- dotObj
-      
-      if(!is.null(sOL[[1]])) x[[xId]]$slickOpts <- sOL
-    }
-  }
-
-  # forward options using x
+  if(slideType=='p')
+    obj <- gsub('^<p>|</p>$','',obj)
   
-  # create widget
+  # populate elements to construct slick
+  x$obj <- obj
+  
+  x$divName <- bump_name(slideId)
+  
+  if(!is.null(objLinks))
+    x$links   <- objLinks
+  
+  x$divType <- slideType
+  
+  #padding around each element in obj
+  
+  if(length(padding)==1)
+    padding <- rep(padding,length(obj))
+  
+  x$padding <- sprintf("%s%%",100 - padding)
+  
+  # replace dots with a different DOM/JS  
+  
+  if(!is.null(dotObj)) 
+    x$dotObj <- dotObj
+  
   hw <- htmlwidgets::createWidget(
     name = 'slickR',
-    x,
+    list(x),
     width = width,
     height = height,
     package = 'slickR',
