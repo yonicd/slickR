@@ -26,7 +26,9 @@ library(slickR)
 Let's start easy: show the team logos one at a time
 
 ```{r}
+
 slickR(obj = nba_player_logo$uri,height = 100, width = "95%")
+
 ```
 
 Let's add dots with the `settings` function
@@ -63,7 +65,8 @@ opts <- settings(
   slidesToScroll = 5, 
   focusOnSelect = TRUE)
 
-slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + opts
+slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + 
+  opts
 
 ```
 
@@ -73,10 +76,11 @@ You can add links to each element in the slide using the `objLinks` parameter.
 
 ```{r}
 
-slickR(obj = nba_player_logo$uri,
+slick_link <- slickR(obj = nba_player_logo$uri,
                 objLinks = nba_player_logo$player_home,
-                height = 100, width = "95%") + 
-opts
+                height = 100, width = "95%") 
+
+slick_link + opts
 ```
 
 
@@ -101,13 +105,14 @@ opts_dot_number <- settings(
     customPaging = cP1
     )
 
-slickR(
+slick_dots <- slickR(
   obj = nba_player_logo$uri,
   dotObj = nba_team_logo$uri,
   height = 100,
   width = "95%"
-)  + 
-opts_dot_number
+)
+
+slick_dots + opts_dot_number
 
 
 
@@ -140,14 +145,14 @@ s2 <- htmltools::tags$script(
   sprintf("var dotObj = %s", jsonlite::toJSON(nba_team_logo$uri))
 )
 
-slick_teams <- slickR(
+slick_dots_logo <- slickR(
   obj = nba_player_logo$uri,
   dotObj = nba_team_logo$uri,
   height = 100,
   width = "95%"
-)  + opts_dot_logo
+) + opts_dot_logo
 
-htmltools::browsable(htmltools::tagList(s2, slick_teams))
+htmltools::browsable(htmltools::tagList(s2, slick_dots_logo))
 ```
 
 <br>
@@ -160,9 +165,9 @@ You can stack carousels one on top of the other with the `%stack%` operator
 
 ```{r}
 
-slick_up_stack <- slickR(obj = nba_player_logo$uri[1:5], height = 100, width = "95%")
+slick_up_stack <- slickR(obj = nba_player_logo$uri, height = 100, width = "95%")
 
-slick_down_stack <- slickR(obj = nba_player_logo$uri[6:10], height = 100, width = "95%")
+slick_down_stack <- slickR(obj = nba_player_logo$uri, height = 100, width = "95%")
 
 slick_up_stack %stack% slick_down_stack
 
@@ -180,16 +185,12 @@ slick_up_stack %stack% slick_down_stack
 There are instances when you have many outputs at once and do not want to go through all, so you can stack and synch two carousels one for viewing and one for searching with the `%synch%` operator.
 
 ```{r}
+slick_up_synch <- slickR(obj = nba_player_logo$uri, height = 100, width = "95%")
 
-slick_up <- slickR(obj = nba_player_logo$uri,
-                objLinks = nba_player_logo$player_home,
-                height = 100, width = "95%") + 
-  settings(slidesToShow = 1, slidesToScroll = 1)
+slick_down_synch <- slickR(obj = nba_player_logo$uri, height = 100, width = "95%")
 
-slick_down <- slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + settings(slidesToScroll = 1, slidesToShow = 5,
-                               centerMode = TRUE, focusOnSelect = TRUE)
+slick_up_synch %synch% slick_down_synch
 
-slick_up %synch% slick_down
 ```
 
 <br>
@@ -205,7 +206,7 @@ You can add a caption to an image by synching two carousels, where the upper is 
 
 ```{r}
 
-slickR(obj = nba_player_logo$uri[1:2]) %synch%
+slickR(obj = nba_player_logo$uri[1:2], height = 100, width = "95%") %synch%
 ( slickR(obj = glue::glue('<p>{nba_player_logo$name[1:2]}</p>'),
         slideType = 'p') + 
   settings(arrows = FALSE) )

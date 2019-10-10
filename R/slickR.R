@@ -122,7 +122,7 @@ slickR <- function( obj ,
   if(!is.null(dotObj)) 
     x$dotObj <- dotObj
   
-  hw <- htmlwidgets::createWidget(
+  htmlwidgets::createWidget(
     name = 'slickR',
     list(x),
     width = width,
@@ -130,8 +130,22 @@ slickR <- function( obj ,
     package = 'slickR',
     elementId = elementId
   )
+
+}
+
+#' @export
+print.slickR <- function(x,..., view = interactive()){
   
-  style_widget(hw=hw, "margin-left:auto;margin-right:auto")
+  x <- style_widget(hw=x, "margin-left:auto;margin-right:auto")
+  get('print.htmlwidget',envir = asNamespace('htmlwidgets'))(x,...,view = view)
+}
+
+#' @export
+#' @importFrom knitr knit_print
+knit_print.slickR <- function(x,...,options = NULL){
+  
+  x <- style_widget(hw=x, "margin-left:auto;margin-right:auto")
+  get('knit_print.htmlwidget',envir = asNamespace('htmlwidgets'))(x,...,options)
 }
 
 #' Shiny bindings for slickR

@@ -2,10 +2,18 @@
 #' @importFrom htmltools tags
 #' @importFrom htmlwidgets prependContent
 style_widget <- function(hw=NULL, style="", addl_selector="") {
+  
   stopifnot(!is.null(hw), inherits(hw, "htmlwidget"))
+  
+  if('shiny'%in%loadedNamespaces()){
+    if(!is.null(get('getDefaultReactiveDomain',envir = asNamespace('shiny'))())){
+      return(hw)
+    }  
+  }
   
   # use current id of htmlwidget if already specified
   elementId <- hw$elementId
+  
   if(is.null(elementId)) {
     # borrow htmlwidgets unique id creator
     elementId <- sprintf(
@@ -14,6 +22,7 @@ style_widget <- function(hw=NULL, style="", addl_selector="") {
     )
     hw$elementId <- elementId
   }
+  
   htmlwidgets::prependContent(
     hw,
     htmltools::tags$style(

@@ -106,8 +106,11 @@
 
 bump_name <- function(e1){
   
-  sprintf('%s_%s',e1,rbump())
-  
+  sprintf('%s_%s',
+          gsub('_bump(.*?)$','',e1),
+          rbump()
+          )
+
 }
 
 #'importFrom stats runif

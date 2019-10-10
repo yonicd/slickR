@@ -11,8 +11,51 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-        
+
+          if(typeof(Shiny) !== "undefined"){
+            
+            destroyDiv(x[0]);
+            
+          }
+          
+          for(j=0;j<x.length;j++){
+                 
+                  buildDiv(
+                    x[j].obj,
+                    x[j].divType,
+                    x[j].divName,
+                    x[j].links,
+                    x[j].padding,
+                    height+'px');
+                  
+                  thisDiv = $("."+x[j].divName);
+                  
+                  thisDiv.slick(x[j].slickOpts);
+                  
+                  if(typeof(Shiny) !== "undefined"){
+                    
+                    toshiny(thisDiv);
+                    
+                  }
+                  
+                }
+            
+            function destroyDiv(x){
+              
+              var basename = x.divName.replace(/_bump(.*?)$/,'');
+              
+              var obj = document.querySelectorAll('[class^="' + basename + '"]');
+              
+              for(j = 0; j < obj.length; j++ ){
+                
+              $("." + obj[j].classList[0]).detach();
+                
+              }
+              
+            }
+              
             function buildDiv(obj,objType,cl,link,width,height){
+              
               var len = obj.length,i = 0;
 							var mainDiv = document.createElement("div");
               mainDiv.className = cl;
@@ -64,42 +107,13 @@ HTMLWidgets.widget({
               }
               return mainDiv;
             }
-
-        //if(x[0].obj){
-               for(j=0;j<x.length;j++){
-                 
-                  if(x[j].dotObj){
-                    
-                    var dotObj=x[j].dotObj;
-                    
-                  } 
-                  
-                  $("."+x[j].divName).detach();
-
-                  buildDiv(
-                    x[j].obj,
-                    x[j].divType,
-                    x[j].divName,
-                    x[j].links,
-                    x[j].padding,
-                    height+'px');
-                  
-                  thisDiv = $("."+x[j].divName);
-                  
-                  thisDiv.slick(x[j].slickOpts);
-                  
-                  if(typeof(Shiny) !== "undefined"){
-                    toshiny(thisDiv);
-                  }
-                  
-                }
                 
-                function toshiny(thisDiv){
+            function toshiny(thisDiv){
                   toshiny_arrow(thisDiv);
                   toshiny_slider(thisDiv);
                 }
                 
-               function toshiny_arrow(thisDiv){
+            function toshiny_arrow(thisDiv){
                   thisDiv.on("afterChange",function(event, slick, currentSlide, nextSlide){
                     
                         totIdx    = thisDiv.slick("getSlick").slideCount;
@@ -117,7 +131,7 @@ HTMLWidgets.widget({
                   });
                 }
                 
-                function toshiny_slider(thisDiv){
+            function toshiny_slider(thisDiv){
                   
                       thisDiv.on('click','.slick-slide', function(e){
                         centerIdx = thisDiv.slick('slickCurrentSlide') + 1 ;
@@ -143,10 +157,6 @@ HTMLWidgets.widget({
                     });
                 }
                 
-            //}
-            
-  
-
           },
 
       resize: function(width, height) {
