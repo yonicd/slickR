@@ -133,21 +133,6 @@ slickR <- function( obj ,
 
 }
 
-#' @export
-print.slickR <- function(x,..., view = interactive()){
-
-  get('print.htmlwidget',envir = asNamespace('htmlwidgets'))(x,...,view = view)
-  
-}
-
-#' @export
-#' @importFrom knitr knit_print
-knit_print.slickR <- function(x,...,options = NULL){
-  
-  get('knit_print.htmlwidget',envir = asNamespace('htmlwidgets'))(x,...,options)
-  
-}
-
 #' Shiny bindings for slickR
 #'
 #' Output and render functions for using slickR within Shiny

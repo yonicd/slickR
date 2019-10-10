@@ -77,17 +77,16 @@ server <- function(input, output) {
 ```{r}
 
 plots <- eventReactive(c(input$n_obs,input$plot_num),{
-  replicate(input$plot_num,function(x) {
-    
-    xmlSVG({hist(rnorm(input$n_obs), 
-                 col = 'darkgray', 
-                 border = 'white')},
-           standalone=TRUE)
-    
-    })
-})
+  
+replicate(input$plot_num,{
 
-}
+     xmlSVG({hist(rnorm(input$n_obs),
+                  col = 'darkgray',
+                  border = 'white')},
+            standalone=TRUE)
+
+     },simplify = FALSE)
+})
 
 ```
 
@@ -163,6 +162,10 @@ output$current <- renderText({
   paste(gsub('_',' ',names(l)), unlist(l),sep=' = ',collapse='\n')
 })
 
+```
+
+```{r}
+}
 ```
 
 ## Run the App
