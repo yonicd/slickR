@@ -30,6 +30,8 @@ HTMLWidgets.widget({
                   
                   thisDiv = $("."+x[j].divName);
                   
+                  $('#' + el.id).css({"margin-left":"auto","margin-right":"auto"});
+                  
                   thisDiv.slick(x[j].slickOpts);
                   
                   if(typeof(Shiny) !== "undefined"){

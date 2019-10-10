@@ -135,17 +135,17 @@ slickR <- function( obj ,
 
 #' @export
 print.slickR <- function(x,..., view = interactive()){
-  
-  x <- style_widget(hw=x, "margin-left:auto;margin-right:auto")
+
   get('print.htmlwidget',envir = asNamespace('htmlwidgets'))(x,...,view = view)
+  
 }
 
 #' @export
 #' @importFrom knitr knit_print
 knit_print.slickR <- function(x,...,options = NULL){
   
-  x <- style_widget(hw=x, "margin-left:auto;margin-right:auto")
   get('knit_print.htmlwidget',envir = asNamespace('htmlwidgets'))(x,...,options)
+  
 }
 
 #' Shiny bindings for slickR
