@@ -1,1 +1,10 @@
 destination: docs
+title: slickR
+template:
+  params:
+    bootswatch: flatly
+navbar:
+  type: inverse
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/metrumresearchgroup/slickR
