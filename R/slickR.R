@@ -73,7 +73,7 @@ slickR <- function( obj ,
                     width     = '95%', 
                     height    = NULL,
                     elementId = NULL) {
-
+  
   
   if(inherits(obj,'list')){
       if(all(sapply(obj,inherits, what = 'xml_document'))){

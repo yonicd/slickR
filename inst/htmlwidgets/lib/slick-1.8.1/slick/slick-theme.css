@@ -71,7 +71,7 @@
     line-height: 1;
 
     opacity: .75;
-    color: #404040;
+    color: #404040; /*slickR update*/
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -178,7 +178,7 @@
 .slick-dots li button:before
 {
     font-family: 'slick';
-    font-size: 6px !important;
+    font-size: 6px;
     line-height: 20px;
 
     position: absolute;
