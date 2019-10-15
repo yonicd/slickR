@@ -1,1 +1,46 @@
 destination: docs
+title: slickR
+template:
+  params:
+    bootswatch: flatly
+navbar:
+  type: inverse
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/metrumresearchgroup/slickR
+  structure:
+    left:  [home, reference, articleindex, news]
+    right: [github, twitter]
+  components:
+    articles: ~
+    articleindex:
+      text: Articles
+      href: articles/index.html
+    twitter:
+      icon: fa-lg fa-twitter
+      href: http://twitter.com/MetrumRG
+
+reference:
+  - title: "Invoking"
+    contents:
+      - has_concept("invoke")
+  - title: "Methods"
+    contents:
+      - has_concept("methods")
+  - title: "Settings"
+    contents:
+      - has_concept("settings")
+  - title: "Package Data"
+    contents:
+      - has_concept("data")
+
+articles:
+  - title: "Getting Started"
+    contents:
+      - basics
+  - title: "Advanced"
+    contents:
+      - iframes
+      - pdfs
+      - plots
+      - shiny

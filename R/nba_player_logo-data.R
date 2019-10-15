@@ -1,4 +1,4 @@
-#' @title nba_player_logo
+#' @title NBA player logo
 #' @description NBA player logo URI
 #' @format A data frame with 150 rows and 4 variables:
 #' \describe{
@@ -9,4 +9,5 @@
 #'   \item{\code{player_home}}{character, Player Homepage URI} 
 #'}
 #' @details Logos harvested from http://www.espn.com/nba/depth
+#' @family data
 "nba_player_logo"

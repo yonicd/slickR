@@ -84,8 +84,8 @@
 #' @details To find further information on the attributes that can be used 
 #' please refer to \url{http://kenwheeler.github.io/slick/}.
 #' @rdname settings
+#' @family settings
 #' @export 
-
 settings <- function(accessibility,
                      adaptiveHeight,
                      autoplay     ,

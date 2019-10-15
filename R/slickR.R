@@ -63,6 +63,7 @@
 #'
 #' }
 #' @import htmlwidgets
+#' @family invoke
 #' @export
 slickR <- function( obj ,
                     slideId   = 'baseDiv',

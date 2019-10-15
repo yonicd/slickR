@@ -3,7 +3,7 @@
 \docType{data}
 \name{nba_team_logo}
 \alias{nba_team_logo}
-\title{nba_team_logo}
+\title{NBA team logo}
 \format{A data frame with 30 rows and 2 variables:
 \describe{
   \item{\code{team}}{character, Team Name}
@@ -19,4 +19,8 @@ NBA team logo URI
 Logos harvested from 
  https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{team_short_name}.svg
 }
+\seealso{
+Other data: \code{\link{nba_player_logo}}
+}
+\concept{data}
 \keyword{datasets}

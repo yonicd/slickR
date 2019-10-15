@@ -1,10 +1,8 @@
-
 #' @title Combine slickR carousels
 #' @description Synchronize or Stack carousels
 #' @param e1 slickR htmlwidget to place on top
 #' @param e2 slickR htmlwidget to place on bottom
 #' @return htmlwidget
-#' @details DETAILS
 #' @examples 
 #' 
 #' if(interactive()){
@@ -30,6 +28,7 @@
 #'  
 #'}
 #' @rdname slick_combine
+#' @family methods
 #' @export 
 
 `%synch%` <- function(e1,e2){
@@ -113,7 +112,7 @@ bump_name <- function(e1){
 
 }
 
-#'importFrom stats runif
+#' @importFrom stats runif
 rbump <- function(){
   gsub('0\\.','bump_',stats::runif(1))
 }

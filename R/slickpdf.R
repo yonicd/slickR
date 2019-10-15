@@ -27,6 +27,7 @@
 #' @details \href{https://github.com/ropensci/pdftools}{pdftools} must be installed for function to work. 
 #' @rdname slickpdf
 #' @export 
+#' @family invoke
 #' @seealso 
 #'  \code{\link[magick]{image_read_pdf}}
 slickpdf <- function(obj, obj2 = NULL, synch = TRUE, img_format = 'png', ...){

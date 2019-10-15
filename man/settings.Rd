@@ -154,3 +154,4 @@ Function to construct elements to place in settings
 To find further information on the attributes that can be used 
 please refer to \url{http://kenwheeler.github.io/slick/}.
 }
+\concept{settings}

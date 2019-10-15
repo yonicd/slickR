@@ -70,12 +70,8 @@ ui <- fluidPage(
 ```{r}
 server <- function(input, output) {
 
-```
-
-### Create content for the carousel
-
-```{r}
-
+# Create content for the carousel
+  
 plots <- eventReactive(c(input$n_obs,input$plot_num),{
   
 replicate(input$plot_num,{
@@ -88,14 +84,8 @@ replicate(input$plot_num,{
      },simplify = FALSE)
 })
 
-```
+# renderSlickR (We create the slickR objects here)
 
-
-### renderSlickR
-
-We create the slickR objects here
-
-```{r}
   output$slick_output <- renderSlickR({
     
     x <- slickR(plots(),
@@ -111,25 +101,22 @@ We create the slickR objects here
            )
 
   })
-```
+  
+# Observe the active slick
+  
+# The htmlwidget is observed by shiny and information can be retrieved. 
 
-### Observe the active slick
+# Using the output name you set for the `renderSlick` object in this example
+# it is `output$slick_output`
+ 
+# Using this you can interact server-side "on click" of the active carousel
+# by accessing elements in `input$slick_output_current$`
 
-The htmlwidget is observed by shiny and information can be retrieved. 
-
-Using the output name you set for the `renderSlick` object in this example it is `output$slick_output`
-
-Using this you can interact server-side "on click" of the active carousel by accessing elements in `input$slick_output_current$`
-
-|  Element |  Description|
-|:--:|:--|
-| `.clicked_slide`   | The index of the clicked element|
-| `.relative_clicked`| The relative position of the clicked element|
-| `.center_slide`    | The index of the center element|
-| `.total_slide`     | The total number of elements in the carousel|
-| `.active_slide`    | The ID of the active carousel|
-
-```{r}
+# `.clicked_slide`   : The index of the clicked element|
+# `.relative_clicked`: The relative position of the clicked element|
+# `.center_slide`    : The index of the center element|
+# `.total_slide`     : The total number of elements in the carousel|
+# `.active_slide`    : The ID of the active carousel|
 
 # We will store this information in a new reactive environment
 active_slick <- shiny::reactiveValues()
@@ -151,20 +138,13 @@ shiny::observeEvent(input$slick_output_current,{
   }
 })
 
-```
-
-### Show in the UI the values in active_slick
- 
-```{r}
+# Show in the UI the values in active_slick
 
 output$current <- renderText({
   l <- shiny::reactiveValuesToList(active_slick)
   paste(gsub('_',' ',names(l)), unlist(l),sep=' = ',collapse='\n')
 })
 
-```
-
-```{r}
 }
 ```
 

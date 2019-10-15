@@ -3,7 +3,7 @@
 \docType{data}
 \name{nba_player_logo}
 \alias{nba_player_logo}
-\title{nba_player_logo}
+\title{NBA player logo}
 \format{A data frame with 150 rows and 4 variables:
 \describe{
   \item{\code{team}}{character, Team name}
@@ -21,4 +21,8 @@ NBA player logo URI
 \details{
 Logos harvested from http://www.espn.com/nba/depth
 }
+\seealso{
+Other data: \code{\link{nba_team_logo}}
+}
+\concept{data}
 \keyword{datasets}

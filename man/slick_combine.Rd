@@ -20,9 +20,6 @@ htmlwidget
 \description{
 Synchronize or Stack carousels
 }
-\details{
-DETAILS
-}
 \examples{
 
 if(interactive()){
@@ -48,3 +45,4 @@ Reduce(`\%stack\%`,slicks)
  
 }
 }
+\concept{methods}

@@ -81,3 +81,7 @@ Reduce(`\%stack\%`,slicks)
 
 }
 }
+\seealso{
+Other invoke: \code{\link{slickpdf}}
+}
+\concept{invoke}
