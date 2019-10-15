@@ -15,10 +15,10 @@ settings(accessibility, adaptiveHeight, autoplay, autoplaySpeed, arrows,
   waitForAnimate, zIndex, ...)
 }
 \arguments{
-\item{accessibility}{logical, Enables tabbing and arrow key navigation, 
+\item{accessibility}{logical, Enables tabbing and arrow key navigation,
 Default: TRUE}
 
-\item{adaptiveHeight}{logical, Enables adaptive height for single slide 
+\item{adaptiveHeight}{logical, Enables adaptive height for single slide
 horizontal carousels., Default: FALSE}
 
 \item{autoplay}{logical, Enables Autoplay, Default: FALSE}
@@ -27,57 +27,57 @@ horizontal carousels., Default: FALSE}
 
 \item{arrows}{logical, Prev/Next Arrows, Default: TRUE}
 
-\item{asNavFor}{character, Set the slider to be the navigation of other slider 
+\item{asNavFor}{character, Set the slider to be the navigation of other slider
 (Class or ID Name), Default: null}
 
-\item{appendArrows}{character, Change where the navigation arrows are attached 
+\item{appendArrows}{character, Change where the navigation arrows are attached
 (Selector, htmlString, Array, Element, jQuery object), Default: $(element)}
 
-\item{appendDots}{character, Change where the navigation dots are attached 
+\item{appendDots}{character, Change where the navigation dots are attached
 (Selector, htmlString, Array, Element, jQuery object), Default: $(element)}
 
 \item{prevArrow}{character (html|jQuery selector) | object (DOM node|jQuery object),
 Allows you to select a node or customize the HTML for the "Previous" arrow.,
- Default: <button type="button" class="slick-prev">Previous</button>}
+Default: <button type="button" class="slick-prev">Previous</button>}
 
 \item{nextArrow}{character (html|jQuery selector) | object (DOM node|jQuery object),
-Allows you to select a node or customize the HTML for the "Next" arrow., 
+Allows you to select a node or customize the HTML for the "Next" arrow.,
 Default: <button type="button" class="slick-next">Next</button>}
 
-\item{centerMode}{logical, Enables centered view with partial prev/next 
+\item{centerMode}{logical, Enables centered view with partial prev/next
 slides. Use with odd numbered slidesToShow counts., Default: FALSE}
 
-\item{centerPadding}{character, Side padding when in center mode (px or \%), 
+\item{centerPadding}{character, Side padding when in center mode (px or \%),
 Default: '50px'}
 
 \item{cssEase}{character, CSS3 Animation Easing, Default: 'ease'}
 
-\item{customPaging}{function, Custom paging templates. See source for use 
+\item{customPaging}{function, Custom paging templates. See source for use
 example., Default: n/a}
 
 \item{dots}{logical, Show dot indicators, Default: FALSE}
 
-\item{dotsClass}{character, Class for slide indicator dots container, 
+\item{dotsClass}{character, Class for slide indicator dots container,
 Default: 'slick-dots'}
 
 \item{draggable}{logical, Enable mouse dragging, Default: TRUE}
 
 \item{fade}{logical, Enable fade, Default: FALSE}
 
-\item{focusOnSelect}{logical, Enable focus on selected element (click), 
+\item{focusOnSelect}{logical, Enable focus on selected element (click),
 Default: FALSE}
 
-\item{easing}{character, Add easing for jQuery animate. Use with easing 
+\item{easing}{character, Add easing for jQuery animate. Use with easing
 libraries or default easing methods, Default: 'linear'}
 
-\item{edgeFriction}{numeric, Resistance when swiping edges of 
+\item{edgeFriction}{numeric, Resistance when swiping edges of
 non-infinite carousels, Default: 0.15}
 
 \item{infinite}{logical, Infinite loop sliding, Default: TRUE}
 
 \item{initialSlide}{numeric, Slide to start on, Default: 0}
 
-\item{lazyLoad}{character, Set lazy loading technique. Accepts 'ondemand' or 
+\item{lazyLoad}{character, Set lazy loading technique. Accepts 'ondemand' or
 'progressive', Default: 'ondemand'}
 
 \item{mobileFirst}{logical, Responsive settings use mobile first calculation,
@@ -87,30 +87,30 @@ Default: FALSE}
 
 \item{pauseOnHover}{logical, Pause Autoplay On Hover, Default: TRUE}
 
-\item{pauseOnDotsHover}{logical, Pause Autoplay when a dot is hovered, 
+\item{pauseOnDotsHover}{logical, Pause Autoplay when a dot is hovered,
 Default: FALSE}
 
-\item{respondTo}{character, Width that responsive object responds to. 
+\item{respondTo}{character, Width that responsive object responds to.
 Can be 'window', 'slider' or 'min' (the smaller of the two), Default: 'window'}
 
-\item{responsive}{object, Object containing breakpoints and settings objects 
-(see demo). Enables settings sets at given screen width. 
-  Set settings to "unslick" instead of an object to disable slick at a 
-  given breakpoint., Default: none}
+\item{responsive}{object, Object containing breakpoints and settings objects
+(see demo). Enables settings sets at given screen width.
+Set settings to "unslick" instead of an object to disable slick at a
+given breakpoint., Default: none}
 
-\item{rows}{numeric, Setting this to more than 1 initializes grid mode. 
+\item{rows}{numeric, Setting this to more than 1 initializes grid mode.
 Use slidesPerRow to set how many slides should be in each row., Default: 1}
 
 \item{slide}{element, Element query to use as slide, Default: ''}
 
-\item{slidesPerRow}{numeric, With grid mode intialized via the rows option, 
+\item{slidesPerRow}{numeric, With grid mode intialized via the rows option,
 this sets how many slides are in each grid row. dver, Default: 1}
 
 \item{slidesToShow}{numeric, # of slides to show, Default: 1}
 
 \item{slidesToScroll}{numeric, # of slides to scroll, Default: 1}
 
-\item{speed}{numeric, Slide/Fade animation speed in milliseconds, 
+\item{speed}{numeric, Slide/Fade animation speed in milliseconds,
 Default: 300}
 
 \item{swipe}{logical, Enable swiping, Default: TRUE}
@@ -120,7 +120,7 @@ irrespective of slidesToScroll, Default: FALSE}
 
 \item{touchMove}{logical, Enable slide motion with touch, Default: TRUE}
 
-\item{touchThreshold}{numeric, To advance slides, the user must swipe a 
+\item{touchThreshold}{numeric, To advance slides, the user must swipe a
 length of (1/touchThreshold) * the width of the slider, Default: 5}
 
 \item{useCSS}{logical, Enable/Disable CSS Transitions, Default: TRUE}
@@ -133,13 +133,13 @@ length of (1/touchThreshold) * the width of the slider, Default: 5}
 
 \item{verticalSwiping}{logical, Vertical swipe mode, Default: FALSE}
 
-\item{rtl}{logical, Change the slider's direction to become right-to-left, 
+\item{rtl}{logical, Change the slider's direction to become right-to-left,
 Default: FALSE}
 
-\item{waitForAnimate}{logical, Ignores requests to advance the slide while 
+\item{waitForAnimate}{logical, Ignores requests to advance the slide while
 animating, Default: TRUE}
 
-\item{zIndex}{numeric, Set the zIndex values for slides, useful for IE9 and 
+\item{zIndex}{numeric, Set the zIndex values for slides, useful for IE9 and
 lower, Default: 1000}
 
 \item{\dots}{unused}
@@ -151,7 +151,7 @@ list of class c('setting','slickR')
 Function to construct elements to place in settings
 }
 \details{
-To find further information on the attributes that can be used 
+To find further information on the attributes that can be used
 please refer to \url{http://kenwheeler.github.io/slick/}.
 }
 \concept{settings}

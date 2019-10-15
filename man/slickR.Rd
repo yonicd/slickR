@@ -4,9 +4,9 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(obj, slideId = "baseDiv", objLinks = NULL, slideType = "img",
-  padding = 1, dotObj = NULL, width = "95\%", height = NULL,
-  elementId = NULL)
+slickR(obj, slideId = "baseDiv", objLinks = NULL, slickOpts = NULL,
+  slideType = "img", synchSlides = NULL, padding = 1,
+  dotObj = NULL, width = "95\%", height = NULL, elementId = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
@@ -15,12 +15,16 @@ slickR(obj, slideId = "baseDiv", objLinks = NULL, slideType = "img",
 
 \item{objLinks}{character, links to attach to images in slide, Default: NULL}
 
+\item{slickOpts}{\lifecycle{deprecated}}
+
 \item{slideType}{character, type of object to put in slide, Default: 'img'}
 
-\item{padding}{numeric, percent of width between each image in the carousel 
+\item{synchSlides}{\lifecycle{deprecated}}
+
+\item{padding}{numeric, percent of width between each image in the carousel
 for each slider, Default: 1}
 
-\item{dotObj}{character, urls or images to replace dots with (see details), 
+\item{dotObj}{character, urls or images to replace dots with (see details),
 Default: NULL}
 
 \item{width}{character, width of htmlwidget, Default: '95\%'}
@@ -33,16 +37,16 @@ Default: NULL}
 use slick.js library in R
 }
 \details{
-slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. 
+slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
 
-To find all the attributes that can be used please refer to the link. 
+To find all the attributes that can be used please refer to the link.
 
-It is possible to stack slides through the `+` operator. 
+It is possible to stack slides through the \code{\%stack\%} operator.
 
-It is possible to synchronize slides through the `*` operator. 
+It is possible to synchronize slides through the \code{\%synch\%} operator.
 
 To replace the dots with icons use the dotObj argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call. 
+images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.
 
 The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.
 }
