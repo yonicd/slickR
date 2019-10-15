@@ -16,4 +16,4 @@ dependencies:
     version: 0.0.1
     src: htmlwidgets/lib/slickR
     script: slickR.js
-    stylesheet: slickR.css
+    stylesheet: [slick.css, slick-theme.css]
