@@ -2,7 +2,7 @@ Package: slickR
 Title: Create Interactive Carousels with the JavaScript 'Slick'
     Library
 Version: 0.4.6
-Date: 2019-10-01
+Date: 2019-10-14
 Authors@R: 
     person(given = "Jonathan",
            family = "Sidi",
