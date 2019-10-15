@@ -1,18 +1,19 @@
 dependencies:
   - name: jquery
-    version: 3.3.1
+    version: 3.4.1
     src: htmlwidgets/lib/jquery
-    script: jquery.min.js
+    script: jquery-3.4.1.min.js
   - name: jquery-migrate
-    version: 3.0.0
+    version: 3.1.0
     src: htmlwidgets/lib/jquery-migrate
-    script: jquery-migrate.min.js
+    script: jquery-migrate-3.1.0.min.js
   - name: slick
-    version: 1.6.0
-    src: htmlwidgets/lib/slick-1.6.0
+    version: 1.8.1
+    src: htmlwidgets/lib/slick-1.8.1
     script: slick/slick.min.js
     stylesheet:  [slick/slick.css, slick/slick-theme.css]
   - name: slickR
     version: 0.0.1
     src: htmlwidgets/lib/slickR
+    script: slickR.js
     stylesheet: slickR.css

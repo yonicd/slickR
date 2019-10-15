@@ -1,7 +1,7 @@
 Package: slickR
 Title: Create Interactive Carousels with the JavaScript 'Slick'
     Library
-Version: 0.4.4
+Version: 0.4.6
 Date: 2019-10-01
 Authors@R: 
     person(given = "Jonathan",
@@ -16,29 +16,32 @@ Description: Create and customize interactive carousels using
 License: MIT + file LICENSE
 URL: https://github.com/metrumresearchgroup/slickR
 BugReports: https://github.com/metrumresearchgroup/slickR/issues
-Depends:
+Depends: 
     R (>= 3.5.0)
-Imports:
+Imports: 
     base64enc,
+    checkmate,
     htmltools,
     htmlwidgets,
     lifecycle,
     magick,
+    stats,
     tools,
     utils,
     xml2
-Suggests:
+Suggests: 
+    glue,
     jsonlite,
     knitr,
     pdftools,
     rmarkdown,
-    stats,
     svglite,
-    glue
+    testthat
 VignetteBuilder: 
     knitr
 RdMacros: 
     lifecycle
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1

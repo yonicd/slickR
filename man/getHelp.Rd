@@ -2,7 +2,7 @@
 % Please edit documentation in R/getHelp.R
 \name{getHelp}
 \alias{getHelp}
-\title{getHelp \lifecycle{soft-deprecated}}
+\title{getHelp \lifecycle{deprecated}}
 \usage{
 getHelp(fn, pkg)
 }
@@ -12,8 +12,11 @@ getHelp(fn, pkg)
 \item{pkg}{name of package that contains fn}
 }
 \value{
-chracter
+character
 }
 \description{
 return rd help file as html
+}
+\details{
+This function has been moved to the iframes vignette
 }

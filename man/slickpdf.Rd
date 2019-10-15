@@ -47,4 +47,7 @@ slickpdf(url, url, synch = FALSE, img_format = 'svg', height = 400, width ='90\%
 }
 \seealso{
 \code{\link[magick]{image_read_pdf}}
+
+Other invoke: \code{\link{slickR}}
 }
+\concept{invoke}

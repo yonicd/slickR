@@ -4,84 +4,88 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(obj, slideId = "baseDiv", slideIdx = list(1:length(obj)),
-  slideType = c("img"), slickOpts = list(dots = TRUE),
-  padding = rep("1\%", length(obj)), objLinks = NULL,
-  synchSlides = NULL, dotObj = NULL, width = NULL, height = NULL,
-  elementId = NULL)
+slickR(obj, slideId = "baseDiv", objLinks = NULL, slickOpts = NULL,
+  slideType = "img", synchSlides = NULL, padding = 1,
+  dotObj = NULL, width = "95\%", height = NULL, elementId = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
 
-\item{slideId}{character, id of slide}
+\item{slideId}{character, id of slide, Default: 'baseDiv'}
 
-\item{slideIdx}{list, numeric indices which images are mapped to which slider}
+\item{objLinks}{character, links to attach to images in slide, Default: NULL}
 
-\item{slideType}{character, type of object to put in slide}
+\item{slickOpts}{\lifecycle{deprecated}}
 
-\item{slickOpts}{list, attributes for each slider, see details 
-\lifecycle{soft-deprecated}}
+\item{slideType}{character, type of object to put in slide, Default: 'img'}
 
-\item{padding}{character, percent of width between each image in the 
-carousel for each slider, Default: '1\%'}
+\item{synchSlides}{\lifecycle{deprecated}}
 
-\item{objLinks}{list, Named list corresponding to slideId containing links to attach to each element.
-If NULL then no links applied, Default: NULL}
+\item{padding}{numeric, percent of width between each image in the carousel
+for each slider, Default: 1}
 
-\item{synchSlides}{data.frame, rowwise pairs of slideId names of sliders are
-synchronized \lifecycle{soft-deprecated}}
+\item{dotObj}{character, urls or images to replace dots with (see details),
+Default: NULL}
 
-\item{dotObj}{list, character vectors of url or images to replace dots 
-with (see details)}
+\item{width}{character, width of htmlwidget, Default: '95\%'}
 
-\item{width}{character, width of htmlwidget}
+\item{height}{character, height of htmlwidget, Default: NULL}
 
-\item{height}{character, height of htmlwidget}
-
-\item{elementId}{character, id tag of htmlwidget}
+\item{elementId}{character, id tag of htmlwidget, Default: NULL}
 }
 \description{
 use slick.js library in R
 }
 \details{
-slick.js \url{http://kenwheeler.github.io/slick/} is an image 
-carousel javascript library. To find all the attributes
-that can be used please refer to the link. To create more than one carousel 
-input the attributes into a nested list eg 
-slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
-list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). 
-It is possible to synchronize the slides
-through the slickOpts calls, using asNavFor attribute. To replace the dots 
-with icons use the dotObj argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the 
-appropriate JS(.) function call. The slideType accepts the type 
-of html DOM you want to be in the slide, eg img, iframe.
+slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
+
+To find all the attributes that can be used please refer to the link.
+
+It is possible to stack slides through the \code{\%stack\%} operator.
+
+It is possible to synchronize slides through the \code{\%synch\%} operator.
+
+To replace the dots with icons use the dotObj argument to pass in the icon
+images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.
+
+The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.
 }
 \examples{
 
 
 if(interactive()){
-  slickR(obj=nba_team_logo$uri)
 
-# synching 3 groups
+slick <- slickR(obj=nba_team_logo$uri)
 
-# creating groups
-sx1 <- as.numeric(grepl('C',nba_team_logo$uri,ignore.case = FALSE))
-sx2 <- as.numeric(grepl('D',nba_team_logo$uri,ignore.case = FALSE))*2
-sx3 <- sx1 + sx2
+slick
 
-# split into list of size 3
-sIdx <- lapply(split(nba_team_logo$uri,sx3),function(x) match(x,nba_team_logo$uri))
+# add dots to the first slick and autoplay at 1 second a slide
+ 
+slick + settings(dots = TRUE, autoplay = TRUE, autoplaySpeed = 1000)
 
-# synching logic (a,b) and (a,c)
-groups <- expand.grid(list('a',c('b','c')),stringsAsFactors = FALSE)
 
-slickR(obj = nba_team_logo$uri,
-       slideId = c('a','b','c'),
-       slideIdx = sx,
-       slideType = rep('img',3),
-       synchSlides = groups,
-       height = 100)
+# working with multiple slicks
+
+sets <- split(
+  sample(nba_team_logo$uri, size = 28, replace = FALSE),
+  rep(c(1,2,3,4),each=7)
+)
+
+slicks <- lapply(sets,FUN = function(x,...){
+  slickR(obj = x,...)
+},height = 100)
+
+# independent slicks
+
+Reduce(`\%stack\%`,slicks)
+
+# 1,2 synch stacked on 3,4 synch
+
+ (slicks[[1]] \%synch\% slicks[[2]]) \%stack\% (slicks[[3]]\%synch\%slicks[[4]])
 
 }
 }
+\seealso{
+Other invoke: \code{\link{slickpdf}}
+}
+\concept{invoke}

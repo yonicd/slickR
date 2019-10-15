@@ -73,15 +73,12 @@ help_files <- unlist(lapply(
 ### Create IFRAME slick
 
 ```{r}
-opts <- list(
-  dots           = TRUE,
-  slidesToShow   = 2,
-  slidesToScroll = 2
-)
 
 slickR::slickR(help_files,
                slideType = 'iframe',
-               slickOpts = opts,
                height = '400px',
-               width='100%')
+               width='100%') + 
+  settings(dots  = TRUE, 
+           slidesToShow   = 2, 
+           slidesToScroll = 2)
 ```
