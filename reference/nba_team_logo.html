@@ -6,14 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>nba_team_logo — nba_team_logo • slickR</title>
+<title>NBA team logo — nba_team_logo • slickR</title>
 
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -35,7 +35,7 @@
 
 
 
-<meta property="og:title" content="nba_team_logo — nba_team_logo" />
+<meta property="og:title" content="NBA team logo — nba_team_logo" />
 <meta property="og:description" content="NBA team logo URI" />
 <meta name="twitter:card" content="summary" />
 
@@ -58,7 +58,7 @@
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -84,29 +84,8 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/basics.html">slickR Basics</a>
-    </li>
-    <li>
-      <a href="../articles/iframes.html">slickR with Iframes</a>
-    </li>
-    <li>
-      <a href="../articles/pdfs.html">slickR with PDFs</a>
-    </li>
-    <li>
-      <a href="../articles/plots.html">slickR with Plots</a>
-    </li>
-    <li>
-      <a href="../articles/shiny.html">slickR with Shiny</a>
-    </li>
-  </ul>
+<li>
+  <a href="../articles/index.html">Articles</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -115,7 +94,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/slickR">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -132,7 +111,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>nba_team_logo</h1>
+    <h1>NBA team logo</h1>
     <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/nba_team_logo-data.R'><code>R/nba_team_logo-data.R</code></a></small>
     <div class="hidden name"><code>nba_team_logo.Rd</code></div>
     </div>
@@ -147,14 +126,17 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 30 rows and 2 variables:</p><dl class='dl-horizontal'>
-  <dt><code>team</code></dt><dd><p>character, Team Name</p></dd>
-  <dt><code>uri</code></dt><dd><p>character, Team logo URI</p></dd> 
+<dt><code>team</code></dt><dd><p>character, Team Name</p></dd>
+<dt><code>uri</code></dt><dd><p>character, Team logo URI</p></dd>
 
 </dl>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Logos harvested from 
- https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/team_short_name.svg</p>
+    <p>Logos harvested from
+https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/team_short_name.svg</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other data: <code><a href='nba_player_logo.html'>nba_player_logo</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -162,6 +144,7 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
     </ul>
 
   </div>

@@ -12,8 +12,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -58,7 +58,7 @@
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -84,29 +84,8 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/basics.html">slickR Basics</a>
-    </li>
-    <li>
-      <a href="../articles/iframes.html">slickR with Iframes</a>
-    </li>
-    <li>
-      <a href="../articles/pdfs.html">slickR with PDFs</a>
-    </li>
-    <li>
-      <a href="../articles/plots.html">slickR with Plots</a>
-    </li>
-    <li>
-      <a href="../articles/shiny.html">slickR with Shiny</a>
-    </li>
-  </ul>
+<li>
+  <a href="../articles/index.html">Articles</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -115,7 +94,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/slickR">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -141,11 +120,9 @@
     <p>use slick.js library in R</p>
     </div>
 
-    <pre class="usage"><span class='fu'>slickR</span>(<span class='no'>obj</span>, <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>, <span class='kw'>slideIdx</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>obj</span>)),
-  <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"img"</span>), <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
-  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"1%"</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>obj</span>)), <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>slickR</span>(<span class='no'>obj</span>, <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>, <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='st'>"img"</span>, <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"95%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,95 +133,93 @@
     </tr>
     <tr>
       <th>slideId</th>
-      <td><p>character, id of slide</p></td>
-    </tr>
-    <tr>
-      <th>slideIdx</th>
-      <td><p>list, numeric indices which images are mapped to which slider</p></td>
-    </tr>
-    <tr>
-      <th>slideType</th>
-      <td><p>character, type of object to put in slide</p></td>
-    </tr>
-    <tr>
-      <th>slickOpts</th>
-      <td><p>list, attributes for each slider, see details 
-<img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p></td>
-    </tr>
-    <tr>
-      <th>padding</th>
-      <td><p>character, percent of width between each image in the 
-carousel for each slider, Default: '1%'</p></td>
+      <td><p>character, id of slide, Default: 'baseDiv'</p></td>
     </tr>
     <tr>
       <th>objLinks</th>
-      <td><p>list, Named list corresponding to slideId containing links to attach to each element.
-If NULL then no links applied, Default: NULL</p></td>
+      <td><p>character, links to attach to images in slide, Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>slickOpts</th>
+      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+    </tr>
+    <tr>
+      <th>slideType</th>
+      <td><p>character, type of object to put in slide, Default: 'img'</p></td>
     </tr>
     <tr>
       <th>synchSlides</th>
-      <td><p>data.frame, rowwise pairs of slideId names of sliders are
-synchronized <img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p></td>
+      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+    </tr>
+    <tr>
+      <th>padding</th>
+      <td><p>numeric, percent of width between each image in the carousel
+for each slider, Default: 1</p></td>
     </tr>
     <tr>
       <th>dotObj</th>
-      <td><p>list, character vectors of url or images to replace dots 
-with (see details)</p></td>
+      <td><p>character, urls or images to replace dots with (see details),
+Default: NULL</p></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>character, width of htmlwidget</p></td>
+      <td><p>character, width of htmlwidget, Default: '95%'</p></td>
     </tr>
     <tr>
       <th>height</th>
-      <td><p>character, height of htmlwidget</p></td>
+      <td><p>character, height of htmlwidget, Default: NULL</p></td>
     </tr>
     <tr>
       <th>elementId</th>
-      <td><p>character, id tag of htmlwidget</p></td>
+      <td><p>character, id tag of htmlwidget, Default: NULL</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>slick.js <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.github.io/slick/</a> is an image 
-carousel javascript library. To find all the attributes
-that can be used please refer to the link. To create more than one carousel 
-input the attributes into a nested list eg 
-slickOpts=list(list(slidesToShow=1,slidestoScroll=1,arrows=F,fade=T),
-list(slidesToShow=3,slidesToScroll=1,dots=T,focusOnSelect=T,centerMode=T)). 
-It is possible to synchronize the slides
-through the slickOpts calls, using asNavFor attribute. To replace the dots 
-with icons use the dotObj argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the 
-appropriate JS(.) function call. The slideType accepts the type 
-of html DOM you want to be in the slide, eg img, iframe.</p>
+    <p>slick.js <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.github.io/slick/</a> is an image carousel javascript library.</p>
+<p>To find all the attributes that can be used please refer to the link.</p>
+<p>It is possible to stack slides through the <code>%stack%</code> operator.</p>
+<p>It is possible to synchronize slides through the <code>%synch%</code> operator.</p>
+<p>To replace the dots with icons use the dotObj argument to pass in the icon
+images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.</p>
+<p>The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other invoke: <code><a href='slickpdf.html'>slickpdf</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
-  <span class='fu'>slickR</span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_team_logo</span>$<span class='no'>uri</span>)
 
-<span class='co'># synching 3 groups</span>
+<span class='no'>slick</span> <span class='kw'>&lt;-</span> <span class='fu'>slickR</span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_team_logo</span>$<span class='no'>uri</span>)
 
-<span class='co'># creating groups</span>
-<span class='no'>sx1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span>(<span class='st'>'C'</span>,<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,<span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))
-<span class='no'>sx2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span>(<span class='st'>'D'</span>,<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,<span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))*<span class='fl'>2</span>
-<span class='no'>sx3</span> <span class='kw'>&lt;-</span> <span class='no'>sx1</span> + <span class='no'>sx2</span>
+<span class='no'>slick</span>
 
-<span class='co'># split into list of size 3</span>
-<span class='no'>sIdx</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span>(<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,<span class='no'>sx3</span>),<span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/match.html'>match</a></span>(<span class='no'>x</span>,<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>))
+<span class='co'># add dots to the first slick and autoplay at 1 second a slide</span>
 
-<span class='co'># synching logic (a,b) and (a,c)</span>
-<span class='no'>groups</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/expand.grid.html'>expand.grid</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='st'>'a'</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'b'</span>,<span class='st'>'c'</span>)),<span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='no'>slick</span> + <span class='fu'><a href='settings.html'>settings</a></span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>autoplaySpeed</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
 
-<span class='fu'>slickR</span>(<span class='kw'>obj</span> <span class='kw'>=</span> <span class='no'>nba_team_logo</span>$<span class='no'>uri</span>,
-       <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'a'</span>,<span class='st'>'b'</span>,<span class='st'>'c'</span>),
-       <span class='kw'>slideIdx</span> <span class='kw'>=</span> <span class='no'>sx</span>,
-       <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>'img'</span>,<span class='fl'>3</span>),
-       <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='no'>groups</span>,
-       <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+
+<span class='co'># working with multiple slicks</span>
+
+<span class='no'>sets</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span>(
+  <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>28</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
+  <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>),<span class='kw'>each</span><span class='kw'>=</span><span class='fl'>7</span>)
+)
+
+<span class='no'>slicks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>sets</span>,<span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>,<span class='no'>...</span>){
+  <span class='fu'>slickR</span>(<span class='kw'>obj</span> <span class='kw'>=</span> <span class='no'>x</span>,<span class='no'>...</span>)
+},<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+
+<span class='co'># independent slicks</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Reduce</a></span>(<span class='no'>`%stack%`</span>,<span class='no'>slicks</span>)
+
+<span class='co'># 1,2 synch stacked on 3,4 synch</span>
+
+ (<span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>1</span>]] <span class='kw'>%synch%</span> <span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>2</span>]]) <span class='kw'>%stack%</span> (<span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>3</span>]]<span class='kw'>%synch%</span><span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>4</span>]])
 
 }</div></pre>
   </div>
@@ -253,6 +228,7 @@ of html DOM you want to be in the slide, eg img, iframe.</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

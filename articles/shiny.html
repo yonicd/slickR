@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>slickR with Shiny • slickR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -46,29 +46,8 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/basics.html">slickR Basics</a>
-    </li>
-    <li>
-      <a href="../articles/iframes.html">slickR with Iframes</a>
-    </li>
-    <li>
-      <a href="../articles/pdfs.html">slickR with PDFs</a>
-    </li>
-    <li>
-      <a href="../articles/plots.html">slickR with Plots</a>
-    </li>
-    <li>
-      <a href="../articles/shiny.html">slickR with Shiny</a>
-    </li>
-  </ul>
+  <a href="../articles/index.html">Articles</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -77,7 +56,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/metrumresearchgroup/slickR">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -106,82 +85,154 @@
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(slickR)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(svglite)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(lattice)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(shiny)</a></code></pre></div>
+<div id="slickr-in-shiny" class="section level1">
+<h1 class="hasAnchor">
+<a href="#slickr-in-shiny" class="anchor"></a>slickR in Shiny</h1>
+<p>The Following example is a Shiny App that creates <code>plot_num</code> histograms from <code>rnorm</code> with <code>n_obs</code> observations. These plots are placed in a slick carousel.</p>
+<p>The use can choose between the different slick layouts</p>
+<ul>
+<li>One single slick</li>
+<li>Two slicks stacked</li>
+<li>Two slicks stacked and synched</li>
+</ul>
+<div id="ui" class="section level2">
+<h2 class="hasAnchor">
+<a href="#ui" class="anchor"></a>UI</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  output<span class="op">$</span>slick &lt;-<span class="st"> </span><span class="kw"><a href="../reference/slickR-shiny.html">renderSlickR</a></span>({</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="kw"><a href="../reference/slickR.html">slickR</a></span>(<span class="kw">s.in</span>(),<span class="dt">height =</span> <span class="dv">600</span>,<span class="dt">slideId =</span> <span class="st">'myId'</span>,</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">           <span class="dt">slickOpts =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">slidesToShow=</span><span class="dv">3</span>,<span class="dt">centerMode=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">    )</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  })</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  </a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  network &lt;-<span class="st"> </span>shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span>()</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">  </a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">  shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>slick_current,{</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">    clicked_slide &lt;-<span class="st"> </span>input<span class="op">$</span>slick_current<span class="op">$</span>.clicked</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">    relative_clicked &lt;-<span class="st"> </span>input<span class="op">$</span>slick_current<span class="op">$</span>.relative_clicked</a>
-<a class="sourceLine" id="cb2-15" data-line-number="15">    center_slide &lt;-<span class="st"> </span>input<span class="op">$</span>slick_current<span class="op">$</span>.center</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16">    total_slide &lt;-<span class="st"> </span>input<span class="op">$</span>slick_current<span class="op">$</span>.total</a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">    active_slide &lt;-<span class="st"> </span>input<span class="op">$</span>slick_current<span class="op">$</span>.slide</a>
-<a class="sourceLine" id="cb2-18" data-line-number="18">    </a>
-<a class="sourceLine" id="cb2-19" data-line-number="19">    <span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span>(clicked_slide)){</a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">      network<span class="op">$</span>clicked_slide &lt;-<span class="st"> </span>clicked_slide</a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">      network<span class="op">$</span>center_slide &lt;-<span class="st"> </span>center_slide</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22">      network<span class="op">$</span>relative_clicked &lt;-<span class="st"> </span>relative_clicked</a>
-<a class="sourceLine" id="cb2-23" data-line-number="23">      network<span class="op">$</span>total_slide &lt;-<span class="st"> </span>total_slide</a>
-<a class="sourceLine" id="cb2-24" data-line-number="24">      network<span class="op">$</span>active_slide &lt;-<span class="st"> </span>active_slide</a>
-<a class="sourceLine" id="cb2-25" data-line-number="25">      }</a>
-<a class="sourceLine" id="cb2-26" data-line-number="26">  })</a>
-<a class="sourceLine" id="cb2-27" data-line-number="27">  </a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29">  output<span class="op">$</span>current &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderText.html">renderText</a></span>({</a>
-<a class="sourceLine" id="cb2-30" data-line-number="30">    l &lt;-<span class="st"> </span>shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/reactiveValuesToList.html">reactiveValuesToList</a></span>(network)</a>
-<a class="sourceLine" id="cb2-31" data-line-number="31">    <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">'_'</span>,<span class="st">' '</span>,<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(l)), <span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(l),<span class="dt">sep=</span><span class="st">' = '</span>,<span class="dt">collapse=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</a>
-<a class="sourceLine" id="cb2-32" data-line-number="32">  })</a>
-<a class="sourceLine" id="cb2-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34">  s.in=<span class="kw"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span>({</a>
-<a class="sourceLine" id="cb2-35" data-line-number="35">    <span class="kw"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(</a>
-<a class="sourceLine" id="cb2-36" data-line-number="36">      <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
-<a class="sourceLine" id="cb2-37" data-line-number="37">        <span class="kw"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span>({<span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(input<span class="op">$</span>obs), <span class="dt">col =</span> <span class="st">'darkgray'</span>, <span class="dt">border =</span> <span class="st">'white'</span>)},<span class="dt">standalone=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-38" data-line-number="38">        ,<span class="kw"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span>({<span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span>(x<span class="op">~</span>x,<span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="dt">type=</span><span class="st">"l"</span>))},<span class="dt">standalone=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-39" data-line-number="39">        ,<span class="kw"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span>({<span class="kw">show</span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(iris,<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x=</span>Sepal.Length,<span class="dt">y=</span>Sepal.Width,<span class="dt">colour=</span>Species))<span class="op">+</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>())},<span class="dt">standalone=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-40" data-line-number="40">        ,<span class="kw"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span>({</a>
-<a class="sourceLine" id="cb2-41" data-line-number="41">          <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(</a>
-<a class="sourceLine" id="cb2-42" data-line-number="42">            <span class="kw"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">dotplot</a></span>(variety <span class="op">~</span><span class="st"> </span>yield <span class="op">|</span><span class="st"> </span>site , <span class="dt">data =</span> barley, <span class="dt">groups =</span> year,</a>
-<a class="sourceLine" id="cb2-43" data-line-number="43">                    <span class="dt">key =</span> <span class="kw"><a href="https://rdrr.io/pkg/lattice/man/simpleKey.html">simpleKey</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/levels.html">levels</a></span>(barley<span class="op">$</span>year), <span class="dt">space =</span> <span class="st">"right"</span>),</a>
-<a class="sourceLine" id="cb2-44" data-line-number="44">                    <span class="dt">xlab =</span> <span class="st">"Barley Yield (bushels/acre) "</span>,</a>
-<a class="sourceLine" id="cb2-45" data-line-number="45">                    <span class="dt">aspect=</span><span class="fl">0.5</span>, <span class="dt">layout =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="dt">ylab=</span><span class="ot">NULL</span>)        </a>
-<a class="sourceLine" id="cb2-46" data-line-number="46">          )</a>
-<a class="sourceLine" id="cb2-47" data-line-number="47">        },<span class="dt">standalone=</span><span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb2-48" data-line-number="48">        )</a>
-<a class="sourceLine" id="cb2-49" data-line-number="49">      )</a>
-<a class="sourceLine" id="cb2-50" data-line-number="50">      ,<span class="cf">function</span>(sv){</a>
-<a class="sourceLine" id="cb2-51" data-line-number="51">        <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(</a>
-<a class="sourceLine" id="cb2-52" data-line-number="52">          <span class="st">"data:image/svg+xml;utf8,"</span></a>
-<a class="sourceLine" id="cb2-53" data-line-number="53">          ,<span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(sv)</a>
-<a class="sourceLine" id="cb2-54" data-line-number="54">        )</a>
-<a class="sourceLine" id="cb2-55" data-line-number="55">      }</a>
-<a class="sourceLine" id="cb2-56" data-line-number="56">    )</a>
-<a class="sourceLine" id="cb2-57" data-line-number="57">  })</a>
-<a class="sourceLine" id="cb2-58" data-line-number="58"></a>
-<a class="sourceLine" id="cb2-59" data-line-number="59">}</a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span>(</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarPanel.html">sidebarPanel</a></span>(</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(<span class="st">"obs"</span>, <span class="st">"Number of observations:"</span>, <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">500</span>, <span class="dt">value =</span> <span class="dv">100</span>),</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">      shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/verbatimTextOutput.html">verbatimTextOutput</a></span>(<span class="st">'current'</span>)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">      ),</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/mainPanel.html">mainPanel</a></span>(<span class="kw"><a href="../reference/slickR-shiny.html">slickROutput</a></span>(<span class="st">"slick"</span>,<span class="dt">width=</span><span class="st">'100%'</span>,<span class="dt">height=</span><span class="st">'200px'</span>))</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  )</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">)</a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2">ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span>(</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarPanel.html">sidebarPanel</a></span>(</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(<span class="dt">inputId =</span> <span class="st">"plot_num"</span>, </a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">                  <span class="dt">label =</span> <span class="st">"Number of Plots:"</span>, </a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">                  <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">20</span>, <span class="dt">value =</span> <span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">            </a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(<span class="dt">inputId =</span> <span class="st">"n_obs"</span>, </a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">                  <span class="dt">label =</span> <span class="st">"Number of observations:"</span>, </a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">                  <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">500</span>, <span class="dt">value =</span> <span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">      </a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">      shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html">radioButtons</a></span>(<span class="st">'slick_type'</span>,</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">                          <span class="dt">label =</span> <span class="st">'Carousel Type'</span>,</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">                          <span class="dt">choices =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'single'</span>,<span class="st">'stack'</span>,<span class="st">'synch'</span>),</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">                          <span class="dt">selected =</span> <span class="st">'single'</span>,</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">                          <span class="dt">inline =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">      </a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">      shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/verbatimTextOutput.html">verbatimTextOutput</a></span>(<span class="st">'current'</span>)</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">    ),</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/mainPanel.html">mainPanel</a></span>(</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">      </a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">      <span class="kw"><a href="../reference/slickR-shiny.html">slickROutput</a></span>(<span class="st">"slick_output"</span>,<span class="dt">width=</span><span class="st">'100%'</span>,<span class="dt">height=</span><span class="st">'200px'</span>)</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">      </a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">      )</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27">  )</a>
+<a class="sourceLine" id="cb2-28" data-line-number="28">)</a></code></pre></div>
+</div>
+<div id="server" class="section level2">
+<h2 class="hasAnchor">
+<a href="#server" class="anchor"></a>Server</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># Create content for the carousel</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  </a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">plots &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(input<span class="op">$</span>n_obs,input<span class="op">$</span>plot_num),{</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  </a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span>(input<span class="op">$</span>plot_num,{</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">     <span class="kw"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span>({<span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(input<span class="op">$</span>n_obs),</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">                  <span class="dt">col =</span> <span class="st">'darkgray'</span>,</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">                  <span class="dt">border =</span> <span class="st">'white'</span>)},</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">            <span class="dt">standalone=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">     },<span class="dt">simplify =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">})</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co"># renderSlickR (We create the slickR objects here)</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">  output<span class="op">$</span>slick_output &lt;-<span class="st"> </span><span class="kw"><a href="../reference/slickR-shiny.html">renderSlickR</a></span>({</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">    </a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">    x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/slickR.html">slickR</a></span>(<span class="kw">plots</span>(),</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">                <span class="dt">slideId =</span> <span class="st">'myslick'</span>,</a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">                <span class="dt">height =</span> <span class="dv">600</span>,</a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">                <span class="dt">width =</span> <span class="st">'50%'</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="st">      </span><span class="kw"><a href="../reference/settings.html">settings</a></span>(<span class="dt">slidesToShow=</span><span class="dv">3</span>,<span class="dt">centerMode=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">    </a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">    <span class="cf">switch</span>(input<span class="op">$</span>slick_type,</a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">           <span class="st">'single'</span> =<span class="st"> </span>x,</a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">           <span class="st">'stack'</span>  =<span class="st"> </span>x <span class="op">%stack%</span><span class="st"> </span>x,</a>
+<a class="sourceLine" id="cb3-30" data-line-number="30">           <span class="st">'synch'</span>  =<span class="st"> </span>x <span class="op">%synch%</span><span class="st"> </span>x</a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">           )</a>
+<a class="sourceLine" id="cb3-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb3-33" data-line-number="33">  })</a>
+<a class="sourceLine" id="cb3-34" data-line-number="34">  </a>
+<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co"># Observe the active slick</span></a>
+<a class="sourceLine" id="cb3-36" data-line-number="36">  </a>
+<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co"># The htmlwidget is observed by shiny and information can be retrieved. </span></a>
+<a class="sourceLine" id="cb3-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb3-39" data-line-number="39"><span class="co"># Using the output name you set for the `renderSlick` object in this example</span></a>
+<a class="sourceLine" id="cb3-40" data-line-number="40"><span class="co"># it is `output$slick_output`</span></a>
+<a class="sourceLine" id="cb3-41" data-line-number="41"> </a>
+<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="co"># Using this you can interact server-side "on click" of the active carousel</span></a>
+<a class="sourceLine" id="cb3-43" data-line-number="43"><span class="co"># by accessing elements in `input$slick_output_current$`</span></a>
+<a class="sourceLine" id="cb3-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb3-45" data-line-number="45"><span class="co"># `.clicked_slide`   : The index of the clicked element|</span></a>
+<a class="sourceLine" id="cb3-46" data-line-number="46"><span class="co"># `.relative_clicked`: The relative position of the clicked element|</span></a>
+<a class="sourceLine" id="cb3-47" data-line-number="47"><span class="co"># `.center_slide`    : The index of the center element|</span></a>
+<a class="sourceLine" id="cb3-48" data-line-number="48"><span class="co"># `.total_slide`     : The total number of elements in the carousel|</span></a>
+<a class="sourceLine" id="cb3-49" data-line-number="49"><span class="co"># `.active_slide`    : The ID of the active carousel|</span></a>
+<a class="sourceLine" id="cb3-50" data-line-number="50"></a>
+<a class="sourceLine" id="cb3-51" data-line-number="51"><span class="co"># We will store this information in a new reactive environment</span></a>
+<a class="sourceLine" id="cb3-52" data-line-number="52">active_slick &lt;-<span class="st"> </span>shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span>()</a>
+<a class="sourceLine" id="cb3-53" data-line-number="53">  </a>
+<a class="sourceLine" id="cb3-54" data-line-number="54">shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(input<span class="op">$</span>slick_output_current,{</a>
+<a class="sourceLine" id="cb3-55" data-line-number="55">  </a>
+<a class="sourceLine" id="cb3-56" data-line-number="56">  clicked_slide    &lt;-<span class="st"> </span>input<span class="op">$</span>slick_output_current<span class="op">$</span>.clicked</a>
+<a class="sourceLine" id="cb3-57" data-line-number="57">  relative_clicked &lt;-<span class="st"> </span>input<span class="op">$</span>slick_output_current<span class="op">$</span>.relative_clicked</a>
+<a class="sourceLine" id="cb3-58" data-line-number="58">  center_slide     &lt;-<span class="st"> </span>input<span class="op">$</span>slick_output_current<span class="op">$</span>.center</a>
+<a class="sourceLine" id="cb3-59" data-line-number="59">  total_slide      &lt;-<span class="st"> </span>input<span class="op">$</span>slick_output_current<span class="op">$</span>.total</a>
+<a class="sourceLine" id="cb3-60" data-line-number="60">  active_slide     &lt;-<span class="st"> </span>input<span class="op">$</span>slick_output_current<span class="op">$</span>.slide</a>
+<a class="sourceLine" id="cb3-61" data-line-number="61">  </a>
+<a class="sourceLine" id="cb3-62" data-line-number="62">  <span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span>(clicked_slide)){</a>
+<a class="sourceLine" id="cb3-63" data-line-number="63">    active_slick<span class="op">$</span>clicked_slide    &lt;-<span class="st"> </span>clicked_slide</a>
+<a class="sourceLine" id="cb3-64" data-line-number="64">    active_slick<span class="op">$</span>center_slide     &lt;-<span class="st"> </span>center_slide</a>
+<a class="sourceLine" id="cb3-65" data-line-number="65">    active_slick<span class="op">$</span>relative_clicked &lt;-<span class="st"> </span>relative_clicked</a>
+<a class="sourceLine" id="cb3-66" data-line-number="66">    active_slick<span class="op">$</span>total_slide      &lt;-<span class="st"> </span>total_slide</a>
+<a class="sourceLine" id="cb3-67" data-line-number="67">    active_slick<span class="op">$</span>active_slide     &lt;-<span class="st"> </span>active_slide</a>
+<a class="sourceLine" id="cb3-68" data-line-number="68">  }</a>
+<a class="sourceLine" id="cb3-69" data-line-number="69">})</a>
+<a class="sourceLine" id="cb3-70" data-line-number="70"></a>
+<a class="sourceLine" id="cb3-71" data-line-number="71"><span class="co"># Show in the UI the values in active_slick</span></a>
+<a class="sourceLine" id="cb3-72" data-line-number="72"></a>
+<a class="sourceLine" id="cb3-73" data-line-number="73">output<span class="op">$</span>current &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/renderText.html">renderText</a></span>({</a>
+<a class="sourceLine" id="cb3-74" data-line-number="74">  l &lt;-<span class="st"> </span>shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/reactiveValuesToList.html">reactiveValuesToList</a></span>(active_slick)</a>
+<a class="sourceLine" id="cb3-75" data-line-number="75">  <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">'_'</span>,<span class="st">' '</span>,<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(l)), <span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(l),<span class="dt">sep=</span><span class="st">' = '</span>,<span class="dt">collapse=</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</a>
+<a class="sourceLine" id="cb3-76" data-line-number="76">})</a>
+<a class="sourceLine" id="cb3-77" data-line-number="77"></a>
+<a class="sourceLine" id="cb3-78" data-line-number="78">}</a></code></pre></div>
+</div>
+<div id="run-the-app" class="section level2">
+<h2 class="hasAnchor">
+<a href="#run-the-app" class="anchor"></a>Run the App</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="dt">ui =</span> ui, <span class="dt">server =</span> server)</a></code></pre></div>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
 
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li>
+<a href="#slickr-in-shiny">slickR in Shiny</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#ui">UI</a></li>
+      <li><a href="#server">Server</a></li>
+      <li><a href="#run-the-app">Run the App</a></li>
+      </ul>
+</li>
+      </ul>
+</div>
       </div>
 
 </div>
