@@ -19,11 +19,9 @@ library(svglite)
 library(slickR)
 ```
 
-To place plots directly into slickR we need three steps
+To place plots directly into slickR we need to convert plots into svg code using `svglite::xmlSVG`
 
-  1. Convert a plot into svg code using `svglite::xmlSVG`
-  2. Convert it into a character object
-  3. Convert hash `#` into url encoding `%23` for the plot to render in the browser
+Here are some examples of how this can be done using different packages.
 
 ```{r,eval=FALSE}
 
@@ -32,18 +30,14 @@ To place plots directly into slickR we need three steps
     plot(1:10)
   }, standalone = TRUE)
 
-# ggplot
-  xmlSVG({
-    show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
-      geom_point())
-  }, standalone = TRUE)
-
-# lattice xyplot
+#library(lattice)
+  
+# xyplot
   xmlSVG({
     print(xyplot(x ~ x, data.frame(x = 1:10), type = "l"))
   }, standalone = TRUE)
     
-# lattice dotplot
+# dotplot
   xmlSVG({
     print(dotplot(variety ~ yield | site,
       data = barley, groups = year,
@@ -53,29 +47,40 @@ To place plots directly into slickR we need three steps
     ))
   }, standalone = TRUE)
 
+#library(ggplot2)
+
+  xmlSVG({
+    show(ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+      geom_point())
+  }, standalone = TRUE)  
+  
 ```
 
-## Convert to SVG
+## Example using Base Plots
 
+### Create Plots
 
 ```{r}
-plotsToSVG <- lapply(1:5,
-                     function(x){
+plotsToSVG <- replicate(5,{
                        svglite::xmlSVG(
-                         code = {plot(stats::density(stats::rnorm(10*x,sd=x)))},
+                         code = {
+                           x <- sample(1:5,1)
+                           plot(stats::density(stats::rnorm(10*x,sd=x)))
+                           },
                          standalone = TRUE)
-                       }
+                       },
+                      simplify = FALSE
                      )
 ```
 
-## Convert to Character
+### Single Carousel
  
 ```{r}
-slickR(plotsToSVG, height = 200, width = "95%")
+slickR::slickR(plotsToSVG, height = 200, width = "95%")
 ```
 
 
-## Synching Carousels
+### Multiple Carousels
 
 There are instances when you have many outputs at once and do not want to go through all, so you can combine two carousels one for viewing and one for searching.
 
