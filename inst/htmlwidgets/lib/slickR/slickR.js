@@ -80,7 +80,9 @@ HTMLWidgets.widget({
             - realigns the top percent of the arrows when there are dots
           */
             
-              var this_dh = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > ul').outerHeight(true);
+              var obj = el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted';
+            
+              var this_dh = $('#' + obj + ' > ul').outerHeight(true);
 
               if(typeof(this_dh) === "undefined"){
                 
@@ -88,13 +90,15 @@ HTMLWidgets.widget({
                 
               }
 
-              this_dh = this_dh + 30;  // dots margin bottom default height (30px)
+              var dots_margin = parseFloat($('#' + obj).css('margin-bottom'));
+
+              this_dh = this_dh + dots_margin;
               
-              var this_slick = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted');
+              var this_slick = $('#' + obj);
               
-              var this_arrow_next = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > button.slick-next.slick-arrow');
+              var this_arrow_next = $('#' + obj + ' > button.slick-next.slick-arrow');
               
-              var this_arrow_prev = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > button.slick-prev.slick-arrow');
+              var this_arrow_prev = $('#' + obj + ' > button.slick-prev.slick-arrow');
 
               if(typeof(this_dh) !== "undefined"){
                 
