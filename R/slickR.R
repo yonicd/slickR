@@ -147,7 +147,7 @@ slickR <- function( obj ,
     name = 'slickR',
     list(x),
     width = width,
-    height = height,
+    height = NULL,
     package = 'slickR',
     elementId = elementId
   )

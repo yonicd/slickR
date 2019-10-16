@@ -43,38 +43,51 @@ HTMLWidgets.widget({
                   }
                   
                 }
-
+                
+        // Creates a callback for the el.id to update the height of the widget
+        
           new ResizeSensor($('#' + el.id), function(){ 
             
             var wh = 0;
-
-            var dh = 0;
-            
-            for(j=0;j<x.length;j++){
-              
-              wh = wh + x[j].slideh;
-            
-            }
             
             for(j = 0; j < x.length; j++ ){
-
-              dh = dh + updateCSS(x[j],el);
               
+              /* 
+              
+              new height of widget: 
+                - slick input height
+                - dots margin
+                - slick dots height
+              
+              */
+              
+              wh = wh + x[j].slideh + 30 + updateDots(x[j],el);
+
             }
-            
-            if(!isNaN(dh)){
-              wh = wh + dh;
-            }
+
             
             $('#' + el.id).css({
-              "height": Math.max(height, wh) + "px"
+              "height": wh + "px"
             });
             
-          });
-
-          function updateCSS(x,el){
             
-              var this_dh = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > ul').outerHeight();
+          });
+          
+          function updateDots(x,el){
+            
+          /* 
+          updates the CSS 
+            - slick height to include the dots list height
+            - realigns the top percent of the arrows when there are dots
+          */
+            
+              var this_dh = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > ul').outerHeight(true);
+
+              if(typeof(this_dh) === "undefined"){
+                
+                return 0;
+                
+              }
 
               var this_slick = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted');
               
@@ -95,7 +108,7 @@ HTMLWidgets.widget({
               this_arrow_prev.css({
                 "top": (100 * x.slideh/(2*(this_dh+x.slideh))) + "%"
               });
-                
+              
               return this_dh;
               
             }
