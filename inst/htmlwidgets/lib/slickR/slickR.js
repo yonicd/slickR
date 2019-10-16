@@ -170,19 +170,6 @@ HTMLWidgets.widget({
             return mainDiv;
           }
           
-          function sum_height(x){
-
-            var ret = 0;
-            
-            for(j=0;j<x.length;j++){
-              
-              ret = ret + x[j].slideh;
-            
-            }
-            
-            return ret;
-          }
-          
           function toshiny(thisDiv){
                 toshiny_arrow(thisDiv);
                 toshiny_slider(thisDiv);
