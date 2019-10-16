@@ -76,8 +76,8 @@ help_files <- unlist(lapply(
 
 slickR::slickR(help_files,
                slideType = 'iframe',
-               height = '400px',
-               width='100%') + 
+               height = 400,
+               width='95%') + 
   settings(dots  = TRUE, 
            slidesToShow   = 2, 
            slidesToScroll = 2)

@@ -12,10 +12,9 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
-      $('#' + el.id).css({
-        "margin-left":"auto",
-        "margin-right":"auto"
-      });
+          $('#' + el.id).css({
+              "margin":"auto"
+          });
 
           if(typeof(Shiny) !== "undefined"){
             
@@ -31,7 +30,7 @@ HTMLWidgets.widget({
                     x[j].divName,
                     x[j].links,
                     x[j].padding,
-                    height+'px');
+                    x[j].slideh+'px');
                   
                   thisDiv = $("."+x[j].divName);
                   
@@ -44,7 +43,65 @@ HTMLWidgets.widget({
                   }
                   
                 }
+
+          new ResizeSensor($('#' + el.id), function(){ 
             
+            var wh = 0;
+
+            var dh = 0;
+            
+            for(j=0;j<x.length;j++){
+              
+              wh = wh + x[j].slideh;
+            
+            }
+            
+            for(j = 0; j < x.length; j++ ){
+
+              dh = dh + updateCSS(x[j],el);
+              
+            }
+            
+            if(!isNaN(dh)){
+              wh = wh + dh;
+            }
+            
+            $('#' + el.id).css({
+              "height": Math.max(height, wh) + "px"
+            });
+            
+          });
+
+          function updateCSS(x,el){
+            
+              var this_dh = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > ul').outerHeight();
+
+              var this_slick = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted');
+              
+              var this_arrow_next = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > button.slick-next.slick-arrow');
+              
+              var this_arrow_prev = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > button.slick-prev.slick-arrow');
+              
+              if(typeof(this_dh) !== "undefined"){
+                
+              this_slick.css({
+                "height": (this_dh + x.slideh) + "px"
+              });
+
+              this_arrow_next.css({
+                "top": (100 * x.slideh/(2*(this_dh+x.slideh))) + "%"
+              });
+              
+              this_arrow_prev.css({
+                "top": (100 * x.slideh/(2*(this_dh+x.slideh))) + "%"
+              });
+                
+              return this_dh;
+              
+            }
+            
+          }
+
           function destroyDiv(x){
             
             var basename = x.divName.replace(/_bump(.*?)$/,'');
@@ -112,7 +169,20 @@ HTMLWidgets.widget({
             }
             return mainDiv;
           }
+          
+          function sum_height(x){
+
+            var ret = 0;
+            
+            for(j=0;j<x.length;j++){
               
+              ret = ret + x[j].slideh;
+            
+            }
+            
+            return ret;
+          }
+          
           function toshiny(thisDiv){
                 toshiny_arrow(thisDiv);
                 toshiny_slider(thisDiv);
@@ -161,7 +231,7 @@ HTMLWidgets.widget({
                       
                   });
               }
-                
+          
           },
 
       resize: function(width, height) {

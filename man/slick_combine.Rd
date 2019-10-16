@@ -3,7 +3,7 @@
 \name{\%synch\%}
 \alias{\%synch\%}
 \alias{\%stack\%}
-\title{Combine slickR carousels}
+\title{Slick pipe operators}
 \usage{
 e1 \%synch\% e2
 
@@ -18,7 +18,8 @@ e1 \%stack\% e2
 htmlwidget
 }
 \description{
-Synchronize or Stack carousels
+Pipe operators to combine plots by either
+stacking or synching multiple sliders.
 }
 \examples{
 

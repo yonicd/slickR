@@ -1,5 +1,5 @@
-#' @title construct slick settings
-#' @description Function to construct elements to place in settings
+#' @title Modify components of slick settings
+#' @description Customize non-data components of the carousel. 
 #' @param accessibility logical, Enables tabbing and arrow key navigation, 
 #' Default: TRUE
 #' @param adaptiveHeight logical, Enables adaptive height for single slide 
@@ -80,6 +80,26 @@
 #' @param zIndex numeric, Set the zIndex values for slides, useful for IE9 and 
 #' lower, Default: 1000
 #' @param \dots unused
+#' @examples 
+#' 
+#' if(interactive()){
+#' 
+#' slick <- slickR(obj=nba_team_logo$uri)
+#' 
+#' slick
+#'
+#' # Use settings function to manipulate the slick object
+#'  
+#' # Add dots
+#'  
+#' slick + settings(dots = TRUE)
+#' 
+#' # Autplay elements in the carousel
+#'  
+#' slick + settings(autoplay = TRUE, autoplaySpeed = 1000)
+#' 
+#' }
+#' 
 #' @return list of class c('setting','slickR')
 #' @details To find further information on the attributes that can be used 
 #' please refer to \url{http://kenwheeler.github.io/slick/}.

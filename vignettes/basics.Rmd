@@ -35,19 +35,16 @@ Let's add dots with the `settings` function
 
 ```{r}
 
-slickR(obj = nba_player_logo$uri[1:10],height = 100, width = "95%") + 
+slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + 
   settings(dots = TRUE)
 
 ```
-<br>
-<br>
-<br>
 
 There are many more settings you can define, such as `autoplay`. For all the settings go to [slick.js](http://kenwheeler.github.io/slick) homepage
 
 ```{r}
 
-slickR(obj = nba_player_logo$uri[1:10],height = 100, width = "95%") + 
+slickR(obj = nba_player_logo$uri,height = 100, width = "95%") + 
   settings(dots = TRUE, autoplay = TRUE)
 
 ```
@@ -83,7 +80,6 @@ slick_link <- slickR(obj = nba_player_logo$uri,
 slick_link + opts
 ```
 
-
 ## Replacing the dots
 
 Sometimes the dots won't be informative enough so we can switch them with an HTML object, such as text or other images. We can pass to the `customPaging` argument javascript code using the `htmlwidgets::JS` function. 
@@ -114,13 +110,7 @@ slick_dots <- slickR(
 
 slick_dots + opts_dot_number
 
-
-
 ```
-
-<br>
-<br>
-<br>
 
 ### Replace dots with Images
 
@@ -155,10 +145,6 @@ slick_dots_logo <- slickR(
 htmltools::browsable(htmltools::tagList(s2, slick_dots_logo))
 ```
 
-<br>
-<br>
-<br>
-
 ## Stacking Carousels
 
 You can stack carousels one on top of the other with the `%stack%` operator
@@ -173,13 +159,6 @@ slick_up_stack %stack% slick_down_stack
 
 ```
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 ## Synching Carousels
 
 There are instances when you have many outputs at once and do not want to go through all, so you can stack and synch two carousels one for viewing and one for searching with the `%synch%` operator.
@@ -192,13 +171,6 @@ slick_down_synch <- slickR(obj = nba_player_logo$uri, height = 100, width = "95%
 slick_up_synch %synch% slick_down_synch
 
 ```
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ## Adding a Caption to Image
 
