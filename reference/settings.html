@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>construct slick settings — settings • slickR</title>
+<title>Modify components of slick settings — settings • slickR</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="construct slick settings — settings" />
-<meta property="og:description" content="Function to construct elements to place in settings" />
+<meta property="og:title" content="Modify components of slick settings — settings" />
+<meta property="og:description" content="Customize non-data components of the carousel." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.7</span>
       </span>
     </div>
 
@@ -111,13 +111,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>construct slick settings</h1>
+    <h1>Modify components of slick settings</h1>
     <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/settings.R'><code>R/settings.R</code></a></small>
     <div class="hidden name"><code>settings.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Function to construct elements to place in settings</p>
+    <p>Customize non-data components of the carousel.</p>
     </div>
 
     <pre class="usage"><span class='fu'>settings</span>(<span class='no'>accessibility</span>, <span class='no'>adaptiveHeight</span>, <span class='no'>autoplay</span>, <span class='no'>autoplaySpeed</span>, <span class='no'>arrows</span>,
@@ -370,6 +370,25 @@ lower, Default: 1000</p></td>
     <p>To find further information on the attributes that can be used
 please refer to <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.github.io/slick/</a>.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+
+<span class='no'>slick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='slickR.html'>slickR</a></span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_team_logo</span>$<span class='no'>uri</span>)
+
+<span class='no'>slick</span>
+
+<span class='co'># Use settings function to manipulate the slick object</span>
+
+<span class='co'># Add dots</span>
+
+<span class='no'>slick</span> + <span class='fu'>settings</span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># Autplay elements in the carousel</span>
+
+<span class='no'>slick</span> + <span class='fu'>settings</span>(<span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>autoplaySpeed</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -377,6 +396,7 @@ please refer to <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.g
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

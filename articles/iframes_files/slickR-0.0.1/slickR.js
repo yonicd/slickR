@@ -12,10 +12,9 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
-      $('#' + el.id).css({
-        "margin-left":"auto",
-        "margin-right":"auto"
-      });
+          $('#' + el.id).css({
+              "margin":"auto"
+          });
 
           if(typeof(Shiny) !== "undefined"){
             
@@ -31,7 +30,7 @@ HTMLWidgets.widget({
                     x[j].divName,
                     x[j].links,
                     x[j].padding,
-                    height+'px');
+                    x[j].slideh+'px');
                   
                   thisDiv = $("."+x[j].divName);
                   
@@ -44,7 +43,83 @@ HTMLWidgets.widget({
                   }
                   
                 }
+                
+        // Creates a callback for the el.id to update the height of the widget
+        
+          new ResizeSensor($('#' + el.id), function(){ 
             
+            var wh = 0;
+            
+            for(j = 0; j < x.length; j++ ){
+              
+              /* 
+              
+              new height of widget: 
+                - slick input height
+                - slick dots height
+              
+              */
+              
+              wh = wh + x[j].slideh + updateDots(x[j],el);
+
+            }
+
+            
+            $('#' + el.id).css({
+              "height": wh + "px"
+            });
+            
+            
+          });
+          
+          function updateDots(x,el){
+            
+          /* 
+          updates the CSS 
+            - slick height to include the dots list height + dots bottom margin
+            - realigns the top percent of the arrows when there are dots
+          */
+            
+              var obj = el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted';
+            
+              var this_dh = $('#' + obj + ' > ul').outerHeight(true);
+
+              if(typeof(this_dh) === "undefined"){
+                
+                return 0;
+                
+              }
+
+              var dots_margin = parseFloat($('#' + obj).css('margin-bottom'));
+
+              this_dh = this_dh + dots_margin;
+              
+              var this_slick = $('#' + obj);
+              
+              var this_arrow_next = $('#' + obj + ' > button.slick-next.slick-arrow');
+              
+              var this_arrow_prev = $('#' + obj + ' > button.slick-prev.slick-arrow');
+
+              if(typeof(this_dh) !== "undefined"){
+                
+              this_slick.css({
+                "height": (this_dh + x.slideh) + "px"
+              });
+
+              this_arrow_next.css({
+                "top": (100 * x.slideh/(2*(this_dh+x.slideh))) + "%"
+              });
+              
+              this_arrow_prev.css({
+                "top": (100 * x.slideh/(2*(this_dh+x.slideh))) + "%"
+              });
+              
+              return this_dh;
+              
+            }
+            
+          }
+
           function destroyDiv(x){
             
             var basename = x.divName.replace(/_bump(.*?)$/,'');
@@ -112,7 +187,7 @@ HTMLWidgets.widget({
             }
             return mainDiv;
           }
-              
+          
           function toshiny(thisDiv){
                 toshiny_arrow(thisDiv);
                 toshiny_slider(thisDiv);
@@ -161,7 +236,7 @@ HTMLWidgets.widget({
                       
                   });
               }
-                
+          
           },
 
       resize: function(width, height) {

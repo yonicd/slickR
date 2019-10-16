@@ -5,3 +5,10 @@
   color: #404040;
 
 }
+
+.slick-dots
+{
+    bottom: auto;
+    margin: auto;
+
+}
