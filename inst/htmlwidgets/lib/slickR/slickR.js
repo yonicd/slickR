@@ -56,12 +56,11 @@ HTMLWidgets.widget({
               
               new height of widget: 
                 - slick input height
-                - dots margin
                 - slick dots height
               
               */
               
-              wh = wh + x[j].slideh + 30 + updateDots(x[j],el);
+              wh = wh + x[j].slideh + updateDots(x[j],el);
 
             }
 
@@ -77,7 +76,7 @@ HTMLWidgets.widget({
             
           /* 
           updates the CSS 
-            - slick height to include the dots list height
+            - slick height to include the dots list height + dots bottom margin
             - realigns the top percent of the arrows when there are dots
           */
             
@@ -89,12 +88,14 @@ HTMLWidgets.widget({
                 
               }
 
+              this_dh = this_dh + 30;  // dots margin bottom default height (30px)
+              
               var this_slick = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted');
               
               var this_arrow_next = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > button.slick-next.slick-arrow');
               
               var this_arrow_prev = $('#' + el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted > button.slick-prev.slick-arrow');
-              
+
               if(typeof(this_dh) !== "undefined"){
                 
               this_slick.css({
