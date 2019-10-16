@@ -40,7 +40,7 @@ articles:
       - basics
   - title: "Advanced"
     contents:
-      - iframes
-      - pdfs
       - plots
       - shiny
+      - pdfs      
+      - iframes      

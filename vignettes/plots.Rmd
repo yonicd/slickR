@@ -84,7 +84,7 @@ There are instances when you have many outputs at once and do not want to go thr
 slick_up <- slickR(plotsToSVG, height = 200, width = "95%") + 
   settings(slidesToShow = 1, slidesToScroll = 1)
 
-slick_down <- slickR(plotsToSVG, height = 200, width = "95%") + 
+slick_down <- slickR(plotsToSVG, height = 100, width = "95%") + 
   settings(slidesToScroll = 1,  slidesToShow = 3, 
      centerMode = TRUE, focusOnSelect = TRUE)
 

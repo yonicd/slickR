@@ -12,6 +12,10 @@ dependencies:
     src: htmlwidgets/lib/slick-1.8.1
     script: slick/slick.min.js
     stylesheet:  [slick/slick.css, slick/slick-theme.css]
+  - name: css-resize
+    version: 1.2.1
+    src: htmlwidgets/lib/css-resize
+    script: [ResizeSensor.js, ElementQueries.js]
   - name: slickR
     version: 0.0.1
     src: htmlwidgets/lib/slickR

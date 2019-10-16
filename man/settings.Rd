@@ -2,7 +2,7 @@
 % Please edit documentation in R/settings.R
 \name{settings}
 \alias{settings}
-\title{construct slick settings}
+\title{Modify components of slick settings}
 \usage{
 settings(accessibility, adaptiveHeight, autoplay, autoplaySpeed, arrows,
   asNavFor, appendArrows, appendDots, prevArrow, nextArrow, centerMode,
@@ -148,10 +148,31 @@ lower, Default: 1000}
 list of class c('setting','slickR')
 }
 \description{
-Function to construct elements to place in settings
+Customize non-data components of the carousel.
 }
 \details{
 To find further information on the attributes that can be used
 please refer to \url{http://kenwheeler.github.io/slick/}.
+}
+\examples{
+
+if(interactive()){
+
+slick <- slickR(obj=nba_team_logo$uri)
+
+slick
+
+# Use settings function to manipulate the slick object
+ 
+# Add dots
+ 
+slick + settings(dots = TRUE)
+
+# Autplay elements in the carousel
+ 
+slick + settings(autoplay = TRUE, autoplaySpeed = 1000)
+
+}
+
 }
 \concept{settings}

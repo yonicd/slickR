@@ -1,5 +1,6 @@
-#' @title Combine slickR carousels
-#' @description Synchronize or Stack carousels
+#' @title Slick pipe operators
+#' @description Pipe operators to combine plots by either 
+#' stacking or synching multiple sliders.
 #' @param e1 slickR htmlwidget to place on top
 #' @param e2 slickR htmlwidget to place on bottom
 #' @return htmlwidget

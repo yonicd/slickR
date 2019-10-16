@@ -134,6 +134,10 @@ slickR <- function( obj ,
   
   x$padding <- sprintf("%s%%",100 - padding)
   
+  x$slideh <- height
+  
+  x$slidew <- width
+  
   # replace dots with a different DOM/JS  
   
   if(!is.null(dotObj)) 
@@ -143,7 +147,7 @@ slickR <- function( obj ,
     name = 'slickR',
     list(x),
     width = width,
-    height = height,
+    height = NULL,
     package = 'slickR',
     elementId = elementId
   )
