@@ -22,36 +22,33 @@ HTMLWidgets.widget({
             
           }
           
-          for(j=0;j<x.length;j++){
-                 
+          x.forEach(function(val){
+            
                   buildDiv(
-                    x[j].obj,
-                    x[j].divType,
-                    x[j].divName,
-                    x[j].links,
-                    x[j].padding,
-                    x[j].slideh+'px');
+                    val.obj,
+                    val.divType,
+                    val.divName,
+                    val.links,
+                    val.padding,
+                    val.slideh+'px');
                   
-                  thisDiv = $("."+x[j].divName);
+                  thisDiv = $("." + val.divName);
                   
-                  thisDiv.slick(x[j].slickOpts);
+                  thisDiv.slick(val.slickOpts);
                   
                   if(typeof(Shiny) !== "undefined"){
                     
                     toshiny(thisDiv);
                     
                   }
-                  
-                }
-                
+          });
+          
         // Creates a callback for the el.id to update the height of the widget
         
           new ResizeSensor($('#' + el.id), function(){ 
             
             var wh = 0;
             
-            for(j = 0; j < x.length; j++ ){
-              
               /* 
               
               new height of widget: 
@@ -59,10 +56,10 @@ HTMLWidgets.widget({
                 - slick dots height
               
               */
-              
-              wh = wh + x[j].slideh + updateDots(x[j],el);
-
-            }
+            
+            x.forEach(function(val){
+              wh = wh + val.slideh + updateDots(val,el);
+            });
 
             
             $('#' + el.id).css({
@@ -126,22 +123,20 @@ HTMLWidgets.widget({
             
             var obj = document.querySelectorAll('[class^="' + basename + '"]');
             
-            for(j = 0; j < obj.length; j++ ){
-              
-            $("." + obj[j].classList[0]).detach();
-              
-            }
+            
+            obj.forEach(function(val){
+              $("." + val.classList[0]).detach();
+            });
             
           }
             
           function buildDiv(obj,objType,cl,link,width,height){
             
-            var len = obj.length,i = 0;
             var mainDiv = document.createElement("div");
             mainDiv.className = cl;
             el.appendChild(mainDiv);
             
-            for(i=0; i < len; i++ ){
+            for(i=0; i < obj.length; i++ ){
               
               var divEl = document.createElement("div");
               var newEl = document.createElement(objType);
@@ -168,7 +163,7 @@ HTMLWidgets.widget({
               
               newEl.style.width=width;
 
-              if((objType=='img') & (link != null)){
+              if(link != null){
 
                 var pEl = document.createElement("p");
                 var aEl = document.createElement("a");
@@ -191,7 +186,7 @@ HTMLWidgets.widget({
           function toshiny(thisDiv){
                 toshiny_arrow(thisDiv);
                 toshiny_slider(thisDiv);
-              }
+          }
               
           function toshiny_arrow(thisDiv){
                 thisDiv.on("afterChange",function(event, slick, currentSlide, nextSlide){
@@ -209,7 +204,7 @@ HTMLWidgets.widget({
                       });
                       
                 });
-              }
+          }
               
           function toshiny_slider(thisDiv){
                 
