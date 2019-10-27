@@ -11,7 +11,7 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-
+        
           $('#' + el.id).css({
               "margin":"auto"
           });
@@ -22,6 +22,22 @@ HTMLWidgets.widget({
             
           }
           
+            x.forEach(function(val){
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = val.obj; 
+                var divObj = wrapper.firstChild;
+                thisDiv = $("." + val.divName);
+                el.appendChild(divObj);
+                thisDiv.slick(val.slickOpts);
+            });
+          
+          if(typeof(Shiny) !== "undefined"){
+                    
+            toshiny(thisDiv);
+                    
+          }
+
+          /*
           x.forEach(function(val){
             
                   buildDiv(
@@ -34,15 +50,9 @@ HTMLWidgets.widget({
                   
                   thisDiv = $("." + val.divName);
                   
-                  thisDiv.slick(val.slickOpts);
-                  
-                  if(typeof(Shiny) !== "undefined"){
-                    
-                    toshiny(thisDiv);
-                    
-                  }
+
           });
-          
+          */
         // Creates a callback for the el.id to update the height of the widget
         
           new ResizeSensor($('#' + el.id), function(){ 

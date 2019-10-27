@@ -114,25 +114,15 @@ slickR <- function( obj ,
   
   x <- list()
   
-  if(slideType=='p')
-    obj <- gsub('^<p>|</p>$','',obj)
+  inner_obj <- mapply(div_content,
+                      this = obj, 
+                      this_link = ifelse(is.null(objLinks),list()),
+                      MoreArgs = list(this_type = slideType, width = width, height = sprintf("%s%%",100 - padding)),
+                      SIMPLIFY = FALSE)
   
-  # populate elements to construct slick
-  x$obj <- obj
+  outer_obj <- outer_div(inner_obj, id = slideId)
   
-  x$divName <- bump_name(slideId)
-  
-  if(!is.null(objLinks))
-    x$links   <- objLinks
-  
-  x$divType <- slideType
-  
-  #padding around each element in obj
-  
-  if(length(padding)==1)
-    padding <- rep(padding,length(obj))
-  
-  x$padding <- sprintf("%s%%",100 - padding)
+  x$obj <- outer_obj$html
   
   x$slideh <- height
   
