@@ -1,3 +1,7 @@
+# slickR 0.4.8
+
+* Change the slckR.js script to support htmlwidgets in iframe src
+
 # slickR 0.4.6
 
 * Add new settings functions to control the settings of a slick object
