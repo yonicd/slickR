@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
       </span>
     </div>
 
@@ -102,7 +102,7 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">ui &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span>(</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarPanel.html">sidebarPanel</a></span>(</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span>(</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6">      <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span>(<span class="dt">inputId =</span> <span class="st">"plot_num"</span>, </a>
 <a class="sourceLine" id="cb2-7" data-line-number="7">                  <span class="dt">label =</span> <span class="st">"Number of Plots:"</span>, </a>
@@ -120,7 +120,7 @@
 <a class="sourceLine" id="cb2-19" data-line-number="19">      </a>
 <a class="sourceLine" id="cb2-20" data-line-number="20">      shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/verbatimTextOutput.html">verbatimTextOutput</a></span>(<span class="st">'current'</span>)</a>
 <a class="sourceLine" id="cb2-21" data-line-number="21">    ),</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/mainPanel.html">mainPanel</a></span>(</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    <span class="kw"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span>(</a>
 <a class="sourceLine" id="cb2-23" data-line-number="23">      </a>
 <a class="sourceLine" id="cb2-24" data-line-number="24">      <span class="kw"><a href="../reference/slickR-shiny.html">slickROutput</a></span>(<span class="st">"slick_output"</span>,<span class="dt">width=</span><span class="st">'100%'</span>,<span class="dt">height=</span><span class="st">'200px'</span>)</a>
 <a class="sourceLine" id="cb2-25" data-line-number="25">      </a>
