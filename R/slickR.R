@@ -124,6 +124,8 @@ slickR <- function( obj ,
   
   x$obj <- outer_obj$html
   
+  x$divName <- attr(outer_obj,'id')
+  
   x$slideh <- height
   
   x$slidew <- width

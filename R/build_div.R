@@ -23,8 +23,14 @@ div_content <- function(this, this_link = NULL, this_type = 'img', width, height
 
 outer_div <- function(obj, id){
 
-this_div <- htmltools::div(class = bump_name(id), obj)
+new_id <- bump_name(id)  
   
-htmltools::renderTags(this_div)
+this_div <- htmltools::div(class = new_id, obj)
+  
+ret <- htmltools::renderTags(this_div)
+
+attr(ret,'id') <- new_id
+
+ret
 
 }

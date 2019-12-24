@@ -26,8 +26,13 @@ HTMLWidgets.widget({
                 var wrapper = document.createElement('div');
                 wrapper.innerHTML = val.obj; 
                 var divObj = wrapper.firstChild;
+                
+                var mainDiv = document.createElement("div");
+                mainDiv.appendChild(divObj);
+                
+                el.appendChild(mainDiv);
                 thisDiv = $("." + val.divName);
-                el.appendChild(divObj);
+                
                 thisDiv.slick(val.slickOpts);
             });
           
