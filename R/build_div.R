@@ -1,16 +1,18 @@
 div_content <- function(this, this_link = NULL, this_type = 'img', width, height){
-  
+
   div_css <- htmltools::css(
-    `width` = width,
     `height` = height,
-    `style.marginLeft`='auto',
-    `style.marginRight`='auto')
+    `marginLeft`='auto',
+    `marginRight`='auto')
   
   ret <- switch(this_type,
-                'p' = {htmltools::tags[[this_type]](innerText = this, style = div_css)},
+                'p' = {
+                  htmltools::tags[[this_type]](this, style = div_css)
+                  },
                 'iframe' = {
-                  htmltools::tags[[this_type]](src = this,style = div_css)
-                 },{
+                  htmltools::tags[[this_type]](srcdoc = this, style = div_css)
+                 },
+                 {
                   htmltools::tags[[this_type]](src = this, style = div_css)
                  })
   
@@ -19,12 +21,13 @@ div_content <- function(this, this_link = NULL, this_type = 'img', width, height
   }
   
   htmltools::div(ret)
+  
 }
 
 outer_div <- function(obj, id){
 
 new_id <- bump_name(id)  
-  
+
 this_div <- htmltools::div(class = new_id, obj)
   
 ret <- htmltools::renderTags(this_div)

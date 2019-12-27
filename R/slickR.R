@@ -92,35 +92,50 @@ slickR <- function( obj ,
                               with = "slickR::`%synch%`()")
   }
   
-  if(inherits(obj,'list')){
+  x <- list()
+  
+  if(is.numeric(height))
+    height <- sprintf('%spx',height)
+  
+  if(is.null(height))
+    height <- sprintf("%s%%",100 - padding)
+  
+  if(is.null(objLinks))
+    objLinks <- list(NULL)
+  
+  if(!inherits(obj,'shiny.tag.list')){
+    
+    if(inherits(obj,'list')){
       if(all(sapply(obj,inherits, what = 'xml_document'))){
         obj <- unlist(lapply(obj,as_svg_character)) 
       }
+    }
+    
+    if(inherits(obj, what = 'xml_document')){
+      obj <- as_svg_character(obj)
+    }
+    
+    # checks for input type
+    checkmate::expect_class(obj,c('character'))
+    
+    img_str <- 'www[.]|http|https|data:image/|body|^<p'
+    
+    obj <- lapply(obj,function(x){
+      if(!grepl(img_str,x)&slideType!='p') x <- readImage(x)
+      x
+    })
+  
+    obj <- mapply(div_content,
+                        this = obj, 
+                        this_link = objLinks,
+                        MoreArgs = list(this_type = slideType, 
+                                        width = width, 
+                                        height = height),
+                        SIMPLIFY = FALSE)
+      
   }
   
-  if(inherits(obj, what = 'xml_document')){
-    obj <- as_svg_character(obj)
-  }
-  
-  # checks for input type
-  checkmate::expect_class(obj,c('character'))
-  
-  img_str <- 'www[.]|http|https|data:image/|body|^<p'
-  
-  obj <- lapply(obj,function(x){
-    if(!grepl(img_str,x)) x <- readImage(x)
-    x
-  })
-  
-  x <- list()
-  
-  inner_obj <- mapply(div_content,
-                      this = obj, 
-                      this_link = ifelse(is.null(objLinks),list()),
-                      MoreArgs = list(this_type = slideType, width = width, height = sprintf("%s%%",100 - padding)),
-                      SIMPLIFY = FALSE)
-  
-  outer_obj <- outer_div(inner_obj, id = slideId)
+  outer_obj <- outer_div(obj, id = slideId)
   
   x$obj <- outer_obj$html
   
