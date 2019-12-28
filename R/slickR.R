@@ -80,6 +80,7 @@ slickR <- function( obj ,
                     height    = NULL,
                     elementId = NULL) {
   
+  # Deprecations
   
   if(!is.null(slickOpts)){
     lifecycle::deprecate_stop(when = "0.4.6", what = "slickR::slickR(slickOpts = )",
@@ -92,58 +93,52 @@ slickR <- function( obj ,
                               with = "slickR::`%synch%`()")
   }
   
-  x <- list()
-  
-  if(is.numeric(height))
-    height <- sprintf('%spx',height)
-  
   if(is.null(height))
     height <- sprintf("%s%%",100 - padding)
   
-  if(is.null(objLinks))
-    objLinks <- list(NULL)
+  # If obj is not already DOM then convert to it
   
   if(!inherits(obj,'shiny.tag.list')){
+
+    css_height <- height
+    css_width <- width
     
-    if(inherits(obj,'list')){
-      if(all(sapply(obj,inherits, what = 'xml_document'))){
-        obj <- unlist(lapply(obj,as_svg_character)) 
-      }
-    }
+    if(is.numeric(css_height))
+      css_height <- sprintf('%spx',css_height)
     
-    if(inherits(obj, what = 'xml_document')){
-      obj <- as_svg_character(obj)
-    }
+    if(is.numeric(css_width))
+      css_width <- sprintf('%spx',css_width)
     
-    # checks for input type
-    checkmate::expect_class(obj,c('character'))
+    slick_css <- htmltools::css(
+      width      = css_width, 
+      height     = css_height,
+      marginLeft ='auto',
+      marginRight='auto')
+        
+    html_obj <- slick_div(
+      x     = obj,
+      css   = slick_css,
+      type  = slideType,
+      links = objLinks
+    )
     
-    img_str <- 'www[.]|http|https|data:image/|body|^<p'
-    
-    obj <- lapply(obj,function(x){
-      if(!grepl(img_str,x)&slideType!='p') x <- readImage(x)
-      x
-    })
-  
-    obj <- mapply(div_content,
-                        this = obj, 
-                        this_link = objLinks,
-                        MoreArgs = list(this_type = slideType, 
-                                        width = width, 
-                                        height = height),
-                        SIMPLIFY = FALSE)
+    obj <- slick_list(html_obj)
       
   }
   
   outer_obj <- outer_div(obj, id = slideId)
   
-  x$obj <- outer_obj$html
+  # Populate list to pass to JS
+  
+  x <- list()
+  
+  x$obj     <- outer_obj$html
   
   x$divName <- attr(outer_obj,'id')
   
-  x$slideh <- height
+  x$slideh  <- height
   
-  x$slidew <- width
+  x$slidew  <- width
   
   # replace dots with a different DOM/JS  
   
@@ -151,11 +146,11 @@ slickR <- function( obj ,
     x$dotObj <- dotObj
   
   htmlwidgets::createWidget(
-    name = 'slickR',
-    list(x),
-    width = width,
-    height = NULL,
-    package = 'slickR',
+    name      = 'slickR',
+    x         = list(x),
+    width     = width,
+    height    = NULL,
+    package   = 'slickR',
     elementId = elementId
   )
 

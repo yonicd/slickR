@@ -62,11 +62,10 @@ get_help <- function(fn,pkg){
 
 ```{r}
 
-help_files <- unlist(lapply(
+help_files <- lapply(
     ls("package:stats",pattern = '^r')[-1],
     get_help,
     pkg = 'stats')
-  )
 
 ```
 

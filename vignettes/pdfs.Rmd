@@ -10,33 +10,34 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  eval = interactive()
+  comment = "#>"
 )
 ```
 
 ```{r setup}
 library(slickR)
 ```
-
-```{r}
-url <- 'https://cran.r-project.org/web/packages/slickR/slickR.pdf'
-
-```
  
 ## Simple
 
-Single PDF file in a single slider rendered as png
- 
-```{r}
-slickpdf(url)
+Convert PDF to Images.
 
+```{r}
+imgs <- slick_magick(system.file('examples/slickR.pdf',package = 'slickR'))
 ```
- 
-## Multiple PDF Files
+
+PDF file in a single slider
 
 ```{r}
-slickpdf(obj = url, obj2 = url)
+slickR(imgs,height = 500)
+```
+
+## Browsing PDF pages
+
+```{r}
+bottom_opts <- settings(arrows = FALSE,slidesToShow = 3,slidesToScroll = 1,centerMode = TRUE, focusOnSelect = TRUE,initialSlide = 0)
+
+slickR(imgs,height = 500) %synch% (slickR(imgs,height = 100) + bottom_opts)
 
 ```
 

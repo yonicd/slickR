@@ -69,7 +69,7 @@ slickR(obj = nba_player_logo$uri,height = 100, width = "95%") +
 
 ## Adding Links
 
-You can add links to each element in the slide using the `objLinks` parameter.
+You can add links to each element in the slide using the `objLinks` parameter. The links are by default set to `target = '_blank'`, so they will open a new window/tab on click.
 
 ```{r}
 
@@ -179,9 +179,7 @@ You can add a caption to an image by synching two carousels, where the upper is 
 ```{r}
 
 slickR(obj = nba_player_logo$uri[1:2], height = 100, width = "95%") %synch%
-( slickR(obj = glue::glue('<p>{nba_player_logo$name[1:2]}</p>'),
-        slideType = 'p') + 
-  settings(arrows = FALSE) )
+( slickR(nba_player_logo$name[1:2], slideType = 'p') + settings(arrows = FALSE) )
 
 
 ```

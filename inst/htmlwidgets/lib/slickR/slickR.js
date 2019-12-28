@@ -92,9 +92,11 @@ HTMLWidgets.widget({
             - realigns the top percent of the arrows when there are dots
           */
             
-              var obj = el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted';
-            
-              var this_dh = $('#' + obj + ' > ul').outerHeight(true);
+              //var obj = el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted';
+              
+              var obj = el.id +  '> div:nth-child(1)';
+              
+              var this_dh = $('#' + obj + ' > div > ul').outerHeight(true);
 
               if(typeof(this_dh) === "undefined"){
                 
