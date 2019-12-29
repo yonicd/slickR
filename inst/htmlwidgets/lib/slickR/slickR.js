@@ -24,7 +24,7 @@ HTMLWidgets.widget({
             
           }
           
-            x.forEach(function(val){
+          x.forEach(function(val){
                 var wrapper = document.createElement('div');
                 wrapper.innerHTML = val.obj; 
                 var divObj = wrapper.firstChild;
@@ -143,9 +143,11 @@ HTMLWidgets.widget({
             
             var obj = document.querySelectorAll('[class^="' + basename + '"]');
             
-            
             obj.forEach(function(val){
-              $("." + val.classList[0]).detach();
+              parent_obj = val.parentNode.parentNode.querySelectorAll('[class$="slick-slider"]');
+                parent_obj.forEach(function(val){
+                  $("." + val.classList[0]).detach();
+                })
             });
             
           }
