@@ -30,14 +30,14 @@ convert_images <- function(this_obj, this_td, img_format){
   
   image <- magick::image_read_pdf(path = this_obj, density = 150)
   
-  image_c <- lapply(image, magick::image_convert,format = img_format, depth = 16)
+  image_c <- magick::image_convert(image, format = img_format, depth = 16)
   
   tf <- tempfile(tmpdir = this_td)
   
   lapply(seq_along(image_c),
          FUN = function(img){ 
            magick::image_write(
-             image_c[[img]],
+             image_c[img],
              format = img_format,
              path = sprintf('%s_%03d.%s',tf,img,img_format)
            )
