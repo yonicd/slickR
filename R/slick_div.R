@@ -1,25 +1,29 @@
-slick_tag <- function(tag, varArgs, .noWS = NULL){
-  htmltools::tag(tag,varArgs,.noWS)
-}
+#' @title Create a div DOM for slickR
+#' @description Wraps an R object in slickR compatible DOM
+#' @param x object
+#' @param css [css][htmltools::css] object, 
+#' Default: htmltools::css(marginLeft='auto',marginRight='auto')
+#' @param type character, type of DOM, Default: 'img'
+#' @param links character, links to use on the input object, Default: NULL
+#' @details 
+#'  Method converts xml_document, htmlwidget, character, or list of objects
+#'  to a compatible DOM
+#' @return list of [tag][shiny::tag] objects
+#' @examples 
+#' 
+#' # image
+#' slick_div(nba_team_logo$uri[1])
+#' 
+#' # vector of images
+#' slick_div(nba_team_logo$uri[c(1:5)])
+#' 
+#' # text
+#' slick_div('abc',type = 'p')
+#' 
+#' @rdname slick_div
+#' @export 
 
-#' @importFrom htmltools tagList tags
-#' @export
-slick_list <- function(...){
-  
-  if(inherits(...,'list')){
-    dots <- c(...)
-  }else{
-    dots <- list(...)  
-  }
-
-  htmltools::tagList(
-    lapply(dots,htmltools::tags$div)
-  )
-  
-}
-
-#' @export
-slick_div <- function(x, css, type = 'img', links = NULL){
+slick_div <- function(x, css = htmltools::css(marginLeft='auto',marginRight='auto'), type = 'img', links = NULL){
   
   UseMethod('slick_div')
   
@@ -29,7 +33,7 @@ slick_div <- function(x, css, type = 'img', links = NULL){
 #' @export
 slick_div.list <- function(
   x,
-  css = htmltools::css(`marginLeft`='auto',`marginRight`='auto'),
+  css = htmltools::css(marginLeft='auto',marginRight='auto'),
   type = 'img',
   links = NULL
 ){
@@ -37,7 +41,7 @@ slick_div.list <- function(
   if(is.null(links)){
     lapply(x, slick_div, css = css, type = type)  
   }else{
-    mapply(slick_div,x,link,
+    mapply(slick_div,x,links,
            MoreArgs = list(css = css, type = type),
            SIMPLIFY = FALSE,USE.NAMES = FALSE)
   }
@@ -49,21 +53,22 @@ slick_div.list <- function(
 #' @export
 slick_div.htmlwidget <- function(
   x,
-  css = htmltools::css(`marginLeft`='auto',`marginRight`='auto'),
+  css = htmltools::css(marginLeft='auto',marginRight='auto'),
+  type = 'iframe',
   links = NULL
 ){
   
   tf <- tempfile(fileext = '.html') 
   on.exit(unlink(tf,force = TRUE))
-  htmlwidgets::saveWidget(a,file = tf)
+  htmlwidgets::saveWidget(x,file = tf)
   x_chr <- paste0(readLines(tf),collapse='\n')
-  slick_tag('iframe',varArgs = list(srcdoc = x_chr, style = css))
+  slick_tag(type,varArgs = list(srcdoc = x_chr, style = css))
 }
 
 #' @export
 slick_div.character <- function(
   x,
-  css = htmltools::css(`marginLeft`='auto',`marginRight`='auto'),
+  css = htmltools::css(marginLeft='auto',marginRight='auto'),
   type = 'img',
   links = NULL){
  
@@ -80,66 +85,10 @@ slick_div.character <- function(
 #' @export
 slick_div.xml_document <- function(
   x,
-  css = htmltools::css(`marginLeft`='auto',`marginRight`='auto'),
+  css = htmltools::css(marginLeft='auto',marginRight='auto'),
   type = 'img',
   links = NULL){
   
   slick_div(as_svg_character(x), css = css, type = type,links = links)
   
 }
-
-#' @importFrom utils file_test
-slick_div_chr <- function(x, css, type = 'img', links = NULL){
-  
-    if(utils::file_test('-f',x)){
-      
-      ext <- tools::file_ext(x)
-      
-      x_img <- readImage(x)
-      
-      ret_tag <- slick_tag(type,varArgs = list(src = x_img, style = css))
-      
-    }else{
-      
-      ret_tag <-  switch(type,
-             'p'= {
-        
-        ret_tag <- slick_tag(type,varArgs = list(x, style = css))
-        
-      },
-      'iframe' = {
-        
-        slick_tag(type,varArgs = list(srcdoc = x, style = css))
-        
-      },
-      {
-        
-        slick_tag(type,varArgs = list(src = x, style = css))
-        
-      })
-      
-    }
-  
-  if(length(links)>0){
-    
-    ret_tag <- htmltools::tags$a(ret_tag,href = links, target="_blank")
-    
-  }
-  
-  ret_tag
-}
-
-outer_div <- function(obj, id){
-  
-  new_id <- bump_name(id)  
-  
-  this_div <- htmltools::div(class = new_id, obj)
-  
-  ret <- htmltools::renderTags(this_div)
-  
-  attr(ret,'id') <- new_id
-  
-  ret
-  
-}
-

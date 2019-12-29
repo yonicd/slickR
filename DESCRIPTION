@@ -36,6 +36,7 @@ Suggests:
     pdftools,
     rmarkdown,
     svglite,
+    leaflet,
     testthat
 VignetteBuilder: 
     knitr
