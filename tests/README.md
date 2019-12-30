@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-30 December, 2019 16:02:13
+30 December, 2019 17:21:04
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -15,14 +15,14 @@ Coverage summary is created using the
 
 | Object                             | Coverage (%) |
 | :--------------------------------- | :----------: |
-| slickR                             |    13.21     |
+| slickR                             |    27.67     |
 | [R/getHelp.R](../R/getHelp.R)      |     0.00     |
-| [R/methods.R](../R/methods.R)      |     0.00     |
 | [R/settings.R](../R/settings.R)    |     0.00     |
 | [R/slickR.R](../R/slickR.R)        |     0.00     |
-| [R/slick\_div.R](../R/slick_div.R) |    17.65     |
+| [R/methods.R](../R/methods.R)      |    14.71     |
 | [R/readImage.R](../R/readImage.R)  |    20.00     |
-| [R/dom\_utils.R](../R/dom_utils.R) |    50.00     |
+| [R/slick\_div.R](../R/slick_div.R) |    35.29     |
+| [R/dom\_utils.R](../R/dom_utils.R) |    100.00    |
 
 <br>
 
@@ -34,7 +34,7 @@ package.
 
 | file                              | n |  time | error | failed | skipped | warning |
 | :-------------------------------- | -: | ----: | ----: | -----: | ------: | ------: |
-| [test-div.R](testthat/test-div.R) | 3 | 0.025 |     0 |      0 |       0 |       0 |
+| [test-div.R](testthat/test-div.R) | 9 | 0.042 |     0 |      0 |       0 |       0 |
 
 <details closed>
 
@@ -45,7 +45,13 @@ package.
 | :---------------------------------------- | :------ | :--------------------------- | :----- | -: | ----: |
 | [test-div.R](testthat/test-div.R#L8_L11)  | divs    | slick div types: img default | PASS   | 1 | 0.002 |
 | [test-div.R](testthat/test-div.R#L15_L18) | divs    | slick div types: img vector  | PASS   | 1 | 0.003 |
-| [test-div.R](testthat/test-div.R#L23_L26) | divs    | slick div types: img file    | PASS   | 1 | 0.020 |
+| [test-div.R](testthat/test-div.R#L22_L25) | divs    | slick div types: img file    | PASS   | 1 | 0.018 |
+| [test-div.R](testthat/test-div.R#L29_L36) | divs    | slick div types: img link    | PASS   | 1 | 0.003 |
+| [test-div.R](testthat/test-div.R#L40_L43) | divs    | slick div types: p           | PASS   | 1 | 0.002 |
+| [test-div.R](testthat/test-div.R#L47_L50) | divs    | slick div types: iframe      | PASS   | 1 | 0.002 |
+| [test-div.R](testthat/test-div.R#L57_L70) | divs    | slick list: dots             | PASS   | 1 | 0.006 |
+| [test-div.R](testthat/test-div.R#L74_L87) | divs    | slick list: list             | PASS   | 1 | 0.003 |
+| [test-div.R](testthat/test-div.R#L93_L97) | divs    | slick outer div: wrap div    | PASS   | 1 | 0.003 |
 
 </details>
 
