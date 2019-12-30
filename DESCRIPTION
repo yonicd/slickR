@@ -1,46 +1,26 @@
 Package: slickR
-Title: Create Interactive Carousels with the JavaScript 'Slick'
-    Library
-Version: 0.4.8
-Date: 2019-12-13
-Authors@R: 
-    person(given = "Jonathan",
-           family = "Sidi",
-           role = c("aut", "cre"),
-           email = "yonis@metrumrg.com")
-Description: Create and customize interactive carousels using
-    the 'Slick' JavaScript library and the 'htmlwidgets' package. The
-    carousels can contain plots produced in R, images, 'iframes', videos
-    and other 'htmlwidgets'.  These carousels can be used directly from
-    the R console, from 'RStudio', in Shiny apps and R Markdown documents.
+Title: Create Interactive Carousels with the JavaScript
+      'Slick' Library
+Version: 0.4.9
+Date: 2019-12-28
+Authors@R: person(given = "Jonathan", family = "Sidi",
+      role = c("aut", "cre"), email =
+      "yonis@metrumrg.com")
+Description: Create and customize interactive carousels
+      using the 'Slick' JavaScript library and the
+      'htmlwidgets' package. The carousels can contain
+      plots produced in R, images, 'iframes', videos and
+      other 'htmlwidgets'.  These carousels can be created
+      directly from the R console, and viewed in the 'RStudio' 
+      internal viewer, in Shiny apps and R Markdown documents.
 License: MIT + file LICENSE
 URL: https://github.com/metrumresearchgroup/slickR
 BugReports: https://github.com/metrumresearchgroup/slickR/issues
-Depends: 
-    R (>= 3.5.0)
-Imports: 
-    base64enc,
-    checkmate,
-    htmltools,
-    htmlwidgets,
-    lifecycle,
-    magick,
-    stats,
-    tools,
-    utils,
-    xml2
-Suggests: 
-    glue,
-    jsonlite,
-    knitr,
-    pdftools,
-    rmarkdown,
-    svglite,
-    testthat
-VignetteBuilder: 
-    knitr
-RdMacros: 
-    lifecycle
+Depends: R (>= 3.5.0)
+Imports: htmltools,utils,tools,lifecycle,stats,xml2,base64enc,htmlwidgets
+Suggests: jsonlite, knitr, pdftools, rmarkdown, svglite, leaflet, testthat
+VignetteBuilder: knitr
+RdMacros: lifecycle
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

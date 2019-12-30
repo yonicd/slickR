@@ -1,6 +1,12 @@
+# slick 0.4.9
+
+* Add slick_div S3 method to build DOM elements to pass into slickR
+* Add advanced vignette to work with DOM elements
+* Remove dependency on magick and retain pdftools as Suggests
+
 # slickR 0.4.8
 
-* Change the slckR.js script to support htmlwidgets in iframe src
+* Change the slickR.js script to support htmlwidgets in iframe src
 
 # slickR 0.4.6
 

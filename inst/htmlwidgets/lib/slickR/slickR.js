@@ -11,7 +11,7 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-
+        
           $('#' + el.id).css({
               "margin":"auto"
           });
@@ -22,6 +22,27 @@ HTMLWidgets.widget({
             
           }
           
+            x.forEach(function(val){
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = val.obj; 
+                var divObj = wrapper.firstChild;
+                
+                var mainDiv = document.createElement("div");
+                mainDiv.appendChild(divObj);
+                
+                el.appendChild(mainDiv);
+                thisDiv = $("." + val.divName);
+                
+                thisDiv.slick(val.slickOpts);
+            });
+          
+          if(typeof(Shiny) !== "undefined"){
+                    
+            toshiny(thisDiv);
+                    
+          }
+
+          /*
           x.forEach(function(val){
             
                   buildDiv(
@@ -34,15 +55,9 @@ HTMLWidgets.widget({
                   
                   thisDiv = $("." + val.divName);
                   
-                  thisDiv.slick(val.slickOpts);
-                  
-                  if(typeof(Shiny) !== "undefined"){
-                    
-                    toshiny(thisDiv);
-                    
-                  }
+
           });
-          
+          */
         // Creates a callback for the el.id to update the height of the widget
         
           new ResizeSensor($('#' + el.id), function(){ 
@@ -77,9 +92,11 @@ HTMLWidgets.widget({
             - realigns the top percent of the arrows when there are dots
           */
             
-              var obj = el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted';
-            
-              var this_dh = $('#' + obj + ' > ul').outerHeight(true);
+              //var obj = el.id + ' > div.' + x.divName + '.slick-initialized.slick-slider.slick-dotted';
+              
+              var obj = el.id +  '> div:nth-child(1)';
+              
+              var this_dh = $('#' + obj + ' > div > ul').outerHeight(true);
 
               if(typeof(this_dh) === "undefined"){
                 

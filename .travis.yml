@@ -6,10 +6,8 @@ addons:
     update:
     - true
     sources:
-    - sourceline: ppa:cran/imagemagick
     - sourceline: ppa:cran/poppler
     packages:
-    - libmagick++-dev
     - libpoppler-cpp-dev
 r_packages:
 - devtools
