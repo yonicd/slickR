@@ -2,8 +2,8 @@ pandoc: '2.2'
 pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
-  advanced: advanced.html
   basics: basics.html
+  doms: doms.html
   iframes: iframes.html
   pdfs: pdfs.html
   plots: plots.html
