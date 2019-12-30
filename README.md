@@ -7,7 +7,7 @@
 
 # slickR <img src="https://github.com/metrumresearchgroup/slickR/raw/master/man/figures/logo.png" align="right"  class="logo"/>
 
-## "the last carousel you’ll ever need"
+__The last carousel you’ll ever need__
 
 We are happy to bring the [slick](http://kenwheeler.github.io/slick/) JavaScript library to R. It is self described as "the last carousel you'll ever need". This carousel is based on putting the elements of the carousel in a [div](https://www.w3schools.com/tags/tag_div.asp) HTML tag. This makes the carousel very versatile in what can be placed inside. Regular objects that are placed in a carousel can be for example: images, plots, tables, gifs, videos and objects embedded in iframes.
 
