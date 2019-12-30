@@ -5,7 +5,7 @@
 [![downloads](http://cranlogs.r-pkg.org/badges/slickR)](http://cranlogs.r-pkg.org/badges/slickR)
 <!-- badges: end -->
 
-# slickR
+# slickR <img src="https://github.com/metrumresearchgroup/slickR/raw/master/man/figures/logo.png" align="right"  class="logo"/>
 
 ## "the last carousel you’ll ever need"
 

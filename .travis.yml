@@ -11,7 +11,8 @@ addons:
     - libpoppler-cpp-dev
 r_packages:
 - devtools
-- pkgdown
+r_github_packages:
+- metrumresearchgroup/pkgdown
 after_success:
 - Rscript -e 'devtools::install()'
 - Rscript -e 'pkgdown::build_site()'
