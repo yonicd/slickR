@@ -166,7 +166,7 @@ HTMLWidgets.widget({
               switch (objType) {
                 
                 case 'iframe':
-                  newEl.src = 'data:text/html;charset=utf-8,' + encodeURI(obj[i]);
+                  newEl.srcdoc = obj[i];
                   newEl.style.height=height;
                 break;
                 
