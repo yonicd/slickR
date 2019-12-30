@@ -1,3 +1,8 @@
+# slick 0.4.8
+* Add slick_div S3 method to build DOM elements to pass into slickR
+* Add advanced vignette to work with DOM elements
+* Remove dependency on magick and retain pdftools as Suggests
+
 # slickR 0.4.6
 
 * Add new settings functions to control the settings of a slick object

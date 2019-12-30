@@ -10,9 +10,11 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  eval = interactive(),
+  eval = pdftools::poppler_config()$can_render,
   comment = "#>"
 )
+
+knitr::opts_knit$set(root.dir = tempdir())
 ```
 
 ```{r setup}
@@ -23,8 +25,12 @@ library(slickR)
 
 Convert PDF to Images.
 
-```{r}
-imgs <- slick_magick(system.file('examples/slickR.pdf',package = 'slickR'))
+```{r,}
+
+pdf_file <- system.file('examples/slickR.pdf',package = 'slickR')
+
+imgs <- pdftools::pdf_convert(pdf_file,format = 'png',verbose = FALSE)
+
 ```
 
 PDF file in a single slider
