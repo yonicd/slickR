@@ -1,0 +1,87 @@
+---
+title: "Tests and Coverage"
+date: "`r format(Sys.time(), '%d %B, %Y %H:%M:%S')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{covrpage: Tests and Coverage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+<!--- Placeholder for tests/README.md Do Not Edit--->
+  - [Coverage](#coverage)
+  - [Unit Tests](#unit-tests)
+
+This output is created by
+[covrpage](https://github.com/metrumresearchgroup/covrpage).
+
+## Coverage
+
+Coverage summary is created using the
+[covr](https://github.com/r-lib/covr) package.
+
+| Object                             | Coverage (%) |
+| :--------------------------------- | :----------: |
+| slickR                             |    13.21     |
+| [R/getHelp.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/getHelp.R)      |     0.00     |
+| [R/methods.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/methods.R)      |     0.00     |
+| [R/settings.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/settings.R)    |     0.00     |
+| [R/slickR.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/slickR.R)        |     0.00     |
+| [R/slick\_div.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/slick_div.R) |    17.65     |
+| [R/readImage.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/readImage.R)  |    20.00     |
+| [R/dom\_utils.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/R/dom_utils.R) |    50.00     |
+
+<br>
+
+## Unit Tests
+
+Unit Test summary is created using the
+[testthat](https://github.com/r-lib/testthat)
+package.
+
+| file                              | n |  time | error | failed | skipped | warning |
+| :-------------------------------- | -: | ----: | ----: | -----: | ------: | ------: |
+| [test-div.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/tests/testthat/test-div.R) | 3 | 0.025 |     0 |      0 |       0 |       0 |
+
+<details closed>
+
+<summary> Show Detailed Test Results
+</summary>
+
+| file                                      | context | test                         | status | n |  time |
+| :---------------------------------------- | :------ | :--------------------------- | :----- | -: | ----: |
+| [test-div.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/tests/testthat/test-div.R#L8_L11)  | divs    | slick div types: img default | PASS   | 1 | 0.002 |
+| [test-div.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/tests/testthat/test-div.R#L15_L18) | divs    | slick div types: img vector  | PASS   | 1 | 0.003 |
+| [test-div.R](https://github.com/metrumresearchgroup/slickR/tree/unittests/tests/testthat/test-div.R#L23_L26) | divs    | slick div types: img file    | PASS   | 1 | 0.020 |
+
+</details>
+
+<details>
+
+<summary> Session Info </summary>
+
+| Field    | Value                               |
+| :------- | :---------------------------------- |
+| Version  | R version 3.6.1 (2019-07-05)        |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) |
+| Running  | macOS Mojave 10.14.5                |
+| Language | en\_US                              |
+| Timezone | America/New\_York                   |
+
+| Package  | Version |
+| :------- | :------ |
+| testthat | 2.2.1   |
+| covr     | 3.3.0   |
+| covrpage | 0.0.70  |
+
+</details>
+
+<!--- Final Status : pass --->
