@@ -45,13 +45,10 @@ slick_ghcard <- image_canvas_ghcard(fill_color = "#f6f3f9") %>%
                  location = "+0-60", size=75, font="Volkhov", weight = 500) %>%
   image_annotate("you'll ever need", gravity = "West",
                  location = "+0+20", size=75, font="Volkhov", weight = 500) %>%
-  image_compose(gh_logo, gravity="West", offset = "+60+100") %>%
+  image_compose(gh_logo, gravity="West", offset = "+0+100") %>%
   image_annotate("metrumresearchgroup/slickR", gravity="West", 
-                 location="+110+100", size=38, font="Ubuntu Mono") %>%
+                 location="+50+100", size=38, font="Ubuntu Mono") %>%
   image_border_ghcard("#f6f3f9")
-
-slick_ghcard%>%
-  image_scale('20%')
 
 slick_hex %>%
   image_scale("1200x1200") %>%
