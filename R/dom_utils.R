@@ -1,4 +1,4 @@
-#' @title List of elements for slickR
+#' @title List of DOM elements
 #' @description Convert a list of [tags][htmltools::tags] into a list
 #' that slickR can render
 #' @param \dots Elements to convert
@@ -13,7 +13,8 @@
 #' @seealso 
 #'  [tagList][htmltools::tagList], [tags][htmltools::tags]
 #' @rdname slick_list
-#' @export 
+#' @family html
+#' @export
 #' @importFrom htmltools tagList tags
 slick_list <- function(...){
   

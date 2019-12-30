@@ -27,6 +27,9 @@ reference:
   - title: "Methods"
     contents:
       - has_concept("methods")
+  - title: "Working with DOM elements"
+    contents:
+      - has_concept("html")
   - title: "Settings"
     contents:
       - has_concept("settings")
@@ -38,6 +41,7 @@ articles:
   - title: "Getting Started"
     contents:
       - basics
+      - doms
   - title: "Advanced"
     contents:
       - plots

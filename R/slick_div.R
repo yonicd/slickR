@@ -1,4 +1,4 @@
-#' @title Create a div DOM for slickR
+#' @title Create a DOM element for slickR
 #' @description Wraps an R object in slickR compatible DOM
 #' @param x object
 #' @param css [css][htmltools::css] object, 
@@ -20,9 +20,9 @@
 #' # text
 #' slick_div('abc',type = 'p')
 #' 
+#' @family html
 #' @rdname slick_div
-#' @export 
-
+#' @export
 slick_div <- function(x, css = htmltools::css(marginLeft='auto',marginRight='auto'), type = 'img', links = NULL){
   
   UseMethod('slick_div')

@@ -2,7 +2,7 @@
 % Please edit documentation in R/dom_utils.R
 \name{slick_list}
 \alias{slick_list}
-\title{List of elements for slickR}
+\title{List of DOM elements}
 \usage{
 slick_list(...)
 }
@@ -26,4 +26,7 @@ slick_list(img1,img2)
 }
 \seealso{
 \link[htmltools:tagList]{tagList}, \link[htmltools:tags]{tags}
+
+Other html: \code{\link{slick_div}}
 }
+\concept{html}

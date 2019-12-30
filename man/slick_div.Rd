@@ -2,7 +2,7 @@
 % Please edit documentation in R/slick_div.R
 \name{slick_div}
 \alias{slick_div}
-\title{Create a div DOM for slickR}
+\title{Create a DOM element for slickR}
 \usage{
 slick_div(x, css = htmltools::css(marginLeft = "auto", marginRight =
   "auto"), type = "img", links = NULL)
@@ -39,3 +39,7 @@ slick_div(nba_team_logo$uri[c(1:5)])
 slick_div('abc',type = 'p')
 
 }
+\seealso{
+Other html: \code{\link{slick_list}}
+}
+\concept{html}
