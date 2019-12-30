@@ -1,0 +1,14 @@
+.slick-prev:before,
+.slick-next:before
+{
+
+  color: #404040;
+
+}
+
+.slick-dots
+{
+    bottom: auto;
+    margin: auto;
+
+}

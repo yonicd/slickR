@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>convert pdf to slick — slickpdf • slickR</title>
+<title>Create a div DOM for slickR — slick_div • slickR</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="convert pdf to slick — slickpdf" />
-<meta property="og:description" content="convert multiple pdfs or a multipage pdf to a slick carousel" />
+<meta property="og:title" content="Create a div DOM for slickR — slick_div" />
+<meta property="og:description" content="Wraps an R object in slickR compatible DOM" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
       </span>
     </div>
 
@@ -111,69 +111,75 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>convert pdf to slick</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/slickpdf.R'><code>R/slickpdf.R</code></a></small>
-    <div class="hidden name"><code>slickpdf.Rd</code></div>
+    <h1>Create a div DOM for slickR</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/slick_div.R'><code>R/slick_div.R</code></a></small>
+    <div class="hidden name"><code>slick_div.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>convert multiple pdfs or a multipage pdf to a slick carousel</p>
+    <p>Wraps an R object in slickR compatible DOM</p>
     </div>
 
-    <pre class="usage"><span class='fu'>slickpdf</span>(<span class='no'>obj</span>, <span class='kw'>obj2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>synch</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>img_format</span> <span class='kw'>=</span> <span class='st'>"png"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>slick_div</span>(<span class='no'>x</span>, <span class='kw'>css</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/css.html'>css</a></span>(<span class='kw'>marginLeft</span> <span class='kw'>=</span> <span class='st'>"auto"</span>, <span class='kw'>marginRight</span> <span class='kw'>=</span>
+  <span class='st'>"auto"</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"img"</span>, <span class='kw'>links</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>obj</th>
-      <td><p>character, path to pdf(s)</p></td>
+      <th>x</th>
+      <td><p>object</p></td>
     </tr>
     <tr>
-      <th>obj2</th>
-      <td><p>character, path to pdf(s) to compare to obj, Default: NULL</p></td>
+      <th>css</th>
+      <td><p><a href='https://rdrr.io/pkg/htmltools/man/css.html'>css</a> object,
+Default: htmltools::css(marginLeft='auto',marginRight='auto')</p></td>
     </tr>
     <tr>
-      <th>synch</th>
-      <td><p>boolean, if TRUE then obj and obj2 images are synchronized, Default: TRUE</p></td>
+      <th>type</th>
+      <td><p>character, type of DOM, Default: 'img'</p></td>
     </tr>
     <tr>
-      <th>img_format</th>
-      <td><p>format of image to convert to, Default: 'png'</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>arguments passed to <code><a href='slickR.html'>slickR</a></code></p></td>
+      <th>links</th>
+      <td><p>character, links to use on the input object, Default: NULL</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>slick</p>
+    <p>list of <a href='https://rdrr.io/pkg/shiny/man/tag.html'>tag</a> objects</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><a href='https://github.com/ropensci/pdftools'>pdftools</a> must be installed for function to work.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://docs.ropensci.org/magick/reference/editing.html'>image_read_pdf</a></code></p>
-<p>Other invoke: <code><a href='slickR.html'>slickR</a></code></p></div>
+    <p>Method converts xml_document, htmlwidget, character, or list of objects
+to a compatible DOM</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
-
-<span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>'https://cran.r-project.org/web/packages/slickR/slickR.pdf'</span>
-
-<span class='fu'>slickpdf</span>(<span class='no'>url</span>)
-
-<span class='fu'>slickpdf</span>(<span class='no'>url</span>,<span class='kw'>img_format</span> <span class='kw'>=</span> <span class='st'>'svg'</span>)
-
-<span class='fu'>slickpdf</span>(<span class='no'>url</span>, <span class='no'>url</span>, <span class='kw'>img_format</span> <span class='kw'>=</span> <span class='st'>'svg'</span>)
-
-<span class='fu'>slickpdf</span>(<span class='no'>url</span>, <span class='no'>url</span>, <span class='kw'>img_format</span> <span class='kw'>=</span> <span class='st'>'svg'</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>400</span>, <span class='kw'>width</span> <span class='kw'>=</span><span class='st'>'90%'</span>)
-
-<span class='fu'>slickpdf</span>(<span class='no'>url</span>, <span class='no'>url</span>, <span class='kw'>synch</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>img_format</span> <span class='kw'>=</span> <span class='st'>'svg'</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>400</span>, <span class='kw'>width</span> <span class='kw'>=</span><span class='st'>'90%'</span>)
-
-}</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='co'># image</span>
+<span class='fu'>slick_div</span>(<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>[<span class='fl'>1</span>])</div><div class='output co'>#&gt; [[1]]
+#&gt; &lt;img src="https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/ATL.svg" style="margin-left:auto;margin-right:auto;"/&gt;
+#&gt; </div><div class='input'>
+<span class='co'># vector of images</span>
+<span class='fu'>slick_div</span>(<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>)])</div><div class='output co'>#&gt; [[1]]
+#&gt; &lt;img src="https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/ATL.svg" style="margin-left:auto;margin-right:auto;"/&gt;
+#&gt; 
+#&gt; [[2]]
+#&gt; &lt;img src="https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/BOS.svg" style="margin-left:auto;margin-right:auto;"/&gt;
+#&gt; 
+#&gt; [[3]]
+#&gt; &lt;img src="https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/BKN.svg" style="margin-left:auto;margin-right:auto;"/&gt;
+#&gt; 
+#&gt; [[4]]
+#&gt; &lt;img src="https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/CHA.svg" style="margin-left:auto;margin-right:auto;"/&gt;
+#&gt; 
+#&gt; [[5]]
+#&gt; &lt;img src="https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/CHI.svg" style="margin-left:auto;margin-right:auto;"/&gt;
+#&gt; </div><div class='input'>
+<span class='co'># text</span>
+<span class='fu'>slick_div</span>(<span class='st'>'abc'</span>,<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'p'</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; &lt;p style="margin-left:auto;margin-right:auto;"&gt;abc&lt;/p&gt;
+#&gt; </div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -181,7 +187,6 @@
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
