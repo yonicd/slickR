@@ -2,11 +2,6 @@ library(magick)
 library(bunny)
 library(ggplot2)
 
-#cool_gradient <- 
-  image_blank(200, 200, pseudo_image = "-define gradient:direction=north gradient:#3498db-#db3a34")
-
-%>%
-  image_rotate(degrees = 10)
 
 mask <- image_blank(500,500)%>%
   image_annotate("R",
@@ -17,7 +12,7 @@ mask <- image_blank(500,500)%>%
                  weight = 400)
 
 slick_hex <- image_canvas_hex(
-      fill_color = 'white', 
+      fill_color = '#f6f3f9', 
       border_color = '#3498db', 
       border_size = 5
     ) %>%
@@ -38,15 +33,6 @@ slick_hex <- image_canvas_hex(
 text_color <- '#3498db'
 R_color <- '#db3a34'
 
-
-slick_hex %>%
-  image_scale("1200x1200") %>%
-  image_write("data-raw/slick_hex.png", density = 600)
-
-slick_hex %>%
-  image_scale("200x200") %>%
-  image_write("man/figures/logo.png", density = 600)
-
 slick_hex_gh <- slick_hex %>%
   image_scale("400x400")
 
@@ -55,12 +41,25 @@ gh_logo <- bunny::github %>%
 
 slick_ghcard <- image_canvas_ghcard(fill_color = "#f6f3f9") %>%
   image_composite(slick_hex_gh, gravity = "East", offset = "+100+0") %>%
-  image_annotate("The last carousel you'll ever need", gravity = "West",
-                 location = "+0-50", size=35, font="Volkhov", weight = 500) %>%
-  image_compose(gh_logo, gravity="West", offset = "+60+40") %>%
+  image_annotate("The last carousel", gravity = "West",
+                 location = "+0-60", size=75, font="Volkhov", weight = 500) %>%
+  image_annotate("you'll ever need", gravity = "West",
+                 location = "+0+20", size=75, font="Volkhov", weight = 500) %>%
+  image_compose(gh_logo, gravity="West", offset = "+60+100") %>%
   image_annotate("metrumresearchgroup/slickR", gravity="West", 
-                 location="+110+45", size=38, font="Ubuntu Mono") %>%
+                 location="+110+100", size=38, font="Ubuntu Mono") %>%
   image_border_ghcard("#f6f3f9")
+
+slick_ghcard%>%
+  image_scale('20%')
+
+slick_hex %>%
+  image_scale("1200x1200") %>%
+  image_write("data-raw/slick_hex.png", density = 600)
+
+slick_hex %>%
+  image_scale("200x200") %>%
+  image_write("man/figures/logo.png", density = 600)
 
 slick_ghcard %>%
   image_write("data-raw/slick_ghcard.png", density = 600)
