@@ -3,7 +3,14 @@ testthat::context("div methods")
 test_css <- htmltools::css(marginLeft='auto',marginRight='auto')
 
 testthat::describe('slick div method',{
-  
+
+  it('shiny.tag',{
+    testthat::expect_equal(
+      slick_div(htmltools::p('abc')),
+      htmltools::p('abc')
+    )
+  })
+    
   it('list',{
     testthat::expect_equal(
       slick_div(list(nba_team_logo$uri[1])),
