@@ -3,21 +3,7 @@ testthat::context("div methods")
 test_css <- htmltools::css(marginLeft='auto',marginRight='auto')
 
 testthat::describe('slick div method',{
-
-  it('xml',{
-    testthat::expect_equal(
-      slick_div(svglite::xmlSVG({plot(1:10)}, standalone = TRUE)),
-      readRDS('../assets/xml_plot.Rds')
-    )
-  })
-
-  it('widget',{
-    testthat::expect_equal(
-      slick_div(leaflet::addTiles(leaflet::leaflet(elementId = 'abc'))),
-      readRDS('../assets/leaflet.Rds')
-    )
-  })
-    
+  
   it('list',{
     testthat::expect_equal(
       slick_div(list(nba_team_logo$uri[1])),
@@ -36,4 +22,20 @@ testthat::describe('slick div method',{
     )
   })
   
+  testthat::skip_on_cran()
+  testthat::skip_on_travis()
+  
+  it('xml',{
+    testthat::expect_equal(
+      slick_div(svglite::xmlSVG({plot(1:10)}, standalone = TRUE)),
+      readRDS('../assets/xml_plot.Rds')
+    )
+  })
+  
+  it('widget',{
+    testthat::expect_equal(
+      slick_div(leaflet::addTiles(leaflet::leaflet(elementId = 'abc'))),
+      readRDS('../assets/leaflet.Rds')
+    )
+  })
 })
