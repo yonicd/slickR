@@ -20,23 +20,52 @@ library(slickR)
 
 The most flexible implementaton of `slickR` is by building your own DOM elements and passing them into `slickR`. 
 
-We demonstrate how to do this with the following example, in which we mix three different DOM types: `img`, `p`, `iframe`. In the `iframe` we will place a `leaflet` htmlwidget.
-
 ## img
 
 We build the img DOM from scratch:
 
+### Single element
+
 ```{r}
-img <- htmltools::tags$img(
-  src = nba_player_logo$uri[1],
-  style = htmltools::css(
-    height = '100px', 
-    marginLeft ='auto', 
-    marginRight='auto')
-  )
+img_bare <- htmltools::tags$img(src = nba_player_logo$uri[1])
 ```
 
-## p
+```{r}
+slickR::slickR(img_bare)
+```
+
+### Vector of elements
+
+```{r}
+imgs_bare <- lapply(nba_player_logo$uri[c(1:5)],function(x){
+  htmltools::tags$img(src = x)
+})
+  
+```
+
+```{r}
+slickR::slickR(imgs_bare)
+```
+
+### slick_div
+
+`slick_div` is an `S3` method which accepts different object classes such as `character`, `shiny.tag`,`htmlwidget`, `xml_document` objects. It will also internally convert a vector a elements so the user does not need to use lapply in their script. 
+
+It will also add some css style to the elements to center them in the carousel. 
+
+```{r}
+htmltools::css(marginLeft='auto',marginRight='auto')
+```
+
+```{r}
+slickR::slickR(slick_div(nba_player_logo$uri[c(1:5)]))
+```
+
+## Mix and Match
+
+We can also mix three different DOM types: `img`, `p`, `iframe`. In the `iframe` we will place a `leaflet` htmlwidget.
+
+### p
 
 We put in Lorem ipsum into the paragraph
 
@@ -47,9 +76,7 @@ p <- htmltools::tags$p(
   )
 ```
 
-## iframe
-
-`slick_div` is an `S3` method which accepts `htmlwidget` class objects. This will set the widget output up for use in `slickR`.
+### iframe
 
 ```{r}
 
@@ -68,7 +95,7 @@ w <- slick_div(
 To pass a list of `shiny.tag` elements into `slickR` we first convert the individual `shiny.tag` into a `tagList` using `slick_list`.
 
 ```{r}
-doms <- slick_list(img,p,w)
+doms <- slick_list(img_bare,p,w)
 ```
 
 ```{r}

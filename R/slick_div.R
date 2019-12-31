@@ -48,6 +48,13 @@ slick_div.list <- function(
   
 }
 
+#' @export
+slick_div.shiny.tag <- function(x, css = NULL,type = NULL, links = NULL){
+  
+  x
+  
+}
+
 #' @importFrom htmlwidgets saveWidget
 #' @importFrom htmltools css
 #' @export

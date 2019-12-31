@@ -4,7 +4,7 @@
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
 [![downloads](http://cranlogs.r-pkg.org/badges/slickR)](http://cranlogs.r-pkg.org/badges/slickR)
 [![Codecov test coverage](https://codecov.io/gh/metrumresearchgroup/slickR/branch/master/graph/badge.svg)](https://codecov.io/gh/metrumresearchgroup/slickR?branch=master)
-[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2019_12_30-brightgreen.svg)](http://tinyurl.com/tv2vnga)
+[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2019_12_31-brightgreen.svg)](http://tinyurl.com/tv2vnga)
 <!-- badges: end -->
 
 # slickR <img src="https://github.com/metrumresearchgroup/slickR/raw/master/man/figures/logo.png" align="right"  class="logo"/>
