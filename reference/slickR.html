@@ -134,9 +134,9 @@
     <p>use slick.js library in R</p>
     </div>
 
-    <pre class="usage"><span class='fu'>slickR</span>(<span class='no'>obj</span>, <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>, <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='st'>"img"</span>, <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"95%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>slickR</span>(<span class='no'>obj</span>, <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>, <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='st'>"img"</span>, <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"95%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,30 +150,17 @@
       <td><p>character, id of slide, Default: 'baseDiv'</p></td>
     </tr>
     <tr>
-      <th>objLinks</th>
-      <td><p>character, links to attach to images in slide, Default: NULL</p></td>
-    </tr>
-    <tr>
-      <th>slickOpts</th>
-      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
-    </tr>
-    <tr>
       <th>slideType</th>
       <td><p>character, type of object to put in slide, Default: 'img'</p></td>
     </tr>
     <tr>
-      <th>synchSlides</th>
-      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+      <th>objLinks</th>
+      <td><p>character, links to attach to images in slide, Default: NULL</p></td>
     </tr>
     <tr>
       <th>padding</th>
       <td><p>numeric, percent of width between each image in the carousel
 for each slider, Default: 1</p></td>
-    </tr>
-    <tr>
-      <th>dotObj</th>
-      <td><p>character, urls or images to replace dots with (see details),
-Default: NULL</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -187,6 +174,18 @@ Default: NULL</p></td>
       <th>elementId</th>
       <td><p>character, id tag of htmlwidget, Default: NULL</p></td>
     </tr>
+    <tr>
+      <th>slickOpts</th>
+      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+    </tr>
+    <tr>
+      <th>synchSlides</th>
+      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+    </tr>
+    <tr>
+      <th>dotObj</th>
+      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -195,8 +194,8 @@ Default: NULL</p></td>
 <p>To find all the attributes that can be used please refer to the link.</p>
 <p>It is possible to stack slides through the <code>%stack%</code> operator.</p>
 <p>It is possible to synchronize slides through the <code>%synch%</code> operator.</p>
-<p>To replace the dots with icons use the dotObj argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.</p>
+<p>To replace the dots with icons use the settings to define the  customPaging
+attribute with the appropriate JS(.) function call.</p>
 <p>The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

@@ -8,4 +8,5 @@ articles:
   pdfs: pdfs.html
   plots: plots.html
   shiny: shiny.html
+  tests_and_coverage: tests_and_coverage.html
 
