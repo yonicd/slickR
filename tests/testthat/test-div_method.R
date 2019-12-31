@@ -31,16 +31,12 @@ testthat::describe('slick div method',{
       readRDS('../assets/xml_plot.Rds')
     )
   })
-  
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
+
   it('widget',{
     testthat::expect_equal({
-      set.seed(123)
-      slick_div(leaflet::addTiles(leaflet::leaflet(elementId = 'abc')))
+      slick_div(readRDS('../assets/widget1.Rds'))
       },
-      readRDS('../assets/leaflet.Rds')
+      readRDS('../assets/slick_div_widget.Rds')
     )
   })
 })
