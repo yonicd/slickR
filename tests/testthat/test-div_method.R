@@ -24,8 +24,9 @@ testthat::describe('slick div method',{
 
   it('xml',{
     testthat::expect_equal({
-      set.seed(123)
-      slick_div(svglite::xmlSVG({plot(1:10)}, standalone = TRUE))
+      # set.seed(123)
+      # svglite::xmlSVG({plot(1:10)}, standalone = TRUE)
+      slick_div(xml2::read_xml('../assets/method_test.xml'))
     },
       readRDS('../assets/xml_plot.Rds')
     )
@@ -33,8 +34,9 @@ testthat::describe('slick div method',{
   
   it('widget',{
     testthat::expect_equal({
-      set.seed(123)
-      slick_div(leaflet::addTiles(leaflet::leaflet(elementId = 'abc')))
+      # set.seed(123)
+      # leaflet::addTiles(leaflet::leaflet(elementId = 'abc'))
+      slick_div(readRDS('../assets/leaflet_widget.Rds'))
       },
       readRDS('../assets/leaflet.Rds')
     )
