@@ -32,11 +32,13 @@ testthat::describe('slick div method',{
     )
   })
   
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   it('widget',{
     testthat::expect_equal({
-      # set.seed(123)
-      # leaflet::addTiles(leaflet::leaflet(elementId = 'abc'))
-      slick_div(readRDS('../assets/leaflet_widget.Rds'))
+      set.seed(123)
+      slick_div(leaflet::addTiles(leaflet::leaflet(elementId = 'abc')))
       },
       readRDS('../assets/leaflet.Rds')
     )
