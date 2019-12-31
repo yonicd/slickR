@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>getHelp <img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /> — getHelp • slickR</title>
+<title>slickpdf <img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /> — slickpdf • slickR</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="getHelp <img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /> — getHelp" />
-<meta property="og:description" content="return rd help file as html" />
+<meta property="og:title" content="slickpdf <img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /> — slickpdf" />
+<meta property="og:description" content="convert multiple pdfs or a multipage pdf to a slick carousel" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -125,36 +125,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>getHelp <img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></h1>
+    <h1>slickpdf <img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></h1>
     <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/deprecaed.R'><code>R/deprecaed.R</code></a></small>
-    <div class="hidden name"><code>getHelp.Rd</code></div>
+    <div class="hidden name"><code>slickpdf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>return rd help file as html</p>
+    <p>convert multiple pdfs or a multipage pdf to a slick carousel</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getHelp</span>(<span class='no'>fn</span>, <span class='no'>pkg</span>)</pre>
+    <pre class="usage"><span class='fu'>slickpdf</span>(<span class='no'>obj</span>, <span class='kw'>obj2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>synch</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>img_format</span> <span class='kw'>=</span> <span class='st'>"png"</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fn</th>
-      <td><p>character of function name</p></td>
+      <th>obj</th>
+      <td><p>character, path to pdf(s)</p></td>
     </tr>
     <tr>
-      <th>pkg</th>
-      <td><p>name of package that contains fn</p></td>
+      <th>obj2</th>
+      <td><p>character, path to pdf(s) to compare to obj, Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>synch</th>
+      <td><p>boolean, if TRUE then obj and obj2 images are synchronized, Default: TRUE</p></td>
+    </tr>
+    <tr>
+      <th>img_format</th>
+      <td><p>format of image to convert to, Default: 'png'</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>arguments passed to <code><a href='slickR.html'>slickR</a></code></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>character</p>
+    <p>slick</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function has been moved to the iframes vignette</p>
+    <p>This function has been replaced with the example in the PDF vignette.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
