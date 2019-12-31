@@ -103,7 +103,6 @@ opts_dot_number <- settings(
 
 slick_dots <- slickR(
   obj = nba_player_logo$uri,
-  dotObj = nba_team_logo$uri,
   height = 100,
   width = "95%"
 )
@@ -137,7 +136,6 @@ s2 <- htmltools::tags$script(
 
 slick_dots_logo <- slickR(
   obj = nba_player_logo$uri,
-  dotObj = nba_team_logo$uri,
   height = 100,
   width = "95%"
 ) + opts_dot_logo

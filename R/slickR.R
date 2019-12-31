@@ -6,8 +6,7 @@
 #' @param objLinks character, links to attach to images in slide, Default: NULL
 #' @param slideType character, type of object to put in slide, Default: 'img'
 #' @param slickOpts  \lifecycle{deprecated}
-#' @param dotObj character, urls or images to replace dots with (see details), 
-#'   Default: NULL
+#' @param dotObj \lifecycle{deprecated}
 #' @param synchSlides \lifecycle{deprecated}
 #' @param padding numeric, percent of width between each image in the carousel 
 #'   for each slider, Default: 1
@@ -25,8 +24,8 @@
 #' 
 #' It is possible to synchronize slides through the `%synch%` operator. 
 #' 
-#' To replace the dots with icons use the dotObj argument to pass in the icon
-#' images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call. 
+#' To replace the dots with icons use the settings to define the  customPaging 
+#' attribute with the appropriate JS(.) function call. 
 #' 
 #' The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.  
 #' 
@@ -70,20 +69,21 @@
 #' @export
 slickR <- function( obj ,
                     slideId   = 'baseDiv',
+                    slideType = 'img',                    
                     objLinks  = NULL,
-                    slickOpts = NULL,
-                    slideType = 'img',
-                    synchSlides = NULL,
                     padding   = 1,
-                    dotObj    = NULL,
                     width     = '95%', 
                     height    = NULL,
-                    elementId = NULL) {
+                    elementId = NULL,
+                    slickOpts = NULL,
+                    synchSlides = NULL,
+                    dotObj    = NULL) {
   
   # Deprecations
   
   if(!is.null(slickOpts)){
-    lifecycle::deprecate_stop(when = "0.4.6", what = "slickR::slickR(slickOpts = )",
+    lifecycle::deprecate_stop(when = "0.4.6", 
+                              what = "slickR::slickR(slickOpts = )",
                               with = 'slickR::settings()')
   }
   
@@ -91,6 +91,12 @@ slickR <- function( obj ,
     lifecycle::deprecate_stop(when = "0.4.6", 
                               what = "slickR::slickR(synchSlides = )",
                               with = "slickR::`%synch%`()")
+  }
+  
+  if(!is.null(dotObj)){
+    lifecycle::deprecate_stop(when = "0.4.6", 
+                              what = "slickR::slickR(dotObj = )",
+                              with = "slickR::settings()")
   }
   
   if(is.null(height))
@@ -139,11 +145,6 @@ slickR <- function( obj ,
   x$slideh  <- height
   
   x$slidew  <- width
-  
-  # replace dots with a different DOM/JS  
-  
-  if(!is.null(dotObj)) 
-    x$dotObj <- dotObj
   
   htmlwidgets::createWidget(
     name      = 'slickR',

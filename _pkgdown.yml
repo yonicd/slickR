@@ -46,6 +46,9 @@ articles:
       - shiny
       - pdfs      
       - iframes      
+  - title: "Unit Tests"
+    contents: 
+      - tests_and_coverage
 
 hexURL:
   https://github.com/metrumresearchgroup/slickR/blob/master/man/figures/logo.png?raw=true

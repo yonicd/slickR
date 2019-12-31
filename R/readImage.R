@@ -21,7 +21,7 @@ readImage <- function(fL) {
 }
 
 checkStandalone <- function(x){
-  if(!grepl("xml", readLines(x, n = 1))){
+  if(!grepl("xmlns", readLines(x, n = 1))){
     stop('SVG not standalone')
   }else{
     TRUE

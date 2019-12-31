@@ -4,34 +4,33 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(obj, slideId = "baseDiv", objLinks = NULL, slickOpts = NULL,
-  slideType = "img", synchSlides = NULL, padding = 1,
-  dotObj = NULL, width = "95\%", height = NULL, elementId = NULL)
+slickR(obj, slideId = "baseDiv", slideType = "img", objLinks = NULL,
+  padding = 1, width = "95\%", height = NULL, elementId = NULL,
+  slickOpts = NULL, synchSlides = NULL, dotObj = NULL)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
 
 \item{slideId}{character, id of slide, Default: 'baseDiv'}
 
-\item{objLinks}{character, links to attach to images in slide, Default: NULL}
-
-\item{slickOpts}{\lifecycle{deprecated}}
-
 \item{slideType}{character, type of object to put in slide, Default: 'img'}
 
-\item{synchSlides}{\lifecycle{deprecated}}
+\item{objLinks}{character, links to attach to images in slide, Default: NULL}
 
 \item{padding}{numeric, percent of width between each image in the carousel
 for each slider, Default: 1}
-
-\item{dotObj}{character, urls or images to replace dots with (see details),
-Default: NULL}
 
 \item{width}{character, width of htmlwidget, Default: '95\%'}
 
 \item{height}{character, height of htmlwidget, Default: NULL}
 
 \item{elementId}{character, id tag of htmlwidget, Default: NULL}
+
+\item{slickOpts}{\lifecycle{deprecated}}
+
+\item{synchSlides}{\lifecycle{deprecated}}
+
+\item{dotObj}{\lifecycle{deprecated}}
 }
 \description{
 use slick.js library in R
@@ -45,8 +44,8 @@ It is possible to stack slides through the \code{\%stack\%} operator.
 
 It is possible to synchronize slides through the \code{\%synch\%} operator.
 
-To replace the dots with icons use the dotObj argument to pass in the icon
-images and in the slickOpts add a customPaging attribute with the appropriate JS(.) function call.
+To replace the dots with icons use the settings to define the  customPaging
+attribute with the appropriate JS(.) function call.
 
 The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.
 }
