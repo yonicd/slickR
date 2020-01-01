@@ -14,7 +14,7 @@ nba_teams <- c(
 nba_team_logo <- glue::glue("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{nba_teams}.svg")
 
 # Player Images
-a1 <- xml2::read_html("http://www.espn.com/nba/depth") %>% 
+a1 <- xml2::read_html("https://www.espn.com/nba/depth") %>% 
   rvest::html_nodes(css = "#my-teams-table a")
 
 a2 <- a1 %>%
@@ -23,7 +23,7 @@ a2 <- a1 %>%
 a3 <- a1 %>% 
   rvest::html_text()
 
-team_table <- xml2::read_html("http://www.espn.com/nba/depth") %>% 
+team_table <- xml2::read_html("https://www.espn.com/nba/depth") %>% 
   rvest::html_table()%>%
   purrr::flatten_df()%>%
   dplyr::slice(-c(1,2))
@@ -36,7 +36,7 @@ player_name <- a2[grepl('[0-9]/', a2)]
 
 player_id <- gsub('\\/(.*?)$','',gsub('^(.*?)/id/','',player_name))
 
-root <- 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full'
+root <- 'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full'
 
 nba_player_logo$img <- glue::glue("{root}/{player_id}.png&w=350&h=254")
 
