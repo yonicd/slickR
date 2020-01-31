@@ -87,7 +87,6 @@
     e1$x[[1]]$slickOpts[[i]] <- e2[[i]]
   }
   
-  
   return(e1)
   
 }
