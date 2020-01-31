@@ -14,6 +14,14 @@ set.seed(123)
 w1 <- slickR::slickR(nba_player_logo$uri[1],elementId = 'abc')
 w2 <- slickR::slickR(nba_player_logo$uri[1],elementId = 'def')
 
+saveRDS(w1, 'tests/assets/widget1.Rds')
+saveRDS(w2, 'tests/assets/widget2.Rds')
+
+set.seed(123)
+w <- slick_div(w1)
+saveRDS(w,'tests/assets/slick_div_widget.Rds')
+
+
 set.seed(123)
 w <- slickR::slickR(nba_player_logo$uri[1],elementId = 'abc')
 saveRDS(w, 'tests/assets/widget.Rds')

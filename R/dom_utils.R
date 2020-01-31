@@ -59,6 +59,9 @@ slick_div_chr <- function(x, css, type = 'img', links = NULL){
                          slick_tag(type,varArgs = list(srcdoc = x, style = css))
                          
                        },
+                       'img-lazy' = {
+                         slick_tag('img',varArgs = list('data-lazy' = x, style = css))
+                       },
                        {
                          
                          slick_tag(type,varArgs = list(src = x, style = css))

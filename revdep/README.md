@@ -10,14 +10,13 @@
 |collate  |en_US.UTF-8                  |
 |ctype    |en_US.UTF-8                  |
 |tz       |America/New_York             |
-|date     |2019-09-30                   |
+|date     |2020-01-11                   |
 
 # Dependencies
 
-|package   |old   |new        |Δ  |
-|:---------|:-----|:----------|:--|
-|slickR    |0.2.4 |0.4.3      |*  |
-|htmltools |NA    |0.3.6.9004 |*  |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|slickR  |0.4.4 |0.4.9 |*  |
 
 # Revdeps
 
