@@ -134,9 +134,19 @@
     <p>use slick.js library in R</p>
     </div>
 
-    <pre class="usage"><span class='fu'>slickR</span>(<span class='no'>obj</span>, <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>, <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='st'>"img"</span>, <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"95%"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>slickR</span>(
+  <span class='no'>obj</span>,
+  <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>,
+  <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='st'>"img"</span>,
+  <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"95%"</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -190,13 +200,16 @@ for each slider, Default: 1</p></td>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>slick.js <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.github.io/slick/</a> is an image carousel javascript library.</p>
+    <p><a href='http://kenwheeler.github.io/slick/'>slick.js</a> is an image carousel javascript library.</p>
 <p>To find all the attributes that can be used please refer to the link.</p>
 <p>It is possible to stack slides through the <code>%stack%</code> operator.</p>
 <p>It is possible to synchronize slides through the <code>%synch%</code> operator.</p>
 <p>To replace the dots with icons use the settings to define the  customPaging
 attribute with the appropriate JS(.) function call.</p>
 <p>The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.</p>
+<p>The combination of slideType = 'img-lazy' and settings(lazyLoad = 'ondemand') will
+inform the htmlwidget that the images are to be loaded lazily.
+For more information see the slickjs <a href='http://kenwheeler.github.io/slick/'>documentation</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>

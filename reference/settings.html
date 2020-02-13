@@ -134,15 +134,57 @@
     <p>Customize non-data components of the carousel.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>settings</span>(<span class='no'>accessibility</span>, <span class='no'>adaptiveHeight</span>, <span class='no'>autoplay</span>, <span class='no'>autoplaySpeed</span>, <span class='no'>arrows</span>,
-  <span class='no'>asNavFor</span>, <span class='no'>appendArrows</span>, <span class='no'>appendDots</span>, <span class='no'>prevArrow</span>, <span class='no'>nextArrow</span>, <span class='no'>centerMode</span>,
-  <span class='no'>centerPadding</span>, <span class='no'>cssEase</span>, <span class='no'>customPaging</span>, <span class='no'>dots</span>, <span class='no'>dotsClass</span>, <span class='no'>draggable</span>, <span class='no'>fade</span>,
-  <span class='no'>focusOnSelect</span>, <span class='no'>easing</span>, <span class='no'>edgeFriction</span>, <span class='no'>infinite</span>, <span class='no'>initialSlide</span>, <span class='no'>lazyLoad</span>,
-  <span class='no'>mobileFirst</span>, <span class='no'>pauseOnFocus</span>, <span class='no'>pauseOnHover</span>, <span class='no'>pauseOnDotsHover</span>, <span class='no'>respondTo</span>,
-  <span class='no'>responsive</span>, <span class='no'>rows</span>, <span class='no'>slide</span>, <span class='no'>slidesPerRow</span>, <span class='no'>slidesToShow</span>, <span class='no'>slidesToScroll</span>,
-  <span class='no'>speed</span>, <span class='no'>swipe</span>, <span class='no'>swipeToSlide</span>, <span class='no'>touchMove</span>, <span class='no'>touchThreshold</span>, <span class='no'>useCSS</span>,
-  <span class='no'>useTransform</span>, <span class='no'>variableWidth</span>, <span class='no'>vertical</span>, <span class='no'>verticalSwiping</span>, <span class='no'>rtl</span>,
-  <span class='no'>waitForAnimate</span>, <span class='no'>zIndex</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>settings</span>(
+  <span class='no'>accessibility</span>,
+  <span class='no'>adaptiveHeight</span>,
+  <span class='no'>autoplay</span>,
+  <span class='no'>autoplaySpeed</span>,
+  <span class='no'>arrows</span>,
+  <span class='no'>asNavFor</span>,
+  <span class='no'>appendArrows</span>,
+  <span class='no'>appendDots</span>,
+  <span class='no'>prevArrow</span>,
+  <span class='no'>nextArrow</span>,
+  <span class='no'>centerMode</span>,
+  <span class='no'>centerPadding</span>,
+  <span class='no'>cssEase</span>,
+  <span class='no'>customPaging</span>,
+  <span class='no'>dots</span>,
+  <span class='no'>dotsClass</span>,
+  <span class='no'>draggable</span>,
+  <span class='no'>fade</span>,
+  <span class='no'>focusOnSelect</span>,
+  <span class='no'>easing</span>,
+  <span class='no'>edgeFriction</span>,
+  <span class='no'>infinite</span>,
+  <span class='no'>initialSlide</span>,
+  <span class='no'>lazyLoad</span>,
+  <span class='no'>mobileFirst</span>,
+  <span class='no'>pauseOnFocus</span>,
+  <span class='no'>pauseOnHover</span>,
+  <span class='no'>pauseOnDotsHover</span>,
+  <span class='no'>respondTo</span>,
+  <span class='no'>responsive</span>,
+  <span class='no'>rows</span>,
+  <span class='no'>slide</span>,
+  <span class='no'>slidesPerRow</span>,
+  <span class='no'>slidesToShow</span>,
+  <span class='no'>slidesToScroll</span>,
+  <span class='no'>speed</span>,
+  <span class='no'>swipe</span>,
+  <span class='no'>swipeToSlide</span>,
+  <span class='no'>touchMove</span>,
+  <span class='no'>touchThreshold</span>,
+  <span class='no'>useCSS</span>,
+  <span class='no'>useTransform</span>,
+  <span class='no'>variableWidth</span>,
+  <span class='no'>vertical</span>,
+  <span class='no'>verticalSwiping</span>,
+  <span class='no'>rtl</span>,
+  <span class='no'>waitForAnimate</span>,
+  <span class='no'>zIndex</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -188,13 +230,13 @@ horizontal carousels., Default: FALSE</p></td>
       <th>prevArrow</th>
       <td><p>character (html|jQuery selector) | object (DOM node|jQuery object),
 Allows you to select a node or customize the HTML for the "Previous" arrow.,
-Default: &lt;button type="button" class="slick-prev"&gt;Previous&lt;/button&gt;</p></td>
+Default: <code>&lt;button type="button" class="slick-prev"&gt;Previous&lt;/button&gt;</code></p></td>
     </tr>
     <tr>
       <th>nextArrow</th>
       <td><p>character (html|jQuery selector) | object (DOM node|jQuery object),
 Allows you to select a node or customize the HTML for the "Next" arrow.,
-Default: &lt;button type="button" class="slick-next"&gt;Next&lt;/button&gt;</p></td>
+Default: <code>&lt;button type="button" class="slick-next"&gt;Next&lt;/button&gt;</code></p></td>
     </tr>
     <tr>
       <th>centerMode</th>
@@ -203,7 +245,7 @@ slides. Use with odd numbered slidesToShow counts., Default: FALSE</p></td>
     </tr>
     <tr>
       <th>centerPadding</th>
-      <td><p>character, Side padding when in center mode (px or %),
+      <td><p>character, Side padding when in center mode (px or \<!-- %), -->
 Default: '50px'</p></td>
     </tr>
     <tr>
