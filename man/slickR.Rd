@@ -4,9 +4,19 @@
 \alias{slickR}
 \title{slick.js image carousel htmlwidget}
 \usage{
-slickR(obj, slideId = "baseDiv", slideType = "img", objLinks = NULL,
-  padding = 1, width = "95\%", height = NULL, elementId = NULL,
-  slickOpts = NULL, synchSlides = NULL, dotObj = NULL)
+slickR(
+  obj,
+  slideId = "baseDiv",
+  slideType = "img",
+  objLinks = NULL,
+  padding = 1,
+  width = "95\%",
+  height = NULL,
+  elementId = NULL,
+  slickOpts = NULL,
+  synchSlides = NULL,
+  dotObj = NULL
+)
 }
 \arguments{
 \item{obj}{character, vector of path or url to images}
@@ -36,18 +46,22 @@ for each slider, Default: 1}
 use slick.js library in R
 }
 \details{
-slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library.
+\href{http://kenwheeler.github.io/slick/}{slick.js} is an image carousel javascript library.
 
 To find all the attributes that can be used please refer to the link.
 
-It is possible to stack slides through the \code{\%stack\%} operator.
+It is possible to stack slides through the \verb{\%stack\%} operator.
 
-It is possible to synchronize slides through the \code{\%synch\%} operator.
+It is possible to synchronize slides through the \verb{\%synch\%} operator.
 
 To replace the dots with icons use the settings to define the  customPaging
 attribute with the appropriate JS(.) function call.
 
 The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.
+
+The combination of slideType = 'img-lazy' and settings(lazyLoad = 'ondemand') will
+inform the htmlwidget that the images are to be loaded lazily.
+For more information see the slickjs \href{http://kenwheeler.github.io/slick/}{documentation}.
 }
 \examples{
 

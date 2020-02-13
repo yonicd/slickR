@@ -20,7 +20,8 @@ Logos harvested from
 https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{team_short_name}.svg
 }
 \seealso{
-Other data: \code{\link{nba_player_logo}}
+Other data: 
+\code{\link{nba_player_logo}}
 }
 \concept{data}
 \keyword{datasets}

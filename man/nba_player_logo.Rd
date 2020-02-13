@@ -22,7 +22,8 @@ NBA player logo URI
 Logos harvested from http://www.espn.com/nba/depth
 }
 \seealso{
-Other data: \code{\link{nba_team_logo}}
+Other data: 
+\code{\link{nba_team_logo}}
 }
 \concept{data}
 \keyword{datasets}

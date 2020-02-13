@@ -4,8 +4,12 @@
 \alias{slick_div}
 \title{Create a DOM element for slickR}
 \usage{
-slick_div(x, css = htmltools::css(marginLeft = "auto", marginRight =
-  "auto"), type = "img", links = NULL)
+slick_div(
+  x,
+  css = htmltools::css(marginLeft = "auto", marginRight = "auto"),
+  type = "img",
+  links = NULL
+)
 }
 \arguments{
 \item{x}{object}
@@ -40,6 +44,7 @@ slick_div('abc',type = 'p')
 
 }
 \seealso{
-Other html: \code{\link{slick_list}}
+Other html: 
+\code{\link{slick_list}()}
 }
 \concept{html}

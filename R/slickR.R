@@ -1,5 +1,4 @@
 #' @title slick.js image carousel htmlwidget
-#'
 #' @description use slick.js library in R
 #' @param obj character, vector of path or url to images
 #' @param slideId character, id of slide, Default: 'baseDiv'
@@ -10,13 +9,13 @@
 #' @param synchSlides \lifecycle{deprecated}
 #' @param padding numeric, percent of width between each image in the carousel 
 #'   for each slider, Default: 1
-#' @param width character, width of htmlwidget, Default: '95\%'
+#' @param width character, width of htmlwidget, Default: '95%'
 #' @param height character, height of htmlwidget, Default: NULL
 #' @param elementId character, id tag of htmlwidget, Default: NULL
 #' @import htmlwidgets
 #' @details 
 #' 
-#' slick.js \url{http://kenwheeler.github.io/slick/} is an image carousel javascript library. 
+#' [slick.js](http://kenwheeler.github.io/slick/) is an image carousel javascript library. 
 #' 
 #' To find all the attributes that can be used please refer to the link. 
 #' 
@@ -27,7 +26,11 @@
 #' To replace the dots with icons use the settings to define the  customPaging 
 #' attribute with the appropriate JS(.) function call. 
 #' 
-#' The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.  
+#' The slideType accepts the type of html DOM you want to be in the slide, eg img, iframe.
+#' 
+#' The combination of slideType = 'img-lazy' and settings(lazyLoad = 'ondemand') will
+#' inform the htmlwidget that the images are to be loaded lazily. 
+#' For more information see the slickjs [documentation](http://kenwheeler.github.io/slick/).
 #' 
 #' @examples 
 #' 

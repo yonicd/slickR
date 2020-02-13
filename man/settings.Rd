@@ -4,15 +4,57 @@
 \alias{settings}
 \title{Modify components of slick settings}
 \usage{
-settings(accessibility, adaptiveHeight, autoplay, autoplaySpeed, arrows,
-  asNavFor, appendArrows, appendDots, prevArrow, nextArrow, centerMode,
-  centerPadding, cssEase, customPaging, dots, dotsClass, draggable, fade,
-  focusOnSelect, easing, edgeFriction, infinite, initialSlide, lazyLoad,
-  mobileFirst, pauseOnFocus, pauseOnHover, pauseOnDotsHover, respondTo,
-  responsive, rows, slide, slidesPerRow, slidesToShow, slidesToScroll,
-  speed, swipe, swipeToSlide, touchMove, touchThreshold, useCSS,
-  useTransform, variableWidth, vertical, verticalSwiping, rtl,
-  waitForAnimate, zIndex, ...)
+settings(
+  accessibility,
+  adaptiveHeight,
+  autoplay,
+  autoplaySpeed,
+  arrows,
+  asNavFor,
+  appendArrows,
+  appendDots,
+  prevArrow,
+  nextArrow,
+  centerMode,
+  centerPadding,
+  cssEase,
+  customPaging,
+  dots,
+  dotsClass,
+  draggable,
+  fade,
+  focusOnSelect,
+  easing,
+  edgeFriction,
+  infinite,
+  initialSlide,
+  lazyLoad,
+  mobileFirst,
+  pauseOnFocus,
+  pauseOnHover,
+  pauseOnDotsHover,
+  respondTo,
+  responsive,
+  rows,
+  slide,
+  slidesPerRow,
+  slidesToShow,
+  slidesToScroll,
+  speed,
+  swipe,
+  swipeToSlide,
+  touchMove,
+  touchThreshold,
+  useCSS,
+  useTransform,
+  variableWidth,
+  vertical,
+  verticalSwiping,
+  rtl,
+  waitForAnimate,
+  zIndex,
+  ...
+)
 }
 \arguments{
 \item{accessibility}{logical, Enables tabbing and arrow key navigation,
@@ -38,16 +80,16 @@ horizontal carousels., Default: FALSE}
 
 \item{prevArrow}{character (html|jQuery selector) | object (DOM node|jQuery object),
 Allows you to select a node or customize the HTML for the "Previous" arrow.,
-Default: <button type="button" class="slick-prev">Previous</button>}
+Default: \verb{<button type="button" class="slick-prev">Previous</button>}}
 
 \item{nextArrow}{character (html|jQuery selector) | object (DOM node|jQuery object),
 Allows you to select a node or customize the HTML for the "Next" arrow.,
-Default: <button type="button" class="slick-next">Next</button>}
+Default: \verb{<button type="button" class="slick-next">Next</button>}}
 
 \item{centerMode}{logical, Enables centered view with partial prev/next
 slides. Use with odd numbered slidesToShow counts., Default: FALSE}
 
-\item{centerPadding}{character, Side padding when in center mode (px or \%),
+\item{centerPadding}{character, Side padding when in center mode (px or \\%),
 Default: '50px'}
 
 \item{cssEase}{character, CSS3 Animation Easing, Default: 'ease'}

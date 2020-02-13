@@ -15,10 +15,10 @@
 #' (Selector, htmlString, Array, Element, jQuery object), Default: $(element)
 #' @param prevArrow character (html|jQuery selector) | object (DOM node|jQuery object),
 #'  Allows you to select a node or customize the HTML for the "Previous" arrow.,
-#'   Default: <button type="button" class="slick-prev">Previous</button>
+#'   Default: `<button type="button" class="slick-prev">Previous</button>`
 #' @param nextArrow character (html|jQuery selector) | object (DOM node|jQuery object),
 #'  Allows you to select a node or customize the HTML for the "Next" arrow., 
-#'  Default: <button type="button" class="slick-next">Next</button>
+#'  Default: `<button type="button" class="slick-next">Next</button>`
 #' @param centerMode logical, Enables centered view with partial prev/next 
 #' slides. Use with odd numbered slidesToShow counts., Default: FALSE
 #' @param centerPadding character, Side padding when in center mode (px or \%), 

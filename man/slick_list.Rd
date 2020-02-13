@@ -27,6 +27,7 @@ slick_list(img1,img2)
 \seealso{
 \link[htmltools:tagList]{tagList}, \link[htmltools:tags]{tags}
 
-Other html: \code{\link{slick_div}}
+Other html: 
+\code{\link{slick_div}()}
 }
 \concept{html}
