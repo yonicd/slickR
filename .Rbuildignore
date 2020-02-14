@@ -9,3 +9,4 @@ Miscellaneous
 ^data-raw$
 ^revdep$
 ^codecov\.yml$
+^CRAN-RELEASE$
