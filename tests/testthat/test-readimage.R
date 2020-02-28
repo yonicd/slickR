@@ -11,16 +11,15 @@ testthat::describe('slick div method',{
   
   it('svg',{
     testthat::expect_equal(
-      readImage('../assets/img2.svg'),
+      slickR:::readImage('../assets/img2.svg'),
       readRDS('../assets/img2.Rds')
     )
   })
   
-  
   it('svg not standalone',{
-    testthat::expect_error(
-      slickR:::readImage('../assets/not_standalone.svg'),
-      regexp = 'not standalone')
+    testthat::expect_length(
+      xml2::xml_ns(slickR:::svg_setup('../assets/not_standalone.svg')),
+      2L)
   })
   
 })
