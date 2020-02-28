@@ -20,8 +20,13 @@ readImage <- function(fL) {
   }
 }
 
+#' @importFrom xml2 xml_ns read_xml
 checkStandalone <- function(x){
-  if(!grepl("xmlns", readLines(x, n = 1))){
+
+  if(!inherits(x,c('xml_document','xml_node')))
+    x <- xml2::read_xml(x)
+  
+  if(!length(xml2::xml_ns(x))){
     stop('SVG not standalone')
   }else{
     TRUE
