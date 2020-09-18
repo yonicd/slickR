@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -45,7 +49,6 @@
 <meta property="og:title" content="slick.js image carousel htmlwidget — slickR" />
 <meta property="og:description" content="use slick.js library in R" />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -63,7 +66,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -126,7 +129,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>slick.js image carousel htmlwidget</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/slickR.R'><code>R/slickR.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/yonicd/slickR/blob/master/R/slickR.R'><code>R/slickR.R</code></a></small>
     <div class="hidden name"><code>slickR.Rd</code></div>
     </div>
 
@@ -135,17 +138,17 @@
     </div>
 
     <pre class="usage"><span class='fu'>slickR</span>(
-  <span class='no'>obj</span>,
-  <span class='kw'>slideId</span> <span class='kw'>=</span> <span class='st'>"baseDiv"</span>,
-  <span class='kw'>slideType</span> <span class='kw'>=</span> <span class='st'>"img"</span>,
-  <span class='kw'>objLinks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>padding</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"95%"</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>slickOpts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>synchSlides</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>dotObj</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>obj</span>,
+  slideId = <span class='st'>"baseDiv"</span>,
+  slideType = <span class='st'>"img"</span>,
+  objLinks = <span class='kw'>NULL</span>,
+  padding = <span class='fl'>1</span>,
+  width = <span class='st'>"95%"</span>,
+  height = <span class='kw'>NULL</span>,
+  elementId = <span class='kw'>NULL</span>,
+  slickOpts = <span class='kw'>NULL</span>,
+  synchSlides = <span class='kw'>NULL</span>,
+  dotObj = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -214,46 +217,43 @@ For more information see the slickjs <a href='http://kenwheeler.github.io/slick/
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 
-<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
 
-<span class='no'>slick</span> <span class='kw'>&lt;-</span> <span class='fu'>slickR</span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_team_logo</span>$<span class='no'>uri</span>)
+<span class='kw'>slick</span> <span class='op'>&lt;-</span> <span class='fu'>slickR</span>(obj=<span class='kw'>nba_team_logo</span><span class='op'>$</span><span class='kw'>uri</span>)
 
-<span class='no'>slick</span>
+<span class='kw'>slick</span>
 
 <span class='co'># add dots to the first slick and autoplay at 1 second a slide</span>
-
-<span class='no'>slick</span> + <span class='fu'><a href='settings.html'>settings</a></span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>autoplaySpeed</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+ 
+<span class='kw'>slick</span> <span class='op'>+</span> <span class='fu'><a href='settings.html'>settings</a></span>(dots = <span class='fl'>TRUE</span>, autoplay = <span class='fl'>TRUE</span>, autoplaySpeed = <span class='fl'>1000</span>)
 
 
 <span class='co'># working with multiple slicks</span>
 
-<span class='no'>sets</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span>(
-  <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='no'>nba_team_logo</span>$<span class='no'>uri</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>28</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
-  <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>),<span class='kw'>each</span><span class='kw'>=</span><span class='fl'>7</span>)
+<span class='kw'>sets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span>(
+  <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='kw'>nba_team_logo</span><span class='op'>$</span><span class='kw'>uri</span>, size = <span class='fl'>28</span>, replace = <span class='fl'>FALSE</span>),
+  <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>),each=<span class='fl'>7</span>)
 )
 
-<span class='no'>slicks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>sets</span>,<span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>,<span class='no'>...</span>){
-  <span class='fu'>slickR</span>(<span class='kw'>obj</span> <span class='kw'>=</span> <span class='no'>x</span>,<span class='no'>...</span>)
-},<span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+<span class='kw'>slicks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='kw'>sets</span>,FUN = <span class='fu'>function</span>(<span class='kw'>x</span>,<span class='kw'>...</span>){
+  <span class='fu'>slickR</span>(obj = <span class='kw'>x</span>,<span class='kw'>...</span>)
+},height = <span class='fl'>100</span>)
 
 <span class='co'># independent slicks</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Reduce</a></span>(<span class='no'>`%stack%`</span>,<span class='no'>slicks</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Reduce</a></span>(<span class='kw'>`%stack%`</span>,<span class='kw'>slicks</span>)
 
 <span class='co'># 1,2 synch stacked on 3,4 synch</span>
 
- (<span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>1</span>]] <span class='kw'>%synch%</span> <span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>2</span>]]) <span class='kw'>%stack%</span> (<span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>3</span>]]<span class='kw'>%synch%</span><span class='no'>slicks</span><span class='kw'>[[</span><span class='fl'>4</span>]])
+ (<span class='kw'>slicks</span>[[<span class='fl'>1</span>]] <span class='op'>%synch%</span> <span class='kw'>slicks</span>[[<span class='fl'>2</span>]]) <span class='op'>%stack%</span> (<span class='kw'>slicks</span>[[<span class='fl'>3</span>]]<span class='op'>%synch%</span><span class='kw'>slicks</span>[[<span class='fl'>4</span>]])
 
-}</div></pre>
+}
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -264,7 +264,7 @@ For more information see the slickjs <a href='http://kenwheeler.github.io/slick/
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

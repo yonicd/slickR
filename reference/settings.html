@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -45,7 +49,6 @@
 <meta property="og:title" content="Modify components of slick settings — settings" />
 <meta property="og:description" content="Customize non-data components of the carousel." />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -63,7 +66,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -126,7 +129,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Modify components of slick settings</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/R/settings.R'><code>R/settings.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/yonicd/slickR/blob/master/R/settings.R'><code>R/settings.R</code></a></small>
     <div class="hidden name"><code>settings.Rd</code></div>
     </div>
 
@@ -135,55 +138,55 @@
     </div>
 
     <pre class="usage"><span class='fu'>settings</span>(
-  <span class='no'>accessibility</span>,
-  <span class='no'>adaptiveHeight</span>,
-  <span class='no'>autoplay</span>,
-  <span class='no'>autoplaySpeed</span>,
-  <span class='no'>arrows</span>,
-  <span class='no'>asNavFor</span>,
-  <span class='no'>appendArrows</span>,
-  <span class='no'>appendDots</span>,
-  <span class='no'>prevArrow</span>,
-  <span class='no'>nextArrow</span>,
-  <span class='no'>centerMode</span>,
-  <span class='no'>centerPadding</span>,
-  <span class='no'>cssEase</span>,
-  <span class='no'>customPaging</span>,
-  <span class='no'>dots</span>,
-  <span class='no'>dotsClass</span>,
-  <span class='no'>draggable</span>,
-  <span class='no'>fade</span>,
-  <span class='no'>focusOnSelect</span>,
-  <span class='no'>easing</span>,
-  <span class='no'>edgeFriction</span>,
-  <span class='no'>infinite</span>,
-  <span class='no'>initialSlide</span>,
-  <span class='no'>lazyLoad</span>,
-  <span class='no'>mobileFirst</span>,
-  <span class='no'>pauseOnFocus</span>,
-  <span class='no'>pauseOnHover</span>,
-  <span class='no'>pauseOnDotsHover</span>,
-  <span class='no'>respondTo</span>,
-  <span class='no'>responsive</span>,
-  <span class='no'>rows</span>,
-  <span class='no'>slide</span>,
-  <span class='no'>slidesPerRow</span>,
-  <span class='no'>slidesToShow</span>,
-  <span class='no'>slidesToScroll</span>,
-  <span class='no'>speed</span>,
-  <span class='no'>swipe</span>,
-  <span class='no'>swipeToSlide</span>,
-  <span class='no'>touchMove</span>,
-  <span class='no'>touchThreshold</span>,
-  <span class='no'>useCSS</span>,
-  <span class='no'>useTransform</span>,
-  <span class='no'>variableWidth</span>,
-  <span class='no'>vertical</span>,
-  <span class='no'>verticalSwiping</span>,
-  <span class='no'>rtl</span>,
-  <span class='no'>waitForAnimate</span>,
-  <span class='no'>zIndex</span>,
-  <span class='no'>...</span>
+  <span class='kw'>accessibility</span>,
+  <span class='kw'>adaptiveHeight</span>,
+  <span class='kw'>autoplay</span>,
+  <span class='kw'>autoplaySpeed</span>,
+  <span class='kw'>arrows</span>,
+  <span class='kw'>asNavFor</span>,
+  <span class='kw'>appendArrows</span>,
+  <span class='kw'>appendDots</span>,
+  <span class='kw'>prevArrow</span>,
+  <span class='kw'>nextArrow</span>,
+  <span class='kw'>centerMode</span>,
+  <span class='kw'>centerPadding</span>,
+  <span class='kw'>cssEase</span>,
+  <span class='kw'>customPaging</span>,
+  <span class='kw'>dots</span>,
+  <span class='kw'>dotsClass</span>,
+  <span class='kw'>draggable</span>,
+  <span class='kw'>fade</span>,
+  <span class='kw'>focusOnSelect</span>,
+  <span class='kw'>easing</span>,
+  <span class='kw'>edgeFriction</span>,
+  <span class='kw'>infinite</span>,
+  <span class='kw'>initialSlide</span>,
+  <span class='kw'>lazyLoad</span>,
+  <span class='kw'>mobileFirst</span>,
+  <span class='kw'>pauseOnFocus</span>,
+  <span class='kw'>pauseOnHover</span>,
+  <span class='kw'>pauseOnDotsHover</span>,
+  <span class='kw'>respondTo</span>,
+  <span class='kw'>responsive</span>,
+  <span class='kw'>rows</span>,
+  <span class='kw'>slide</span>,
+  <span class='kw'>slidesPerRow</span>,
+  <span class='kw'>slidesToShow</span>,
+  <span class='kw'>slidesToScroll</span>,
+  <span class='kw'>speed</span>,
+  <span class='kw'>swipe</span>,
+  <span class='kw'>swipeToSlide</span>,
+  <span class='kw'>touchMove</span>,
+  <span class='kw'>touchThreshold</span>,
+  <span class='kw'>useCSS</span>,
+  <span class='kw'>useTransform</span>,
+  <span class='kw'>variableWidth</span>,
+  <span class='kw'>vertical</span>,
+  <span class='kw'>verticalSwiping</span>,
+  <span class='kw'>rtl</span>,
+  <span class='kw'>waitForAnimate</span>,
+  <span class='kw'>zIndex</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -428,33 +431,30 @@ please refer to <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.g
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
 
-<span class='no'>slick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='slickR.html'>slickR</a></span>(<span class='kw'>obj</span><span class='kw'>=</span><span class='no'>nba_team_logo</span>$<span class='no'>uri</span>)
+<span class='kw'>slick</span> <span class='op'>&lt;-</span> <span class='fu'><a href='slickR.html'>slickR</a></span>(obj=<span class='kw'>nba_team_logo</span><span class='op'>$</span><span class='kw'>uri</span>)
 
-<span class='no'>slick</span>
+<span class='kw'>slick</span>
 
 <span class='co'># Use settings function to manipulate the slick object</span>
-
+ 
 <span class='co'># Add dots</span>
-
-<span class='no'>slick</span> + <span class='fu'>settings</span>(<span class='kw'>dots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+ 
+<span class='kw'>slick</span> <span class='op'>+</span> <span class='fu'>settings</span>(dots = <span class='fl'>TRUE</span>)
 
 <span class='co'># Autplay elements in the carousel</span>
+ 
+<span class='kw'>slick</span> <span class='op'>+</span> <span class='fu'>settings</span>(autoplay = <span class='fl'>TRUE</span>, autoplaySpeed = <span class='fl'>1000</span>)
 
-<span class='no'>slick</span> + <span class='fu'>settings</span>(<span class='kw'>autoplay</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>autoplaySpeed</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+}
 
-}</div></pre>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -465,7 +465,7 @@ please refer to <a href='http://kenwheeler.github.io/slick/'>http://kenwheeler.g
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

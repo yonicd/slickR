@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -44,7 +48,6 @@
 
 <meta property="og:title" content="Changelog" />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -62,7 +65,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -124,13 +127,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/metrumresearchgroup/slickR/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/yonicd/slickR/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="slick-0-4-9" class="section level1">
-<h1 class="page-header">
-<a href="#slick-0-4-9" class="anchor"></a>slick 0.4.9<small> Unreleased </small>
+    <div id="slick-049" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.9">
+<a href="#slick-049" class="anchor"></a>slick 0.4.9<small> 2020-02-14 </small>
 </h1>
 <ul>
 <li>Add slick_div S3 method to build DOM elements to pass into slickR</li>
@@ -138,17 +141,17 @@
 <li>Remove dependency on magick and retain pdftools as Suggests</li>
 </ul>
 </div>
-    <div id="slickr-0-4-8" class="section level1">
-<h1 class="page-header">
-<a href="#slickr-0-4-8" class="anchor"></a>slickR 0.4.8<small> Unreleased </small>
+    <div id="slickr-048" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.8">
+<a href="#slickr-048" class="anchor"></a>slickR 0.4.8<small> Unreleased </small>
 </h1>
 <ul>
 <li>Change the slickR.js script to support htmlwidgets in iframe src</li>
 </ul>
 </div>
-    <div id="slickr-0-4-6" class="section level1">
-<h1 class="page-header">
-<a href="#slickr-0-4-6" class="anchor"></a>slickR 0.4.6<small> Unreleased </small>
+    <div id="slickr-046" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.6">
+<a href="#slickr-046" class="anchor"></a>slickR 0.4.6<small> Unreleased </small>
 </h1>
 <ul>
 <li>Add new settings functions to control the settings of a slick object</li>
@@ -160,18 +163,18 @@
 <li>Refactor pkgdown site for documentation</li>
 </ul>
 </div>
-    <div id="slickr-0-4-4" class="section level1">
-<h1 class="page-header">
-<a href="#slickr-0-4-4" class="anchor"></a>slickR 0.4.4<small> 2019-10-02 </small>
+    <div id="slickr-044" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.4">
+<a href="#slickr-044" class="anchor"></a>slickR 0.4.4<small> 2019-10-02 </small>
 </h1>
 <ul>
 <li>Fix bug in htmlwidget to handle empty object links</li>
 <li>Change default of objLinks in slickR function to NULL</li>
 </ul>
 </div>
-    <div id="slickr-0-4-3" class="section level1">
-<h1 class="page-header">
-<a href="#slickr-0-4-3" class="anchor"></a>slickR 0.4.3<small> Unreleased </small>
+    <div id="slickr-043" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.3">
+<a href="#slickr-043" class="anchor"></a>slickR 0.4.3<small> Unreleased </small>
 </h1>
 <ul>
 <li>Soft deprecate arguments <code>slickOpts</code> and <code>synchSlides</code> in the function <code>slickR</code>
@@ -180,9 +183,9 @@
 </li>
 </ul>
 </div>
-    <div id="slickr-0-4-2" class="section level1">
-<h1 class="page-header">
-<a href="#slickr-0-4-2" class="anchor"></a>slickR 0.4.2<small> Unreleased </small>
+    <div id="slickr-042" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.2">
+<a href="#slickr-042" class="anchor"></a>slickR 0.4.2<small> Unreleased </small>
 </h1>
 <ul>
 <li>Create package data for NBA logo data: <code>nba_team_logo</code> and <code>nba_player_logo</code>
@@ -191,9 +194,9 @@
 <li>Split up the usage vignette to 3 vignettes: basics, plots, iframes</li>
 </ul>
 </div>
-    <div id="slickr-0-4-1" class="section level1">
-<h1 class="page-header">
-<a href="#slickr-0-4-1" class="anchor"></a>slickR 0.4.1<small> Unreleased </small>
+    <div id="slickr-041" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.1">
+<a href="#slickr-041" class="anchor"></a>slickR 0.4.1<small> Unreleased </small>
 </h1>
 <ul>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
@@ -205,19 +208,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#slick-0-4-9">0.4.9</a></li>
-        <li><a href="#slickr-0-4-8">0.4.8</a></li>
-        <li><a href="#slickr-0-4-6">0.4.6</a></li>
-        <li><a href="#slickr-0-4-4">0.4.4</a></li>
-        <li><a href="#slickr-0-4-3">0.4.3</a></li>
-        <li><a href="#slickr-0-4-2">0.4.2</a></li>
-        <li><a href="#slickr-0-4-1">0.4.1</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -229,7 +223,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

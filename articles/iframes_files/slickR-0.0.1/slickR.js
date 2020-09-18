@@ -32,7 +32,7 @@ HTMLWidgets.widget({
                 
                 el.appendChild(mainDiv);
                 thisDiv = $("." + val.divName);
-                
+
                 thisDiv.slick(val.slickOpts);
             });
           
@@ -61,7 +61,7 @@ HTMLWidgets.widget({
         // Creates a callback for the el.id to update the height of the widget
         
           new ResizeSensor($('#' + el.id), function(){ 
-            
+
             var wh = 0;
             
               /* 
@@ -76,7 +76,7 @@ HTMLWidgets.widget({
               wh = wh + val.slideh + updateDots(val,el);
             });
 
-            
+
             $('#' + el.id).css({
               "height": wh + "px"
             });
@@ -177,8 +177,8 @@ HTMLWidgets.widget({
                 default:
                   newEl.src = obj[i];
               }
-              
-              newEl.style.width=width;
+
+              newEl.style.width = width;
 
               if(link != null){
 
