@@ -1,0 +1,69 @@
+on: [push, pull_request]
+
+name: R-mac
+  
+jobs:
+  check:
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - { os: macOS-latest, r: '4.0', args: "--no-manual"}
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      CRAN: ${{ matrix.config.cran }}
+      GITHUB_PAT: ${{ secrets.GH_PAT }}
+
+    steps:
+      - uses: actions/checkout@master
+      
+      - uses: r-lib/actions/setup-tinytex@master
+        if: contains(matrix.config.args, 'no-manual') == false
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
+
+      - name: Install dependencies
+        run: Rscript -e "install.packages('remotes')" -e "remotes::install_deps(dependencies = TRUE)" -e "remotes::install_cran('rcmdcheck')"
+
+      - name: Check
+        run: Rscript -e "rcmdcheck::rcmdcheck(args = '${{ matrix.config.args }}', error_on = 'warning', check_dir = 'check')"
+
+      - name: covr
+        run: |
+          Rscript -e 'remotes::install_github("r-lib/covr@gh-actions")' \
+                  -e 'covr::codecov(token = "${{secrets.CODECOV_TOKEN}}")'
+
+      - name: Install package
+        run: R CMD INSTALL .
+
+      - name: covrpage
+        if: github.ref == 'refs/heads/master'
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'remotes::install_github("yonicd/covrpage@actions")' \
+                  -e 'covrpage::covrpage_ci()'
+          git commit tests/README.md -m 'Update tests/README.Rmd' || echo "No changes to commit"
+          git push https://${{github.actor}}:${{secrets.GITHUB_PAT}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
+
+      - name: Deploy package
+        if: github.ref == 'refs/heads/master'
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'install.packages("pkgdown")' \
+                  -e 'pkgdown::deploy_to_branch(new_process = FALSE)'

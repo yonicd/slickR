@@ -5,7 +5,7 @@ Miscellaneous
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
-^\.travis\.yml$
+^\.github$
 ^data-raw$
 ^revdep$
 ^codecov\.yml$

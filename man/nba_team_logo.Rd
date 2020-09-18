@@ -4,11 +4,13 @@
 \name{nba_team_logo}
 \alias{nba_team_logo}
 \title{NBA team logo}
-\format{A data frame with 30 rows and 2 variables:
+\format{
+A data frame with 30 rows and 2 variables:
 \describe{
 \item{\code{team}}{character, Team Name}
 \item{\code{uri}}{character, Team logo URI}
-}}
+}
+}
 \usage{
 nba_team_logo
 }

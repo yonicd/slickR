@@ -1,12 +1,12 @@
 Tests and Coverage
 ================
-14 February, 2020 07:19:55
+18 September, 2020 15:14:32
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
 
 This output is created by
-[covrpage](https://github.com/metrumresearchgroup/covrpage).
+[covrpage](https://github.com/yonicd/covrpage).
 
 ## Coverage
 
@@ -33,10 +33,10 @@ Unit Test summary is created using the
 
 | file                                             |  n |  time | error | failed | skipped | warning |
 | :----------------------------------------------- | -: | ----: | ----: | -----: | ------: | ------: |
-| [test-div\_method.R](testthat/test-div_method.R) |  5 | 0.132 |     0 |      0 |       0 |       0 |
-| [test-div.R](testthat/test-div.R)                |  9 | 0.046 |     0 |      0 |       0 |       0 |
-| [test-readimage.R](testthat/test-readimage.R)    |  3 | 0.025 |     0 |      0 |       0 |       0 |
-| [test-widget.R](testthat/test-widget.R)          | 11 | 0.025 |     0 |      0 |       0 |       0 |
+| [test-div\_method.R](testthat/test-div_method.R) |  5 | 0.117 |     0 |      0 |       0 |       0 |
+| [test-div.R](testthat/test-div.R)                |  9 | 0.047 |     0 |      0 |       0 |       0 |
+| [test-readimage.R](testthat/test-readimage.R)    |  3 | 0.022 |     0 |      0 |       0 |       0 |
+| [test-widget.R](testthat/test-widget.R)          | 11 | 0.060 |     0 |      0 |       0 |       0 |
 
 <details closed>
 
@@ -46,32 +46,32 @@ Unit Test summary is created using the
 | :------------------------------------------------------- | :---------- | :----------------------------------------- | :----- | -: | ----: |
 | [test-div\_method.R](testthat/test-div_method.R#L8_L11)  | div methods | slick div method: shiny.tag                | PASS   | 1 | 0.002 |
 | [test-div\_method.R](testthat/test-div_method.R#L15_L18) | div methods | slick div method: list                     | PASS   | 1 | 0.002 |
-| [test-div\_method.R](testthat/test-div_method.R#L22_L29) | div methods | slick div method: list with link           | PASS   | 1 | 0.004 |
+| [test-div\_method.R](testthat/test-div_method.R#L22_L29) | div methods | slick div method: list with link           | PASS   | 1 | 0.003 |
 | [test-div\_method.R](testthat/test-div_method.R#L33_L39) | div methods | slick div method: xml                      | PASS   | 1 | 0.003 |
-| [test-div\_method.R](testthat/test-div_method.R#L44_L49) | div methods | slick div method: widget                   | PASS   | 1 | 0.121 |
+| [test-div\_method.R](testthat/test-div_method.R#L44_L49) | div methods | slick div method: widget                   | PASS   | 1 | 0.107 |
 | [test-div.R](testthat/test-div.R#L8_L11)                 | divs        | slick div types: img default               | PASS   | 1 | 0.002 |
-| [test-div.R](testthat/test-div.R#L15_L18)                | divs        | slick div types: img vector                | PASS   | 1 | 0.003 |
-| [test-div.R](testthat/test-div.R#L22_L25)                | divs        | slick div types: img file                  | PASS   | 1 | 0.023 |
-| [test-div.R](testthat/test-div.R#L29_L36)                | divs        | slick div types: img link                  | PASS   | 1 | 0.002 |
-| [test-div.R](testthat/test-div.R#L40_L43)                | divs        | slick div types: p                         | PASS   | 1 | 0.002 |
-| [test-div.R](testthat/test-div.R#L47_L50)                | divs        | slick div types: iframe                    | PASS   | 1 | 0.002 |
+| [test-div.R](testthat/test-div.R#L15_L18)                | divs        | slick div types: img vector                | PASS   | 1 | 0.002 |
+| [test-div.R](testthat/test-div.R#L22_L25)                | divs        | slick div types: img file                  | PASS   | 1 | 0.029 |
+| [test-div.R](testthat/test-div.R#L29_L36)                | divs        | slick div types: img link                  | PASS   | 1 | 0.003 |
+| [test-div.R](testthat/test-div.R#L40_L43)                | divs        | slick div types: p                         | PASS   | 1 | 0.001 |
+| [test-div.R](testthat/test-div.R#L47_L50)                | divs        | slick div types: iframe                    | PASS   | 1 | 0.001 |
 | [test-div.R](testthat/test-div.R#L58_L71)                | divs        | slick list: dots                           | PASS   | 1 | 0.004 |
-| [test-div.R](testthat/test-div.R#L75_L88)                | divs        | slick list: list                           | PASS   | 1 | 0.004 |
-| [test-div.R](testthat/test-div.R#L94_L98)                | divs        | slick outer div: wrap div                  | PASS   | 1 | 0.004 |
-| [test-readimage.R](testthat/test-readimage.R#L6_L9)      | read images | slick div method: png                      | PASS   | 1 | 0.022 |
+| [test-div.R](testthat/test-div.R#L75_L88)                | divs        | slick list: list                           | PASS   | 1 | 0.003 |
+| [test-div.R](testthat/test-div.R#L94_L98)                | divs        | slick outer div: wrap div                  | PASS   | 1 | 0.002 |
+| [test-readimage.R](testthat/test-readimage.R#L6_L9)      | read images | slick div method: png                      | PASS   | 1 | 0.013 |
 | [test-readimage.R](testthat/test-readimage.R#L13_L16)    | read images | slick div method: svg                      | PASS   | 1 | 0.002 |
-| [test-readimage.R](testthat/test-readimage.R#L21_L23)    | read images | slick div method: svg not standalone       | PASS   | 1 | 0.001 |
-| [test-widget.R](testthat/test-widget.R#L20_L24)          | widget      | slickR widget: default                     | PASS   | 1 | 0.003 |
+| [test-readimage.R](testthat/test-readimage.R#L21_L23)    | read images | slick div method: svg not standalone       | PASS   | 1 | 0.007 |
+| [test-widget.R](testthat/test-widget.R#L20_L24)          | widget      | slickR widget: default                     | PASS   | 1 | 0.004 |
 | [test-widget.R](testthat/test-widget.R#L28_L32)          | widget      | slickR widget: shiny.tag                   | PASS   | 1 | 0.003 |
 | [test-widget.R](testthat/test-widget.R#L36_L40)          | widget      | slickR widget: css height                  | PASS   | 1 | 0.004 |
 | [test-widget.R](testthat/test-widget.R#L48_L50)          | widget      | combining slickR: stack                    | PASS   | 1 | 0.002 |
-| [test-widget.R](testthat/test-widget.R#L54_L56)          | widget      | combining slickR: synch                    | PASS   | 1 | 0.002 |
-| [test-widget.R](testthat/test-widget.R#L60_L64)          | widget      | combining slickR: same name                | PASS   | 1 | 0.003 |
+| [test-widget.R](testthat/test-widget.R#L54_L56)          | widget      | combining slickR: synch                    | PASS   | 1 | 0.016 |
+| [test-widget.R](testthat/test-widget.R#L60_L64)          | widget      | combining slickR: same name                | PASS   | 1 | 0.002 |
 | [test-widget.R](testthat/test-widget.R#L68_L72)          | widget      | combining slickR: stack with setting       | PASS   | 1 | 0.003 |
-| [test-widget.R](testthat/test-widget.R#L80)              | widget      | slickR settings: add dots                  | PASS   | 1 | 0.002 |
-| [test-widget.R](testthat/test-widget.R#L84_L86)          | widget      | slickR settings: add setting to wrong side | PASS   | 1 | 0.001 |
-| [test-widget.R](testthat/test-widget.R#L90_L93)          | widget      | slickR settings: bad name                  | PASS   | 1 | 0.001 |
-| [test-widget.R](testthat/test-widget.R#L97_L100)         | widget      | slickR settings: bad class                 | PASS   | 1 | 0.001 |
+| [test-widget.R](testthat/test-widget.R#L80)              | widget      | slickR settings: add dots                  | PASS   | 1 | 0.003 |
+| [test-widget.R](testthat/test-widget.R#L84_L86)          | widget      | slickR settings: add setting to wrong side | PASS   | 1 | 0.008 |
+| [test-widget.R](testthat/test-widget.R#L90_L93)          | widget      | slickR settings: bad name                  | PASS   | 1 | 0.007 |
+| [test-widget.R](testthat/test-widget.R#L97_L100)         | widget      | slickR settings: bad class                 | PASS   | 1 | 0.008 |
 
 </details>
 
@@ -79,18 +79,18 @@ Unit Test summary is created using the
 
 <summary> Session Info </summary>
 
-| Field    | Value                               |
-| :------- | :---------------------------------- |
-| Version  | R version 3.6.1 (2019-07-05)        |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) |
-| Running  | macOS Mojave 10.14.5                |
-| Language | en\_US                              |
-| Timezone | America/New\_York                   |
+| Field    | Value                             |
+| :------- | :-------------------------------- |
+| Version  | R version 4.0.2 (2020-06-22)      |
+| Platform | x86\_64-apple-darwin17.0 (64-bit) |
+| Running  | macOS Catalina 10.15.6            |
+| Language | en\_US                            |
+| Timezone | America/New\_York                 |
 
 | Package  | Version |
 | :------- | :------ |
-| testthat | 2.2.1   |
-| covr     | 3.3.0   |
+| testthat | 2.3.2   |
+| covr     | 3.5.0   |
 | covrpage | 0.0.70  |
 
 </details>
