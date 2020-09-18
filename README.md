@@ -1,8 +1,10 @@
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/yonicd/slickR.svg?branch=master)](https://travis-ci.org/yonicd/slickR)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/slickR)](https://cran.r-project.org/package=slickR)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
 [![downloads](http://cranlogs.r-pkg.org/badges/slickR)](http://cranlogs.r-pkg.org/badges/slickR)
+[![R-win build status](https://github.com/yonicd/slickR/workflows/R-win/badge.svg)](https://github.com/yonicd/slickR)
+[![R-mac build status](https://github.com/yonicd/slickR/workflows/R-mac/badge.svg)](https://github.com/yonicd/slickR)
+[![R-linux build status](https://github.com/yonicd/slickR/workflows/R-linux/badge.svg)](https://github.com/yonicd/slickR)
 [![Codecov test coverage](https://codecov.io/gh/yonicd/slickR/branch/master/graph/badge.svg)](https://codecov.io/gh/yonicd/slickR?branch=master)
 [![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_09_18-brightgreen.svg)](http://tinyurl.com/tbqmb47)
 <!-- badges: end -->

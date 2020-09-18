@@ -31,12 +31,6 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
-      - name: Install poppler
-        run: |
-          sudo add-apt-repository ppa:cran/poppler
-          sudo apt-get -qq update
-          sudo apt-get -y install libpoppler-cpp-dev
-          
       - name: Cache R packages
         uses: actions/cache@v1
         with:

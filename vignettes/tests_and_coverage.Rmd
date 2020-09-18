@@ -3,7 +3,7 @@ title: "Tests and Coverage"
 date: "`r format(Sys.time(), '%d %B, %Y %H:%M:%S')`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{covrpage: Tests and Coverage}
+  %\VignetteIndexEntry{Tests and Coverage}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

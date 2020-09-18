@@ -8,7 +8,7 @@
 #' @details 
 #'  Method converts xml_document, htmlwidget, character, or list of objects
 #'  to a compatible DOM
-#' @return list of [tag][shiny::tag] objects
+#' @return list of shiny tag objects
 #' @examples 
 #' 
 #' # image

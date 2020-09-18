@@ -39,13 +39,13 @@ testthat::describe('slick div method',{
     )
   })
 
-  it('widget',{
-    testthat::skip_on_os(os = c("windows","linux",'solaris'))
-    testthat::expect_equal({
-      set.seed(123)
-      slick_div(readRDS('../assets/widget1.Rds'))
-      },
-      readRDS('../assets/slick_div_widget.Rds')
-    )
-  })
+  # it('widget',{
+  #   testthat::skip_on_os(os = c("windows","linux",'solaris'))
+  #   testthat::expect_equal({
+  #     set.seed(123)
+  #     slick_div(readRDS('../assets/widget1.Rds'))
+  #     },
+  #     readRDS('../assets/slick_div_widget.Rds')
+  #   )
+  # })
 })
