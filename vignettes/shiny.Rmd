@@ -2,7 +2,7 @@
 title: "slickR with Shiny"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{shiny}
+  %\VignetteIndexEntry{slickR with Shiny}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

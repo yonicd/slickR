@@ -4,7 +4,7 @@ author: "Jonathan Sidi"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{basics}
+  %\VignetteIndexEntry{slickR Basics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

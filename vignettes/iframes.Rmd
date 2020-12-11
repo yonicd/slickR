@@ -2,7 +2,7 @@
 title: "slickR with Iframes"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{iframes}
+  %\VignetteIndexEntry{slickR with Iframes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

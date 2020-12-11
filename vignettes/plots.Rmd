@@ -2,7 +2,7 @@
 title: "slickR with Plots"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{plots}
+  %\VignetteIndexEntry{slickR with Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,7 +10,8 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = !identical(Sys.getenv("NOT_CRAN"), "true")
 )
 ```
 
@@ -23,7 +24,7 @@ To place plots directly into slickR we need to convert plots into svg code using
 
 Here are some examples of how this can be done using different packages.
 
-```{r,eval=FALSE}
+```{r}
 
 # Standard Plot
   xmlSVG({
