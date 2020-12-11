@@ -81,7 +81,7 @@ that slickR can render" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -139,7 +139,7 @@ that slickR can render" />
 that slickR can render</p>
     </div>
 
-    <pre class="usage"><span class='fu'>slick_list</span>(<span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>slick_list</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,10 +161,10 @@ that slickR can render</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>img1</span> <span class='op'>&lt;-</span> <span class='kw'>htmltools</span>::<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span>(src = <span class='kw'>nba_player_logo</span><span class='op'>$</span><span class='kw'>uri</span>[<span class='fl'>1</span>])
-<span class='kw'>img2</span> <span class='op'>&lt;-</span> <span class='kw'>htmltools</span>::<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span>(src = <span class='kw'>nba_player_logo</span><span class='op'>$</span><span class='kw'>uri</span>[<span class='fl'>2</span>])
+<span class='va'>img1</span> <span class='op'>&lt;-</span> <span class='fu'>htmltools</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span>src <span class='op'>=</span> <span class='va'>nba_player_logo</span><span class='op'>$</span><span class='va'>uri</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+<span class='va'>img2</span> <span class='op'>&lt;-</span> <span class='fu'>htmltools</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>img</a></span><span class='op'>(</span>src <span class='op'>=</span> <span class='va'>nba_player_logo</span><span class='op'>$</span><span class='va'>uri</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>
 
-<span class='fu'>slick_list</span>(<span class='kw'>img1</span>,<span class='kw'>img2</span>)
+<span class='fu'>slick_list</span><span class='op'>(</span><span class='va'>img1</span>,<span class='va'>img2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; &lt;div&gt;
 #&gt;   &lt;img src="https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4277905.png&amp;amp;w=350&amp;amp;h=254"/&gt;
 #&gt; &lt;/div&gt;

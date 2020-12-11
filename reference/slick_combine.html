@@ -81,7 +81,7 @@ stacking or synching multiple sliders." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -139,9 +139,9 @@ stacking or synching multiple sliders." />
 stacking or synching multiple sliders.</p>
     </div>
 
-    <pre class="usage"><span class='kw'>e1</span> <span class='op'>%synch%</span> <span class='kw'>e2</span>
+    <pre class="usage"><span class='va'>e1</span> <span class='op'>%synch%</span> <span class='va'>e2</span>
 
-<span class='kw'>e1</span> <span class='op'>%stack%</span> <span class='kw'>e2</span></pre>
+<span class='va'>e1</span> <span class='op'>%stack%</span> <span class='va'>e2</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,28 +162,28 @@ stacking or synching multiple sliders.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+<span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
 
 <span class='co'># working with multiple slicks</span>
 
-<span class='kw'>sets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span>(
-  <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='kw'>nba_team_logo</span><span class='op'>$</span><span class='kw'>uri</span>, size = <span class='fl'>28</span>, replace = <span class='fl'>FALSE</span>),
-  <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>),each=<span class='fl'>7</span>)
-)
+<span class='va'>sets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>nba_team_logo</span><span class='op'>$</span><span class='va'>uri</span>, size <span class='op'>=</span> <span class='fl'>28</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span>,each<span class='op'>=</span><span class='fl'>7</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='kw'>slicks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='kw'>sets</span>,FUN = <span class='fu'>function</span>(<span class='kw'>x</span>,<span class='kw'>...</span>){
-  <span class='fu'><a href='slickR.html'>slickR</a></span>(obj = <span class='kw'>x</span>,<span class='kw'>...</span>)
-},height = <span class='fl'>100</span>)
+<span class='va'>slicks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>sets</span>,FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>...</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='slickR.html'>slickR</a></span><span class='op'>(</span>obj <span class='op'>=</span> <span class='va'>x</span>,<span class='va'>...</span><span class='op'>)</span>
+<span class='op'>}</span>,height <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
 
 <span class='co'># independent slicks</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Reduce</a></span>(<span class='kw'>`%stack%`</span>,<span class='kw'>slicks</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Reduce</a></span><span class='op'>(</span><span class='va'>`%stack%`</span>,<span class='va'>slicks</span><span class='op'>)</span>
 
 <span class='co'># 1,2 synch stacked on 3,4 synch</span>
 
- (<span class='kw'>slicks</span>[[<span class='fl'>1</span>]] <span class='op'>%synch%</span> <span class='kw'>slicks</span>[[<span class='fl'>2</span>]]) <span class='op'>%stack%</span> (<span class='kw'>slicks</span>[[<span class='fl'>3</span>]]<span class='op'>%synch%</span><span class='kw'>slicks</span>[[<span class='fl'>4</span>]])
+ <span class='op'>(</span><span class='va'>slicks</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%synch%</span> <span class='va'>slicks</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%stack%</span> <span class='op'>(</span><span class='va'>slicks</span><span class='op'>[[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>]</span><span class='op'>%synch%</span><span class='va'>slicks</span><span class='op'>[[</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
  
-}
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
