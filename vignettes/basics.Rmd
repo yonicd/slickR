@@ -40,7 +40,7 @@ slickR(obj = nba_player_logo$uri,height = 100, width = "95%") +
 
 ```
 
-There are many more settings you can define, such as `autoplay`. For all the settings go to [slick.js](http://kenwheeler.github.io/slick) homepage
+There are many more settings you can define, such as `autoplay`. For all the settings go to [slick.js](http://kenwheeler.github.io/slick/) homepage
 
 ```{r}
 
