@@ -89,15 +89,21 @@ replicate(input$plot_num,{
   output$slick_output <- renderSlickR({
     
     x <- slickR(plots(),
-                slideId = 'myslick',
+                slideId = 'slick1',
                 height = 600,
                 width = '50%') + 
       settings(slidesToShow=3,centerMode=TRUE)
+
+    y <- slickR(plots(),
+                slideId = 'slick2',
+                height = 600,
+                width = '50%') + 
+      settings(slidesToShow=3,centerMode=TRUE)    
     
     switch(input$slick_type,
            'single' = x,
-           'stack'  = x %stack% x,
-           'synch'  = x %synch% x
+           'stack'  = x %stack% y,
+           'synch'  = x %synch% y
            )
 
   })
