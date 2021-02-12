@@ -18,7 +18,9 @@ HTMLWidgets.widget({
 
           if(typeof(Shiny) !== "undefined"){
             
-            destroyDiv(x[0]);
+            x.forEach(function(y){
+              destroyDiv(y);
+            })
             
           }
           
@@ -37,9 +39,10 @@ HTMLWidgets.widget({
             });
           
           if(typeof(Shiny) !== "undefined"){
-                    
-            toshiny(thisDiv);
-                    
+            x.forEach(function(val){
+              thisDiv = $("." + val.divName);
+              toshiny(thisDiv);  
+            });
           }
 
           /*
