@@ -209,13 +209,13 @@ HTMLWidgets.widget({
           }
               
           function toshiny_arrow(thisDiv){
-                thisDiv.on("afterChange",function(event, slick, currentSlide, nextSlide){
+                thisDiv.on('setPosition', function(event, slick, currentSlide, nextSlide){
                   
-                      totIdx    = thisDiv.slick("getSlick").slideCount;
-                      centerIdx = thisDiv.slick('slickCurrentSlide') + 1 ;
+                      totIdx    = thisDiv.slick('getSlick').slideCount;
+                      centerIdx = thisDiv.slick('slickCurrentSlide') + 1;
                       sliderId  = $(thisDiv).attr('class').split(' ')[0];
                       
-                      Shiny.onInputChange(el.id + "_current",{
+                      Shiny.setInputValue(el.id + "_current",{
 
                           ".center"  : centerIdx,
                           ".total"   : totIdx,
@@ -229,9 +229,9 @@ HTMLWidgets.widget({
           function toshiny_slider(thisDiv){
                 
                     thisDiv.on('click','.slick-slide', function(e){
-                      centerIdx = thisDiv.slick('slickCurrentSlide') + 1 ;
+                      centerIdx = thisDiv.slick('slickCurrentSlide') + 1;
                       clickIdx  = $(this).data('slickIndex') + 1 ;
-                      totIdx    = thisDiv.slick("getSlick").slideCount;
+                      totIdx    = thisDiv.slick('getSlick').slideCount;
                       
                       absclickIdx = clickIdx;
                       sliderId  = $(thisDiv).attr('class').split(' ')[0];
@@ -240,7 +240,7 @@ HTMLWidgets.widget({
                       if( clickIdx > totIdx) absclickIdx = clickIdx - totIdx;
                       if( clickIdx < 1 ) absclickIdx = totIdx + clickIdx;
 
-                      Shiny.onInputChange(el.id + "_current",{
+                      Shiny.setInputValue(el.id + "_current",{
                           ".center"           : centerIdx,
                           ".total"            : totIdx,
                           ".slider"           : sliderId,
