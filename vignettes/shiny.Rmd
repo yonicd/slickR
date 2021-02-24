@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 ```{r}
 library(slickR)
 library(svglite)
+library(gdtools)
 library(shiny)
 ```
 
