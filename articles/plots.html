@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1</span>
       </span>
     </div>
 
@@ -97,26 +97,26 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/svglite">svglite</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://svglite.r-lib.org">svglite</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/yonicd/slickR">slickR</a></span><span class="op">)</span></code></pre></div>
-<p>To place plots directly into slickR we need to convert plots into svg code using <code><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">svglite::xmlSVG</a></code></p>
+<p>To place plots directly into slickR we need to convert plots into svg code using <code><a href="https://svglite.r-lib.org/reference/xmlSVG.html">svglite::xmlSVG</a></code></p>
 <p>Here are some examples of how this can be done using different packages.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Standard Plot</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
   <span class="op">}</span>, standalone <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="co">#library(lattice)</span>
   
 <span class="co"># xyplot</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">xyplot</span><span class="op">(</span><span class="va">x</span> <span class="op">~</span> <span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span><span class="op">)</span>
   <span class="op">}</span>, standalone <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     
 <span class="co"># dotplot</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/graphics-defunct.html">dotplot</a></span><span class="op">(</span><span class="va">variety</span> <span class="op">~</span> <span class="va">yield</span> <span class="op">|</span> <span class="va">site</span>,
       data <span class="op">=</span> <span class="va">barley</span>, groups <span class="op">=</span> <span class="va">year</span>,
       key <span class="op">=</span> <span class="fu">simpleKey</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">barley</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>, space <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span>,
@@ -127,7 +127,7 @@
 
 <span class="co">#library(ggplot2)</span>
 
-  <span class="fu"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu">show</span><span class="op">(</span><span class="fu">ggplot</span><span class="op">(</span><span class="va">iris</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, y <span class="op">=</span> <span class="va">Sepal.Width</span>, colour <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
       <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="op">}</span>, standalone <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  
@@ -140,7 +140,7 @@
 <a href="#create-plots" class="anchor"></a>Create Plots</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plotsToSVG</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="fl">5</span>,<span class="op">{</span>
-                       <span class="fu">svglite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/svglite/man/xmlSVG.html">xmlSVG</a></span><span class="op">(</span>
+                       <span class="fu">svglite</span><span class="fu">::</span><span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html">xmlSVG</a></span><span class="op">(</span>
                          code <span class="op">=</span> <span class="op">{</span>
                            <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fl">1</span><span class="op">)</span>
                            <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="va">x</span>,sd<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
