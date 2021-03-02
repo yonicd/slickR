@@ -31,3 +31,11 @@ install.packages('slickR')
 ```r
 remotes::install_github('yonicd/slickR')
 ```
+
+### Getting started
+- [slickR Basics](https://cran.r-project.org/web/packages/slickR/vignettes/basics.html)
+- [slickR with DOMs](https://cran.r-project.org/web/packages/slickR/vignettes/doms.html)
+- [slickR with Iframes](https://cran.r-project.org/web/packages/slickR/vignettes/iframes.html)
+- [slickR with PDFs](https://cran.r-project.org/web/packages/slickR/vignettes/pdfs.html)
+- [slickR with Plots](https://cran.r-project.org/web/packages/slickR/vignettes/plots.html)
+- [slickR with Shiny](https://cran.r-project.org/web/packages/slickR/vignettes/shiny.html)
