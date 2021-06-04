@@ -17,7 +17,7 @@ dependencies:
     src: htmlwidgets/lib/css-resize
     script: [ResizeSensor.js, ElementQueries.js]
   - name: slickR
-    version: 0.0.1
+    version: 0.0.2
     src: htmlwidgets/lib/slickR
     script: slickR.js
     stylesheet: [slick.css, slick-theme.css]

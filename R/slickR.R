@@ -102,8 +102,13 @@ slickR <- function( obj ,
                               with = "slickR::settings()")
   }
   
+  checkmate::checkCharacter(height, null.ok = TRUE)
+  checkmate::checkCharacter(width, null.ok = TRUE)
+  
   if(is.null(height))
     height <- sprintf("%s%%",100 - padding)
+  
+  
   
   # If obj is not already DOM then convert to it
   

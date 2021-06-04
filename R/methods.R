@@ -36,19 +36,19 @@
   
   e2 <- e1%bump%e2
   
-  for(i in length(e1$x)){
+  for(i in 1:length(e1$x)){
     
     if(is.null(e1$x[[i]]$slickOpts))
       e1$x[[i]]$slickOpts <- list()
     
-    e1$x[[i]]$slickOpts[['asNavFor']] <- nav_name(e2)
+    e1$x[[i]]$slickOpts[['asNavFor']] <- paste0(sprintf(".%s",sapply(c(e1$x[-i],e2$x),function(x) x$divName)),collapse = ',')
   }
-  for(i in length(e2$x)){
+  for(i in 1:length(e2$x)){
     
     if(is.null(e2$x[[i]]$slickOpts))
       e2$x[[i]]$slickOpts <- list()
     
-    e2$x[[i]]$slickOpts[['asNavFor']] <- nav_name(e1)
+    e2$x[[i]]$slickOpts[['asNavFor']] <- paste0(sprintf(".%s",sapply(c(e2$x[-i],e1$x),function(x) x$divName)),collapse = ',')
   }
   
   e1 %stack% e2
@@ -115,8 +115,4 @@ bump_name <- function(e1){
 #' @importFrom stats runif
 rbump <- function(){
   gsub('0\\.','bump_',stats::runif(1))
-}
-
-nav_name <- function(e1){
-  paste0(sprintf(".%s",sapply(e1$x,function(x) x$divName)),collapse = ',')
 }

@@ -13,7 +13,7 @@ slick_list(...)
 tagList
 }
 \description{
-Convert a list of \link[htmltools:tags]{tags} into a list
+Convert a list of \link[htmltools:builder]{tags} into a list
 that slickR can render
 }
 \examples{
@@ -25,7 +25,7 @@ slick_list(img1,img2)
 
 }
 \seealso{
-\link[htmltools:tagList]{tagList}, \link[htmltools:tags]{tags}
+\link[htmltools:tag]{tagList}, \link[htmltools:builder]{tags}
 
 Other html: 
 \code{\link{slick_div}()}

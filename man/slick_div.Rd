@@ -22,7 +22,7 @@ Default: htmltools::css(marginLeft='auto',marginRight='auto')}
 \item{links}{character, links to use on the input object, Default: NULL}
 }
 \value{
-list of \link[shiny:tag]{tag} objects
+list of shiny tag objects
 }
 \description{
 Wraps an R object in slickR compatible DOM

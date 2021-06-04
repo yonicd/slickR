@@ -2,7 +2,7 @@
 title: "slickR with DOMs"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Advanced SlickR}
+  %\VignetteIndexEntry{slickR with DOMs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

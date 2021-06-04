@@ -2,7 +2,7 @@
 title: "slickR with PDFs"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{pdfs}
+  %\VignetteIndexEntry{slickR with PDFs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
