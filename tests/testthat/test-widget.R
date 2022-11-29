@@ -16,6 +16,8 @@ w2 <- slickR::slickR(nba_player_logo$uri[1],elementId = 'def')
 
 testthat::describe('slickR widget',{
   
+  testthat::skip_if_not_installed("htmlwidgets", "1.6")
+  
   it('default',{
     testthat::expect_equal(
       {set.seed(123)
@@ -75,6 +77,8 @@ testthat::describe('combining slickR',{
 })
 
 testthat::describe('slickR settings',{
+  
+  testthat::skip_if_not_installed("htmlwidgets", "1.6")
   
   it('add dots',{
     testthat::expect_equal(w1 + settings(dots = TRUE),readRDS('../assets/widget_settings.Rds'))  
