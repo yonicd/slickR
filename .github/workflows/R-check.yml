@@ -70,24 +70,37 @@ jobs:
         run: covr::codecov(quiet = FALSE)
         shell: Rscript {0}
 
-      - name: Install package
-        run: R CMD INSTALL .
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: local::.
+
+      - name: covrpage-setup
+        run: pak::pkg_install(c('hadley/emo','yonicd/covrpage@actions'), ask = FALSE)
+        shell: Rscript {0}
 
       - name: covrpage
         if: github.ref == 'refs/heads/master'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          Rscript -e 'install.packages("remotes")'\
-                  -e 'remotes::install_github("yonicd/covrpage")' \
-                  -e 'covrpage::covrpage_ci()'
+          Rscript -e 'covrpage::covrpage_ci()'
           git commit tests/README.md -m 'Update tests/README.Rmd' || echo "No changes to commit"
-          git push https://${{github.actor}}:${{secrets.GITHUB_PAT}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
+          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
 
-      - name: Deploy package
-        if: github.ref == 'refs/heads/master'
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          Rscript -e 'install.packages("pkgdown")' \
-                  -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::pkgdown
+          needs: website
+
+      - name: Build site
+        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
+        shell: Rscript {0}
+
+      - name: Deploy to GitHub pages 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          clean: false
+          branch: gh-pages
+          folder: docs
+
