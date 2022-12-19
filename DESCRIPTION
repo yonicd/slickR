@@ -1,8 +1,8 @@
 Package: slickR
 Title: Create Interactive Carousels with the 'JavaScript'
       'Slick' Library
-Version: 0.5.2
-Date: 2021-04-06
+Version: 0.6.0
+Date: 2022-12-19
 Authors@R: person(given = "Jonathan", family = "Sidi",
       role = c("aut", "cre"), email =
       "yonicd@gmail.com")
@@ -32,4 +32,4 @@ RdMacros: lifecycle
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1

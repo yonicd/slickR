@@ -98,4 +98,8 @@ Reduce(`\%stack\%`,slicks)
 
 }
 }
+\seealso{
+Other invoke: 
+\code{\link{slickR-shiny}}
+}
 \concept{invoke}
