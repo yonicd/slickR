@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slickR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -62,14 +58,14 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/metrumresearchgroup/slickR">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/metrumresearchgroup/slickR" class="external-link">
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="http://twitter.com/MetrumRG">
-    <span class="fas fa-lg fa-twitter"></span>
+  <a href="http://twitter.com/MetrumRG" class="external-link">
+    <span class="fa fa-lg fa-twitter"></span>
      
   </a>
 </li>
@@ -89,7 +85,7 @@
       <h1 data-toc-skip>slickR with Shiny</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/yonicd/slickR/blob/master/vignettes/shiny.Rmd"><code>vignettes/shiny.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/yonicd/slickR/blob/HEAD/vignettes/shiny.Rmd" class="external-link"><code>vignettes/shiny.Rmd</code></a></small>
       <div class="hidden name"><code>shiny.Rmd</code></div>
 
     </div>
@@ -97,13 +93,13 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/yonicd/slickR">slickR</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://svglite.r-lib.org">svglite</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gdtools</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">shiny</span><span class="op">)</span></code></pre></div>
-<div id="slickr-in-shiny" class="section level1">
-<h1 class="hasAnchor">
-<a href="#slickr-in-shiny" class="anchor"></a>slickR in Shiny</h1>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/yonicd/slickR" class="external-link">slickR</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://svglite.r-lib.org" class="external-link">svglite</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">gdtools</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="slickr-in-shiny">slickR in Shiny<a class="anchor" aria-label="anchor" href="#slickr-in-shiny"></a>
+</h2>
 <p>The Following example is a Shiny App that creates <code>plot_num</code> histograms from <code>rnorm</code> with <code>n_obs</code> observations. These plots are placed in a slick carousel.</p>
 <p>The use can choose between the different slick layouts</p>
 <ul>
@@ -111,124 +107,124 @@
 <li>Two slicks stacked</li>
 <li>Two slicks stacked and synched</li>
 </ul>
-<div id="ui" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ui" class="anchor"></a>UI</h2>
+<div class="section level3">
+<h3 id="ui">UI<a class="anchor" aria-label="anchor" href="#ui"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span>
-  <span class="fu">sidebarLayout</span><span class="op">(</span>
-    <span class="fu">sidebarPanel</span><span class="op">(</span>
-
-      <span class="fu">sliderInput</span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"plot_num"</span>, 
-                  label <span class="op">=</span> <span class="st">"Number of Plots:"</span>, 
-                  min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">20</span>, value <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,
-            
-      <span class="fu">sliderInput</span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"n_obs"</span>, 
-                  label <span class="op">=</span> <span class="st">"Number of observations:"</span>, 
-                  min <span class="op">=</span> <span class="fl">10</span>, max <span class="op">=</span> <span class="fl">500</span>, value <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,
-      
-      <span class="fu">shiny</span><span class="fu">::</span><span class="fu">radioButtons</span><span class="op">(</span><span class="st">'slick_type'</span>,
-                          label <span class="op">=</span> <span class="st">'Carousel Type'</span>,
-                          choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'single'</span>,<span class="st">'stack'</span>,<span class="st">'synch'</span><span class="op">)</span>,
-                          selected <span class="op">=</span> <span class="st">'single'</span>,
-                          inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-      
-      <span class="fu">shiny</span><span class="fu">::</span><span class="fu">verbatimTextOutput</span><span class="op">(</span><span class="st">'current'</span><span class="op">)</span>
-    <span class="op">)</span>,
-    <span class="fu">mainPanel</span><span class="op">(</span>
-      
-      <span class="fu"><a href="../reference/slickR-shiny.html">slickROutput</a></span><span class="op">(</span><span class="st">"slick_output"</span>,width<span class="op">=</span><span class="st">'100%'</span>,height<span class="op">=</span><span class="st">'200px'</span><span class="op">)</span>
-      
-      <span class="op">)</span>
-  <span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
+<span>  <span class="fu">sidebarLayout</span><span class="op">(</span></span>
+<span>    <span class="fu">sidebarPanel</span><span class="op">(</span></span>
+<span></span>
+<span>      <span class="fu">sliderInput</span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"plot_num"</span>, </span>
+<span>                  label <span class="op">=</span> <span class="st">"Number of Plots:"</span>, </span>
+<span>                  min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">20</span>, value <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
+<span>            </span>
+<span>      <span class="fu">sliderInput</span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"n_obs"</span>, </span>
+<span>                  label <span class="op">=</span> <span class="st">"Number of observations:"</span>, </span>
+<span>                  min <span class="op">=</span> <span class="fl">10</span>, max <span class="op">=</span> <span class="fl">500</span>, value <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>      </span>
+<span>      <span class="fu">shiny</span><span class="fu">::</span><span class="fu">radioButtons</span><span class="op">(</span><span class="st">'slick_type'</span>,</span>
+<span>                          label <span class="op">=</span> <span class="st">'Carousel Type'</span>,</span>
+<span>                          choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'single'</span>,<span class="st">'stack'</span>,<span class="st">'synch'</span><span class="op">)</span>,</span>
+<span>                          selected <span class="op">=</span> <span class="st">'single'</span>,</span>
+<span>                          inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>      </span>
+<span>      <span class="fu">shiny</span><span class="fu">::</span><span class="fu">verbatimTextOutput</span><span class="op">(</span><span class="st">'current'</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu">mainPanel</span><span class="op">(</span></span>
+<span>      </span>
+<span>      <span class="fu"><a href="../reference/slickR-shiny.html">slickROutput</a></span><span class="op">(</span><span class="st">"slick_output"</span>,width<span class="op">=</span><span class="st">'100%'</span>,height<span class="op">=</span><span class="st">'200px'</span><span class="op">)</span></span>
+<span>      </span>
+<span>      <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="server" class="section level2">
-<h2 class="hasAnchor">
-<a href="#server" class="anchor"></a>Server</h2>
+<div class="section level3">
+<h3 id="server">Server<a class="anchor" aria-label="anchor" href="#server"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-
-<span class="co"># Create content for the carousel</span>
-  
-<span class="va">plots</span> <span class="op">&lt;-</span> <span class="fu">eventReactive</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n_obs</span>,<span class="va">input</span><span class="op">$</span><span class="va">plot_num</span><span class="op">)</span>,<span class="op">{</span>
-  
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">plot_num</span>,<span class="op">{</span>
-
-     <span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html">xmlSVG</a></span><span class="op">(</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n_obs</span><span class="op">)</span>,
-                  col <span class="op">=</span> <span class="st">'darkgray'</span>,
-                  border <span class="op">=</span> <span class="st">'white'</span><span class="op">)</span><span class="op">}</span>,
-            standalone<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-
-     <span class="op">}</span>,simplify <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="op">}</span><span class="op">)</span>
-
-<span class="co"># renderSlickR (We create the slickR objects here)</span>
-
-  <span class="va">output</span><span class="op">$</span><span class="va">slick_output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slickR-shiny.html">renderSlickR</a></span><span class="op">(</span><span class="op">{</span>
-    
-    <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slickR.html">slickR</a></span><span class="op">(</span><span class="fu">plots</span><span class="op">(</span><span class="op">)</span>,
-                slideId <span class="op">=</span> <span class="st">'slick1'</span>,
-                height <span class="op">=</span> <span class="fl">600</span>,
-                width <span class="op">=</span> <span class="st">'50%'</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu"><a href="../reference/settings.html">settings</a></span><span class="op">(</span>slidesToShow<span class="op">=</span><span class="fl">3</span>,centerMode<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-
-    <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slickR.html">slickR</a></span><span class="op">(</span><span class="fu">plots</span><span class="op">(</span><span class="op">)</span>,
-                slideId <span class="op">=</span> <span class="st">'slick2'</span>,
-                height <span class="op">=</span> <span class="fl">600</span>,
-                width <span class="op">=</span> <span class="st">'50%'</span><span class="op">)</span> <span class="op">+</span> 
-      <span class="fu"><a href="../reference/settings.html">settings</a></span><span class="op">(</span>slidesToShow<span class="op">=</span><span class="fl">3</span>,centerMode<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>    
-    
-    <span class="kw"><a href="https://rdrr.io/r/base/switch.html">switch</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">slick_type</span>,
-           <span class="st">'single'</span> <span class="op">=</span> <span class="va">x</span>,
-           <span class="st">'stack'</span>  <span class="op">=</span> <span class="va">x</span> <span class="op">%stack%</span> <span class="va">y</span>,
-           <span class="st">'synch'</span>  <span class="op">=</span> <span class="va">x</span> <span class="op">%synch%</span> <span class="va">y</span>
-           <span class="op">)</span>
-
-  <span class="op">}</span><span class="op">)</span>
-  
-<span class="co"># Observe the active slick</span>
-  
-<span class="co"># The htmlwidget is observed by shiny and information can be retrieved. </span>
-
-<span class="co"># Using the output name you set for the `renderSlick` object in this example</span>
-<span class="co"># it is `output$slick_output`</span>
- 
-<span class="co"># Using this you can interact server-side "on click" of the active carousel</span>
-<span class="co"># by accessing elements in `input$slick_output_current$`</span>
-
-<span class="co"># `.clicked`   : The index of the clicked element|</span>
-<span class="co"># `.relative_clicked`: The relative position of the clicked element|</span>
-<span class="co"># `.center`    : The index of the center element|</span>
-<span class="co"># `.total`     : The total number of elements in the carousel|</span>
-<span class="co"># `.active`    : The ID of the active carousel|</span>
-
-<span class="co"># We will store this information in a new reactive environment</span>
-<span class="va">active_slick</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu">reactiveValues</span><span class="op">(</span><span class="op">)</span>
-  
-<span class="fu">shiny</span><span class="fu">::</span><span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span>,<span class="op">{</span>
-    <span class="va">active_slick</span><span class="op">$</span><span class="va">clicked</span>    <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.clicked</span>
-    <span class="va">active_slick</span><span class="op">$</span><span class="va">relative_clicked</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.relative_clicked</span>
-    <span class="va">active_slick</span><span class="op">$</span><span class="va">center</span>     <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.center</span>
-    <span class="va">active_slick</span><span class="op">$</span><span class="va">total</span>      <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.total</span>
-    <span class="va">active_slick</span><span class="op">$</span><span class="va">active</span>     <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.slide</span>
-<span class="op">}</span><span class="op">)</span>
-
-<span class="co"># Show in the UI the values in active_slick</span>
-
-<span class="va">output</span><span class="op">$</span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu">renderText</span><span class="op">(</span><span class="op">{</span>
-  <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu">shiny</span><span class="fu">::</span><span class="fu">reactiveValuesToList</span><span class="op">(</span><span class="va">active_slick</span><span class="op">)</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">'_'</span>,<span class="st">' '</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span><span class="op">)</span>, <span class="va">l</span>, sep<span class="op">=</span><span class="st">' = '</span>, collapse<span class="op">=</span><span class="st">'\n'</span><span class="op">)</span>
-<span class="op">}</span><span class="op">)</span>
-
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span><span class="co"># Create content for the carousel</span></span>
+<span>  </span>
+<span><span class="va">plots</span> <span class="op">&lt;-</span> <span class="fu">eventReactive</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n_obs</span>,<span class="va">input</span><span class="op">$</span><span class="va">plot_num</span><span class="op">)</span>,<span class="op">{</span></span>
+<span>  </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">replicate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">plot_num</span>,<span class="op">{</span></span>
+<span></span>
+<span>     <span class="fu"><a href="https://svglite.r-lib.org/reference/xmlSVG.html" class="external-link">xmlSVG</a></span><span class="op">(</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n_obs</span><span class="op">)</span>,</span>
+<span>                  col <span class="op">=</span> <span class="st">'darkgray'</span>,</span>
+<span>                  border <span class="op">=</span> <span class="st">'white'</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>            standalone<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span>     <span class="op">}</span>,simplify <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># renderSlickR (We create the slickR objects here)</span></span>
+<span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">slick_output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slickR-shiny.html">renderSlickR</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slickR.html">slickR</a></span><span class="op">(</span><span class="fu">plots</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                slideId <span class="op">=</span> <span class="st">'slick1'</span>,</span>
+<span>                height <span class="op">=</span> <span class="fl">600</span>,</span>
+<span>                width <span class="op">=</span> <span class="st">'50%'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu"><a href="../reference/settings.html">settings</a></span><span class="op">(</span>slidesToShow<span class="op">=</span><span class="fl">3</span>,centerMode<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span>    <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/slickR.html">slickR</a></span><span class="op">(</span><span class="fu">plots</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                slideId <span class="op">=</span> <span class="st">'slick2'</span>,</span>
+<span>                height <span class="op">=</span> <span class="fl">600</span>,</span>
+<span>                width <span class="op">=</span> <span class="st">'50%'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu"><a href="../reference/settings.html">settings</a></span><span class="op">(</span>slidesToShow<span class="op">=</span><span class="fl">3</span>,centerMode<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>    </span>
+<span>    </span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/switch.html" class="external-link">switch</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">slick_type</span>,</span>
+<span>           <span class="st">'single'</span> <span class="op">=</span> <span class="va">x</span>,</span>
+<span>           <span class="st">'stack'</span>  <span class="op">=</span> <span class="va">x</span> <span class="op"><a href="../reference/slick_combine.html">%stack%</a></span> <span class="va">y</span>,</span>
+<span>           <span class="st">'synch'</span>  <span class="op">=</span> <span class="va">x</span> <span class="op"><a href="../reference/slick_combine.html">%synch%</a></span> <span class="va">y</span></span>
+<span>           <span class="op">)</span></span>
+<span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co"># Observe the active slick</span></span>
+<span>  </span>
+<span><span class="co"># The htmlwidget is observed by shiny and information can be retrieved. </span></span>
+<span></span>
+<span><span class="co"># Using the output name you set for the `renderSlick` object in this example</span></span>
+<span><span class="co"># it is `output$slick_output`</span></span>
+<span> </span>
+<span><span class="co"># Using this you can interact server-side "on click" of the active carousel</span></span>
+<span><span class="co"># by accessing elements in `input$slick_output_current$`</span></span>
+<span></span>
+<span><span class="co"># `.clicked`   : The index of the clicked element|</span></span>
+<span><span class="co"># `.relative_clicked`: The relative position of the clicked element|</span></span>
+<span><span class="co"># `.center`    : The index of the center element|</span></span>
+<span><span class="co"># `.total`     : The total number of elements in the carousel|</span></span>
+<span><span class="co"># `.active`    : The ID of the active carousel|</span></span>
+<span></span>
+<span><span class="co"># We will store this information in a new reactive environment</span></span>
+<span><span class="va">active_slick</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu">reactiveValues</span><span class="op">(</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="fu">shiny</span><span class="fu">::</span><span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span>,<span class="op">{</span></span>
+<span>    <span class="va">active_slick</span><span class="op">$</span><span class="va">clicked</span>    <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.clicked</span></span>
+<span>    <span class="va">active_slick</span><span class="op">$</span><span class="va">relative_clicked</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.relative_clicked</span></span>
+<span>    <span class="va">active_slick</span><span class="op">$</span><span class="va">center</span>     <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.center</span></span>
+<span>    <span class="va">active_slick</span><span class="op">$</span><span class="va">total</span>      <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.total</span></span>
+<span>    <span class="va">active_slick</span><span class="op">$</span><span class="va">active</span>     <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">slick_output_current</span><span class="op">$</span><span class="va">.slide</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Show in the UI the values in active_slick</span></span>
+<span></span>
+<span><span class="va">output</span><span class="op">$</span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu">renderText</span><span class="op">(</span><span class="op">{</span></span>
+<span>  <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu">shiny</span><span class="fu">::</span><span class="fu">reactiveValuesToList</span><span class="op">(</span><span class="va">active_slick</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'_'</span>,<span class="st">' '</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span><span class="op">)</span>, <span class="va">l</span>, sep<span class="op">=</span><span class="st">' = '</span>, collapse<span class="op">=</span><span class="st">'\n'</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </div>
-<div id="run-the-app" class="section level2">
-<h2 class="hasAnchor">
-<a href="#run-the-app" class="anchor"></a>Run the App</h2>
+<div class="section level3">
+<h3 id="run-the-app">Run the App<a class="anchor" aria-label="anchor" href="#run-the-app"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </div>
@@ -244,11 +240,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Jonathan Sidi.</p>
+  <p></p>
+<p>Developed by Jonathan Sidi.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -256,6 +254,8 @@
 
   
 
+
+  
 
   </body>
 </html>

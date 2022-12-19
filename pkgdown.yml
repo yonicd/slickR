@@ -1,5 +1,5 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1
+pandoc: 2.9.2.1
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   basics: basics.html
@@ -9,5 +9,5 @@ articles:
   plots: plots.html
   shiny: shiny.html
   tests_and_coverage: tests_and_coverage.html
-last_built: 2021-06-04T20:45Z
+last_built: 2022-12-19T18:38Z
 
