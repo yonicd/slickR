@@ -4,7 +4,7 @@
 [![downloads](https://cranlogs.r-pkg.org:443/badges/slickR)](https://cranlogs.r-pkg.org:443/badges/slickR)
 [![R-win build status](https://github.com/yonicd/slickR/workflows/R-check/badge.svg)](https://github.com/yonicd/slickR)
 [![Codecov test coverage](https://codecov.io/gh/yonicd/slickR/branch/master/graph/badge.svg)](https://app.codecov.io/gh/yonicd/slickR?branch=master)
-[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2022_12_19-yellowgreen.svg)](http://tinyurl.com/tbqmb47)
+[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2022_12_19-brightgreen.svg)](http://tinyurl.com/tbqmb47)
 <!-- badges: end -->
 
 # slickR <img src="https://github.com/yonicd/slickR/raw/master/man/figures/logo.png" align="right"  class="logo"/>
