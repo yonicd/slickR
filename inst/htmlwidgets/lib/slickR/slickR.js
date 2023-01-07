@@ -22,9 +22,14 @@ HTMLWidgets.widget({
               destroyDiv(y);
             })
             
-          }
+            while (el.firstChild) {
+              el.removeChild(el.firstChild);
+            } 
           
+          }
+
           x.forEach(function(val){
+            
                 var wrapper = document.createElement('div');
                 wrapper.innerHTML = val.obj; 
                 var divObj = wrapper.firstChild;
@@ -138,16 +143,12 @@ HTMLWidgets.widget({
           }
 
           function destroyDiv(x){
-            
             var basename = x.divName.replace(/_bump(.*?)$/,'');
             
             var obj = document.querySelectorAll('[class^="' + basename + '"]');
             
             obj.forEach(function(val){
-              parent_obj = val.parentNode.parentNode.querySelectorAll('[class$="slick-slider"]');
-                parent_obj.forEach(function(val){
-                  $("." + val.classList[0]).detach();
-                })
+              $(".slick-slider").detach();
             });
             
           }

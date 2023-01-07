@@ -81,8 +81,8 @@ slick_div_chr <- function(x, css, type = 'img', links = NULL){
 
 outer_div <- function(obj, id){
   
-  new_id <- bump_name(id)  
-  
+  new_id <- bump_name(id)
+
   this_div <- htmltools::div(class = new_id, obj)
   
   ret <- htmltools::renderTags(this_div)
