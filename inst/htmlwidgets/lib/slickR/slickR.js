@@ -16,16 +16,12 @@ HTMLWidgets.widget({
               "margin":"auto"
           });
 
+          /*detach existing slick_houses in el*/
           if(typeof(Shiny) !== "undefined"){
-            
-            x.forEach(function(y){
-              destroyDiv(y);
-            })
-            
-            while (el.firstChild) {
-              el.removeChild(el.firstChild);
-            } 
-          
+            var house = el.querySelectorAll('[class^="slick_house"]');
+            house.forEach(function(val){
+              val.parentNode.removeChild(val);
+            });
           }
 
           x.forEach(function(val){
@@ -35,6 +31,7 @@ HTMLWidgets.widget({
                 var divObj = wrapper.firstChild;
                 
                 var mainDiv = document.createElement("div");
+                mainDiv.setAttribute('class','slick_house');
                 mainDiv.appendChild(divObj);
                 
                 el.appendChild(mainDiv);
@@ -142,6 +139,7 @@ HTMLWidgets.widget({
             
           }
 
+/*
           function destroyDiv(x){
             var basename = x.divName.replace(/_bump(.*?)$/,'');
             
@@ -152,7 +150,7 @@ HTMLWidgets.widget({
             });
             
           }
-            
+*/          
           function buildDiv(obj,objType,cl,link,width,height){
             
             var mainDiv = document.createElement("div");
