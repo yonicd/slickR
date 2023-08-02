@@ -29,7 +29,7 @@ HTMLWidgets.widget({
                 var wrapper = document.createElement('div');
                 wrapper.innerHTML = val.obj; 
                 var divObj = wrapper.firstChild;
-                
+  
                 var mainDiv = document.createElement("div");
                 mainDiv.setAttribute('class','slick_house');
                 mainDiv.appendChild(divObj);

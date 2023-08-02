@@ -5,13 +5,13 @@ library(purrr)
 library(xml2)
 
 # NBA Team Logos
-nba_teams <- c(
+nba_teams <- tolower(c(
   "ATL", "BOS", "BKN", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GSW",
   "HOU", "IND", "LAC", "LAL", "MEM", "MIA", "MIL", "MIN", "NOP", "NYK",
   "OKC", "ORL", "PHI", "PHX", "POR", "SAC", "SAS", "TOR", "UTA", "WAS"
-)
+))
 
-nba_team_logo <- glue::glue("https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{nba_teams}.svg")
+nba_team_logo <- glue::glue("https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{nba_teams}.png&h=512&w=512")
 
 # Player Images
 a1 <- xml2::read_html("https://www.espn.com/nba/depth") %>% 
