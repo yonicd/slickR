@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-20 December, 2022 13:47:34
+03 August, 2023 12:38:26
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -33,10 +33,10 @@ Unit Test summary is created using the
 
 | file                                             |  n |  time | error | failed | skipped | warning | icon |
 | :----------------------------------------------- | -: | ----: | ----: | -----: | ------: | ------: | :--- |
-| [test-div\_method.R](testthat/test-div_method.R) |  5 | 0.028 |     0 |      0 |       0 |       1 | ⚠️   |
-| [test-div.R](testthat/test-div.R)                |  9 | 0.043 |     0 |      0 |       0 |       0 |      |
-| [test-readimage.R](testthat/test-readimage.R)    |  3 | 0.021 |     0 |      0 |       0 |       0 |      |
-| [test-widget.R](testthat/test-widget.R)          | 11 | 0.054 |     0 |      0 |       0 |       0 |      |
+| [test-div\_method.R](testthat/test-div_method.R) |  5 | 0.146 |     0 |      0 |       0 |       1 | ⚠️   |
+| [test-div.R](testthat/test-div.R)                |  9 | 0.104 |     0 |      0 |       0 |       0 |      |
+| [test-readimage.R](testthat/test-readimage.R)    |  3 | 0.041 |     0 |      0 |       0 |       0 |      |
+| [test-widget.R](testthat/test-widget.R)          | 11 | 0.123 |     0 |      0 |       0 |       0 |      |
 
 <details open>
 
@@ -44,33 +44,33 @@ Unit Test summary is created using the
 
 | file                                                     | context     | test                                       | status  | n |  time | icon |
 | :------------------------------------------------------- | :---------- | :----------------------------------------- | :------ | -: | ----: | :--- |
-| [test-div\_method.R](testthat/test-div_method.R#L8_L11)  | div methods | slick div method: shiny.tag                | PASS    | 1 | 0.004 |      |
-| [test-div\_method.R](testthat/test-div_method.R#L15_L18) | div methods | slick div method: list                     | PASS    | 1 | 0.004 |      |
-| [test-div\_method.R](testthat/test-div_method.R#L22_L29) | div methods | slick div method: list with link           | PASS    | 1 | 0.006 |      |
-| [test-div\_method.R](testthat/test-div_method.R#L33_L39) | div methods | slick div method: xml                      | WARNING | 2 | 0.014 | ⚠️   |
-| [test-div.R](testthat/test-div.R#L8_L11)                 | divs        | slick div types: img default               | PASS    | 1 | 0.002 |      |
-| [test-div.R](testthat/test-div.R#L15_L18)                | divs        | slick div types: img vector                | PASS    | 1 | 0.003 |      |
-| [test-div.R](testthat/test-div.R#L22_L25)                | divs        | slick div types: img file                  | PASS    | 1 | 0.021 |      |
-| [test-div.R](testthat/test-div.R#L29_L36)                | divs        | slick div types: img link                  | PASS    | 1 | 0.002 |      |
-| [test-div.R](testthat/test-div.R#L40_L43)                | divs        | slick div types: p                         | PASS    | 1 | 0.001 |      |
-| [test-div.R](testthat/test-div.R#L47_L50)                | divs        | slick div types: iframe                    | PASS    | 1 | 0.002 |      |
-| [test-div.R](testthat/test-div.R#L58_L71)                | divs        | slick list: dots                           | PASS    | 1 | 0.003 |      |
-| [test-div.R](testthat/test-div.R#L75_L88)                | divs        | slick list: list                           | PASS    | 1 | 0.003 |      |
-| [test-div.R](testthat/test-div.R#L94_L98)                | divs        | slick outer div: wrap div                  | PASS    | 1 | 0.006 |      |
-| [test-readimage.R](testthat/test-readimage.R#L6_L9)      | read images | slick div method: png                      | PASS    | 1 | 0.010 |      |
-| [test-readimage.R](testthat/test-readimage.R#L13_L16)    | read images | slick div method: svg                      | PASS    | 1 | 0.002 |      |
-| [test-readimage.R](testthat/test-readimage.R#L21_L23)    | read images | slick div method: svg not standalone       | PASS    | 1 | 0.009 |      |
-| [test-widget.R](testthat/test-widget.R#L22_L26)          | widget      | slickR widget: default                     | PASS    | 1 | 0.004 |      |
-| [test-widget.R](testthat/test-widget.R#L30_L34)          | widget      | slickR widget: shiny.tag                   | PASS    | 1 | 0.004 |      |
-| [test-widget.R](testthat/test-widget.R#L38_L42)          | widget      | slickR widget: css height                  | PASS    | 1 | 0.004 |      |
-| [test-widget.R](testthat/test-widget.R#L50_L52)          | widget      | combining slickR: stack                    | PASS    | 1 | 0.003 |      |
-| [test-widget.R](testthat/test-widget.R#L56_L58)          | widget      | combining slickR: synch                    | PASS    | 1 | 0.003 |      |
-| [test-widget.R](testthat/test-widget.R#L62_L66)          | widget      | combining slickR: same name                | PASS    | 1 | 0.003 |      |
-| [test-widget.R](testthat/test-widget.R#L70_L74)          | widget      | combining slickR: stack with setting       | PASS    | 1 | 0.004 |      |
+| [test-div\_method.R](testthat/test-div_method.R#L8_L11)  | div methods | slick div method: shiny.tag                | PASS    | 1 | 0.100 |      |
+| [test-div\_method.R](testthat/test-div_method.R#L15_L18) | div methods | slick div method: list                     | PASS    | 1 | 0.010 |      |
+| [test-div\_method.R](testthat/test-div_method.R#L22_L29) | div methods | slick div method: list with link           | PASS    | 1 | 0.012 |      |
+| [test-div\_method.R](testthat/test-div_method.R#L33_L39) | div methods | slick div method: xml                      | WARNING | 2 | 0.024 | ⚠️   |
+| [test-div.R](testthat/test-div.R#L8_L11)                 | divs        | slick div types: img default               | PASS    | 1 | 0.008 |      |
+| [test-div.R](testthat/test-div.R#L15_L18)                | divs        | slick div types: img vector                | PASS    | 1 | 0.007 |      |
+| [test-div.R](testthat/test-div.R#L22_L25)                | divs        | slick div types: img file                  | PASS    | 1 | 0.030 |      |
+| [test-div.R](testthat/test-div.R#L29_L36)                | divs        | slick div types: img link                  | PASS    | 1 | 0.009 |      |
+| [test-div.R](testthat/test-div.R#L40_L43)                | divs        | slick div types: p                         | PASS    | 1 | 0.007 |      |
+| [test-div.R](testthat/test-div.R#L47_L50)                | divs        | slick div types: iframe                    | PASS    | 1 | 0.008 |      |
+| [test-div.R](testthat/test-div.R#L58_L71)                | divs        | slick list: dots                           | PASS    | 1 | 0.014 |      |
+| [test-div.R](testthat/test-div.R#L75_L88)                | divs        | slick list: list                           | PASS    | 1 | 0.009 |      |
+| [test-div.R](testthat/test-div.R#L94_L98)                | divs        | slick outer div: wrap div                  | PASS    | 1 | 0.012 |      |
+| [test-readimage.R](testthat/test-readimage.R#L6_L9)      | read images | slick div method: png                      | PASS    | 1 | 0.016 |      |
+| [test-readimage.R](testthat/test-readimage.R#L13_L16)    | read images | slick div method: svg                      | PASS    | 1 | 0.007 |      |
+| [test-readimage.R](testthat/test-readimage.R#L21_L23)    | read images | slick div method: svg not standalone       | PASS    | 1 | 0.018 |      |
+| [test-widget.R](testthat/test-widget.R#L22_L26)          | widget      | slickR widget: default                     | PASS    | 1 | 0.010 |      |
+| [test-widget.R](testthat/test-widget.R#L30_L34)          | widget      | slickR widget: shiny.tag                   | PASS    | 1 | 0.009 |      |
+| [test-widget.R](testthat/test-widget.R#L38_L42)          | widget      | slickR widget: css height                  | PASS    | 1 | 0.012 |      |
+| [test-widget.R](testthat/test-widget.R#L50_L52)          | widget      | combining slickR: stack                    | PASS    | 1 | 0.008 |      |
+| [test-widget.R](testthat/test-widget.R#L56_L58)          | widget      | combining slickR: synch                    | PASS    | 1 | 0.009 |      |
+| [test-widget.R](testthat/test-widget.R#L62_L66)          | widget      | combining slickR: same name                | PASS    | 1 | 0.007 |      |
+| [test-widget.R](testthat/test-widget.R#L70_L74)          | widget      | combining slickR: stack with setting       | PASS    | 1 | 0.010 |      |
 | [test-widget.R](testthat/test-widget.R#L84)              | widget      | slickR settings: add dots                  | PASS    | 1 | 0.007 |      |
-| [test-widget.R](testthat/test-widget.R#L88_L90)          | widget      | slickR settings: add setting to wrong side | PASS    | 1 | 0.007 |      |
-| [test-widget.R](testthat/test-widget.R#L94_L97)          | widget      | slickR settings: bad name                  | PASS    | 1 | 0.007 |      |
-| [test-widget.R](testthat/test-widget.R#L101_L104)        | widget      | slickR settings: bad class                 | PASS    | 1 | 0.008 |      |
+| [test-widget.R](testthat/test-widget.R#L88_L90)          | widget      | slickR settings: add setting to wrong side | PASS    | 1 | 0.015 |      |
+| [test-widget.R](testthat/test-widget.R#L94_L97)          | widget      | slickR settings: bad name                  | PASS    | 1 | 0.015 |      |
+| [test-widget.R](testthat/test-widget.R#L101_L104)        | widget      | slickR settings: bad class                 | PASS    | 1 | 0.021 |      |
 
 | Failed | Warning | Skipped |
 | :----- | :------ | :------ |
@@ -84,17 +84,17 @@ Unit Test summary is created using the
 
 | Field    | Value                         |                                                                                                                                                                                                                                                                |
 | :------- | :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Version  | R version 4.2.2 (2022-10-31)  |                                                                                                                                                                                                                                                                |
-| Platform | x86\_64-pc-linux-gnu (64-bit) | <a href="https://github.com/yonicd/slickR/commit/5f71b60d0f069e98c7848f30a38946e5854b8444/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
-| Running  | Ubuntu 22.04.1 LTS            |                                                                                                                                                                                                                                                                |
+| Version  | R version 4.3.1 (2023-06-16)  |                                                                                                                                                                                                                                                                |
+| Platform | x86\_64-pc-linux-gnu (64-bit) | <a href="https://github.com/yonicd/slickR/commit/1b1cb248d24bf60dd3f3d2cd90dcfc04ab60d950/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
+| Running  | Ubuntu 22.04.2 LTS            |                                                                                                                                                                                                                                                                |
 | Language | C                             |                                                                                                                                                                                                                                                                |
 | Timezone | UTC                           |                                                                                                                                                                                                                                                                |
 
 | Package  | Version |
 | :------- | :------ |
-| testthat | 3.1.6   |
-| covr     | 3.6.1   |
-| covrpage | 0.1     |
+| testthat | 3.1.10  |
+| covr     | 3.6.2   |
+| covrpage | 0.2     |
 
 </details>
 
