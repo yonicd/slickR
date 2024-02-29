@@ -3,9 +3,11 @@
 #' @format A data frame with 30 rows and 2 variables:
 #' \describe{
 #'   \item{\code{team}}{character, Team Name}
-#'   \item{\code{uri}}{character, Team logo URI} 
+#'   \item{\code{uri}}{character, Team logo URI}
 #'}
-#' @details Logos harvested from 
-#'  https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/{team_short_name}.svg
+#' @details
+#'  Logos harvested from
+#'  https://i.cdn.turner.com/nba/nba/.element/img/4.0/global/logos/512x512/bg.white/svg/team_short_name.svg
+#'  replace team_short_name with three letter name of th team. e.g. BOS for Boston
 #' @family data
 "nba_team_logo"
